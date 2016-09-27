@@ -41,26 +41,16 @@ except ImportError:
     print "See http://matplotlib.sf.net/"
 
 try:
-    import mayavi
-except ImportError:
-    try:
-        import enthought.mayavi
-    except ImportError:
-        depsOK = False
-        print "Mayavi should be installed first from suitable binaries."
-        print "See http://code.enthought.com/projects/mayavi/"
-
-try:
     from setuptools import setup, find_packages
     from setuptools.extension import Extension
     if depsOK:
         setup(
-            name = "imusim",
+            name = "nvgimu",
             version = "0.2",
-            author = "Alex Young and Martin Ling",
+            author = "Kjartan Halvorsen",
             license = "GPLv3",
-            url = "http://www.imusim.org/",
-            install_requires = ["simpy", "pyparsing"],
+            url = "",
+            install_requires = ["pyparsing",],
             packages = find_packages(),
             include_dirs = [numpy.get_include()],
             ext_modules = [

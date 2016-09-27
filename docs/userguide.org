@@ -9,7 +9,7 @@
 #+LATEX_HEADER: \renewcommand{\theenumi}{\alph{enumi}}
 
 * Översikt
-Data från IMU'erna delas upp och märks med försöksperson nummer och typ av försök (monokulär, binokulär, etc), för att därefter läggas in i en databas på formatet hdf5. Detta det smidigt att plocka fram och bearbeta delar av data. Första steget är därför att förbereda data för att läggas in i databasen. Därefter finns det ett antal olika kommandon för att göra beräkningar på data.
+Data från IMU'erna delas upp och märks med försöksperson nummer och typ av försök (monokulär, binokulär, etc), för att därefter läggas in i en databas på formatet hdf5. Detta gör det smidigt att plocka fram och bearbeta delar av data. Första steget är därför att förbereda data för att läggas in i databasen. Därefter finns det ett antal olika kommandon för att göra beräkningar på data.
 * Program att installera
 ** Python
   - [[https://code.google.com/p/pythonxy/wiki/Downloads?tm%3D2][Python(x,y) scientific python]] 
