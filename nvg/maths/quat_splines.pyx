@@ -20,14 +20,14 @@ Spline fitting of quaternion data.
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import division
-from imusim.maths.quaternions import QuaternionArray, QuaternionFactory
-from imusim.maths.splines import Spline, PartialInputSpline
+from nvg.maths.quaternions import QuaternionArray, QuaternionFactory
+from nvg.maths.splines import Spline, PartialInputSpline
 from itertools import izip
 import numpy as np
 import math
 
-from imusim.maths.quaternions cimport Quaternion, quaternion_t, mult_quat_quat
-from imusim.maths.quaternions cimport mult_quat_scalar, quaternion_add, quaternion_exp
+from nvg.maths.quaternions cimport Quaternion, quaternion_t, mult_quat_quat
+from nvg.maths.quaternions cimport mult_quat_scalar, quaternion_add, quaternion_exp
 cimport numpy as np
 cimport cython
 

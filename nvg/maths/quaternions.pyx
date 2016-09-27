@@ -21,8 +21,8 @@ Quaternion maths.
 from __future__ import division
 import numpy as np
 from scipy import interpolate
-from imusim.maths.vector_splines import PartialInputVectorSpline
-from imusim.maths import vectors, matrices
+from nvg.maths.vector_splines import PartialInputVectorSpline
+from nvg.maths import vectors, matrices
 import operator
 
 cimport numpy as np

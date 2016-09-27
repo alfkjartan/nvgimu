@@ -54,11 +54,11 @@ try:
             packages = find_packages(),
             include_dirs = [numpy.get_include()],
             ext_modules = [
-                Extension("imusim.maths.quaternions",
-                    ['imusim/maths/quaternions.c']),
-                Extension("imusim.maths.quat_splines",
-                    ['imusim/maths/quat_splines.c']),
-                Extension("imusim.maths.vectors",['imusim/maths/vectors.c'])]
+                Extension("nvg.maths.quaternions",
+                    ['nvg/maths/quaternions.c']),
+                Extension("nvg.maths.quat_splines",
+                    ['nvg/maths/quat_splines.c']),
+                Extension("nvg.maths.vectors",['nvg/maths/vectors.c'])]
         )
 except ImportError:
     print "Setuptools must be installed - see http://pypi.python.org/pypi/setuptools"

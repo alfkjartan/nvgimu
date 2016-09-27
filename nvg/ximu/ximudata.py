@@ -11,11 +11,11 @@ import matplotlib.dates as mdates
 from scipy.interpolate import interp1d
 import scipy.io as sio
 from datetime import datetime, timedelta, date
-from imusim.maths import quaternions as quat
-from imusim.algorithms import orientation
-from imusim.utilities import time_series
+from nvg.maths import quaternions as quat
+from nvg.algorithms import orientation
+#from nvg.utilities import time_series
 
-from imusim.ximu import pointfinder
+from nvg.ximu import pointfinder
 
 
 
@@ -740,7 +740,7 @@ class NVGData:
             for ind in cycledta:
                 pyplot.plot([ind, ind], [-5, 5], 'm')
 
-        # Use tracking algorithm from imusim. Restart at each cycle start
+        # Use tracking algorithm from nvg. Restart at each cycle start
         imuq = []
         cycleinds = []
         imuDataSplit = []

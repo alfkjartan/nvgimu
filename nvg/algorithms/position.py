@@ -3,29 +3,29 @@ Algorithms for tracking the position of a body model.
 """
 # Copyright (C) 2009-2011 University of Edinburgh
 #
-# This file is part of IMUSim.
+# This file is part of Nvg.
 #
-# IMUSim is free software: you can redistribute it and/or modify it
+# Nvg is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# IMUSim is distributed in the hope that it will be useful,
+# Nvg is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
+# along with Nvg.  If not, see <http://www.gnu.org/licenses/>.
 
 from abc import ABCMeta, abstractmethod
 import numpy as np
 import scipy.stats
 import math
-from imusim.maths import integrators
-from imusim.maths.kalman import KalmanFilter
-from imusim.utilities.time_series import TimeSeries
-from imusim.utilities.documentation import prepend_method_doc
+from nvg.maths import integrators
+from nvg.maths.kalman import KalmanFilter
+from nvg.utilities.time_series import TimeSeries
+from nvg.utilities.documentation import prepend_method_doc
 
 class PositionEstimator(object):
     """

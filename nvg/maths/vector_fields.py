@@ -20,8 +20,8 @@ Classes for modelling 3D vector fields.
 
 from abc import ABCMeta, abstractmethod, abstractproperty
 from scipy import interpolate
-from imusim.maths import vectors
-from imusim.utilities.documentation import prepend_method_doc
+from nvg.maths import vectors
+from nvg.utilities.documentation import prepend_method_doc
 #from imusim.maths.natural_neighbour import NaturalNeighbourInterpolatorC
 import numpy as np
 

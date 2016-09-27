@@ -230,8 +230,8 @@
 #define _USE_MATH_DEFINES
 #endif
 #include <math.h>
-#define __PYX_HAVE__imusim__maths__vectors
-#define __PYX_HAVE_API__imusim__maths__vectors
+#define __PYX_HAVE__nvg__maths__vectors
+#define __PYX_HAVE_API__nvg__maths__vectors
 #include "stdio.h"
 #include "stdlib.h"
 #include "numpy/arrayobject.h"
@@ -879,12 +879,12 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *, PyObject *); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *); /*proto*/
 
-/* Module declarations from 'imusim.maths.vectors' */
+/* Module declarations from 'nvg.maths.vectors' */
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), 'R' };
-#define __Pyx_MODULE_NAME "imusim.maths.vectors"
-int __pyx_module_is_main_imusim__maths__vectors = 0;
+#define __Pyx_MODULE_NAME "nvg.maths.vectors"
+int __pyx_module_is_main_nvg__maths__vectors = 0;
 
-/* Implementation of 'imusim.maths.vectors' */
+/* Implementation of 'nvg.maths.vectors' */
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
@@ -897,7 +897,7 @@ static char __pyx_k_9[] = "unknown dtype code in numpy.pxd (%d)";
 static char __pyx_k_10[] = "Format string allocated too short, see comment in numpy.pxd";
 static char __pyx_k_13[] = "Format string allocated too short.";
 static char __pyx_k_15[] = "\nFunctions for working with column vectors.\n";
-static char __pyx_k_16[] = "imusim.maths.vectors";
+static char __pyx_k_16[] = "nvg.maths.vectors";
 static char __pyx_k__B[] = "B";
 static char __pyx_k__H[] = "H";
 static char __pyx_k__I[] = "I";
@@ -985,7 +985,7 @@ static PyObject *__pyx_k_tuple_11;
 static PyObject *__pyx_k_tuple_12;
 static PyObject *__pyx_k_tuple_14;
 
-/* "imusim/maths/vectors.pyx":29
+/* "nvg/maths/vectors.pyx":29
  * __all__ = ['vector']
  * 
  * def vector(*components):             # <<<<<<<<<<<<<<
@@ -993,9 +993,9 @@ static PyObject *__pyx_k_tuple_14;
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_vector = {__Pyx_NAMESTR("vector"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_vector, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_vector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_vector = {__Pyx_NAMESTR("vector"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_vector, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_vector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_components = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1013,7 +1013,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, P
   __Pyx_INCREF(__pyx_args);
   __pyx_v_components = __pyx_args;
 
-  /* "imusim/maths/vectors.pyx":30
+  /* "nvg/maths/vectors.pyx":30
  * 
  * def vector(*components):
  *     return np.array([components],dtype=np.float64).T             # <<<<<<<<<<<<<<
@@ -1065,7 +1065,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, P
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.vectors.vector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.vector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_components);
@@ -1074,7 +1074,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "imusim/maths/vectors.pyx":32
+/* "nvg/maths/vectors.pyx":32
  *     return np.array([components],dtype=np.float64).T
  * 
  * def norm(np.ndarray[np.float64_t, ndim=2] vectors):             # <<<<<<<<<<<<<<
@@ -1082,10 +1082,10 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_vector(PyObject *__pyx_self, P
  *     Compute the l2norm of an array of column vectors
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, PyObject *__pyx_v_vectors); /*proto*/
-static char __pyx_doc_6imusim_5maths_7vectors_1norm[] = "\n    Compute the l2norm of an array of column vectors\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_1norm = {__Pyx_NAMESTR("norm"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_1norm, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_7vectors_1norm)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, PyObject *__pyx_v_vectors) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_1norm(PyObject *__pyx_self, PyObject *__pyx_v_vectors); /*proto*/
+static char __pyx_doc_6nvg_5maths_7vectors_1norm[] = "\n    Compute the l2norm of an array of column vectors\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_1norm = {__Pyx_NAMESTR("norm"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_1norm, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_7vectors_1norm)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_1norm(PyObject *__pyx_self, PyObject *__pyx_v_vectors) {
   Py_ssize_t __pyx_v_i;
   Py_ssize_t __pyx_v_j;
   PyArrayObject *__pyx_v_norms = 0;
@@ -1130,7 +1130,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
   __pyx_bstride_0_vectors = __pyx_bstruct_vectors.strides[0]; __pyx_bstride_1_vectors = __pyx_bstruct_vectors.strides[1];
   __pyx_bshape_0_vectors = __pyx_bstruct_vectors.shape[0]; __pyx_bshape_1_vectors = __pyx_bstruct_vectors.shape[1];
 
-  /* "imusim/maths/vectors.pyx":38
+  /* "nvg/maths/vectors.pyx":38
  *     cdef Py_ssize_t i
  *     cdef Py_ssize_t j
  *     cdef np.ndarray[np.float64_t, ndim=1] norms = np.empty(vectors.shape[1])             # <<<<<<<<<<<<<<
@@ -1168,7 +1168,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
   __pyx_v_norms = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":39
+  /* "nvg/maths/vectors.pyx":39
  *     cdef Py_ssize_t j
  *     cdef np.ndarray[np.float64_t, ndim=1] norms = np.empty(vectors.shape[1])
  *     for i in range(vectors.shape[1]):             # <<<<<<<<<<<<<<
@@ -1179,7 +1179,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_i = __pyx_t_6;
 
-    /* "imusim/maths/vectors.pyx":40
+    /* "nvg/maths/vectors.pyx":40
  *     cdef np.ndarray[np.float64_t, ndim=1] norms = np.empty(vectors.shape[1])
  *     for i in range(vectors.shape[1]):
  *         norms[i] = 0             # <<<<<<<<<<<<<<
@@ -1198,7 +1198,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
     }
     *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_norms.buf, __pyx_t_7, __pyx_bstride_0_norms) = 0.0;
 
-    /* "imusim/maths/vectors.pyx":41
+    /* "nvg/maths/vectors.pyx":41
  *     for i in range(vectors.shape[1]):
  *         norms[i] = 0
  *         for j in range(vectors.shape[0]):             # <<<<<<<<<<<<<<
@@ -1209,7 +1209,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_j = __pyx_t_10;
 
-      /* "imusim/maths/vectors.pyx":42
+      /* "nvg/maths/vectors.pyx":42
  *         norms[i] = 0
  *         for j in range(vectors.shape[0]):
  *             norms[i] += vectors[j,i] * vectors[j,i]             # <<<<<<<<<<<<<<
@@ -1259,7 +1259,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
       *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_norms.buf, __pyx_t_15, __pyx_bstride_0_norms) += ((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_vectors.buf, __pyx_t_11, __pyx_bstride_0_vectors, __pyx_t_12, __pyx_bstride_1_vectors)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_vectors.buf, __pyx_t_13, __pyx_bstride_0_vectors, __pyx_t_14, __pyx_bstride_1_vectors)));
     }
 
-    /* "imusim/maths/vectors.pyx":43
+    /* "nvg/maths/vectors.pyx":43
  *         for j in range(vectors.shape[0]):
  *             norms[i] += vectors[j,i] * vectors[j,i]
  *         norms[i] = sqrt(norms[i])             # <<<<<<<<<<<<<<
@@ -1289,7 +1289,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
     *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_norms.buf, __pyx_t_16, __pyx_bstride_0_norms) = sqrt((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_norms.buf, __pyx_t_10, __pyx_bstride_0_norms)));
   }
 
-  /* "imusim/maths/vectors.pyx":44
+  /* "nvg/maths/vectors.pyx":44
  *             norms[i] += vectors[j,i] * vectors[j,i]
  *         norms[i] = sqrt(norms[i])
  *     return norms             # <<<<<<<<<<<<<<
@@ -1312,7 +1312,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_norms);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_vectors);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.vectors.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1325,7 +1325,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
   return __pyx_r;
 }
 
-/* "imusim/maths/vectors.pyx":46
+/* "nvg/maths/vectors.pyx":46
  *     return norms
  * 
  * def cross(np.ndarray[np.float64_t, ndim=2] v1,             # <<<<<<<<<<<<<<
@@ -1333,10 +1333,10 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_1norm(PyObject *__pyx_self, Py
  *     """
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_7vectors_2cross[] = "\n    Compute the cross products of two arrays of column vectors.\n\n    Each array of vectors must have the same shape\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_2cross = {__Pyx_NAMESTR("cross"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_2cross, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_7vectors_2cross)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_2cross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_7vectors_2cross[] = "\n    Compute the cross products of two arrays of column vectors.\n\n    Each array of vectors must have the same shape\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_2cross = {__Pyx_NAMESTR("cross"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_2cross, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_7vectors_2cross)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_2cross(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_v1 = 0;
   PyArrayObject *__pyx_v_v2 = 0;
   Py_ssize_t __pyx_v_i;
@@ -1446,7 +1446,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("cross", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.vectors.cross", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.cross", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -1468,7 +1468,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   __pyx_bstride_0_v2 = __pyx_bstruct_v2.strides[0]; __pyx_bstride_1_v2 = __pyx_bstruct_v2.strides[1];
   __pyx_bshape_0_v2 = __pyx_bstruct_v2.shape[0]; __pyx_bshape_1_v2 = __pyx_bstruct_v2.shape[1];
 
-  /* "imusim/maths/vectors.pyx":54
+  /* "nvg/maths/vectors.pyx":54
  *     """
  *     cdef Py_ssize_t i
  *     cdef np.ndarray[np.float64_t, ndim=2] crossProduct = np.empty((3,v1.shape[1]))             # <<<<<<<<<<<<<<
@@ -1514,7 +1514,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   __pyx_v_crossProduct = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/vectors.pyx":56
+  /* "nvg/maths/vectors.pyx":56
  *     cdef np.ndarray[np.float64_t, ndim=2] crossProduct = np.empty((3,v1.shape[1]))
  * 
  *     assert v1.shape[0] == v2.shape[0] == 3 and v1.shape[1] == v2.shape[1], \             # <<<<<<<<<<<<<<
@@ -1534,7 +1534,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   }
   if (unlikely(!__pyx_t_7)) {
 
-    /* "imusim/maths/vectors.pyx":58
+    /* "nvg/maths/vectors.pyx":58
  *     assert v1.shape[0] == v2.shape[0] == 3 and v1.shape[1] == v2.shape[1], \
  *             "Vectors must both have shape (3,%d). (v1.shape=(%d, %d), v2." \
  *             "shape=(%d, %d)" %(v1.shape[1], v1.shape[0], v1.shape[1],             # <<<<<<<<<<<<<<
@@ -1548,7 +1548,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
     __pyx_t_2 = __Pyx_PyInt_to_py_Py_intptr_t((__pyx_v_v1->dimensions[1])); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 58; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "imusim/maths/vectors.pyx":59
+    /* "nvg/maths/vectors.pyx":59
  *             "Vectors must both have shape (3,%d). (v1.shape=(%d, %d), v2." \
  *             "shape=(%d, %d)" %(v1.shape[1], v1.shape[0], v1.shape[1],
  *                     v2.shape[0], v2.shape[1])             # <<<<<<<<<<<<<<
@@ -1585,7 +1585,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   }
   #endif
 
-  /* "imusim/maths/vectors.pyx":61
+  /* "nvg/maths/vectors.pyx":61
  *                     v2.shape[0], v2.shape[1])
  * 
  *     for i in range(v1.shape[1]):             # <<<<<<<<<<<<<<
@@ -1596,7 +1596,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_i = __pyx_t_12;
 
-    /* "imusim/maths/vectors.pyx":62
+    /* "nvg/maths/vectors.pyx":62
  * 
  *     for i in range(v1.shape[1]):
  *         crossProduct[0,i] = v1[1,i] * v2[2,i] - v1[2,i] * v2[1,i]             # <<<<<<<<<<<<<<
@@ -1680,7 +1680,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_crossProduct.buf, __pyx_t_22, __pyx_bstride_0_crossProduct, __pyx_t_23, __pyx_bstride_1_crossProduct) = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_13, __pyx_bstride_0_v1, __pyx_t_14, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_16, __pyx_bstride_0_v2, __pyx_t_17, __pyx_bstride_1_v2))) - ((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_18, __pyx_bstride_0_v1, __pyx_t_19, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_20, __pyx_bstride_0_v2, __pyx_t_21, __pyx_bstride_1_v2))));
 
-    /* "imusim/maths/vectors.pyx":63
+    /* "nvg/maths/vectors.pyx":63
  *     for i in range(v1.shape[1]):
  *         crossProduct[0,i] = v1[1,i] * v2[2,i] - v1[2,i] * v2[1,i]
  *         crossProduct[1,i] = v1[2,i] * v2[0,i] - v1[0,i] * v2[2,i]             # <<<<<<<<<<<<<<
@@ -1764,7 +1764,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_crossProduct.buf, __pyx_t_32, __pyx_bstride_0_crossProduct, __pyx_t_33, __pyx_bstride_1_crossProduct) = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_24, __pyx_bstride_0_v1, __pyx_t_25, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_26, __pyx_bstride_0_v2, __pyx_t_27, __pyx_bstride_1_v2))) - ((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_28, __pyx_bstride_0_v1, __pyx_t_29, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_30, __pyx_bstride_0_v2, __pyx_t_31, __pyx_bstride_1_v2))));
 
-    /* "imusim/maths/vectors.pyx":64
+    /* "nvg/maths/vectors.pyx":64
  *         crossProduct[0,i] = v1[1,i] * v2[2,i] - v1[2,i] * v2[1,i]
  *         crossProduct[1,i] = v1[2,i] * v2[0,i] - v1[0,i] * v2[2,i]
  *         crossProduct[2,i] = v1[0,i] * v2[1,i] - v1[1,i] * v2[0,i]             # <<<<<<<<<<<<<<
@@ -1849,7 +1849,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_crossProduct.buf, __pyx_t_42, __pyx_bstride_0_crossProduct, __pyx_t_43, __pyx_bstride_1_crossProduct) = (((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_34, __pyx_bstride_0_v1, __pyx_t_35, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_36, __pyx_bstride_0_v2, __pyx_t_37, __pyx_bstride_1_v2))) - ((*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v1.buf, __pyx_t_38, __pyx_bstride_0_v1, __pyx_t_39, __pyx_bstride_1_v1)) * (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v2.buf, __pyx_t_40, __pyx_bstride_0_v2, __pyx_t_41, __pyx_bstride_1_v2))));
   }
 
-  /* "imusim/maths/vectors.pyx":65
+  /* "nvg/maths/vectors.pyx":65
  *         crossProduct[1,i] = v1[2,i] * v2[0,i] - v1[0,i] * v2[2,i]
  *         crossProduct[2,i] = v1[0,i] * v2[1,i] - v1[1,i] * v2[0,i]
  *     return crossProduct             # <<<<<<<<<<<<<<
@@ -1876,7 +1876,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_v2);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_crossProduct);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.vectors.cross", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.cross", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1890,7 +1890,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
   return __pyx_r;
 }
 
-/* "imusim/maths/vectors.pyx":67
+/* "nvg/maths/vectors.pyx":67
  *     return crossProduct
  * 
  * def dot(np.ndarray[np.float64_t, ndim=2] v1,             # <<<<<<<<<<<<<<
@@ -1898,10 +1898,10 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_2cross(PyObject *__pyx_self, P
  *     """
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_7vectors_3dot[] = "\n    Compute the dot products of two arrays of column vectors.\n\n    Each array must have the same shape\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_3dot = {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_3dot, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_7vectors_3dot)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_3dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_7vectors_3dot[] = "\n    Compute the dot products of two arrays of column vectors.\n\n    Each array must have the same shape\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_3dot = {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_3dot, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_7vectors_3dot)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_3dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_v1 = 0;
   PyArrayObject *__pyx_v_v2 = 0;
   Py_ssize_t __pyx_v_i;
@@ -1989,7 +1989,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("dot", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.vectors.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -2011,7 +2011,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   __pyx_bstride_0_v2 = __pyx_bstruct_v2.strides[0]; __pyx_bstride_1_v2 = __pyx_bstruct_v2.strides[1];
   __pyx_bshape_0_v2 = __pyx_bstruct_v2.shape[0]; __pyx_bshape_1_v2 = __pyx_bstruct_v2.shape[1];
 
-  /* "imusim/maths/vectors.pyx":75
+  /* "nvg/maths/vectors.pyx":75
  *     """
  *     cdef Py_ssize_t i
  *     cdef np.ndarray[np.float64_t, ndim=1] dotProduct = np.empty(v1.shape[1])             # <<<<<<<<<<<<<<
@@ -2049,7 +2049,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   __pyx_v_dotProduct = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":77
+  /* "nvg/maths/vectors.pyx":77
  *     cdef np.ndarray[np.float64_t, ndim=1] dotProduct = np.empty(v1.shape[1])
  * 
  *     assert v1.shape[0] == v2.shape[0] and v1.shape[1] == v2.shape[1], \             # <<<<<<<<<<<<<<
@@ -2066,7 +2066,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   }
   if (unlikely(!__pyx_t_7)) {
 
-    /* "imusim/maths/vectors.pyx":79
+    /* "nvg/maths/vectors.pyx":79
  *     assert v1.shape[0] == v2.shape[0] and v1.shape[1] == v2.shape[1], \
  *             "Vectors must both have shape (%d,%d). (v1.shape=(%d, %d), v2." \
  *             "shape=(%d, %d)" %(v1.shape[0], v1.shape[1], v1.shape[0], v1.shape[1],             # <<<<<<<<<<<<<<
@@ -2082,7 +2082,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
     __pyx_t_8 = __Pyx_PyInt_to_py_Py_intptr_t((__pyx_v_v1->dimensions[1])); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 79; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_8);
 
-    /* "imusim/maths/vectors.pyx":80
+    /* "nvg/maths/vectors.pyx":80
  *             "Vectors must both have shape (%d,%d). (v1.shape=(%d, %d), v2." \
  *             "shape=(%d, %d)" %(v1.shape[0], v1.shape[1], v1.shape[0], v1.shape[1],
  *                     v2.shape[0], v2.shape[1])             # <<<<<<<<<<<<<<
@@ -2122,7 +2122,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   }
   #endif
 
-  /* "imusim/maths/vectors.pyx":82
+  /* "nvg/maths/vectors.pyx":82
  *                     v2.shape[0], v2.shape[1])
  * 
  *     for i in range(v1.shape[1]):             # <<<<<<<<<<<<<<
@@ -2133,7 +2133,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_12; __pyx_t_13+=1) {
     __pyx_v_i = __pyx_t_13;
 
-    /* "imusim/maths/vectors.pyx":83
+    /* "nvg/maths/vectors.pyx":83
  * 
  *     for i in range(v1.shape[1]):
  *         dotProduct[i] = 0             # <<<<<<<<<<<<<<
@@ -2152,7 +2152,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
     }
     *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_dotProduct.buf, __pyx_t_14, __pyx_bstride_0_dotProduct) = 0.0;
 
-    /* "imusim/maths/vectors.pyx":84
+    /* "nvg/maths/vectors.pyx":84
  *     for i in range(v1.shape[1]):
  *         dotProduct[i] = 0
  *         for j in range(v1.shape[0]):             # <<<<<<<<<<<<<<
@@ -2163,7 +2163,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
     for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_16; __pyx_t_17+=1) {
       __pyx_v_j = __pyx_t_17;
 
-      /* "imusim/maths/vectors.pyx":85
+      /* "nvg/maths/vectors.pyx":85
  *         dotProduct[i] = 0
  *         for j in range(v1.shape[0]):
  *             dotProduct[i] += v1[j,i] * v2[j,i]             # <<<<<<<<<<<<<<
@@ -2214,7 +2214,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
     }
   }
 
-  /* "imusim/maths/vectors.pyx":86
+  /* "nvg/maths/vectors.pyx":86
  *         for j in range(v1.shape[0]):
  *             dotProduct[i] += v1[j,i] * v2[j,i]
  *     return dotProduct             # <<<<<<<<<<<<<<
@@ -2242,7 +2242,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_v2);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_dotProduct);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.vectors.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2256,7 +2256,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/vectors.pyx":88
+/* "nvg/maths/vectors.pyx":88
  *     return dotProduct
  * 
  * def validity(vectors):             # <<<<<<<<<<<<<<
@@ -2264,10 +2264,10 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_3dot(PyObject *__pyx_self, PyO
  *     Return a boolean array indicating which vectors in an array of column
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self, PyObject *__pyx_v_vectors); /*proto*/
-static char __pyx_doc_6imusim_5maths_7vectors_4validity[] = "\n    Return a boolean array indicating which vectors in an array of column\n    vectors do not contain NaN values.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_4validity = {__Pyx_NAMESTR("validity"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_4validity, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_7vectors_4validity)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self, PyObject *__pyx_v_vectors) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_4validity(PyObject *__pyx_self, PyObject *__pyx_v_vectors); /*proto*/
+static char __pyx_doc_6nvg_5maths_7vectors_4validity[] = "\n    Return a boolean array indicating which vectors in an array of column\n    vectors do not contain NaN values.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_4validity = {__Pyx_NAMESTR("validity"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_4validity, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_7vectors_4validity)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_4validity(PyObject *__pyx_self, PyObject *__pyx_v_vectors) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2280,7 +2280,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self
   __Pyx_RefNannySetupContext("validity");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/vectors.pyx":93
+  /* "nvg/maths/vectors.pyx":93
  *     vectors do not contain NaN values.
  *     """
  *     return ~np.any(np.isnan(vectors), axis=0)             # <<<<<<<<<<<<<<
@@ -2334,7 +2334,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.vectors.validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2342,7 +2342,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "imusim/maths/vectors.pyx":95
+/* "nvg/maths/vectors.pyx":95
  *     return ~np.any(np.isnan(vectors), axis=0)
  * 
  * def nan(length=1):             # <<<<<<<<<<<<<<
@@ -2350,9 +2350,9 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_4validity(PyObject *__pyx_self
  *     v[:] = np.nan
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_7vectors_5nan = {__Pyx_NAMESTR("nan"), (PyCFunction)__pyx_pf_6imusim_5maths_7vectors_5nan, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_5nan(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_7vectors_5nan = {__Pyx_NAMESTR("nan"), (PyCFunction)__pyx_pf_6nvg_5maths_7vectors_5nan, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_7vectors_5nan(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_length = 0;
   PyObject *__pyx_v_v = NULL;
   PyObject *__pyx_r = NULL;
@@ -2400,12 +2400,12 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("nan", 0, 0, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.vectors.nan", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.nan", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/vectors.pyx":96
+  /* "nvg/maths/vectors.pyx":96
  * 
  * def nan(length=1):
  *     v = np.empty((3,length))             # <<<<<<<<<<<<<<
@@ -2437,7 +2437,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyO
   __pyx_v_v = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":97
+  /* "nvg/maths/vectors.pyx":97
  * def nan(length=1):
  *     v = np.empty((3,length))
  *     v[:] = np.nan             # <<<<<<<<<<<<<<
@@ -2451,7 +2451,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyO
   if (unlikely(!__pyx_v_v)) { __Pyx_RaiseUnboundLocalError("v"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }if (__Pyx_PySequence_SetSlice(__pyx_v_v, 0, PY_SSIZE_T_MAX, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/vectors.pyx":98
+  /* "nvg/maths/vectors.pyx":98
  *     v = np.empty((3,length))
  *     v[:] = np.nan
  *     return v             # <<<<<<<<<<<<<<
@@ -2467,7 +2467,7 @@ static PyObject *__pyx_pf_6imusim_5maths_7vectors_5nan(PyObject *__pyx_self, PyO
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.vectors.nan", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.vectors.nan", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_v);
@@ -4629,7 +4629,7 @@ PyMODINIT_FUNC PyInit_vectors(void)
   if (__Pyx_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   /*--- Initialize various global constants etc. ---*/
   if (unlikely(__Pyx_InitGlobals() < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__pyx_module_is_main_imusim__maths__vectors) {
+  if (__pyx_module_is_main_nvg__maths__vectors) {
     if (__Pyx_SetAttrString(__pyx_m, "__name__", __pyx_n_s____main__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   }
   /*--- Builtin init code ---*/
@@ -4650,8 +4650,8 @@ PyMODINIT_FUNC PyInit_vectors(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
 
-  /* "imusim/maths/vectors.pyx":21
- * # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
+  /* "nvg/maths/vectors.pyx":21
+ * # along with Nvg.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * cimport numpy as np
@@ -4662,7 +4662,7 @@ PyMODINIT_FUNC PyInit_vectors(void)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 21; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":27
+  /* "nvg/maths/vectors.pyx":27
  *     double sqrt(double x)
  * 
  * __all__ = ['vector']             # <<<<<<<<<<<<<<
@@ -4677,79 +4677,79 @@ PyMODINIT_FUNC PyInit_vectors(void)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s____all__, ((PyObject *)__pyx_t_1)) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":29
+  /* "nvg/maths/vectors.pyx":29
  * __all__ = ['vector']
  * 
  * def vector(*components):             # <<<<<<<<<<<<<<
  *     return np.array([components],dtype=np.float64).T
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_vector, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_vector, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__vector, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":32
+  /* "nvg/maths/vectors.pyx":32
  *     return np.array([components],dtype=np.float64).T
  * 
  * def norm(np.ndarray[np.float64_t, ndim=2] vectors):             # <<<<<<<<<<<<<<
  *     """
  *     Compute the l2norm of an array of column vectors
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_1norm, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_1norm, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__norm, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 32; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":46
+  /* "nvg/maths/vectors.pyx":46
  *     return norms
  * 
  * def cross(np.ndarray[np.float64_t, ndim=2] v1,             # <<<<<<<<<<<<<<
  *         np.ndarray[np.float64_t, ndim=2] v2):
  *     """
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_2cross, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_2cross, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__cross, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 46; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":67
+  /* "nvg/maths/vectors.pyx":67
  *     return crossProduct
  * 
  * def dot(np.ndarray[np.float64_t, ndim=2] v1,             # <<<<<<<<<<<<<<
  *         np.ndarray[np.float64_t, ndim=2] v2):
  *     """
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_3dot, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_3dot, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__dot, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":88
+  /* "nvg/maths/vectors.pyx":88
  *     return dotProduct
  * 
  * def validity(vectors):             # <<<<<<<<<<<<<<
  *     """
  *     Return a boolean array indicating which vectors in an array of column
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_4validity, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_4validity, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__validity, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":95
+  /* "nvg/maths/vectors.pyx":95
  *     return ~np.any(np.isnan(vectors), axis=0)
  * 
  * def nan(length=1):             # <<<<<<<<<<<<<<
  *     v = np.empty((3,length))
  *     v[:] = np.nan
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_7vectors_5nan, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_7vectors_5nan, NULL, __pyx_n_s_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__nan, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/vectors.pyx":1
+  /* "nvg/maths/vectors.pyx":1
  * """             # <<<<<<<<<<<<<<
  * Functions for working with column vectors.
  * """
@@ -4770,10 +4770,10 @@ PyMODINIT_FUNC PyInit_vectors(void)
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
-    __Pyx_AddTraceback("init imusim.maths.vectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("init nvg.maths.vectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init imusim.maths.vectors");
+    PyErr_SetString(PyExc_ImportError, "init nvg.maths.vectors");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

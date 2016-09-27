@@ -230,8 +230,8 @@
 #define _USE_MATH_DEFINES
 #endif
 #include <math.h>
-#define __PYX_HAVE__imusim__maths__quaternions
-#define __PYX_HAVE_API__imusim__maths__quaternions
+#define __PYX_HAVE__nvg__maths__quaternions
+#define __PYX_HAVE_API__nvg__maths__quaternions
 #include "stdio.h"
 #include "stdlib.h"
 #include "numpy/arrayobject.h"
@@ -556,7 +556,7 @@ typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 #endif
 
 /*--- Type declarations ---*/
-struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion;
+struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion;
 
 /* "numpy.pxd":758
  * ctypedef npy_longdouble longdouble_t
@@ -593,39 +593,39 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
-struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t;
-typedef struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_t_6imusim_5maths_11quaternions_quaternion_t;
+struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t;
+typedef struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_t_6nvg_5maths_11quaternions_quaternion_t;
 
-/* "imusim/maths/quaternions.pxd":7
+/* "nvg/maths/quaternions.pxd":7
  * """
  * 
  * ctypedef struct quaternion_t:             # <<<<<<<<<<<<<<
  *     double w
  *     double x
  */
-struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t {
+struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t {
   double w;
   double x;
   double y;
   double z;
 };
 
-/* "imusim/maths/quaternions.pxd":24
+/* "nvg/maths/quaternions.pxd":24
  * cdef inline void quaternion_exp(quaternion_t *q, quaternion_t *dest)
  * 
  * cdef class Quaternion:             # <<<<<<<<<<<<<<
  *     cdef quaternion_t _components
  *     cpdef inline Quaternion log(Quaternion self)
  */
-struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion {
+struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion {
   PyObject_HEAD
-  struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *__pyx_vtab;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t _components;
+  struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *__pyx_vtab;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t _components;
 };
 
 
 
-/* "imusim/maths/quaternions.pyx":176
+/* "nvg/maths/quaternions.pyx":176
  *     return Quaternion(np.nan, np.nan, np.nan, np.nan)
  * 
  * cdef class Quaternion:             # <<<<<<<<<<<<<<
@@ -633,11 +633,11 @@ struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion {
  *     A quaternion value.
  */
 
-struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*log)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*exp)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*log)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*exp)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *__pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion;
+static struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *__pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion;
 
 #ifndef CYTHON_REFNANNY
   #define CYTHON_REFNANNY 0
@@ -1053,21 +1053,21 @@ static CYTHON_INLINE char *__pyx_f_5numpy__util_dtypestring(PyArray_Descr *, cha
 static CYTHON_INLINE void __pyx_f_5numpy_set_array_base(PyArrayObject *, PyObject *); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *); /*proto*/
 
-/* Module declarations from 'imusim.maths.quaternions' */
-static PyTypeObject *__pyx_ptype_6imusim_5maths_11quaternions_Quaternion = 0;
-static double __pyx_v_6imusim_5maths_11quaternions_EPS;
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, double, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch); /*proto*/
+/* Module declarations from 'nvg.maths.quaternions' */
+static PyTypeObject *__pyx_ptype_6nvg_5maths_11quaternions_Quaternion = 0;
+static double __pyx_v_6nvg_5maths_11quaternions_EPS;
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, double, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_add(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_sub(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_log(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_exp(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static PyObject *__pyx_f_6nvg_5maths_11quaternions_QuaternionFactory(PyObject *, PyObject *, PyObject *, PyObject *, int __pyx_skip_dispatch); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t = { "float64_t", NULL, sizeof(__pyx_t_5numpy_float64_t), 'R' };
-#define __Pyx_MODULE_NAME "imusim.maths.quaternions"
-int __pyx_module_is_main_imusim__maths__quaternions = 0;
+#define __Pyx_MODULE_NAME "nvg.maths.quaternions"
+int __pyx_module_is_main_nvg__maths__quaternions = 0;
 
-/* Implementation of 'imusim.maths.quaternions' */
+/* Implementation of 'nvg.maths.quaternions' */
 static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_object;
 static PyObject *__pyx_builtin_property;
@@ -1093,9 +1093,9 @@ static char __pyx_k_89[] = "unknown dtype code in numpy.pxd (%d)";
 static char __pyx_k_90[] = "Format string allocated too short, see comment in numpy.pxd";
 static char __pyx_k_93[] = "Format string allocated too short.";
 static char __pyx_k_95[] = "\nQuaternion maths.\n";
-static char __pyx_k_96[] = "imusim.maths.vector_splines";
-static char __pyx_k_97[] = "imusim.maths";
-static char __pyx_k_98[] = "imusim.maths.quaternions";
+static char __pyx_k_96[] = "nvg.maths.vector_splines";
+static char __pyx_k_97[] = "nvg.maths";
+static char __pyx_k_98[] = "nvg.maths.quaternions";
 static char __pyx_k_99[] = "QuaternionFromMatrix";
 static char __pyx_k__B[] = "B";
 static char __pyx_k__H[] = "H";
@@ -1458,7 +1458,7 @@ static PyObject *__pyx_k_tuple_91;
 static PyObject *__pyx_k_tuple_92;
 static PyObject *__pyx_k_tuple_94;
 
-/* "imusim/maths/quaternions.pyx":40
+/* "nvg/maths/quaternions.pyx":40
  * cdef double EPS = 1e-6
  * 
  * cdef inline void mult_quat_quat(quaternion_t *q, quaternion_t *p,             # <<<<<<<<<<<<<<
@@ -1466,7 +1466,7 @@ static PyObject *__pyx_k_tuple_94;
  *     cdef double w
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   double __pyx_v_w;
   double __pyx_v_x;
   double __pyx_v_y;
@@ -1474,7 +1474,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("mult_quat_quat");
 
-  /* "imusim/maths/quaternions.pyx":46
+  /* "nvg/maths/quaternions.pyx":46
  *     cdef double y
  *     cdef double z
  *     w = q.w*p.w - q.x*p.x - q.y*p.y - q.z*p.z             # <<<<<<<<<<<<<<
@@ -1483,7 +1483,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_w = ((((__pyx_v_q->w * __pyx_v_p->w) - (__pyx_v_q->x * __pyx_v_p->x)) - (__pyx_v_q->y * __pyx_v_p->y)) - (__pyx_v_q->z * __pyx_v_p->z));
 
-  /* "imusim/maths/quaternions.pyx":47
+  /* "nvg/maths/quaternions.pyx":47
  *     cdef double z
  *     w = q.w*p.w - q.x*p.x - q.y*p.y - q.z*p.z
  *     x = q.w*p.x + q.x*p.w + q.y*p.z - q.z*p.y             # <<<<<<<<<<<<<<
@@ -1492,7 +1492,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_x = ((((__pyx_v_q->w * __pyx_v_p->x) + (__pyx_v_q->x * __pyx_v_p->w)) + (__pyx_v_q->y * __pyx_v_p->z)) - (__pyx_v_q->z * __pyx_v_p->y));
 
-  /* "imusim/maths/quaternions.pyx":48
+  /* "nvg/maths/quaternions.pyx":48
  *     w = q.w*p.w - q.x*p.x - q.y*p.y - q.z*p.z
  *     x = q.w*p.x + q.x*p.w + q.y*p.z - q.z*p.y
  *     y = q.w*p.y - q.x*p.z + q.y*p.w + q.z*p.x             # <<<<<<<<<<<<<<
@@ -1501,7 +1501,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_y = ((((__pyx_v_q->w * __pyx_v_p->y) - (__pyx_v_q->x * __pyx_v_p->z)) + (__pyx_v_q->y * __pyx_v_p->w)) + (__pyx_v_q->z * __pyx_v_p->x));
 
-  /* "imusim/maths/quaternions.pyx":49
+  /* "nvg/maths/quaternions.pyx":49
  *     x = q.w*p.x + q.x*p.w + q.y*p.z - q.z*p.y
  *     y = q.w*p.y - q.x*p.z + q.y*p.w + q.z*p.x
  *     z = q.w*p.z + q.x*p.y - q.y*p.x + q.z*p.w             # <<<<<<<<<<<<<<
@@ -1510,7 +1510,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_z = ((((__pyx_v_q->w * __pyx_v_p->z) + (__pyx_v_q->x * __pyx_v_p->y)) - (__pyx_v_q->y * __pyx_v_p->x)) + (__pyx_v_q->z * __pyx_v_p->w));
 
-  /* "imusim/maths/quaternions.pyx":50
+  /* "nvg/maths/quaternions.pyx":50
  *     y = q.w*p.y - q.x*p.z + q.y*p.w + q.z*p.x
  *     z = q.w*p.z + q.x*p.y - q.y*p.x + q.z*p.w
  *     dest.w = w             # <<<<<<<<<<<<<<
@@ -1519,7 +1519,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_dest->w = __pyx_v_w;
 
-  /* "imusim/maths/quaternions.pyx":51
+  /* "nvg/maths/quaternions.pyx":51
  *     z = q.w*p.z + q.x*p.y - q.y*p.x + q.z*p.w
  *     dest.w = w
  *     dest.x = x             # <<<<<<<<<<<<<<
@@ -1528,7 +1528,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_dest->x = __pyx_v_x;
 
-  /* "imusim/maths/quaternions.pyx":52
+  /* "nvg/maths/quaternions.pyx":52
  *     dest.w = w
  *     dest.x = x
  *     dest.y = y             # <<<<<<<<<<<<<<
@@ -1537,7 +1537,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  */
   __pyx_v_dest->y = __pyx_v_y;
 
-  /* "imusim/maths/quaternions.pyx":53
+  /* "nvg/maths/quaternions.pyx":53
  *     dest.x = x
  *     dest.y = y
  *     dest.z = z             # <<<<<<<<<<<<<<
@@ -1549,7 +1549,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":55
+/* "nvg/maths/quaternions.pyx":55
  *     dest.z = z
  * 
  * cdef inline void mult_quat_scalar(quaternion_t *q, double scalar,             # <<<<<<<<<<<<<<
@@ -1557,7 +1557,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__
  *     cdef double w
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, double __pyx_v_scalar, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, double __pyx_v_scalar, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   double __pyx_v_w;
   double __pyx_v_x;
   double __pyx_v_y;
@@ -1565,7 +1565,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("mult_quat_scalar");
 
-  /* "imusim/maths/quaternions.pyx":61
+  /* "nvg/maths/quaternions.pyx":61
  *     cdef double y
  *     cdef double z
  *     w = q.w*scalar             # <<<<<<<<<<<<<<
@@ -1574,7 +1574,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_w = (__pyx_v_q->w * __pyx_v_scalar);
 
-  /* "imusim/maths/quaternions.pyx":62
+  /* "nvg/maths/quaternions.pyx":62
  *     cdef double z
  *     w = q.w*scalar
  *     x = q.x*scalar             # <<<<<<<<<<<<<<
@@ -1583,7 +1583,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_x = (__pyx_v_q->x * __pyx_v_scalar);
 
-  /* "imusim/maths/quaternions.pyx":63
+  /* "nvg/maths/quaternions.pyx":63
  *     w = q.w*scalar
  *     x = q.x*scalar
  *     y = q.y*scalar             # <<<<<<<<<<<<<<
@@ -1592,7 +1592,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_y = (__pyx_v_q->y * __pyx_v_scalar);
 
-  /* "imusim/maths/quaternions.pyx":64
+  /* "nvg/maths/quaternions.pyx":64
  *     x = q.x*scalar
  *     y = q.y*scalar
  *     z = q.z*scalar             # <<<<<<<<<<<<<<
@@ -1601,7 +1601,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_z = (__pyx_v_q->z * __pyx_v_scalar);
 
-  /* "imusim/maths/quaternions.pyx":65
+  /* "nvg/maths/quaternions.pyx":65
  *     y = q.y*scalar
  *     z = q.z*scalar
  *     dest.w = w             # <<<<<<<<<<<<<<
@@ -1610,7 +1610,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_dest->w = __pyx_v_w;
 
-  /* "imusim/maths/quaternions.pyx":66
+  /* "nvg/maths/quaternions.pyx":66
  *     z = q.z*scalar
  *     dest.w = w
  *     dest.x = x             # <<<<<<<<<<<<<<
@@ -1619,7 +1619,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_dest->x = __pyx_v_x;
 
-  /* "imusim/maths/quaternions.pyx":67
+  /* "nvg/maths/quaternions.pyx":67
  *     dest.w = w
  *     dest.x = x
  *     dest.y = y             # <<<<<<<<<<<<<<
@@ -1628,7 +1628,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  */
   __pyx_v_dest->y = __pyx_v_y;
 
-  /* "imusim/maths/quaternions.pyx":68
+  /* "nvg/maths/quaternions.pyx":68
  *     dest.x = x
  *     dest.y = y
  *     dest.z = z             # <<<<<<<<<<<<<<
@@ -1640,7 +1640,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":70
+/* "nvg/maths/quaternions.pyx":70
  *     dest.z = z
  * 
  * cdef inline void quaternion_add(quaternion_t *q, quaternion_t *p,             # <<<<<<<<<<<<<<
@@ -1648,11 +1648,11 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(
  *     dest.w = q.w + p.w
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_add(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("quaternion_add");
 
-  /* "imusim/maths/quaternions.pyx":72
+  /* "nvg/maths/quaternions.pyx":72
  * cdef inline void quaternion_add(quaternion_t *q, quaternion_t *p,
  *         quaternion_t *dest):
  *     dest.w = q.w + p.w             # <<<<<<<<<<<<<<
@@ -1661,7 +1661,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__
  */
   __pyx_v_dest->w = (__pyx_v_q->w + __pyx_v_p->w);
 
-  /* "imusim/maths/quaternions.pyx":73
+  /* "nvg/maths/quaternions.pyx":73
  *         quaternion_t *dest):
  *     dest.w = q.w + p.w
  *     dest.x = q.x + p.x             # <<<<<<<<<<<<<<
@@ -1670,7 +1670,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__
  */
   __pyx_v_dest->x = (__pyx_v_q->x + __pyx_v_p->x);
 
-  /* "imusim/maths/quaternions.pyx":74
+  /* "nvg/maths/quaternions.pyx":74
  *     dest.w = q.w + p.w
  *     dest.x = q.x + p.x
  *     dest.y = q.y + p.y             # <<<<<<<<<<<<<<
@@ -1679,7 +1679,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__
  */
   __pyx_v_dest->y = (__pyx_v_q->y + __pyx_v_p->y);
 
-  /* "imusim/maths/quaternions.pyx":75
+  /* "nvg/maths/quaternions.pyx":75
  *     dest.x = q.x + p.x
  *     dest.y = q.y + p.y
  *     dest.z = q.z + p.z             # <<<<<<<<<<<<<<
@@ -1691,7 +1691,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":77
+/* "nvg/maths/quaternions.pyx":77
  *     dest.z = q.z + p.z
  * 
  * cdef inline void quaternion_sub(quaternion_t *q, quaternion_t *p,             # <<<<<<<<<<<<<<
@@ -1699,11 +1699,11 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_add(__
  *     dest.w = q.w - p.w
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_sub(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_p, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("quaternion_sub");
 
-  /* "imusim/maths/quaternions.pyx":79
+  /* "nvg/maths/quaternions.pyx":79
  * cdef inline void quaternion_sub(quaternion_t *q, quaternion_t *p,
  *         quaternion_t *dest):
  *     dest.w = q.w - p.w             # <<<<<<<<<<<<<<
@@ -1712,7 +1712,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__
  */
   __pyx_v_dest->w = (__pyx_v_q->w - __pyx_v_p->w);
 
-  /* "imusim/maths/quaternions.pyx":80
+  /* "nvg/maths/quaternions.pyx":80
  *         quaternion_t *dest):
  *     dest.w = q.w - p.w
  *     dest.x = q.x - p.x             # <<<<<<<<<<<<<<
@@ -1721,7 +1721,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__
  */
   __pyx_v_dest->x = (__pyx_v_q->x - __pyx_v_p->x);
 
-  /* "imusim/maths/quaternions.pyx":81
+  /* "nvg/maths/quaternions.pyx":81
  *     dest.w = q.w - p.w
  *     dest.x = q.x - p.x
  *     dest.y = q.y - p.y             # <<<<<<<<<<<<<<
@@ -1730,7 +1730,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__
  */
   __pyx_v_dest->y = (__pyx_v_q->y - __pyx_v_p->y);
 
-  /* "imusim/maths/quaternions.pyx":82
+  /* "nvg/maths/quaternions.pyx":82
  *     dest.x = q.x - p.x
  *     dest.y = q.y - p.y
  *     dest.z = q.z - p.z             # <<<<<<<<<<<<<<
@@ -1742,7 +1742,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":84
+/* "nvg/maths/quaternions.pyx":84
  *     dest.z = q.z - p.z
  * 
  * cdef inline void quaternion_log(quaternion_t *q, quaternion_t *dest):             # <<<<<<<<<<<<<<
@@ -1750,7 +1750,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_sub(__
  *     Obtain the natural logarithm of q.
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_log(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   double __pyx_v_V2;
   double __pyx_v_normV;
   double __pyx_v_m;
@@ -1763,7 +1763,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("quaternion_log");
 
-  /* "imusim/maths/quaternions.pyx":88
+  /* "nvg/maths/quaternions.pyx":88
  *     Obtain the natural logarithm of q.
  *     """
  *     cdef double V2 = q.x*q.x + q.y*q.y + q.z*q.z             # <<<<<<<<<<<<<<
@@ -1772,7 +1772,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
   __pyx_v_V2 = (((__pyx_v_q->x * __pyx_v_q->x) + (__pyx_v_q->y * __pyx_v_q->y)) + (__pyx_v_q->z * __pyx_v_q->z));
 
-  /* "imusim/maths/quaternions.pyx":89
+  /* "nvg/maths/quaternions.pyx":89
  *     """
  *     cdef double V2 = q.x*q.x + q.y*q.y + q.z*q.z
  *     cdef double normV = sqrt(V2)             # <<<<<<<<<<<<<<
@@ -1781,17 +1781,17 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
   __pyx_v_normV = sqrt(__pyx_v_V2);
 
-  /* "imusim/maths/quaternions.pyx":91
+  /* "nvg/maths/quaternions.pyx":91
  *     cdef double normV = sqrt(V2)
  *     cdef double m, s, a
  *     if normV > EPS:             # <<<<<<<<<<<<<<
  *         m = sqrt(q.w**2 + V2)
  *         a = acos(q.w/m)
  */
-  __pyx_t_1 = (__pyx_v_normV > __pyx_v_6imusim_5maths_11quaternions_EPS);
+  __pyx_t_1 = (__pyx_v_normV > __pyx_v_6nvg_5maths_11quaternions_EPS);
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quaternions.pyx":92
+    /* "nvg/maths/quaternions.pyx":92
  *     cdef double m, s, a
  *     if normV > EPS:
  *         m = sqrt(q.w**2 + V2)             # <<<<<<<<<<<<<<
@@ -1800,7 +1800,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_m = sqrt((pow(__pyx_v_q->w, 2.0) + __pyx_v_V2));
 
-    /* "imusim/maths/quaternions.pyx":93
+    /* "nvg/maths/quaternions.pyx":93
  *     if normV > EPS:
  *         m = sqrt(q.w**2 + V2)
  *         a = acos(q.w/m)             # <<<<<<<<<<<<<<
@@ -1813,7 +1813,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
     }
     __pyx_v_a = acos((__pyx_v_q->w / __pyx_v_m));
 
-    /* "imusim/maths/quaternions.pyx":94
+    /* "nvg/maths/quaternions.pyx":94
  *         m = sqrt(q.w**2 + V2)
  *         a = acos(q.w/m)
  *         s = a / normV             # <<<<<<<<<<<<<<
@@ -1826,7 +1826,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
     }
     __pyx_v_s = (__pyx_v_a / __pyx_v_normV);
 
-    /* "imusim/maths/quaternions.pyx":95
+    /* "nvg/maths/quaternions.pyx":95
  *         a = acos(q.w/m)
  *         s = a / normV
  *         dest.w = log(m)             # <<<<<<<<<<<<<<
@@ -1835,7 +1835,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->w = log(__pyx_v_m);
 
-    /* "imusim/maths/quaternions.pyx":96
+    /* "nvg/maths/quaternions.pyx":96
  *         s = a / normV
  *         dest.w = log(m)
  *         dest.x = q.x * s             # <<<<<<<<<<<<<<
@@ -1844,7 +1844,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->x = (__pyx_v_q->x * __pyx_v_s);
 
-    /* "imusim/maths/quaternions.pyx":97
+    /* "nvg/maths/quaternions.pyx":97
  *         dest.w = log(m)
  *         dest.x = q.x * s
  *         dest.y = q.y * s             # <<<<<<<<<<<<<<
@@ -1853,7 +1853,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->y = (__pyx_v_q->y * __pyx_v_s);
 
-    /* "imusim/maths/quaternions.pyx":98
+    /* "nvg/maths/quaternions.pyx":98
  *         dest.x = q.x * s
  *         dest.y = q.y * s
  *         dest.z = q.z * s             # <<<<<<<<<<<<<<
@@ -1865,7 +1865,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":100
+    /* "nvg/maths/quaternions.pyx":100
  *         dest.z = q.z * s
  *     else:
  *        dest.w = 0             # <<<<<<<<<<<<<<
@@ -1874,7 +1874,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->w = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":101
+    /* "nvg/maths/quaternions.pyx":101
  *     else:
  *        dest.w = 0
  *        dest.x = 0             # <<<<<<<<<<<<<<
@@ -1883,7 +1883,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->x = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":102
+    /* "nvg/maths/quaternions.pyx":102
  *        dest.w = 0
  *        dest.x = 0
  *        dest.y = 0             # <<<<<<<<<<<<<<
@@ -1892,7 +1892,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  */
     __pyx_v_dest->y = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":103
+    /* "nvg/maths/quaternions.pyx":103
  *        dest.x = 0
  *        dest.y = 0
  *        dest.z = 0             # <<<<<<<<<<<<<<
@@ -1905,12 +1905,12 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
 
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("imusim.maths.quaternions.quaternion_log", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("nvg.maths.quaternions.quaternion_log", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":105
+/* "nvg/maths/quaternions.pyx":105
  *        dest.z = 0
  * 
  * cdef inline void quaternion_exp(quaternion_t *q, quaternion_t *dest):             # <<<<<<<<<<<<<<
@@ -1918,7 +1918,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_log(__
  *     Obtain the exponential of this quaternion.
  */
 
-static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
+static CYTHON_INLINE void __pyx_f_6nvg_5maths_11quaternions_quaternion_exp(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_dest) {
   double __pyx_v_V2;
   double __pyx_v_normV;
   double __pyx_v_s;
@@ -1931,7 +1931,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("quaternion_exp");
 
-  /* "imusim/maths/quaternions.pyx":109
+  /* "nvg/maths/quaternions.pyx":109
  *     Obtain the exponential of this quaternion.
  *     """
  *     cdef double V2 = q.x*q.x + q.y*q.y + q.z*q.z             # <<<<<<<<<<<<<<
@@ -1940,7 +1940,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
   __pyx_v_V2 = (((__pyx_v_q->x * __pyx_v_q->x) + (__pyx_v_q->y * __pyx_v_q->y)) + (__pyx_v_q->z * __pyx_v_q->z));
 
-  /* "imusim/maths/quaternions.pyx":110
+  /* "nvg/maths/quaternions.pyx":110
  *     """
  *     cdef double V2 = q.x*q.x + q.y*q.y + q.z*q.z
  *     cdef double normV = sqrt(V2)             # <<<<<<<<<<<<<<
@@ -1949,17 +1949,17 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
   __pyx_v_normV = sqrt(__pyx_v_V2);
 
-  /* "imusim/maths/quaternions.pyx":112
+  /* "nvg/maths/quaternions.pyx":112
  *     cdef double normV = sqrt(V2)
  *     cdef double s, e
  *     if normV > EPS:             # <<<<<<<<<<<<<<
  *         s = sin(normV) / normV
  *         e = exp(q.w)
  */
-  __pyx_t_1 = (__pyx_v_normV > __pyx_v_6imusim_5maths_11quaternions_EPS);
+  __pyx_t_1 = (__pyx_v_normV > __pyx_v_6nvg_5maths_11quaternions_EPS);
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quaternions.pyx":113
+    /* "nvg/maths/quaternions.pyx":113
  *     cdef double s, e
  *     if normV > EPS:
  *         s = sin(normV) / normV             # <<<<<<<<<<<<<<
@@ -1973,7 +1973,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
     }
     __pyx_v_s = (__pyx_t_2 / __pyx_v_normV);
 
-    /* "imusim/maths/quaternions.pyx":114
+    /* "nvg/maths/quaternions.pyx":114
  *     if normV > EPS:
  *         s = sin(normV) / normV
  *         e = exp(q.w)             # <<<<<<<<<<<<<<
@@ -1982,7 +1982,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_e = exp(__pyx_v_q->w);
 
-    /* "imusim/maths/quaternions.pyx":115
+    /* "nvg/maths/quaternions.pyx":115
  *         s = sin(normV) / normV
  *         e = exp(q.w)
  *         dest.w = cos(normV)             # <<<<<<<<<<<<<<
@@ -1991,7 +1991,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->w = cos(__pyx_v_normV);
 
-    /* "imusim/maths/quaternions.pyx":116
+    /* "nvg/maths/quaternions.pyx":116
  *         e = exp(q.w)
  *         dest.w = cos(normV)
  *         dest.x = q.x * s             # <<<<<<<<<<<<<<
@@ -2000,7 +2000,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->x = (__pyx_v_q->x * __pyx_v_s);
 
-    /* "imusim/maths/quaternions.pyx":117
+    /* "nvg/maths/quaternions.pyx":117
  *         dest.w = cos(normV)
  *         dest.x = q.x * s
  *         dest.y = q.y * s             # <<<<<<<<<<<<<<
@@ -2009,7 +2009,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->y = (__pyx_v_q->y * __pyx_v_s);
 
-    /* "imusim/maths/quaternions.pyx":118
+    /* "nvg/maths/quaternions.pyx":118
  *         dest.x = q.x * s
  *         dest.y = q.y * s
  *         dest.z = q.z * s             # <<<<<<<<<<<<<<
@@ -2018,19 +2018,19 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->z = (__pyx_v_q->z * __pyx_v_s);
 
-    /* "imusim/maths/quaternions.pyx":119
+    /* "nvg/maths/quaternions.pyx":119
  *         dest.y = q.y * s
  *         dest.z = q.z * s
  *         mult_quat_scalar(dest, e, dest)             # <<<<<<<<<<<<<<
  *     else:
  *         dest.w = exp(q.w)
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(__pyx_v_dest, __pyx_v_e, __pyx_v_dest);
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar(__pyx_v_dest, __pyx_v_e, __pyx_v_dest);
     goto __pyx_L3;
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":121
+    /* "nvg/maths/quaternions.pyx":121
  *         mult_quat_scalar(dest, e, dest)
  *     else:
  *         dest.w = exp(q.w)             # <<<<<<<<<<<<<<
@@ -2039,7 +2039,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->w = exp(__pyx_v_q->w);
 
-    /* "imusim/maths/quaternions.pyx":122
+    /* "nvg/maths/quaternions.pyx":122
  *     else:
  *         dest.w = exp(q.w)
  *         dest.x = 0             # <<<<<<<<<<<<<<
@@ -2048,7 +2048,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->x = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":123
+    /* "nvg/maths/quaternions.pyx":123
  *         dest.w = exp(q.w)
  *         dest.x = 0
  *         dest.y = 0             # <<<<<<<<<<<<<<
@@ -2057,7 +2057,7 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  */
     __pyx_v_dest->y = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":124
+    /* "nvg/maths/quaternions.pyx":124
  *         dest.x = 0
  *         dest.y = 0
  *         dest.z = 0             # <<<<<<<<<<<<<<
@@ -2070,12 +2070,12 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
 
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("imusim.maths.quaternions.quaternion_exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("nvg.maths.quaternions.quaternion_exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
 }
 
-/* "imusim/maths/quaternions.pyx":126
+/* "nvg/maths/quaternions.pyx":126
  *         dest.z = 0
  * 
  * def QuaternionFromEuler(angles,order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -2083,14 +2083,14 @@ static CYTHON_INLINE void __pyx_f_6imusim_5maths_11quaternions_quaternion_exp(__
  *     Construct a quaternion from an Euler angle sequence.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_QuaternionFromEuler[] = "\n    Construct a quaternion from an Euler angle sequence.\n\n    @param angles: Sequence of 3 Euler angles.\n    @param order: The order to apply the Euler angle sequence.\n    @param inDegrees: True to indicate that angles are in degrees (default),\n        or False for radians.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_QuaternionFromEuler = {__Pyx_NAMESTR("QuaternionFromEuler"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_QuaternionFromEuler)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_QuaternionFromEuler(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_QuaternionFromEuler[] = "\n    Construct a quaternion from an Euler angle sequence.\n\n    @param angles: Sequence of 3 Euler angles.\n    @param order: The order to apply the Euler angle sequence.\n    @param inDegrees: True to indicate that angles are in degrees (default),\n        or False for radians.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_QuaternionFromEuler = {__Pyx_NAMESTR("QuaternionFromEuler"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_QuaternionFromEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_QuaternionFromEuler)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_QuaternionFromEuler(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_angles = 0;
   PyObject *__pyx_v_order = 0;
   PyObject *__pyx_v_inDegrees = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2152,24 +2152,24 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("QuaternionFromEuler", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":135
+  /* "nvg/maths/quaternions.pyx":135
  *         or False for radians.
  *     """
  *     q = Quaternion()             # <<<<<<<<<<<<<<
  *     q.setFromEuler(angles,order,inDegrees)
  *     return q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 135; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":136
+  /* "nvg/maths/quaternions.pyx":136
  *     """
  *     q = Quaternion()
  *     q.setFromEuler(angles,order,inDegrees)             # <<<<<<<<<<<<<<
@@ -2195,7 +2195,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObj
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":137
+  /* "nvg/maths/quaternions.pyx":137
  *     q = Quaternion()
  *     q.setFromEuler(angles,order,inDegrees)
  *     return q             # <<<<<<<<<<<<<<
@@ -2213,7 +2213,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObj
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q);
@@ -2222,7 +2222,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObj
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":139
+/* "nvg/maths/quaternions.pyx":139
  *     return q
  * 
  * def QuaternionFromMatrix(m):             # <<<<<<<<<<<<<<
@@ -2230,11 +2230,11 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_QuaternionFromEuler(PyObj
  *     Create a quaternion to be eqivalent to a given 3x3 rotation matrix.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyObject *__pyx_self, PyObject *__pyx_v_m); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_1QuaternionFromMatrix[] = "\n    Create a quaternion to be eqivalent to a given 3x3 rotation matrix.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_1QuaternionFromMatrix = {__Pyx_NAMESTR("QuaternionFromMatrix"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_1QuaternionFromMatrix)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyObject *__pyx_self, PyObject *__pyx_v_m) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_1QuaternionFromMatrix(PyObject *__pyx_self, PyObject *__pyx_v_m); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_1QuaternionFromMatrix[] = "\n    Create a quaternion to be eqivalent to a given 3x3 rotation matrix.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_1QuaternionFromMatrix = {__Pyx_NAMESTR("QuaternionFromMatrix"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_1QuaternionFromMatrix, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_1QuaternionFromMatrix)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_1QuaternionFromMatrix(PyObject *__pyx_self, PyObject *__pyx_v_m) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2246,19 +2246,19 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyO
   __Pyx_RefNannySetupContext("QuaternionFromMatrix");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":143
+  /* "nvg/maths/quaternions.pyx":143
  *     Create a quaternion to be eqivalent to a given 3x3 rotation matrix.
  *     """
  *     q = Quaternion()             # <<<<<<<<<<<<<<
  *     q.setFromMatrix(m)
  *     return q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 143; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":144
+  /* "nvg/maths/quaternions.pyx":144
  *     """
  *     q = Quaternion()
  *     q.setFromMatrix(m)             # <<<<<<<<<<<<<<
@@ -2278,7 +2278,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyO
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":145
+  /* "nvg/maths/quaternions.pyx":145
  *     q = Quaternion()
  *     q.setFromMatrix(m)
  *     return q             # <<<<<<<<<<<<<<
@@ -2296,7 +2296,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyO
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q);
@@ -2305,7 +2305,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":147
+/* "nvg/maths/quaternions.pyx":147
  *     return q
  * 
  * def QuaternionFromVectors(x,y,z):             # <<<<<<<<<<<<<<
@@ -2313,14 +2313,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_1QuaternionFromMatrix(PyO
  *     Create a quaternion that acts as a rotation taking the e1,e2,e3 basis
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_2QuaternionFromVectors[] = "\n    Create a quaternion that acts as a rotation taking the e1,e2,e3 basis\n    vectors to x,y,z.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_2QuaternionFromVectors = {__Pyx_NAMESTR("QuaternionFromVectors"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_2QuaternionFromVectors)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_2QuaternionFromVectors(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_2QuaternionFromVectors[] = "\n    Create a quaternion that acts as a rotation taking the e1,e2,e3 basis\n    vectors to x,y,z.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_2QuaternionFromVectors = {__Pyx_NAMESTR("QuaternionFromVectors"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_2QuaternionFromVectors, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_2QuaternionFromVectors)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_2QuaternionFromVectors(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_y = 0;
   PyObject *__pyx_v_z = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2380,24 +2380,24 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(Py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("QuaternionFromVectors", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 147; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":152
+  /* "nvg/maths/quaternions.pyx":152
  *     vectors to x,y,z.
  *     """
  *     q = Quaternion()             # <<<<<<<<<<<<<<
  *     q.setFromVectors(x,y,z)
  *     return q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 152; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":153
+  /* "nvg/maths/quaternions.pyx":153
  *     """
  *     q = Quaternion()
  *     q.setFromVectors(x,y,z)             # <<<<<<<<<<<<<<
@@ -2423,7 +2423,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(Py
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":154
+  /* "nvg/maths/quaternions.pyx":154
  *     q = Quaternion()
  *     q.setFromVectors(x,y,z)
  *     return q             # <<<<<<<<<<<<<<
@@ -2441,7 +2441,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(Py
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q);
@@ -2450,7 +2450,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":156
+/* "nvg/maths/quaternions.pyx":156
  *     return q
  * 
  * def QuaternionFromAxisAngle(axis,angle,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -2458,14 +2458,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_2QuaternionFromVectors(Py
  *     Construct a quaternion from the axis-angle representation of a rotation.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle[] = "\n    Construct a quaternion from the axis-angle representation of a rotation.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle = {__Pyx_NAMESTR("QuaternionFromAxisAngle"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle[] = "\n    Construct a quaternion from the axis-angle representation of a rotation.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle = {__Pyx_NAMESTR("QuaternionFromAxisAngle"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_axis = 0;
   PyObject *__pyx_v_angle = 0;
   PyObject *__pyx_v_inDegrees = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2527,24 +2527,24 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("QuaternionFromAxisAngle", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 156; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":160
+  /* "nvg/maths/quaternions.pyx":160
  *     Construct a quaternion from the axis-angle representation of a rotation.
  *     """
  *     q = Quaternion()             # <<<<<<<<<<<<<<
  *     q.setFromAxisAngle(axis,angle,inDegrees)
  *     return q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 160; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":161
+  /* "nvg/maths/quaternions.pyx":161
  *     """
  *     q = Quaternion()
  *     q.setFromAxisAngle(axis,angle,inDegrees)             # <<<<<<<<<<<<<<
@@ -2570,7 +2570,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":162
+  /* "nvg/maths/quaternions.pyx":162
  *     q = Quaternion()
  *     q.setFromAxisAngle(axis,angle,inDegrees)
  *     return q             # <<<<<<<<<<<<<<
@@ -2588,7 +2588,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q);
@@ -2597,7 +2597,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":164
+/* "nvg/maths/quaternions.pyx":164
  *     return q
  * 
  * def QuaternionFromSORA(rx,ry,rz,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -2605,15 +2605,15 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle(
  *     Construct a quaternion from simultaneous orthogonal rotations angle (SORA),
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_4QuaternionFromSORA[] = "\n    Construct a quaternion from simultaneous orthogonal rotations angle (SORA),\n    as commonly provided by a 3-axis gyroscope.\n    ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_4QuaternionFromSORA = {__Pyx_NAMESTR("QuaternionFromSORA"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_4QuaternionFromSORA)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_4QuaternionFromSORA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_4QuaternionFromSORA[] = "\n    Construct a quaternion from simultaneous orthogonal rotations angle (SORA),\n    as commonly provided by a 3-axis gyroscope.\n    ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_4QuaternionFromSORA = {__Pyx_NAMESTR("QuaternionFromSORA"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_4QuaternionFromSORA, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_4QuaternionFromSORA)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_4QuaternionFromSORA(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_rx = 0;
   PyObject *__pyx_v_ry = 0;
   PyObject *__pyx_v_rz = 0;
   PyObject *__pyx_v_inDegrees = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2684,24 +2684,24 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObj
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("QuaternionFromSORA", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":169
+  /* "nvg/maths/quaternions.pyx":169
  *     as commonly provided by a 3-axis gyroscope.
  *     """
  *     q = Quaternion()             # <<<<<<<<<<<<<<
  *     q.setFromSORA(rx,ry,rz,inDegrees)
  *     return q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 169; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":170
+  /* "nvg/maths/quaternions.pyx":170
  *     """
  *     q = Quaternion()
  *     q.setFromSORA(rx,ry,rz,inDegrees)             # <<<<<<<<<<<<<<
@@ -2730,7 +2730,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObj
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":171
+  /* "nvg/maths/quaternions.pyx":171
  *     q = Quaternion()
  *     q.setFromSORA(rx,ry,rz,inDegrees)
  *     return q             # <<<<<<<<<<<<<<
@@ -2748,7 +2748,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObj
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q);
@@ -2757,7 +2757,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObj
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":173
+/* "nvg/maths/quaternions.pyx":173
  *     return q
  * 
  * def QuaternionNaN():             # <<<<<<<<<<<<<<
@@ -2765,9 +2765,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_4QuaternionFromSORA(PyObj
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_5QuaternionNaN = {__Pyx_NAMESTR("QuaternionNaN"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN, METH_NOARGS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_5QuaternionNaN(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_5QuaternionNaN = {__Pyx_NAMESTR("QuaternionNaN"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_5QuaternionNaN, METH_NOARGS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_5QuaternionNaN(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2781,7 +2781,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *
   __Pyx_RefNannySetupContext("QuaternionNaN");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":174
+  /* "nvg/maths/quaternions.pyx":174
  * 
  * def QuaternionNaN():
  *     return Quaternion(np.nan, np.nan, np.nan, np.nan)             # <<<<<<<<<<<<<<
@@ -2823,7 +2823,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 174; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_5;
@@ -2838,7 +2838,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionNaN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionNaN", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2846,7 +2846,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":180
+/* "nvg/maths/quaternions.pyx":180
  *     A quaternion value.
  *     """
  *     def __cinit__(self,double w=1,double x=0,double y=0,double z=0):             # <<<<<<<<<<<<<<
@@ -2854,8 +2854,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_5QuaternionNaN(PyObject *
  *         self._components.x = x
  */
 
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   double __pyx_v_w;
   double __pyx_v_x;
   double __pyx_v_y;
@@ -2940,53 +2940,53 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion___cinit__(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 0, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 180; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":181
+  /* "nvg/maths/quaternions.pyx":181
  *     """
  *     def __cinit__(self,double w=1,double x=0,double y=0,double z=0):
  *         self._components.w = w             # <<<<<<<<<<<<<<
  *         self._components.x = x
  *         self._components.y = y
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w = __pyx_v_w;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w = __pyx_v_w;
 
-  /* "imusim/maths/quaternions.pyx":182
+  /* "nvg/maths/quaternions.pyx":182
  *     def __cinit__(self,double w=1,double x=0,double y=0,double z=0):
  *         self._components.w = w
  *         self._components.x = x             # <<<<<<<<<<<<<<
  *         self._components.y = y
  *         self._components.z = z
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x = __pyx_v_x;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x = __pyx_v_x;
 
-  /* "imusim/maths/quaternions.pyx":183
+  /* "nvg/maths/quaternions.pyx":183
  *         self._components.w = w
  *         self._components.x = x
  *         self._components.y = y             # <<<<<<<<<<<<<<
  *         self._components.z = z
  * 
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y = __pyx_v_y;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y = __pyx_v_y;
 
-  /* "imusim/maths/quaternions.pyx":184
+  /* "nvg/maths/quaternions.pyx":184
  *         self._components.x = x
  *         self._components.y = y
  *         self._components.z = z             # <<<<<<<<<<<<<<
  * 
  *     # Quaternions are mutable so can't be used for dictionary keys
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z = __pyx_v_z;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z = __pyx_v_z;
 
   __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":190
+/* "nvg/maths/quaternions.pyx":190
  * 
  *     property w:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -2994,8 +2994,8 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion___cinit__(PyObject
  *         def __set__(self, double value):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3004,7 +3004,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":191
+  /* "nvg/maths/quaternions.pyx":191
  *     property w:
  *         def __get__(self):
  *             return self._components.w             # <<<<<<<<<<<<<<
@@ -3012,7 +3012,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(P
  *             self._components.w = value
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 191; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3022,7 +3022,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(P
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.w.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.w.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3030,7 +3030,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":192
+/* "nvg/maths/quaternions.pyx":192
  *         def __get__(self):
  *             return self._components.w
  *         def __set__(self, double value):             # <<<<<<<<<<<<<<
@@ -3038,8 +3038,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(P
  *     property x:
  */
 
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
   double __pyx_v_value;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -3052,26 +3052,26 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w_1__set__(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.w.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.w.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":193
+  /* "nvg/maths/quaternions.pyx":193
  *             return self._components.w
  *         def __set__(self, double value):
  *             self._components.w = value             # <<<<<<<<<<<<<<
  *     property x:
  *         def __get__(self):
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w = __pyx_v_value;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.w = __pyx_v_value;
 
   __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":195
+/* "nvg/maths/quaternions.pyx":195
  *             self._components.w = value
  *     property x:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3079,8 +3079,8 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w_1__set__(PyObje
  *         def __set__(self, double value):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3089,7 +3089,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":196
+  /* "nvg/maths/quaternions.pyx":196
  *     property x:
  *         def __get__(self):
  *             return self._components.x             # <<<<<<<<<<<<<<
@@ -3097,7 +3097,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(P
  *             self._components.x = value
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 196; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 196; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3107,7 +3107,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(P
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.x.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.x.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3115,7 +3115,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":197
+/* "nvg/maths/quaternions.pyx":197
  *         def __get__(self):
  *             return self._components.x
  *         def __set__(self, double value):             # <<<<<<<<<<<<<<
@@ -3123,8 +3123,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(P
  *     property y:
  */
 
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
   double __pyx_v_value;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -3137,26 +3137,26 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x_1__set__(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.x.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.x.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":198
+  /* "nvg/maths/quaternions.pyx":198
  *             return self._components.x
  *         def __set__(self, double value):
  *             self._components.x = value             # <<<<<<<<<<<<<<
  *     property y:
  *         def __get__(self):
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x = __pyx_v_value;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x = __pyx_v_value;
 
   __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":200
+/* "nvg/maths/quaternions.pyx":200
  *             self._components.x = value
  *     property y:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3164,8 +3164,8 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x_1__set__(PyObje
  *         def __set__(self, double value):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3174,7 +3174,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":201
+  /* "nvg/maths/quaternions.pyx":201
  *     property y:
  *         def __get__(self):
  *             return self._components.y             # <<<<<<<<<<<<<<
@@ -3182,7 +3182,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(P
  *             self._components.y = value
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 201; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3192,7 +3192,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(P
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.y.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.y.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3200,7 +3200,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":202
+/* "nvg/maths/quaternions.pyx":202
  *         def __get__(self):
  *             return self._components.y
  *         def __set__(self, double value):             # <<<<<<<<<<<<<<
@@ -3208,8 +3208,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(P
  *     property z:
  */
 
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
   double __pyx_v_value;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -3222,26 +3222,26 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y_1__set__(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.y.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.y.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":203
+  /* "nvg/maths/quaternions.pyx":203
  *             return self._components.y
  *         def __set__(self, double value):
  *             self._components.y = value             # <<<<<<<<<<<<<<
  *     property z:
  *         def __get__(self):
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y = __pyx_v_value;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y = __pyx_v_value;
 
   __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":205
+/* "nvg/maths/quaternions.pyx":205
  *             self._components.y = value
  *     property z:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -3249,8 +3249,8 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y_1__set__(PyObje
  *         def __set__(self, double value):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3259,7 +3259,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":206
+  /* "nvg/maths/quaternions.pyx":206
  *     property z:
  *         def __get__(self):
  *             return self._components.z             # <<<<<<<<<<<<<<
@@ -3267,7 +3267,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(P
  *             self._components.z = value
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 206; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 206; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3277,7 +3277,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(P
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.z.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.z.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3285,7 +3285,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":207
+/* "nvg/maths/quaternions.pyx":207
  *         def __get__(self):
  *             return self._components.z
  *         def __set__(self, double value):             # <<<<<<<<<<<<<<
@@ -3293,8 +3293,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(P
  * 
  */
 
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
-static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value); /*proto*/
+static int __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z_1__set__(PyObject *__pyx_v_self, PyObject *__pyx_arg_value) {
   double __pyx_v_value;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -3307,26 +3307,26 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z_1__set__(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.z.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.z.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":208
+  /* "nvg/maths/quaternions.pyx":208
  *             return self._components.z
  *         def __set__(self, double value):
  *             self._components.z = value             # <<<<<<<<<<<<<<
  * 
  *     def __richcomp__(Quaternion self, Quaternion other, int op):
  */
-  ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z = __pyx_v_value;
+  ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z = __pyx_v_value;
 
   __pyx_r = 0;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":210
+/* "nvg/maths/quaternions.pyx":210
  *             self._components.z = value
  * 
  *     def __richcomp__(Quaternion self, Quaternion other, int op):             # <<<<<<<<<<<<<<
@@ -3334,9 +3334,9 @@ static int __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z_1__set__(PyObje
  *             return self.w == other.w and \
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_other = 0;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1__richcomp__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1__richcomp__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_other = 0;
   int __pyx_v_op;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3384,20 +3384,20 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
-    __pyx_v_other = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)values[0]);
+    __pyx_v_other = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)values[0]);
     __pyx_v_op = __Pyx_PyInt_AsInt(values[1]); if (unlikely((__pyx_v_op == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 210; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__richcomp__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 210; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__richcomp__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__richcomp__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 210; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":216
+  /* "nvg/maths/quaternions.pyx":216
  *                 self.y == other.y and \
  *                 self.z == other.z
  *         elif op == 3:             # <<<<<<<<<<<<<<
@@ -3406,7 +3406,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
  */
   switch (__pyx_v_op) {
 
-    /* "imusim/maths/quaternions.pyx":211
+    /* "nvg/maths/quaternions.pyx":211
  * 
  *     def __richcomp__(Quaternion self, Quaternion other, int op):
  *         if op == 2:             # <<<<<<<<<<<<<<
@@ -3415,7 +3415,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
  */
     case 2:
 
-    /* "imusim/maths/quaternions.pyx":212
+    /* "nvg/maths/quaternions.pyx":212
  *     def __richcomp__(Quaternion self, Quaternion other, int op):
  *         if op == 2:
  *             return self.w == other.w and \             # <<<<<<<<<<<<<<
@@ -3435,7 +3435,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
     if (__pyx_t_4) {
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "imusim/maths/quaternions.pyx":213
+      /* "nvg/maths/quaternions.pyx":213
  *         if op == 2:
  *             return self.w == other.w and \
  *                 self.x == other.x and \             # <<<<<<<<<<<<<<
@@ -3454,7 +3454,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
       if (__pyx_t_4) {
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "imusim/maths/quaternions.pyx":214
+        /* "nvg/maths/quaternions.pyx":214
  *             return self.w == other.w and \
  *                 self.x == other.x and \
  *                 self.y == other.y and \             # <<<<<<<<<<<<<<
@@ -3473,7 +3473,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
         if (__pyx_t_4) {
           __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-          /* "imusim/maths/quaternions.pyx":215
+          /* "nvg/maths/quaternions.pyx":215
  *                 self.x == other.x and \
  *                 self.y == other.y and \
  *                 self.z == other.z             # <<<<<<<<<<<<<<
@@ -3511,7 +3511,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
     goto __pyx_L0;
     break;
 
-    /* "imusim/maths/quaternions.pyx":216
+    /* "nvg/maths/quaternions.pyx":216
  *                 self.y == other.y and \
  *                 self.z == other.z
  *         elif op == 3:             # <<<<<<<<<<<<<<
@@ -3520,7 +3520,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
  */
     case 3:
 
-    /* "imusim/maths/quaternions.pyx":217
+    /* "nvg/maths/quaternions.pyx":217
  *                 self.z == other.z
  *         elif op == 3:
  *             return ~(self.w == other.w and \             # <<<<<<<<<<<<<<
@@ -3540,7 +3540,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
     if (__pyx_t_4) {
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-      /* "imusim/maths/quaternions.pyx":218
+      /* "nvg/maths/quaternions.pyx":218
  *         elif op == 3:
  *             return ~(self.w == other.w and \
  *                 self.x == other.x and \             # <<<<<<<<<<<<<<
@@ -3559,7 +3559,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
       if (__pyx_t_4) {
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "imusim/maths/quaternions.pyx":219
+        /* "nvg/maths/quaternions.pyx":219
  *             return ~(self.w == other.w and \
  *                 self.x == other.x and \
  *                 self.y == other.y and \             # <<<<<<<<<<<<<<
@@ -3578,7 +3578,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
         if (__pyx_t_4) {
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-          /* "imusim/maths/quaternions.pyx":220
+          /* "nvg/maths/quaternions.pyx":220
  *                 self.x == other.x and \
  *                 self.y == other.y and \
  *                 self.z == other.z)             # <<<<<<<<<<<<<<
@@ -3620,7 +3620,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
     break;
     default:
 
-    /* "imusim/maths/quaternions.pyx":222
+    /* "nvg/maths/quaternions.pyx":222
  *                 self.z == other.z)
  *         else:
  *             return NotImplemented             # <<<<<<<<<<<<<<
@@ -3643,7 +3643,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__richcomp__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__richcomp__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3651,7 +3651,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":224
+/* "nvg/maths/quaternions.pyx":224
  *             return NotImplemented
  * 
  *     def __repr__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -3659,8 +3659,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp_
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_2__repr__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_2__repr__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3673,7 +3673,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__");
 
-  /* "imusim/maths/quaternions.pyx":225
+  /* "nvg/maths/quaternions.pyx":225
  * 
  *     def __repr__(Quaternion self):
  *         return "Quaternion(%r, %r, %r, %r)"%(self.w,self.x,self.y,self.z)             # <<<<<<<<<<<<<<
@@ -3718,7 +3718,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(Py
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3726,7 +3726,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":228
+/* "nvg/maths/quaternions.pyx":228
  * 
  *     property components:
  *         def __get__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -3734,8 +3734,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__(Py
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10components___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10components___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3748,7 +3748,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":229
+  /* "nvg/maths/quaternions.pyx":229
  *     property components:
  *         def __get__(Quaternion self):
  *             return (self.w,self.x,self.y,self.z)             # <<<<<<<<<<<<<<
@@ -3790,7 +3790,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.components.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.components.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3798,7 +3798,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":231
+/* "nvg/maths/quaternions.pyx":231
  *             return (self.w,self.x,self.y,self.z)
  * 
  *     def __add__(Quaternion q, Quaternion p):             # <<<<<<<<<<<<<<
@@ -3806,8 +3806,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_3__add__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_3__add__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3820,10 +3820,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyO
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "p", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "p", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 231; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":232
+  /* "nvg/maths/quaternions.pyx":232
  * 
  *     def __add__(Quaternion q, Quaternion p):
  *         return Quaternion(q.w+p.w,q.x+p.x,q.y+p.y,q.z+p.z)             # <<<<<<<<<<<<<<
@@ -3877,7 +3877,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyO
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 232; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 232; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_6;
@@ -3893,7 +3893,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyO
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3901,7 +3901,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":234
+/* "nvg/maths/quaternions.pyx":234
  *         return Quaternion(q.w+p.w,q.x+p.x,q.y+p.y,q.z+p.z)
  * 
  *     def __sub__(Quaternion q, Quaternion p):             # <<<<<<<<<<<<<<
@@ -3909,8 +3909,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__(PyO
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_4__sub__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_4__sub__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3923,10 +3923,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyO
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "p", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "p", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 234; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":235
+  /* "nvg/maths/quaternions.pyx":235
  * 
  *     def __sub__(Quaternion q, Quaternion p):
  *         return Quaternion(q.w-p.w,q.x-p.x,q.y-p.y,q.z-p.z)             # <<<<<<<<<<<<<<
@@ -3980,7 +3980,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyO
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_6;
@@ -3996,7 +3996,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyO
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4004,7 +4004,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":237
+/* "nvg/maths/quaternions.pyx":237
  *         return Quaternion(q.w-p.w,q.x-p.x,q.y-p.y,q.z-p.z)
  * 
  *     def __neg__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -4012,8 +4012,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__(PyO
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_5__neg__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_5__neg__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4026,7 +4026,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__neg__");
 
-  /* "imusim/maths/quaternions.pyx":238
+  /* "nvg/maths/quaternions.pyx":238
  * 
  *     def __neg__(Quaternion self):
  *         return Quaternion(-self.w,-self.x,-self.y,-self.z)             # <<<<<<<<<<<<<<
@@ -4068,7 +4068,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyO
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 238; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_5;
@@ -4083,7 +4083,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyO
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__neg__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__neg__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4091,7 +4091,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":240
+/* "nvg/maths/quaternions.pyx":240
  *         return Quaternion(-self.w,-self.x,-self.y,-self.z)
  * 
  *     def __mul__(q,p):             # <<<<<<<<<<<<<<
@@ -4099,11 +4099,11 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__(PyO
  *         cdef Quaternion _p
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v__p = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v__q = 0;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6__mul__(PyObject *__pyx_v_q, PyObject *__pyx_v_p); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6__mul__(PyObject *__pyx_v_q, PyObject *__pyx_v_p) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v__p = 0;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v__q = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4119,19 +4119,19 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__");
 
-  /* "imusim/maths/quaternions.pyx":241
+  /* "nvg/maths/quaternions.pyx":241
  * 
  *     def __mul__(q,p):
  *         cdef Quaternion result = Quaternion()             # <<<<<<<<<<<<<<
  *         cdef Quaternion _p
  *         cdef Quaternion _q
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 241; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_result = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_result = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":244
+  /* "nvg/maths/quaternions.pyx":244
  *         cdef Quaternion _p
  *         cdef Quaternion _q
  *         try:             # <<<<<<<<<<<<<<
@@ -4145,19 +4145,19 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
     __Pyx_XGOTREF(__pyx_t_4);
     /*try:*/ {
 
-      /* "imusim/maths/quaternions.pyx":245
+      /* "nvg/maths/quaternions.pyx":245
  *         cdef Quaternion _q
  *         try:
  *             if isinstance(q, Quaternion) and isinstance(p, Quaternion):             # <<<<<<<<<<<<<<
  *                 _p = p
  *                 _q = q
  */
-      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_5 = __Pyx_TypeCheck(__pyx_v_q, __pyx_t_1); 
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_5) {
-        __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+        __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_6 = __Pyx_TypeCheck(__pyx_v_p, __pyx_t_1); 
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4167,38 +4167,38 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
       }
       if (__pyx_t_7) {
 
-        /* "imusim/maths/quaternions.pyx":246
+        /* "nvg/maths/quaternions.pyx":246
  *         try:
  *             if isinstance(q, Quaternion) and isinstance(p, Quaternion):
  *                 _p = p             # <<<<<<<<<<<<<<
  *                 _q = q
  *                 mult_quat_quat(&_q._components, &_p._components,
  */
-        if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 246; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+        if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 246; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
         __Pyx_INCREF(__pyx_v_p);
-        __pyx_v__p = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_p);
+        __pyx_v__p = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_p);
 
-        /* "imusim/maths/quaternions.pyx":247
+        /* "nvg/maths/quaternions.pyx":247
  *             if isinstance(q, Quaternion) and isinstance(p, Quaternion):
  *                 _p = p
  *                 _q = q             # <<<<<<<<<<<<<<
  *                 mult_quat_quat(&_q._components, &_p._components,
  *                         &result._components)
  */
-        if (!(likely(((__pyx_v_q) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_q, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 247; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+        if (!(likely(((__pyx_v_q) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_q, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 247; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
         __Pyx_INCREF(__pyx_v_q);
-        __pyx_v__q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_q);
+        __pyx_v__q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_q);
 
-        /* "imusim/maths/quaternions.pyx":249
+        /* "nvg/maths/quaternions.pyx":249
  *                 _q = q
  *                 mult_quat_quat(&_q._components, &_p._components,
  *                         &result._components)             # <<<<<<<<<<<<<<
  *                 return result
  *             if isinstance(q, Quaternion):
  */
-        __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v__q->_components), (&__pyx_v__p->_components), (&__pyx_v_result->_components));
+        __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v__q->_components), (&__pyx_v__p->_components), (&__pyx_v_result->_components));
 
-        /* "imusim/maths/quaternions.pyx":250
+        /* "nvg/maths/quaternions.pyx":250
  *                 mult_quat_quat(&_q._components, &_p._components,
  *                         &result._components)
  *                 return result             # <<<<<<<<<<<<<<
@@ -4213,31 +4213,31 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
       }
       __pyx_L13:;
 
-      /* "imusim/maths/quaternions.pyx":251
+      /* "nvg/maths/quaternions.pyx":251
  *                         &result._components)
  *                 return result
  *             if isinstance(q, Quaternion):             # <<<<<<<<<<<<<<
  *                 _q = q
  *                 mult_quat_scalar(&_q._components, p, &result._components)
  */
-      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_7 = __Pyx_TypeCheck(__pyx_v_q, __pyx_t_1); 
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_7) {
 
-        /* "imusim/maths/quaternions.pyx":252
+        /* "nvg/maths/quaternions.pyx":252
  *                 return result
  *             if isinstance(q, Quaternion):
  *                 _q = q             # <<<<<<<<<<<<<<
  *                 mult_quat_scalar(&_q._components, p, &result._components)
  *                 return result
  */
-        if (!(likely(((__pyx_v_q) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_q, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 252; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+        if (!(likely(((__pyx_v_q) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_q, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 252; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
         __Pyx_INCREF(__pyx_v_q);
-        __pyx_v__q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_q);
+        __pyx_v__q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_q);
 
-        /* "imusim/maths/quaternions.pyx":253
+        /* "nvg/maths/quaternions.pyx":253
  *             if isinstance(q, Quaternion):
  *                 _q = q
  *                 mult_quat_scalar(&_q._components, p, &result._components)             # <<<<<<<<<<<<<<
@@ -4245,9 +4245,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
  *             if isinstance(p, Quaternion):
  */
         __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_p); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 253; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
-        __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v__q->_components), __pyx_t_8, (&__pyx_v_result->_components));
+        __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v__q->_components), __pyx_t_8, (&__pyx_v_result->_components));
 
-        /* "imusim/maths/quaternions.pyx":254
+        /* "nvg/maths/quaternions.pyx":254
  *                 _q = q
  *                 mult_quat_scalar(&_q._components, p, &result._components)
  *                 return result             # <<<<<<<<<<<<<<
@@ -4262,31 +4262,31 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
       }
       __pyx_L14:;
 
-      /* "imusim/maths/quaternions.pyx":255
+      /* "nvg/maths/quaternions.pyx":255
  *                 mult_quat_scalar(&_q._components, p, &result._components)
  *                 return result
  *             if isinstance(p, Quaternion):             # <<<<<<<<<<<<<<
  *                 _p = p
  *                 mult_quat_scalar(&_p._components, q, &result._components)
  */
-      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+      __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
       __Pyx_INCREF(__pyx_t_1);
       __pyx_t_7 = __Pyx_TypeCheck(__pyx_v_p, __pyx_t_1); 
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_7) {
 
-        /* "imusim/maths/quaternions.pyx":256
+        /* "nvg/maths/quaternions.pyx":256
  *                 return result
  *             if isinstance(p, Quaternion):
  *                 _p = p             # <<<<<<<<<<<<<<
  *                 mult_quat_scalar(&_p._components, q, &result._components)
  *                 return result
  */
-        if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 256; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
+        if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 256; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
         __Pyx_INCREF(__pyx_v_p);
-        __pyx_v__p = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_p);
+        __pyx_v__p = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_p);
 
-        /* "imusim/maths/quaternions.pyx":257
+        /* "nvg/maths/quaternions.pyx":257
  *             if isinstance(p, Quaternion):
  *                 _p = p
  *                 mult_quat_scalar(&_p._components, q, &result._components)             # <<<<<<<<<<<<<<
@@ -4294,9 +4294,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
  *         except:
  */
         __pyx_t_8 = __pyx_PyFloat_AsDouble(__pyx_v_q); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 257; __pyx_clineno = __LINE__; goto __pyx_L5_error;}
-        __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v__p->_components), __pyx_t_8, (&__pyx_v_result->_components));
+        __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v__p->_components), __pyx_t_8, (&__pyx_v_result->_components));
 
-        /* "imusim/maths/quaternions.pyx":258
+        /* "nvg/maths/quaternions.pyx":258
  *                 _p = p
  *                 mult_quat_scalar(&_p._components, q, &result._components)
  *                 return result             # <<<<<<<<<<<<<<
@@ -4324,7 +4324,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
     __pyx_L5_error:;
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":259
+    /* "nvg/maths/quaternions.pyx":259
  *                 mult_quat_scalar(&_p._components, q, &result._components)
  *                 return result
  *         except:             # <<<<<<<<<<<<<<
@@ -4343,7 +4343,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
     __pyx_L12_try_end:;
   }
 
-  /* "imusim/maths/quaternions.pyx":262
+  /* "nvg/maths/quaternions.pyx":262
  *             pass
  * 
  *         return NotImplemented             # <<<<<<<<<<<<<<
@@ -4359,7 +4359,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_result);
@@ -4370,7 +4370,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":264
+/* "nvg/maths/quaternions.pyx":264
  *         return NotImplemented
  * 
  *     def __truediv__(Quaternion self, double scalar):             # <<<<<<<<<<<<<<
@@ -4378,8 +4378,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__(PyO
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__(PyObject *__pyx_v_self, PyObject *__pyx_arg_scalar); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__(PyObject *__pyx_v_self, PyObject *__pyx_arg_scalar) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_7__truediv__(PyObject *__pyx_v_self, PyObject *__pyx_arg_scalar); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_7__truediv__(PyObject *__pyx_v_self, PyObject *__pyx_arg_scalar) {
   double __pyx_v_scalar;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4398,13 +4398,13 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__truediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__truediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_self), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "self", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_self), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "self", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 264; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":265
+  /* "nvg/maths/quaternions.pyx":265
  * 
  *     def __truediv__(Quaternion self, double scalar):
  *         return Quaternion(self.w/scalar, self.x/scalar, self.y/scalar, self.z/scalar)             # <<<<<<<<<<<<<<
@@ -4458,7 +4458,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 265; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_6;
@@ -4474,7 +4474,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__truediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__truediv__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4482,7 +4482,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":267
+/* "nvg/maths/quaternions.pyx":267
  *         return Quaternion(self.w/scalar, self.x/scalar, self.y/scalar, self.z/scalar)
  * 
  *     def __iadd__(Quaternion self, Quaternion q):             # <<<<<<<<<<<<<<
@@ -4490,8 +4490,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__
  *         self.x+=q.x
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(PyObject *__pyx_v_self, PyObject *__pyx_v_q); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(PyObject *__pyx_v_self, PyObject *__pyx_v_q) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_8__iadd__(PyObject *__pyx_v_self, PyObject *__pyx_v_q); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_8__iadd__(PyObject *__pyx_v_self, PyObject *__pyx_v_q) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4501,9 +4501,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__iadd__");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 267; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 267; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":268
+  /* "nvg/maths/quaternions.pyx":268
  * 
  *     def __iadd__(Quaternion self, Quaternion q):
  *         self.w+=q.w             # <<<<<<<<<<<<<<
@@ -4521,7 +4521,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":269
+  /* "nvg/maths/quaternions.pyx":269
  *     def __iadd__(Quaternion self, Quaternion q):
  *         self.w+=q.w
  *         self.x+=q.x             # <<<<<<<<<<<<<<
@@ -4539,7 +4539,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 269; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":270
+  /* "nvg/maths/quaternions.pyx":270
  *         self.w+=q.w
  *         self.x+=q.x
  *         self.y+=q.y             # <<<<<<<<<<<<<<
@@ -4557,7 +4557,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 270; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":271
+  /* "nvg/maths/quaternions.pyx":271
  *         self.x+=q.x
  *         self.y+=q.y
  *         self.z+=q.z             # <<<<<<<<<<<<<<
@@ -4575,7 +4575,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__z, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 271; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":272
+  /* "nvg/maths/quaternions.pyx":272
  *         self.y+=q.y
  *         self.z+=q.z
  *         return self             # <<<<<<<<<<<<<<
@@ -4593,7 +4593,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__iadd__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__iadd__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4601,7 +4601,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":274
+/* "nvg/maths/quaternions.pyx":274
  *         return self
  * 
  *     def __isub__(Quaternion self, Quaternion q):             # <<<<<<<<<<<<<<
@@ -4609,8 +4609,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__(Py
  *         self.x-=q.x
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(PyObject *__pyx_v_self, PyObject *__pyx_v_q); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(PyObject *__pyx_v_self, PyObject *__pyx_v_q) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9__isub__(PyObject *__pyx_v_self, PyObject *__pyx_v_q); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9__isub__(PyObject *__pyx_v_self, PyObject *__pyx_v_q) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4620,9 +4620,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__isub__");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 274; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 274; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":275
+  /* "nvg/maths/quaternions.pyx":275
  * 
  *     def __isub__(Quaternion self, Quaternion q):
  *         self.w-=q.w             # <<<<<<<<<<<<<<
@@ -4640,7 +4640,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 275; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":276
+  /* "nvg/maths/quaternions.pyx":276
  *     def __isub__(Quaternion self, Quaternion q):
  *         self.w-=q.w
  *         self.x-=q.x             # <<<<<<<<<<<<<<
@@ -4658,7 +4658,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 276; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":277
+  /* "nvg/maths/quaternions.pyx":277
  *         self.w-=q.w
  *         self.x-=q.x
  *         self.y-=q.y             # <<<<<<<<<<<<<<
@@ -4676,7 +4676,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 277; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":278
+  /* "nvg/maths/quaternions.pyx":278
  *         self.x-=q.x
  *         self.y-=q.y
  *         self.z-=q.z             # <<<<<<<<<<<<<<
@@ -4694,7 +4694,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__z, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 278; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":279
+  /* "nvg/maths/quaternions.pyx":279
  *         self.y-=q.y
  *         self.z-=q.z
  *         return self             # <<<<<<<<<<<<<<
@@ -4712,7 +4712,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__isub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__isub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4720,7 +4720,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":281
+/* "nvg/maths/quaternions.pyx":281
  *         return self
  * 
  *     def __imul__(Quaternion self,p):             # <<<<<<<<<<<<<<
@@ -4728,9 +4728,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__(Py
  *         if isinstance(p,Quaternion):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(PyObject *__pyx_v_self, PyObject *__pyx_v_p); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(PyObject *__pyx_v_self, PyObject *__pyx_v_p) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v__p = 0;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10__imul__(PyObject *__pyx_v_self, PyObject *__pyx_v_p); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10__imul__(PyObject *__pyx_v_self, PyObject *__pyx_v_p) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v__p = 0;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4741,43 +4741,43 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__imul__");
 
-  /* "imusim/maths/quaternions.pyx":283
+  /* "nvg/maths/quaternions.pyx":283
  *     def __imul__(Quaternion self,p):
  *         cdef Quaternion _p
  *         if isinstance(p,Quaternion):             # <<<<<<<<<<<<<<
  *             _p = p
  *             mult_quat_quat(&self._components, &_p._components, &self._components)
  */
-  __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+  __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_p, __pyx_t_1); 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quaternions.pyx":284
+    /* "nvg/maths/quaternions.pyx":284
  *         cdef Quaternion _p
  *         if isinstance(p,Quaternion):
  *             _p = p             # <<<<<<<<<<<<<<
  *             mult_quat_quat(&self._components, &_p._components, &self._components)
  *         else:
  */
-    if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 284; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (!(likely(((__pyx_v_p) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_p, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 284; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_INCREF(__pyx_v_p);
-    __pyx_v__p = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_p);
+    __pyx_v__p = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_p);
 
-    /* "imusim/maths/quaternions.pyx":285
+    /* "nvg/maths/quaternions.pyx":285
  *         if isinstance(p,Quaternion):
  *             _p = p
  *             mult_quat_quat(&self._components, &_p._components, &self._components)             # <<<<<<<<<<<<<<
  *         else:
  *             self.w*=p
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components), (&__pyx_v__p->_components), (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components), (&__pyx_v__p->_components), (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components));
     goto __pyx_L5;
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":287
+    /* "nvg/maths/quaternions.pyx":287
  *             mult_quat_quat(&self._components, &_p._components, &self._components)
  *         else:
  *             self.w*=p             # <<<<<<<<<<<<<<
@@ -4792,7 +4792,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 287; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "imusim/maths/quaternions.pyx":288
+    /* "nvg/maths/quaternions.pyx":288
  *         else:
  *             self.w*=p
  *             self.x*=p             # <<<<<<<<<<<<<<
@@ -4807,7 +4807,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 288; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":289
+    /* "nvg/maths/quaternions.pyx":289
  *             self.w*=p
  *             self.x*=p
  *             self.y*=p             # <<<<<<<<<<<<<<
@@ -4822,7 +4822,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 289; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "imusim/maths/quaternions.pyx":290
+    /* "nvg/maths/quaternions.pyx":290
  *             self.x*=p
  *             self.y*=p
  *             self.z*=p             # <<<<<<<<<<<<<<
@@ -4839,7 +4839,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
   }
   __pyx_L5:;
 
-  /* "imusim/maths/quaternions.pyx":291
+  /* "nvg/maths/quaternions.pyx":291
  *             self.y*=p
  *             self.z*=p
  *         return self             # <<<<<<<<<<<<<<
@@ -4856,7 +4856,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__imul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__imul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v__p);
@@ -4865,7 +4865,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":294
+/* "nvg/maths/quaternions.pyx":294
  * 
  *     property magnitude:
  *         def __get__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -4873,8 +4873,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__(P
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9magnitude___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9magnitude___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4886,7 +4886,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":295
+  /* "nvg/maths/quaternions.pyx":295
  *     property magnitude:
  *         def __get__(Quaternion self):
  *             return sqrt(self.w**2 + self.x**2 + self.y**2 + self.z**2)             # <<<<<<<<<<<<<<
@@ -4940,7 +4940,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude__
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.magnitude.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.magnitude.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4948,7 +4948,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude__
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":298
+/* "nvg/maths/quaternions.pyx":298
  * 
  *     property conjugate:
  *         def __get__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -4956,8 +4956,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude__
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9conjugate___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9conjugate___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4970,7 +4970,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__");
 
-  /* "imusim/maths/quaternions.pyx":299
+  /* "nvg/maths/quaternions.pyx":299
  *     property conjugate:
  *         def __get__(Quaternion self):
  *             return Quaternion(self.w,-self.x,-self.y,-self.z)             # <<<<<<<<<<<<<<
@@ -5009,7 +5009,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate__
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
   __pyx_t_5 = 0;
-  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_2), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_2), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 299; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_5;
@@ -5024,7 +5024,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate__
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.conjugate.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.conjugate.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5032,7 +5032,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate__
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":302
+/* "nvg/maths/quaternions.pyx":302
  * 
  *     property vector:
  *         def __get__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5040,8 +5040,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate__
  *             cdef double* data = <double *> v.data
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6vector___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6vector___get__(PyObject *__pyx_v_self) {
   PyArrayObject *__pyx_v_v = 0;
   double *__pyx_v_data;
   Py_buffer __pyx_bstruct_v;
@@ -5060,7 +5060,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
   __Pyx_RefNannySetupContext("__get__");
   __pyx_bstruct_v.buf = NULL;
 
-  /* "imusim/maths/quaternions.pyx":303
+  /* "nvg/maths/quaternions.pyx":303
  *     property vector:
  *         def __get__(Quaternion self):
  *             cdef np.ndarray[np.float64_t, ndim=2] v = np.empty((3,1))             # <<<<<<<<<<<<<<
@@ -5090,7 +5090,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
   __pyx_v_v = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":304
+  /* "nvg/maths/quaternions.pyx":304
  *         def __get__(Quaternion self):
  *             cdef np.ndarray[np.float64_t, ndim=2] v = np.empty((3,1))
  *             cdef double* data = <double *> v.data             # <<<<<<<<<<<<<<
@@ -5099,34 +5099,34 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
  */
   __pyx_v_data = ((double *)__pyx_v_v->data);
 
-  /* "imusim/maths/quaternions.pyx":305
+  /* "nvg/maths/quaternions.pyx":305
  *             cdef np.ndarray[np.float64_t, ndim=2] v = np.empty((3,1))
  *             cdef double* data = <double *> v.data
  *             data[0] = self._components.x             # <<<<<<<<<<<<<<
  *             data[1] = self._components.y
  *             data[2] = self._components.z
  */
-  (__pyx_v_data[0]) = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x;
+  (__pyx_v_data[0]) = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.x;
 
-  /* "imusim/maths/quaternions.pyx":306
+  /* "nvg/maths/quaternions.pyx":306
  *             cdef double* data = <double *> v.data
  *             data[0] = self._components.x
  *             data[1] = self._components.y             # <<<<<<<<<<<<<<
  *             data[2] = self._components.z
  *             return v
  */
-  (__pyx_v_data[1]) = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y;
+  (__pyx_v_data[1]) = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.y;
 
-  /* "imusim/maths/quaternions.pyx":307
+  /* "nvg/maths/quaternions.pyx":307
  *             data[0] = self._components.x
  *             data[1] = self._components.y
  *             data[2] = self._components.z             # <<<<<<<<<<<<<<
  *             return v
  * 
  */
-  (__pyx_v_data[2]) = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z;
+  (__pyx_v_data[2]) = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components.z;
 
-  /* "imusim/maths/quaternions.pyx":308
+  /* "nvg/maths/quaternions.pyx":308
  *             data[1] = self._components.y
  *             data[2] = self._components.z
  *             return v             # <<<<<<<<<<<<<<
@@ -5147,7 +5147,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_v);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.vector.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.vector.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -5159,7 +5159,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":310
+/* "nvg/maths/quaternions.pyx":310
  *             return v
  * 
  *     cpdef inline Quaternion log(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5167,10 +5167,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___ge
  *         Natural logarithm of this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_f_6imusim_5maths_11quaternions_10Quaternion_log(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_self, int __pyx_skip_dispatch) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_r = NULL;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static CYTHON_INLINE struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_f_6nvg_5maths_11quaternions_10Quaternion_log(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_self, int __pyx_skip_dispatch) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -5184,12 +5184,12 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
     __pyx_t_1 = PyObject_GetAttr(((PyObject *)__pyx_v_self), __pyx_n_s__log); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (void *)&__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log)) {
+    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (void *)&__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_11log)) {
       __Pyx_XDECREF(((PyObject *)__pyx_r));
       __pyx_t_2 = PyObject_Call(__pyx_t_1, ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
-      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_r = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_2);
+      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_r = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_2);
       __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L0;
@@ -5197,28 +5197,28 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "imusim/maths/quaternions.pyx":314
+  /* "nvg/maths/quaternions.pyx":314
  *         Natural logarithm of this quaternion.
  *         """
  *         cdef Quaternion result = Quaternion()             # <<<<<<<<<<<<<<
  *         quaternion_log(&self._components, &result._components)
  *         return result
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 314; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 314; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_result = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_result = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":315
+  /* "nvg/maths/quaternions.pyx":315
  *         """
  *         cdef Quaternion result = Quaternion()
  *         quaternion_log(&self._components, &result._components)             # <<<<<<<<<<<<<<
  *         return result
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_log((&__pyx_v_self->_components), (&__pyx_v_result->_components));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_log((&__pyx_v_self->_components), (&__pyx_v_result->_components));
 
-  /* "imusim/maths/quaternions.pyx":316
+  /* "nvg/maths/quaternions.pyx":316
  *         cdef Quaternion result = Quaternion()
  *         quaternion_log(&self._components, &result._components)
  *         return result             # <<<<<<<<<<<<<<
@@ -5230,12 +5230,12 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  __pyx_r = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)Py_None); __Pyx_INCREF(Py_None);
+  __pyx_r = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)Py_None); __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_result);
@@ -5244,7 +5244,7 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":310
+/* "nvg/maths/quaternions.pyx":310
  *             return v
  * 
  *     cpdef inline Quaternion log(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5252,9 +5252,9 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
  *         Natural logarithm of this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_11log[] = "\n        Natural logarithm of this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_11log[] = "\n        Natural logarithm of this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_11log(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5263,7 +5263,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("log");
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->__pyx_vtab)->log(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self), 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->__pyx_vtab)->log(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self), 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 310; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5273,7 +5273,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObje
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5281,7 +5281,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObje
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":318
+/* "nvg/maths/quaternions.pyx":318
  *         return result
  * 
  *     cpdef inline Quaternion exp(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5289,10 +5289,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log(PyObje
  *         Exponential of this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_f_6imusim_5maths_11quaternions_10Quaternion_exp(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_self, int __pyx_skip_dispatch) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_r = NULL;
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static CYTHON_INLINE struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_f_6nvg_5maths_11quaternions_10Quaternion_exp(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_self, int __pyx_skip_dispatch) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_result = 0;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -5306,12 +5306,12 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   else if (unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0)) {
     __pyx_t_1 = PyObject_GetAttr(((PyObject *)__pyx_v_self), __pyx_n_s__exp); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (void *)&__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp)) {
+    if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (void *)&__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_12exp)) {
       __Pyx_XDECREF(((PyObject *)__pyx_r));
       __pyx_t_2 = PyObject_Call(__pyx_t_1, ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
-      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_r = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_2);
+      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_r = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_2);
       __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       goto __pyx_L0;
@@ -5319,28 +5319,28 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "imusim/maths/quaternions.pyx":322
+  /* "nvg/maths/quaternions.pyx":322
  *         Exponential of this quaternion.
  *         """
  *         cdef Quaternion result = Quaternion()             # <<<<<<<<<<<<<<
  *         quaternion_exp(&self._components, &result._components)
  *         return result
  */
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 322; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 322; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_result = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_result = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":323
+  /* "nvg/maths/quaternions.pyx":323
  *         """
  *         cdef Quaternion result = Quaternion()
  *         quaternion_exp(&self._components, &result._components)             # <<<<<<<<<<<<<<
  *         return result
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_exp((&__pyx_v_self->_components), (&__pyx_v_result->_components));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_exp((&__pyx_v_self->_components), (&__pyx_v_result->_components));
 
-  /* "imusim/maths/quaternions.pyx":324
+  /* "nvg/maths/quaternions.pyx":324
  *         cdef Quaternion result = Quaternion()
  *         quaternion_exp(&self._components, &result._components)
  *         return result             # <<<<<<<<<<<<<<
@@ -5352,12 +5352,12 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   __pyx_r = __pyx_v_result;
   goto __pyx_L0;
 
-  __pyx_r = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)Py_None); __Pyx_INCREF(Py_None);
+  __pyx_r = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)Py_None); __Pyx_INCREF(Py_None);
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_result);
@@ -5366,7 +5366,7 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":318
+/* "nvg/maths/quaternions.pyx":318
  *         return result
  * 
  *     cpdef inline Quaternion exp(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5374,9 +5374,9 @@ static CYTHON_INLINE struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *_
  *         Exponential of this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_12exp[] = "\n        Exponential of this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_12exp[] = "\n        Exponential of this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_12exp(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5385,7 +5385,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("exp");
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->__pyx_vtab)->exp(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self), 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->__pyx_vtab)->exp(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self), 1)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5395,7 +5395,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObje
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5403,7 +5403,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObje
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":326
+/* "nvg/maths/quaternions.pyx":326
  *         return result
  * 
  *     def __pow__(Quaternion q, double p,z):             # <<<<<<<<<<<<<<
@@ -5411,8 +5411,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp(PyObje
  *             return q.conjugate/q.magnitude**2
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(PyObject *__pyx_v_q, PyObject *__pyx_arg_p, PyObject *__pyx_v_z); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(PyObject *__pyx_v_q, PyObject *__pyx_arg_p, PyObject *__pyx_v_z) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_13__pow__(PyObject *__pyx_v_q, PyObject *__pyx_arg_p, PyObject *__pyx_v_z); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_13__pow__(PyObject *__pyx_v_q, PyObject *__pyx_arg_p, PyObject *__pyx_v_z) {
   double __pyx_v_p;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5429,13 +5429,13 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 326; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_q), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "q", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 326; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":327
+  /* "nvg/maths/quaternions.pyx":327
  * 
  *     def __pow__(Quaternion q, double p,z):
  *         if p == -1:             # <<<<<<<<<<<<<<
@@ -5445,7 +5445,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
   __pyx_t_1 = (__pyx_v_p == -1.0);
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quaternions.pyx":328
+    /* "nvg/maths/quaternions.pyx":328
  *     def __pow__(Quaternion q, double p,z):
  *         if p == -1:
  *             return q.conjugate/q.magnitude**2             # <<<<<<<<<<<<<<
@@ -5471,7 +5471,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":330
+    /* "nvg/maths/quaternions.pyx":330
  *             return q.conjugate/q.magnitude**2
  *         else:
  *             return (q.log()*p).exp()             # <<<<<<<<<<<<<<
@@ -5479,7 +5479,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
  *     def copy(Quaternion self):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = ((PyObject *)((struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_q)->__pyx_vtab)->log(((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_q), 0)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 330; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = ((PyObject *)((struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *)((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_q)->__pyx_vtab)->log(((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_q), 0)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 330; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = PyFloat_FromDouble(__pyx_v_p); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 330; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
@@ -5505,7 +5505,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5513,7 +5513,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":332
+/* "nvg/maths/quaternions.pyx":332
  *             return (q.log()*p).exp()
  * 
  *     def copy(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5521,9 +5521,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__(Py
  *         Obtain a copy of this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_14copy[] = "\n        Obtain a copy of this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_14copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_14copy[] = "\n        Obtain a copy of this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_14copy(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5536,7 +5536,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("copy");
 
-  /* "imusim/maths/quaternions.pyx":336
+  /* "nvg/maths/quaternions.pyx":336
  *         Obtain a copy of this quaternion.
  *         """
  *         return Quaternion(self.w,self.x,self.y,self.z,)             # <<<<<<<<<<<<<<
@@ -5566,7 +5566,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObj
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
   __pyx_t_4 = 0;
-  __pyx_t_4 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_5), NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 336; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_5), NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 336; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(((PyObject *)__pyx_t_5)); __pyx_t_5 = 0;
   __pyx_r = __pyx_t_4;
@@ -5581,7 +5581,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObj
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5589,7 +5589,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObj
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":340
+/* "nvg/maths/quaternions.pyx":340
  *     __copy__ = copy
  * 
  *     def normalise(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5597,9 +5597,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy(PyObj
  *         Normalise this quaternion to unit length.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_15normalise[] = "\n        Normalise this quaternion to unit length.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_15normalise(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_15normalise[] = "\n        Normalise this quaternion to unit length.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_15normalise(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_v_scale = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -5610,7 +5610,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("normalise");
 
-  /* "imusim/maths/quaternions.pyx":344
+  /* "nvg/maths/quaternions.pyx":344
  *         Normalise this quaternion to unit length.
  *         """
  *         scale = 1/self.magnitude             # <<<<<<<<<<<<<<
@@ -5625,7 +5625,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   __pyx_v_scale = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":345
+  /* "nvg/maths/quaternions.pyx":345
  *         """
  *         scale = 1/self.magnitude
  *         self.w *= scale             # <<<<<<<<<<<<<<
@@ -5640,7 +5640,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 345; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":346
+  /* "nvg/maths/quaternions.pyx":346
  *         scale = 1/self.magnitude
  *         self.w *= scale
  *         self.x *= scale             # <<<<<<<<<<<<<<
@@ -5655,7 +5655,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 346; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":347
+  /* "nvg/maths/quaternions.pyx":347
  *         self.w *= scale
  *         self.x *= scale
  *         self.y *= scale             # <<<<<<<<<<<<<<
@@ -5670,7 +5670,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 347; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":348
+  /* "nvg/maths/quaternions.pyx":348
  *         self.x *= scale
  *         self.y *= scale
  *         self.z *= scale             # <<<<<<<<<<<<<<
@@ -5685,7 +5685,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__z, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":349
+  /* "nvg/maths/quaternions.pyx":349
  *         self.y *= scale
  *         self.z *= scale
  *         return self             # <<<<<<<<<<<<<<
@@ -5702,7 +5702,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.normalise", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.normalise", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_scale);
@@ -5711,7 +5711,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":351
+/* "nvg/maths/quaternions.pyx":351
  *         return self
  * 
  *     def negate(Quaternion self):             # <<<<<<<<<<<<<<
@@ -5719,9 +5719,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise(
  *         Negate this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_16negate[] = "\n        Negate this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_16negate(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_16negate[] = "\n        Negate this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_16negate(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5731,7 +5731,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("negate");
 
-  /* "imusim/maths/quaternions.pyx":355
+  /* "nvg/maths/quaternions.pyx":355
  *         Negate this quaternion.
  *         """
  *         self.w *= -1             # <<<<<<<<<<<<<<
@@ -5746,7 +5746,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 355; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":356
+  /* "nvg/maths/quaternions.pyx":356
  *         """
  *         self.w *= -1
  *         self.x *= -1             # <<<<<<<<<<<<<<
@@ -5761,7 +5761,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 356; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":357
+  /* "nvg/maths/quaternions.pyx":357
  *         self.w *= -1
  *         self.x *= -1
  *         self.y *= -1             # <<<<<<<<<<<<<<
@@ -5776,7 +5776,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":358
+  /* "nvg/maths/quaternions.pyx":358
  *         self.x *= -1
  *         self.y *= -1
  *         self.z *= -1             # <<<<<<<<<<<<<<
@@ -5796,7 +5796,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.negate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.negate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5804,7 +5804,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":360
+/* "nvg/maths/quaternions.pyx":360
  *         self.z *= -1
  * 
  *     def dot(Quaternion self, Quaternion other):             # <<<<<<<<<<<<<<
@@ -5812,9 +5812,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate(PyO
  *         Compute the dot product of this quaternion with another.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObject *__pyx_v_self, PyObject *__pyx_v_other); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_17dot[] = "\n        Compute the dot product of this quaternion with another.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_17dot(PyObject *__pyx_v_self, PyObject *__pyx_v_other); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_17dot[] = "\n        Compute the dot product of this quaternion with another.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_17dot(PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -5825,9 +5825,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObje
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("dot");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 360; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":364
+  /* "nvg/maths/quaternions.pyx":364
  *         Compute the dot product of this quaternion with another.
  *         """
  *         return self.w*other.w + self.x*other.x + self.y*other.y + self.z*other.z             # <<<<<<<<<<<<<<
@@ -5890,7 +5890,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObje
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5898,7 +5898,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObje
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":366
+/* "nvg/maths/quaternions.pyx":366
  *         return self.w*other.w + self.x*other.x + self.y*other.y + self.z*other.z
  * 
  *     def rotateVector(Quaternion self, np.ndarray[np.float64_t, ndim=2] v):             # <<<<<<<<<<<<<<
@@ -5906,14 +5906,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot(PyObje
  *         Rotate vectors using this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVector(PyObject *__pyx_v_self, PyObject *__pyx_v_v); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_18rotateVector[] = "\n        Rotate vectors using this quaternion.\n\n        Equivalent to M{q*v*q.conjugate}.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in their current co-ordinate frame\n            after applying the rotation specified by this quaternion to them.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVector(PyObject *__pyx_v_self, PyObject *__pyx_v_v) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_18rotateVector(PyObject *__pyx_v_self, PyObject *__pyx_v_v); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_18rotateVector[] = "\n        Rotate vectors using this quaternion.\n\n        Equivalent to M{q*v*q.conjugate}.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in their current co-ordinate frame\n            after applying the rotation specified by this quaternion to them.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_18rotateVector(PyObject *__pyx_v_self, PyObject *__pyx_v_v) {
   PyArrayObject *__pyx_v_result = 0;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_pure;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_p;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_qconj;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_pure;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_p;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_qconj;
   int __pyx_v_i;
   Py_buffer __pyx_bstruct_result;
   Py_ssize_t __pyx_bstride_0_result = 0;
@@ -5960,7 +5960,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
   __pyx_bstride_0_v = __pyx_bstruct_v.strides[0]; __pyx_bstride_1_v = __pyx_bstruct_v.strides[1];
   __pyx_bshape_0_v = __pyx_bstruct_v.shape[0]; __pyx_bshape_1_v = __pyx_bstruct_v.shape[1];
 
-  /* "imusim/maths/quaternions.pyx":377
+  /* "nvg/maths/quaternions.pyx":377
  *             after applying the rotation specified by this quaternion to them.
  *         """
  *         cdef np.ndarray[np.float64_t, ndim=2] result = np.empty((3,v.shape[1]))             # <<<<<<<<<<<<<<
@@ -6006,7 +6006,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
   __pyx_v_result = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":379
+  /* "nvg/maths/quaternions.pyx":379
  *         cdef np.ndarray[np.float64_t, ndim=2] result = np.empty((3,v.shape[1]))
  *         cdef quaternion_t pure
  *         cdef quaternion_t *p = &pure             # <<<<<<<<<<<<<<
@@ -6015,16 +6015,16 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
  */
   __pyx_v_p = (&__pyx_v_pure);
 
-  /* "imusim/maths/quaternions.pyx":380
+  /* "nvg/maths/quaternions.pyx":380
  *         cdef quaternion_t pure
  *         cdef quaternion_t *p = &pure
  *         cdef quaternion_t *q = &self._components             # <<<<<<<<<<<<<<
  *         cdef quaternion_t *qconj = &(<Quaternion> self.conjugate)._components
  *         cdef int i
  */
-  __pyx_v_q = (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components);
+  __pyx_v_q = (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components);
 
-  /* "imusim/maths/quaternions.pyx":381
+  /* "nvg/maths/quaternions.pyx":381
  *         cdef quaternion_t *p = &pure
  *         cdef quaternion_t *q = &self._components
  *         cdef quaternion_t *qconj = &(<Quaternion> self.conjugate)._components             # <<<<<<<<<<<<<<
@@ -6033,10 +6033,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
  */
   __pyx_t_3 = PyObject_GetAttr(__pyx_v_self, __pyx_n_s__conjugate); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 381; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_qconj = (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
+  __pyx_v_qconj = (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":384
+  /* "nvg/maths/quaternions.pyx":384
  *         cdef int i
  * 
  *         for i in range(v.shape[1]):             # <<<<<<<<<<<<<<
@@ -6047,7 +6047,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_i = __pyx_t_6;
 
-    /* "imusim/maths/quaternions.pyx":385
+    /* "nvg/maths/quaternions.pyx":385
  * 
  *         for i in range(v.shape[1]):
  *             pure.w = 0             # <<<<<<<<<<<<<<
@@ -6056,7 +6056,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
  */
     __pyx_v_pure.w = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":386
+    /* "nvg/maths/quaternions.pyx":386
  *         for i in range(v.shape[1]):
  *             pure.w = 0
  *             pure.x = v[0, i]             # <<<<<<<<<<<<<<
@@ -6080,7 +6080,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     }
     __pyx_v_pure.x = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_7, __pyx_bstride_0_v, __pyx_t_8, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":387
+    /* "nvg/maths/quaternions.pyx":387
  *             pure.w = 0
  *             pure.x = v[0, i]
  *             pure.y = v[1, i]             # <<<<<<<<<<<<<<
@@ -6104,7 +6104,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     }
     __pyx_v_pure.y = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_10, __pyx_bstride_0_v, __pyx_t_9, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":388
+    /* "nvg/maths/quaternions.pyx":388
  *             pure.x = v[0, i]
  *             pure.y = v[1, i]
  *             pure.z = v[2, i]             # <<<<<<<<<<<<<<
@@ -6128,25 +6128,25 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     }
     __pyx_v_pure.z = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_12, __pyx_bstride_0_v, __pyx_t_11, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":389
+    /* "nvg/maths/quaternions.pyx":389
  *             pure.y = v[1, i]
  *             pure.z = v[2, i]
  *             mult_quat_quat(q, p, p)             # <<<<<<<<<<<<<<
  *             mult_quat_quat(p, qconj, p)
  *             result[0, i] = pure.x
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_q, __pyx_v_p, __pyx_v_p);
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_q, __pyx_v_p, __pyx_v_p);
 
-    /* "imusim/maths/quaternions.pyx":390
+    /* "nvg/maths/quaternions.pyx":390
  *             pure.z = v[2, i]
  *             mult_quat_quat(q, p, p)
  *             mult_quat_quat(p, qconj, p)             # <<<<<<<<<<<<<<
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_p, __pyx_v_qconj, __pyx_v_p);
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_p, __pyx_v_qconj, __pyx_v_p);
 
-    /* "imusim/maths/quaternions.pyx":391
+    /* "nvg/maths/quaternions.pyx":391
  *             mult_quat_quat(q, p, p)
  *             mult_quat_quat(p, qconj, p)
  *             result[0, i] = pure.x             # <<<<<<<<<<<<<<
@@ -6170,7 +6170,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_14, __pyx_bstride_0_result, __pyx_t_13, __pyx_bstride_1_result) = __pyx_v_pure.x;
 
-    /* "imusim/maths/quaternions.pyx":392
+    /* "nvg/maths/quaternions.pyx":392
  *             mult_quat_quat(p, qconj, p)
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y             # <<<<<<<<<<<<<<
@@ -6194,7 +6194,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_16, __pyx_bstride_0_result, __pyx_t_15, __pyx_bstride_1_result) = __pyx_v_pure.y;
 
-    /* "imusim/maths/quaternions.pyx":393
+    /* "nvg/maths/quaternions.pyx":393
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y
  *             result[2, i] = pure.z             # <<<<<<<<<<<<<<
@@ -6219,7 +6219,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_18, __pyx_bstride_0_result, __pyx_t_17, __pyx_bstride_1_result) = __pyx_v_pure.z;
   }
 
-  /* "imusim/maths/quaternions.pyx":395
+  /* "nvg/maths/quaternions.pyx":395
  *             result[2, i] = pure.z
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -6242,7 +6242,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_result);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_v);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6255,7 +6255,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":397
+/* "nvg/maths/quaternions.pyx":397
  *         return result
  * 
  *     def rotateFrame(Quaternion self, np.ndarray[np.float64_t, ndim=2] v):             # <<<<<<<<<<<<<<
@@ -6263,14 +6263,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVect
  *         Rotate co-ordinate frame of vectors using this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFrame(PyObject *__pyx_v_self, PyObject *__pyx_v_v); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_19rotateFrame[] = "\n        Rotate co-ordinate frame of vectors using this quaternion.\n\n        Equivalent to M{q.conjugate*v*q}.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in the rotated co-ordinate frame\n            obtained by applying the rotation specified by this quaternion to\n            their current co-ordinate frame.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFrame(PyObject *__pyx_v_self, PyObject *__pyx_v_v) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_19rotateFrame(PyObject *__pyx_v_self, PyObject *__pyx_v_v); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_19rotateFrame[] = "\n        Rotate co-ordinate frame of vectors using this quaternion.\n\n        Equivalent to M{q.conjugate*v*q}.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in the rotated co-ordinate frame\n            obtained by applying the rotation specified by this quaternion to\n            their current co-ordinate frame.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_19rotateFrame(PyObject *__pyx_v_self, PyObject *__pyx_v_v) {
   PyArrayObject *__pyx_v_result = 0;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_pure;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_p;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_q;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_qconj;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_pure;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_p;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_q;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_qconj;
   int __pyx_v_i;
   Py_buffer __pyx_bstruct_result;
   Py_ssize_t __pyx_bstride_0_result = 0;
@@ -6317,7 +6317,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
   __pyx_bstride_0_v = __pyx_bstruct_v.strides[0]; __pyx_bstride_1_v = __pyx_bstruct_v.strides[1];
   __pyx_bshape_0_v = __pyx_bstruct_v.shape[0]; __pyx_bshape_1_v = __pyx_bstruct_v.shape[1];
 
-  /* "imusim/maths/quaternions.pyx":409
+  /* "nvg/maths/quaternions.pyx":409
  *             their current co-ordinate frame.
  *         """
  *         cdef np.ndarray[np.float64_t, ndim=2] result = np.empty((3,v.shape[1]))             # <<<<<<<<<<<<<<
@@ -6363,7 +6363,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
   __pyx_v_result = ((PyArrayObject *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":411
+  /* "nvg/maths/quaternions.pyx":411
  *         cdef np.ndarray[np.float64_t, ndim=2] result = np.empty((3,v.shape[1]))
  *         cdef quaternion_t pure
  *         cdef quaternion_t *p = &pure             # <<<<<<<<<<<<<<
@@ -6372,16 +6372,16 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
  */
   __pyx_v_p = (&__pyx_v_pure);
 
-  /* "imusim/maths/quaternions.pyx":412
+  /* "nvg/maths/quaternions.pyx":412
  *         cdef quaternion_t pure
  *         cdef quaternion_t *p = &pure
  *         cdef quaternion_t *q = &self._components             # <<<<<<<<<<<<<<
  *         cdef quaternion_t *qconj = &(<Quaternion> self.conjugate)._components
  *         cdef int i
  */
-  __pyx_v_q = (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components);
+  __pyx_v_q = (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_v_self)->_components);
 
-  /* "imusim/maths/quaternions.pyx":413
+  /* "nvg/maths/quaternions.pyx":413
  *         cdef quaternion_t *p = &pure
  *         cdef quaternion_t *q = &self._components
  *         cdef quaternion_t *qconj = &(<Quaternion> self.conjugate)._components             # <<<<<<<<<<<<<<
@@ -6390,10 +6390,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
  */
   __pyx_t_3 = PyObject_GetAttr(__pyx_v_self, __pyx_n_s__conjugate); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 413; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_qconj = (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
+  __pyx_v_qconj = (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":416
+  /* "nvg/maths/quaternions.pyx":416
  *         cdef int i
  * 
  *         for i in range(v.shape[1]):             # <<<<<<<<<<<<<<
@@ -6404,7 +6404,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
   for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
     __pyx_v_i = __pyx_t_6;
 
-    /* "imusim/maths/quaternions.pyx":417
+    /* "nvg/maths/quaternions.pyx":417
  * 
  *         for i in range(v.shape[1]):
  *             pure.w = 0             # <<<<<<<<<<<<<<
@@ -6413,7 +6413,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
  */
     __pyx_v_pure.w = 0.0;
 
-    /* "imusim/maths/quaternions.pyx":418
+    /* "nvg/maths/quaternions.pyx":418
  *         for i in range(v.shape[1]):
  *             pure.w = 0
  *             pure.x = v[0, i]             # <<<<<<<<<<<<<<
@@ -6437,7 +6437,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     }
     __pyx_v_pure.x = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_7, __pyx_bstride_0_v, __pyx_t_8, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":419
+    /* "nvg/maths/quaternions.pyx":419
  *             pure.w = 0
  *             pure.x = v[0, i]
  *             pure.y = v[1, i]             # <<<<<<<<<<<<<<
@@ -6461,7 +6461,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     }
     __pyx_v_pure.y = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_10, __pyx_bstride_0_v, __pyx_t_9, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":420
+    /* "nvg/maths/quaternions.pyx":420
  *             pure.x = v[0, i]
  *             pure.y = v[1, i]
  *             pure.z = v[2, i]             # <<<<<<<<<<<<<<
@@ -6485,25 +6485,25 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     }
     __pyx_v_pure.z = (*__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_v.buf, __pyx_t_12, __pyx_bstride_0_v, __pyx_t_11, __pyx_bstride_1_v));
 
-    /* "imusim/maths/quaternions.pyx":421
+    /* "nvg/maths/quaternions.pyx":421
  *             pure.y = v[1, i]
  *             pure.z = v[2, i]
  *             mult_quat_quat(qconj, p, p)             # <<<<<<<<<<<<<<
  *             mult_quat_quat(p, q, p)
  *             result[0, i] = pure.x
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_qconj, __pyx_v_p, __pyx_v_p);
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_qconj, __pyx_v_p, __pyx_v_p);
 
-    /* "imusim/maths/quaternions.pyx":422
+    /* "nvg/maths/quaternions.pyx":422
  *             pure.z = v[2, i]
  *             mult_quat_quat(qconj, p, p)
  *             mult_quat_quat(p, q, p)             # <<<<<<<<<<<<<<
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_p, __pyx_v_q, __pyx_v_p);
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_p, __pyx_v_q, __pyx_v_p);
 
-    /* "imusim/maths/quaternions.pyx":423
+    /* "nvg/maths/quaternions.pyx":423
  *             mult_quat_quat(qconj, p, p)
  *             mult_quat_quat(p, q, p)
  *             result[0, i] = pure.x             # <<<<<<<<<<<<<<
@@ -6527,7 +6527,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_14, __pyx_bstride_0_result, __pyx_t_13, __pyx_bstride_1_result) = __pyx_v_pure.x;
 
-    /* "imusim/maths/quaternions.pyx":424
+    /* "nvg/maths/quaternions.pyx":424
  *             mult_quat_quat(p, q, p)
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y             # <<<<<<<<<<<<<<
@@ -6551,7 +6551,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     }
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_16, __pyx_bstride_0_result, __pyx_t_15, __pyx_bstride_1_result) = __pyx_v_pure.y;
 
-    /* "imusim/maths/quaternions.pyx":425
+    /* "nvg/maths/quaternions.pyx":425
  *             result[0, i] = pure.x
  *             result[1, i] = pure.y
  *             result[2, i] = pure.z             # <<<<<<<<<<<<<<
@@ -6576,7 +6576,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     *__Pyx_BufPtrStrided2d(__pyx_t_5numpy_float64_t *, __pyx_bstruct_result.buf, __pyx_t_18, __pyx_bstride_0_result, __pyx_t_17, __pyx_bstride_1_result) = __pyx_v_pure.z;
   }
 
-  /* "imusim/maths/quaternions.pyx":427
+  /* "nvg/maths/quaternions.pyx":427
  *             result[2, i] = pure.z
  * 
  *         return result             # <<<<<<<<<<<<<<
@@ -6599,7 +6599,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_result);
     __Pyx_SafeReleaseBuffer(&__pyx_bstruct_v);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -6612,7 +6612,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":429
+/* "nvg/maths/quaternions.pyx":429
  *         return result
  * 
  *     def toMatrix(Quaternion self):             # <<<<<<<<<<<<<<
@@ -6620,9 +6620,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFram
  *         Obtain a 3x3 rotation matrix equivalent to the rotation specified by
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_20toMatrix[] = "\n        Obtain a 3x3 rotation matrix equivalent to the rotation specified by\n        this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_20toMatrix(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_20toMatrix[] = "\n        Obtain a 3x3 rotation matrix equivalent to the rotation specified by\n        this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_20toMatrix(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_v_m = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -6636,7 +6636,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("toMatrix");
 
-  /* "imusim/maths/quaternions.pyx":434
+  /* "nvg/maths/quaternions.pyx":434
  *         this quaternion.
  *         """
  *         m = np.matrix([[0,0,0],[0,0,0],[0,0,0]],dtype=float)             # <<<<<<<<<<<<<<
@@ -6708,7 +6708,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   __pyx_v_m = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":435
+  /* "nvg/maths/quaternions.pyx":435
  *         """
  *         m = np.matrix([[0,0,0],[0,0,0],[0,0,0]],dtype=float)
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2             # <<<<<<<<<<<<<<
@@ -6750,7 +6750,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_7), __pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 435; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":436
+  /* "nvg/maths/quaternions.pyx":436
  *         m = np.matrix([[0,0,0],[0,0,0],[0,0,0]],dtype=float)
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2
  *         m[1,0] = 2. * (self.x*self.y + self.w*self.z)             # <<<<<<<<<<<<<<
@@ -6786,7 +6786,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_8), __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 436; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":437
+  /* "nvg/maths/quaternions.pyx":437
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2
  *         m[1,0] = 2. * (self.x*self.y + self.w*self.z)
  *         m[2,0] = 2. * (self.x*self.z - self.w*self.y)             # <<<<<<<<<<<<<<
@@ -6822,7 +6822,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_9), __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 437; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":439
+  /* "nvg/maths/quaternions.pyx":439
  *         m[2,0] = 2. * (self.x*self.z - self.w*self.y)
  * 
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)             # <<<<<<<<<<<<<<
@@ -6858,7 +6858,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_10), __pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 439; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":440
+  /* "nvg/maths/quaternions.pyx":440
  * 
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)
  *         m[1,1] = 1. - 2.*self.x**2 - 2. *self.z**2             # <<<<<<<<<<<<<<
@@ -6900,7 +6900,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_11), __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 440; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":441
+  /* "nvg/maths/quaternions.pyx":441
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)
  *         m[1,1] = 1. - 2.*self.x**2 - 2. *self.z**2
  *         m[2,1] = 2. * (self.y*self.z + self.w*self.x)             # <<<<<<<<<<<<<<
@@ -6936,7 +6936,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_12), __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 441; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":443
+  /* "nvg/maths/quaternions.pyx":443
  *         m[2,1] = 2. * (self.y*self.z + self.w*self.x)
  * 
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)             # <<<<<<<<<<<<<<
@@ -6972,7 +6972,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_13), __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 443; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":444
+  /* "nvg/maths/quaternions.pyx":444
  * 
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)
  *         m[1,2] = 2. * (self.y*self.z - self.w*self.x)             # <<<<<<<<<<<<<<
@@ -7008,7 +7008,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_14), __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 444; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":445
+  /* "nvg/maths/quaternions.pyx":445
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)
  *         m[1,2] = 2. * (self.y*self.z - self.w*self.x)
  *         m[2,2] = 1. - 2.*self.x**2 - 2.*self.y**2             # <<<<<<<<<<<<<<
@@ -7050,7 +7050,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   if (PyObject_SetItem(__pyx_v_m, ((PyObject *)__pyx_k_tuple_15), __pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 445; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":447
+  /* "nvg/maths/quaternions.pyx":447
  *         m[2,2] = 1. - 2.*self.x**2 - 2.*self.y**2
  * 
  *         return m             # <<<<<<<<<<<<<<
@@ -7070,7 +7070,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.toMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.toMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_m);
@@ -7079,7 +7079,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":449
+/* "nvg/maths/quaternions.pyx":449
  *         return m
  * 
  *     def toAxisAngle(Quaternion self):             # <<<<<<<<<<<<<<
@@ -7087,9 +7087,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix(P
  *         Obtain the axis and angle of rotation specified by this quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngle[] = "\n        Obtain the axis and angle of rotation specified by this quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_21toAxisAngle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_21toAxisAngle[] = "\n        Obtain the axis and angle of rotation specified by this quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_21toAxisAngle(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   double __pyx_v_angle;
   PyObject *__pyx_v_axis = NULL;
   PyObject *__pyx_r = NULL;
@@ -7105,7 +7105,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("toAxisAngle");
 
-  /* "imusim/maths/quaternions.pyx":453
+  /* "nvg/maths/quaternions.pyx":453
  *         Obtain the axis and angle of rotation specified by this quaternion.
  *         """
  *         angle = acos(self.w)             # <<<<<<<<<<<<<<
@@ -7118,7 +7118,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_angle = acos(__pyx_t_2);
 
-  /* "imusim/maths/quaternions.pyx":454
+  /* "nvg/maths/quaternions.pyx":454
  *         """
  *         angle = acos(self.w)
  *         axis = np.array((self.x,self.y,self.z))/sin(angle)             # <<<<<<<<<<<<<<
@@ -7165,7 +7165,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
   __pyx_v_axis = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":455
+  /* "nvg/maths/quaternions.pyx":455
  *         angle = acos(self.w)
  *         axis = np.array((self.x,self.y,self.z))/sin(angle)
  *         return axis,2*angle             # <<<<<<<<<<<<<<
@@ -7195,7 +7195,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.toAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.toAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_axis);
@@ -7204,7 +7204,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":457
+/* "nvg/maths/quaternions.pyx":457
  *         return axis,2*angle
  * 
  *     def toEuler(Quaternion self, order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -7212,9 +7212,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngl
  *         Convert this quaternion to a corresponding Euler angle sequence.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_22toEuler[] = "\n        Convert this quaternion to a corresponding Euler angle sequence.\n\n        @param order: The order of the desired Euler angle sequence. Choices\n            are 'zyx' for standard aerospace sequence (default),\n            or 'zxy' for order used in BVH files.\n        @param inDegrees: True to obtain angles in degrees (default), or False\n            for radians.\n\n        @return: Sequence of Euler angles.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_22toEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_22toEuler[] = "\n        Convert this quaternion to a corresponding Euler angle sequence.\n\n        @param order: The order of the desired Euler angle sequence. Choices\n            are 'zyx' for standard aerospace sequence (default),\n            or 'zxy' for order used in BVH files.\n        @param inDegrees: True to obtain angles in degrees (default), or False\n            for radians.\n\n        @return: Sequence of Euler angles.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_22toEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_order = 0;
   PyObject *__pyx_v_inDegrees = 0;
   PyObject *__pyx_v_m = NULL;
@@ -7271,12 +7271,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(Py
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("toEuler", 0, 0, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 457; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.toEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.toEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":469
+  /* "nvg/maths/quaternions.pyx":469
  *         @return: Sequence of Euler angles.
  *         """
  *         m = self.toMatrix()             # <<<<<<<<<<<<<<
@@ -7291,7 +7291,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(Py
   __pyx_v_m = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":470
+  /* "nvg/maths/quaternions.pyx":470
  *         """
  *         m = self.toMatrix()
  *         return matrices.matrixToEuler(m,order,inDegrees)             # <<<<<<<<<<<<<<
@@ -7329,7 +7329,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(Py
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.toEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.toEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_m);
@@ -7338,7 +7338,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":472
+/* "nvg/maths/quaternions.pyx":472
  *         return matrices.matrixToEuler(m,order,inDegrees)
  * 
  *     def set(Quaternion self, Quaternion other):             # <<<<<<<<<<<<<<
@@ -7346,9 +7346,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler(Py
  *         Set the compnents of this quaternion from another quaternion.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObject *__pyx_v_self, PyObject *__pyx_v_other); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_23set[] = "\n        Set the compnents of this quaternion from another quaternion.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_23set(PyObject *__pyx_v_self, PyObject *__pyx_v_other); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_23set[] = "\n        Set the compnents of this quaternion from another quaternion.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_23set(PyObject *__pyx_v_self, PyObject *__pyx_v_other) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -7356,9 +7356,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set");
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6imusim_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_6nvg_5maths_11quaternions_Quaternion, 1, "other", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 472; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":476
+  /* "nvg/maths/quaternions.pyx":476
  *         Set the compnents of this quaternion from another quaternion.
  *         """
  *         self.w = other.w             # <<<<<<<<<<<<<<
@@ -7370,7 +7370,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 476; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":477
+  /* "nvg/maths/quaternions.pyx":477
  *         """
  *         self.w = other.w
  *         self.x = other.x             # <<<<<<<<<<<<<<
@@ -7382,7 +7382,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 477; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":478
+  /* "nvg/maths/quaternions.pyx":478
  *         self.w = other.w
  *         self.x = other.x
  *         self.y = other.y             # <<<<<<<<<<<<<<
@@ -7394,7 +7394,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 478; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":479
+  /* "nvg/maths/quaternions.pyx":479
  *         self.x = other.x
  *         self.y = other.y
  *         self.z = other.z             # <<<<<<<<<<<<<<
@@ -7410,7 +7410,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.set", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7418,7 +7418,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":481
+/* "nvg/maths/quaternions.pyx":481
  *         self.z = other.z
  * 
  *     def setFromMatrix(Quaternion self, m):             # <<<<<<<<<<<<<<
@@ -7426,9 +7426,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set(PyObje
  *         Set this quaternion to be eqivalent to a given 3x3 rotation matrix.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMatrix(PyObject *__pyx_v_self, PyObject *__pyx_v_m); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_24setFromMatrix[] = "\n        Set this quaternion to be eqivalent to a given 3x3 rotation matrix.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMatrix(PyObject *__pyx_v_self, PyObject *__pyx_v_m) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_24setFromMatrix(PyObject *__pyx_v_self, PyObject *__pyx_v_m); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_24setFromMatrix[] = "\n        Set this quaternion to be eqivalent to a given 3x3 rotation matrix.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_24setFromMatrix(PyObject *__pyx_v_self, PyObject *__pyx_v_m) {
   PyObject *__pyx_v_t = NULL;
   double __pyx_v_w2;
   double __pyx_v_x2;
@@ -7446,7 +7446,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setFromMatrix");
 
-  /* "imusim/maths/quaternions.pyx":485
+  /* "nvg/maths/quaternions.pyx":485
  *         Set this quaternion to be eqivalent to a given 3x3 rotation matrix.
  *         """
  *         t = m[0,0]+m[1,1]+m[2,2]             # <<<<<<<<<<<<<<
@@ -7470,7 +7470,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   __pyx_v_t = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":486
+  /* "nvg/maths/quaternions.pyx":486
  *         """
  *         t = m[0,0]+m[1,1]+m[2,2]
  *         if t > 0:             # <<<<<<<<<<<<<<
@@ -7483,7 +7483,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":487
+    /* "nvg/maths/quaternions.pyx":487
  *         t = m[0,0]+m[1,1]+m[2,2]
  *         if t > 0:
  *             w2 = sqrt(t+1)             # <<<<<<<<<<<<<<
@@ -7496,7 +7496,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_w2 = sqrt(__pyx_t_5);
 
-    /* "imusim/maths/quaternions.pyx":488
+    /* "nvg/maths/quaternions.pyx":488
  *         if t > 0:
  *             w2 = sqrt(t+1)
  *             self.w = w2/2             # <<<<<<<<<<<<<<
@@ -7508,7 +7508,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 488; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":489
+    /* "nvg/maths/quaternions.pyx":489
  *             w2 = sqrt(t+1)
  *             self.w = w2/2
  *             self.x = (m[2,1]-m[1,2])/(2*w2)             # <<<<<<<<<<<<<<
@@ -7532,7 +7532,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 489; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":490
+    /* "nvg/maths/quaternions.pyx":490
  *             self.w = w2/2
  *             self.x = (m[2,1]-m[1,2])/(2*w2)
  *             self.y = (m[0,2]-m[2,0])/(2*w2)             # <<<<<<<<<<<<<<
@@ -7556,7 +7556,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 490; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":491
+    /* "nvg/maths/quaternions.pyx":491
  *             self.x = (m[2,1]-m[1,2])/(2*w2)
  *             self.y = (m[0,2]-m[2,0])/(2*w2)
  *             self.z = (m[1,0]-m[0,1])/(2*w2)             # <<<<<<<<<<<<<<
@@ -7583,7 +7583,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":493
+    /* "nvg/maths/quaternions.pyx":493
  *             self.z = (m[1,0]-m[0,1])/(2*w2)
  *         else:
  *             t = m[0,0]-m[1,1]-m[2,2]             # <<<<<<<<<<<<<<
@@ -7608,7 +7608,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     __pyx_v_t = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":494
+    /* "nvg/maths/quaternions.pyx":494
  *         else:
  *             t = m[0,0]-m[1,1]-m[2,2]
  *             if t > 0:             # <<<<<<<<<<<<<<
@@ -7621,7 +7621,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_4) {
 
-      /* "imusim/maths/quaternions.pyx":495
+      /* "nvg/maths/quaternions.pyx":495
  *             t = m[0,0]-m[1,1]-m[2,2]
  *             if t > 0:
  *                 x2 = sqrt(t+1)             # <<<<<<<<<<<<<<
@@ -7634,7 +7634,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_x2 = sqrt(__pyx_t_5);
 
-      /* "imusim/maths/quaternions.pyx":496
+      /* "nvg/maths/quaternions.pyx":496
  *             if t > 0:
  *                 x2 = sqrt(t+1)
  *                 self.w = (m[2,1]-m[1,2])/(2*x2)             # <<<<<<<<<<<<<<
@@ -7658,7 +7658,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 496; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "imusim/maths/quaternions.pyx":497
+      /* "nvg/maths/quaternions.pyx":497
  *                 x2 = sqrt(t+1)
  *                 self.w = (m[2,1]-m[1,2])/(2*x2)
  *                 self.x = x2/2             # <<<<<<<<<<<<<<
@@ -7670,7 +7670,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 497; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "imusim/maths/quaternions.pyx":498
+      /* "nvg/maths/quaternions.pyx":498
  *                 self.w = (m[2,1]-m[1,2])/(2*x2)
  *                 self.x = x2/2
  *                 self.y = (m[1,0]+m[0,1])/(2*x2)             # <<<<<<<<<<<<<<
@@ -7694,7 +7694,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 498; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "imusim/maths/quaternions.pyx":499
+      /* "nvg/maths/quaternions.pyx":499
  *                 self.x = x2/2
  *                 self.y = (m[1,0]+m[0,1])/(2*x2)
  *                 self.z = (m[0,2]+m[2,0])/(2*x2)             # <<<<<<<<<<<<<<
@@ -7721,7 +7721,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
     }
     /*else*/ {
 
-      /* "imusim/maths/quaternions.pyx":501
+      /* "nvg/maths/quaternions.pyx":501
  *                 self.z = (m[0,2]+m[2,0])/(2*x2)
  *             else:
  *                 t = m[1,1]-m[0,0]-m[2,2]             # <<<<<<<<<<<<<<
@@ -7746,7 +7746,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       __pyx_v_t = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "imusim/maths/quaternions.pyx":502
+      /* "nvg/maths/quaternions.pyx":502
  *             else:
  *                 t = m[1,1]-m[0,0]-m[2,2]
  *                 if t > 0:             # <<<<<<<<<<<<<<
@@ -7759,7 +7759,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_4) {
 
-        /* "imusim/maths/quaternions.pyx":503
+        /* "nvg/maths/quaternions.pyx":503
  *                 t = m[1,1]-m[0,0]-m[2,2]
  *                 if t > 0:
  *                     y2 = sqrt(t+1)             # <<<<<<<<<<<<<<
@@ -7772,7 +7772,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __pyx_v_y2 = sqrt(__pyx_t_5);
 
-        /* "imusim/maths/quaternions.pyx":504
+        /* "nvg/maths/quaternions.pyx":504
  *                 if t > 0:
  *                     y2 = sqrt(t+1)
  *                     self.w = (m[0,2]-m[2,0])/(2*y2)             # <<<<<<<<<<<<<<
@@ -7796,7 +7796,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 504; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "imusim/maths/quaternions.pyx":505
+        /* "nvg/maths/quaternions.pyx":505
  *                     y2 = sqrt(t+1)
  *                     self.w = (m[0,2]-m[2,0])/(2*y2)
  *                     self.x = (m[1,0]+m[0,1])/(2*y2)             # <<<<<<<<<<<<<<
@@ -7820,7 +7820,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 505; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "imusim/maths/quaternions.pyx":506
+        /* "nvg/maths/quaternions.pyx":506
  *                     self.w = (m[0,2]-m[2,0])/(2*y2)
  *                     self.x = (m[1,0]+m[0,1])/(2*y2)
  *                     self.y = y2/2             # <<<<<<<<<<<<<<
@@ -7832,7 +7832,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 506; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "imusim/maths/quaternions.pyx":507
+        /* "nvg/maths/quaternions.pyx":507
  *                     self.x = (m[1,0]+m[0,1])/(2*y2)
  *                     self.y = y2/2
  *                     self.z = (m[1,2]+m[2,1])/(2*y2)             # <<<<<<<<<<<<<<
@@ -7859,7 +7859,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
       }
       /*else*/ {
 
-        /* "imusim/maths/quaternions.pyx":509
+        /* "nvg/maths/quaternions.pyx":509
  *                     self.z = (m[1,2]+m[2,1])/(2*y2)
  *                 else:
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)             # <<<<<<<<<<<<<<
@@ -7887,7 +7887,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_v_z2 = sqrt(__pyx_t_5);
 
-        /* "imusim/maths/quaternions.pyx":510
+        /* "nvg/maths/quaternions.pyx":510
  *                 else:
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)             # <<<<<<<<<<<<<<
@@ -7911,7 +7911,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 510; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "imusim/maths/quaternions.pyx":511
+        /* "nvg/maths/quaternions.pyx":511
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)
  *                     self.x = (m[0,2]+m[2,0])/(2*z2)             # <<<<<<<<<<<<<<
@@ -7935,7 +7935,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 511; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "imusim/maths/quaternions.pyx":512
+        /* "nvg/maths/quaternions.pyx":512
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)
  *                     self.x = (m[0,2]+m[2,0])/(2*z2)
  *                     self.y = (m[1,2]+m[2,1])/(2*z2)             # <<<<<<<<<<<<<<
@@ -7959,7 +7959,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
         if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 512; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-        /* "imusim/maths/quaternions.pyx":513
+        /* "nvg/maths/quaternions.pyx":513
  *                     self.x = (m[0,2]+m[2,0])/(2*z2)
  *                     self.y = (m[1,2]+m[2,1])/(2*z2)
  *                     self.z = z2/2             # <<<<<<<<<<<<<<
@@ -7983,7 +7983,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromMatrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_t);
@@ -7992,7 +7992,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":515
+/* "nvg/maths/quaternions.pyx":515
  *                     self.z = z2/2
  * 
  *     def setFromVectors(Quaternion self,x,y,z):             # <<<<<<<<<<<<<<
@@ -8000,9 +8000,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMat
  *         Set this quaternion so that it acts as a rotation taking the e1,e2,e3
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVectors(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_25setFromVectors[] = "\n        Set this quaternion so that it acts as a rotation taking the e1,e2,e3\n        basis vectors to x,y,z.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVectors(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_25setFromVectors(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_25setFromVectors[] = "\n        Set this quaternion so that it acts as a rotation taking the e1,e2,e3\n        basis vectors to x,y,z.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_25setFromVectors(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_y = 0;
   PyObject *__pyx_v_z = 0;
@@ -8065,12 +8065,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("setFromVectors", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 515; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":520
+  /* "nvg/maths/quaternions.pyx":520
  *         basis vectors to x,y,z.
  *         """
  *         self.setFromMatrix(np.vstack((x,y,z)).reshape(3,3))             # <<<<<<<<<<<<<<
@@ -8128,7 +8128,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVec
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromVectors", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -8136,7 +8136,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVec
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":522
+/* "nvg/maths/quaternions.pyx":522
  *         self.setFromMatrix(np.vstack((x,y,z)).reshape(3,3))
  * 
  *     def setFromEuler(Quaternion self,angles,order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -8144,9 +8144,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVec
  *         Set this quaternion from an Euler angle sequence.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_26setFromEuler[] = "\n        Set this quaternion from an Euler angle sequence.\n\n        @param angles: Sequence of 3 Euler angles.\n        @param order: The order to apply the Euler angle sequence.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_26setFromEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_26setFromEuler[] = "\n        Set this quaternion from an Euler angle sequence.\n\n        @param angles: Sequence of 3 Euler angles.\n        @param order: The order to apply the Euler angle sequence.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_26setFromEuler(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_angles = 0;
   PyObject *__pyx_v_order = 0;
   PyObject *__pyx_v_inDegrees = 0;
@@ -8222,13 +8222,13 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("setFromEuler", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 522; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   __Pyx_INCREF(__pyx_v_angles);
 
-  /* "imusim/maths/quaternions.pyx":531
+  /* "nvg/maths/quaternions.pyx":531
  *             or False for radians.
  *         """
  *         if inDegrees:             # <<<<<<<<<<<<<<
@@ -8238,7 +8238,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_inDegrees); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 531; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quaternions.pyx":532
+    /* "nvg/maths/quaternions.pyx":532
  *         """
  *         if inDegrees:
  *             angles = [np.radians(angle) for angle in angles]             # <<<<<<<<<<<<<<
@@ -8302,7 +8302,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   }
   __pyx_L6:;
 
-  /* "imusim/maths/quaternions.pyx":533
+  /* "nvg/maths/quaternions.pyx":533
  *         if inDegrees:
  *             angles = [np.radians(angle) for angle in angles]
  *         self.set( reduce(operator.mul, [Quaternion(**dict((('w',cos(angle/2.0)),             # <<<<<<<<<<<<<<
@@ -8319,7 +8319,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_3));
 
-  /* "imusim/maths/quaternions.pyx":534
+  /* "nvg/maths/quaternions.pyx":534
  *             angles = [np.radians(angle) for angle in angles]
  *         self.set( reduce(operator.mul, [Quaternion(**dict((('w',cos(angle/2.0)),
  *             (axis.lower(),sin(angle/2.0))))) for angle, axis in zip(angles, order)]))             # <<<<<<<<<<<<<<
@@ -8413,7 +8413,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
     __pyx_v_axis = __pyx_t_10;
     __pyx_t_10 = 0;
 
-    /* "imusim/maths/quaternions.pyx":533
+    /* "nvg/maths/quaternions.pyx":533
  *         if inDegrees:
  *             angles = [np.radians(angle) for angle in angles]
  *         self.set( reduce(operator.mul, [Quaternion(**dict((('w',cos(angle/2.0)),             # <<<<<<<<<<<<<<
@@ -8438,7 +8438,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
     __Pyx_GIVEREF(__pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "imusim/maths/quaternions.pyx":534
+    /* "nvg/maths/quaternions.pyx":534
  *             angles = [np.radians(angle) for angle in angles]
  *         self.set( reduce(operator.mul, [Quaternion(**dict((('w',cos(angle/2.0)),
  *             (axis.lower(),sin(angle/2.0))))) for angle, axis in zip(angles, order)]))             # <<<<<<<<<<<<<<
@@ -8483,7 +8483,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
     __pyx_t_11 = PyObject_Call(((PyObject *)((PyObject*)(&PyDict_Type))), ((PyObject *)__pyx_t_10), NULL); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(((PyObject *)__pyx_t_10)); __pyx_t_10 = 0;
-    __pyx_t_10 = PyEval_CallObjectWithKeywords(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), __pyx_t_11); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_10 = PyEval_CallObjectWithKeywords(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), __pyx_t_11); if (unlikely(!__pyx_t_10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     if (unlikely(PyList_Append(__pyx_t_3, (PyObject*)__pyx_t_10))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 533; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -8524,7 +8524,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromEuler", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_angle);
@@ -8535,7 +8535,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":536
+/* "nvg/maths/quaternions.pyx":536
  *             (axis.lower(),sin(angle/2.0))))) for angle, axis in zip(angles, order)]))
  * 
  *     def setFromAxisAngle(Quaternion self,axis,angle,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -8543,9 +8543,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEul
  *         Set this quaternion from the axis-angle representation of a rotation.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxisAngle(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_27setFromAxisAngle[] = "\n        Set this quaternion from the axis-angle representation of a rotation.\n\n        @param axis: axis: a unit vector indicating the direction of a directed axis.\n        @param angle: the magnitude of the rotation about the axis.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxisAngle(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_27setFromAxisAngle(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_27setFromAxisAngle[] = "\n        Set this quaternion from the axis-angle representation of a rotation.\n\n        @param axis: axis: a unit vector indicating the direction of a directed axis.\n        @param angle: the magnitude of the rotation about the axis.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_27setFromAxisAngle(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_axis = 0;
   PyObject *__pyx_v_angle = 0;
   PyObject *__pyx_v_inDegrees = 0;
@@ -8614,13 +8614,13 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("setFromAxisAngle", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 536; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   __Pyx_INCREF(__pyx_v_angle);
 
-  /* "imusim/maths/quaternions.pyx":545
+  /* "nvg/maths/quaternions.pyx":545
  *             or False for radians.
  *         """
  *         if inDegrees:             # <<<<<<<<<<<<<<
@@ -8630,7 +8630,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_inDegrees); if (unlikely(__pyx_t_1 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 545; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quaternions.pyx":546
+    /* "nvg/maths/quaternions.pyx":546
  *         """
  *         if inDegrees:
  *             angle = np.radians(angle)             # <<<<<<<<<<<<<<
@@ -8658,7 +8658,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   }
   __pyx_L6:;
 
-  /* "imusim/maths/quaternions.pyx":547
+  /* "nvg/maths/quaternions.pyx":547
  *         if inDegrees:
  *             angle = np.radians(angle)
  *         self.w = cos(angle/2)             # <<<<<<<<<<<<<<
@@ -8674,7 +8674,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 547; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":548
+  /* "nvg/maths/quaternions.pyx":548
  *             angle = np.radians(angle)
  *         self.w = cos(angle/2)
  *         self.x,self.y,self.z = axis * sin(angle/2)             # <<<<<<<<<<<<<<
@@ -8752,7 +8752,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromAxisAngle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_angle);
@@ -8761,7 +8761,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":550
+/* "nvg/maths/quaternions.pyx":550
  *         self.x,self.y,self.z = axis * sin(angle/2)
  * 
  *     def setFromSORA(Quaternion self,rx,ry,rz,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -8769,9 +8769,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxi
  *         Set this quaternion from simultaneous orthogonal rotations angle (SORA)
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSORA(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_10Quaternion_28setFromSORA[] = "\n        Set this quaternion from simultaneous orthogonal rotations angle (SORA)\n        as commonly provided by a 3-axis gyroscope.\n\n        @param rx: rotation about the x-axis.\n        @param ry: rotation about the y-axis.\n        @param rz: rotation about the z-axis.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSORA(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_28setFromSORA(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_10Quaternion_28setFromSORA[] = "\n        Set this quaternion from simultaneous orthogonal rotations angle (SORA)\n        as commonly provided by a 3-axis gyroscope.\n\n        @param rx: rotation about the x-axis.\n        @param ry: rotation about the y-axis.\n        @param rz: rotation about the z-axis.\n        @param inDegrees: True to indicate that angles are in degrees (default),\n            or False for radians.\n        ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_28setFromSORA(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_rx = 0;
   PyObject *__pyx_v_ry = 0;
   PyObject *__pyx_v_rz = 0;
@@ -8849,12 +8849,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("setFromSORA", 0, 3, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 550; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":561
+  /* "nvg/maths/quaternions.pyx":561
  *             or False for radians.
  *         """
  *         angle = sqrt(rx**2 + ry**2 + rz**2)             # <<<<<<<<<<<<<<
@@ -8879,7 +8879,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_angle = sqrt(__pyx_t_4);
 
-  /* "imusim/maths/quaternions.pyx":562
+  /* "nvg/maths/quaternions.pyx":562
  *         """
  *         angle = sqrt(rx**2 + ry**2 + rz**2)
  *         if angle>0:             # <<<<<<<<<<<<<<
@@ -8889,7 +8889,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   __pyx_t_5 = (__pyx_v_angle > 0.0);
   if (__pyx_t_5) {
 
-    /* "imusim/maths/quaternions.pyx":563
+    /* "nvg/maths/quaternions.pyx":563
  *         angle = sqrt(rx**2 + ry**2 + rz**2)
  *         if angle>0:
  *             axis = np.vstack((rx,ry,rz))/angle             # <<<<<<<<<<<<<<
@@ -8930,7 +8930,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
     __pyx_v_axis = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "imusim/maths/quaternions.pyx":564
+    /* "nvg/maths/quaternions.pyx":564
  *         if angle>0:
  *             axis = np.vstack((rx,ry,rz))/angle
  *             self.setFromAxisAngle(axis,angle,inDegrees)             # <<<<<<<<<<<<<<
@@ -8961,7 +8961,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":566
+    /* "nvg/maths/quaternions.pyx":566
  *             self.setFromAxisAngle(axis,angle,inDegrees)
  *         else:
  *             self.set(Quaternion())             # <<<<<<<<<<<<<<
@@ -8970,7 +8970,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
  */
     __pyx_t_3 = PyObject_GetAttr(__pyx_v_self, __pyx_n_s__set); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 566; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 566; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 566; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 566; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(((PyObject *)__pyx_t_2));
@@ -8991,7 +8991,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.setFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.setFromSORA", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_axis);
@@ -9000,7 +9000,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":575
+/* "nvg/maths/quaternions.pyx":575
  *     nan = staticmethod(QuaternionNaN)
  * 
  *     def __reduce__(Quaternion self):             # <<<<<<<<<<<<<<
@@ -9008,8 +9008,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSOR
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_29__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_29__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9022,7 +9022,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__reduce__");
 
-  /* "imusim/maths/quaternions.pyx":576
+  /* "nvg/maths/quaternions.pyx":576
  * 
  *     def __reduce__(Quaternion self):
  *         return (Quaternion, (self.w, self.x, self.y, self.z))             # <<<<<<<<<<<<<<
@@ -9054,9 +9054,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__
   __pyx_t_4 = 0;
   __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 576; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_4));
-  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
+  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_t_5));
   __Pyx_GIVEREF(((PyObject *)__pyx_t_5));
   __pyx_t_5 = 0;
@@ -9072,7 +9072,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.Quaternion.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.Quaternion.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9080,7 +9080,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":578
+/* "nvg/maths/quaternions.pyx":578
  *         return (Quaternion, (self.w, self.x, self.y, self.z))
  * 
  * def QuaternionArrayNaN(length):             # <<<<<<<<<<<<<<
@@ -9088,9 +9088,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__
  *     a[:] = np.nan
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObject *__pyx_self, PyObject *__pyx_v_length); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_6QuaternionArrayNaN = {__Pyx_NAMESTR("QuaternionArrayNaN"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN, METH_O, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObject *__pyx_self, PyObject *__pyx_v_length) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_6QuaternionArrayNaN(PyObject *__pyx_self, PyObject *__pyx_v_length); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_6QuaternionArrayNaN = {__Pyx_NAMESTR("QuaternionArrayNaN"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_6QuaternionArrayNaN, METH_O, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_6QuaternionArrayNaN(PyObject *__pyx_self, PyObject *__pyx_v_length) {
   PyObject *__pyx_v_a = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -9103,7 +9103,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
   __Pyx_RefNannySetupContext("QuaternionArrayNaN");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":579
+  /* "nvg/maths/quaternions.pyx":579
  * 
  * def QuaternionArrayNaN(length):
  *     a = np.empty((length,4))             # <<<<<<<<<<<<<<
@@ -9135,7 +9135,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
   __pyx_v_a = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":580
+  /* "nvg/maths/quaternions.pyx":580
  * def QuaternionArrayNaN(length):
  *     a = np.empty((length,4))
  *     a[:] = np.nan             # <<<<<<<<<<<<<<
@@ -9150,7 +9150,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
   if (unlikely(!__pyx_v_a)) { __Pyx_RaiseUnboundLocalError("a"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 580; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }if (__Pyx_PySequence_SetSlice(__pyx_v_a, 0, PY_SSIZE_T_MAX, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 580; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":581
+  /* "nvg/maths/quaternions.pyx":581
  *     a = np.empty((length,4))
  *     a[:] = np.nan
  *     return QuaternionArray(a)             # <<<<<<<<<<<<<<
@@ -9179,7 +9179,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArrayNaN", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArrayNaN", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_a);
@@ -9188,7 +9188,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":591
+/* "nvg/maths/quaternions.pyx":591
  *     __slots__ = ['array','w','x','y','z']
  *     __hash__ = None
  *     def __init__(self,data,copy=False):             # <<<<<<<<<<<<<<
@@ -9196,10 +9196,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_6QuaternionArrayNaN(PyObj
  *         Construct quaternion array.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray___init__[] = "\n        Construct quaternion array.\n\n        A L{QuaternionArray} can be constructed from:\n\n            - A sequence of L{Quaternion} objects.\n            - A 4-element list or tuple of arrays giving w,x,y,z components.\n            - An Nx4 array of quaternion component values.\n            - Another L{QuaternionArray}.\n\n        @param data: Data from which to construct the array.\n        @param copy: If the source is an existing Nx4 array or\n            L{QuaternionArray},  whether to copy the data. If not it will be\n            referenced in place.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray___init__ = {__Pyx_NAMESTR("__init__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray___init__)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray___init__[] = "\n        Construct quaternion array.\n\n        A L{QuaternionArray} can be constructed from:\n\n            - A sequence of L{Quaternion} objects.\n            - A 4-element list or tuple of arrays giving w,x,y,z components.\n            - An Nx4 array of quaternion component values.\n            - Another L{QuaternionArray}.\n\n        @param data: Data from which to construct the array.\n        @param copy: If the source is an existing Nx4 array or\n            L{QuaternionArray},  whether to copy the data. If not it will be\n            referenced in place.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray___init__ = {__Pyx_NAMESTR("__init__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray___init__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray___init__)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_data = 0;
   PyObject *__pyx_v_copy = 0;
@@ -9272,12 +9272,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 591; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":607
+  /* "nvg/maths/quaternions.pyx":607
  *             referenced in place.
  *         """
  *         if isinstance(data, (tuple,list)):             # <<<<<<<<<<<<<<
@@ -9296,7 +9296,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":608
+    /* "nvg/maths/quaternions.pyx":608
  *         """
  *         if isinstance(data, (tuple,list)):
  *             if isinstance(data[0],Quaternion):             # <<<<<<<<<<<<<<
@@ -9305,14 +9305,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
  */
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_data, 0, sizeof(long), PyInt_FromLong); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 608; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+    __pyx_t_5 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
     __Pyx_INCREF(__pyx_t_5);
     __pyx_t_4 = __Pyx_TypeCheck(__pyx_t_1, __pyx_t_5); 
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_4) {
 
-      /* "imusim/maths/quaternions.pyx":609
+      /* "nvg/maths/quaternions.pyx":609
  *         if isinstance(data, (tuple,list)):
  *             if isinstance(data[0],Quaternion):
  *                 self.array = np.array([q.components for q in data],ndmin=2)             # <<<<<<<<<<<<<<
@@ -9380,7 +9380,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
       goto __pyx_L7;
     }
 
-    /* "imusim/maths/quaternions.pyx":610
+    /* "nvg/maths/quaternions.pyx":610
  *             if isinstance(data[0],Quaternion):
  *                 self.array = np.array([q.components for q in data],ndmin=2)
  *             elif len(data) == 4:             # <<<<<<<<<<<<<<
@@ -9391,7 +9391,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     __pyx_t_4 = (__pyx_t_7 == 4);
     if (__pyx_t_4) {
 
-      /* "imusim/maths/quaternions.pyx":611
+      /* "nvg/maths/quaternions.pyx":611
  *                 self.array = np.array([q.components for q in data],ndmin=2)
  *             elif len(data) == 4:
  *                 self.array = np.array(data,ndmin=2)             # <<<<<<<<<<<<<<
@@ -9422,7 +9422,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     }
     /*else*/ {
 
-      /* "imusim/maths/quaternions.pyx":613
+      /* "nvg/maths/quaternions.pyx":613
  *                 self.array = np.array(data,ndmin=2)
  *             else:
  *                 raise TypeError("List or tuple data must be a sequence of \             # <<<<<<<<<<<<<<
@@ -9439,7 +9439,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":616
+  /* "nvg/maths/quaternions.pyx":616
  * Quaternions or a sequence of w,x,y,z arrays")
  * 
  *         elif isinstance(data, np.ndarray):             # <<<<<<<<<<<<<<
@@ -9452,7 +9452,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":617
+    /* "nvg/maths/quaternions.pyx":617
  * 
  *         elif isinstance(data, np.ndarray):
  *             if isinstance(data[0], Quaternion):             # <<<<<<<<<<<<<<
@@ -9461,14 +9461,14 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
  */
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_data, 0, sizeof(long), PyInt_FromLong); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 617; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+    __pyx_t_6 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
     __Pyx_INCREF(__pyx_t_6);
     __pyx_t_4 = __Pyx_TypeCheck(__pyx_t_1, __pyx_t_6); 
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_4) {
 
-      /* "imusim/maths/quaternions.pyx":618
+      /* "nvg/maths/quaternions.pyx":618
  *         elif isinstance(data, np.ndarray):
  *             if isinstance(data[0], Quaternion):
  *                 self.array = np.array([q.components for q in data],ndmin=2)             # <<<<<<<<<<<<<<
@@ -9537,7 +9537,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     }
     /*else*/ {
 
-      /* "imusim/maths/quaternions.pyx":620
+      /* "nvg/maths/quaternions.pyx":620
  *                 self.array = np.array([q.components for q in data],ndmin=2)
  *             else:
  *                 assert data.ndim == 2 and data.shape[1] == 4, \             # <<<<<<<<<<<<<<
@@ -9569,7 +9569,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
       }
       if (unlikely(!__pyx_t_3)) {
 
-        /* "imusim/maths/quaternions.pyx":621
+        /* "nvg/maths/quaternions.pyx":621
  *             else:
  *                 assert data.ndim == 2 and data.shape[1] == 4, \
  *                     "Array data must be Nx4, got %r" % repr(data)             # <<<<<<<<<<<<<<
@@ -9587,7 +9587,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
       }
       #endif
 
-      /* "imusim/maths/quaternions.pyx":622
+      /* "nvg/maths/quaternions.pyx":622
  *                 assert data.ndim == 2 and data.shape[1] == 4, \
  *                     "Array data must be Nx4, got %r" % repr(data)
  *                 self.array = np.array(data,ndmin=2,copy=copy)             # <<<<<<<<<<<<<<
@@ -9620,7 +9620,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":623
+  /* "nvg/maths/quaternions.pyx":623
  *                     "Array data must be Nx4, got %r" % repr(data)
  *                 self.array = np.array(data,ndmin=2,copy=copy)
  *         elif isinstance(data,QuaternionArray):             # <<<<<<<<<<<<<<
@@ -9633,7 +9633,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":624
+    /* "nvg/maths/quaternions.pyx":624
  *                 self.array = np.array(data,ndmin=2,copy=copy)
  *         elif isinstance(data,QuaternionArray):
  *             self.array = np.array(data.array,copy=copy)             # <<<<<<<<<<<<<<
@@ -9665,20 +9665,20 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":625
+  /* "nvg/maths/quaternions.pyx":625
  *         elif isinstance(data,QuaternionArray):
  *             self.array = np.array(data.array,copy=copy)
  *         elif isinstance(data,Quaternion):             # <<<<<<<<<<<<<<
  *             self.array = np.array([data.components], ndmin=2)
  *         else:
  */
-  __pyx_t_6 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+  __pyx_t_6 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
   __Pyx_INCREF(__pyx_t_6);
   __pyx_t_3 = __Pyx_TypeCheck(__pyx_v_data, __pyx_t_6); 
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":626
+    /* "nvg/maths/quaternions.pyx":626
  *             self.array = np.array(data.array,copy=copy)
  *         elif isinstance(data,Quaternion):
  *             self.array = np.array([data.components], ndmin=2)             # <<<<<<<<<<<<<<
@@ -9716,7 +9716,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":628
+    /* "nvg/maths/quaternions.pyx":628
  *             self.array = np.array([data.components], ndmin=2)
  *         else:
  *             raise TypeError("Cannot construct QuaternionArray from type %r"%type(data))             # <<<<<<<<<<<<<<
@@ -9739,7 +9739,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   }
   __pyx_L6:;
 
-  /* "imusim/maths/quaternions.pyx":630
+  /* "nvg/maths/quaternions.pyx":630
  *             raise TypeError("Cannot construct QuaternionArray from type %r"%type(data))
  * 
  *         shape = self.array.shape             # <<<<<<<<<<<<<<
@@ -9754,7 +9754,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __pyx_v_shape = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":631
+  /* "nvg/maths/quaternions.pyx":631
  * 
  *         shape = self.array.shape
  *         if not shape[1] == 4:             # <<<<<<<<<<<<<<
@@ -9771,7 +9771,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __pyx_t_4 = (!__pyx_t_3);
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":632
+    /* "nvg/maths/quaternions.pyx":632
  *         shape = self.array.shape
  *         if not shape[1] == 4:
  *             self.array = self.array.T             # <<<<<<<<<<<<<<
@@ -9789,7 +9789,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   }
   __pyx_L13:;
 
-  /* "imusim/maths/quaternions.pyx":634
+  /* "nvg/maths/quaternions.pyx":634
  *             self.array = self.array.T
  * 
  *         self.w = self.array[:,0]             # <<<<<<<<<<<<<<
@@ -9804,7 +9804,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__w, __pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 634; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "imusim/maths/quaternions.pyx":635
+  /* "nvg/maths/quaternions.pyx":635
  * 
  *         self.w = self.array[:,0]
  *         self.x = self.array[:,1]             # <<<<<<<<<<<<<<
@@ -9819,7 +9819,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__x, __pyx_t_5) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 635; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":636
+  /* "nvg/maths/quaternions.pyx":636
  *         self.w = self.array[:,0]
  *         self.x = self.array[:,1]
  *         self.y = self.array[:,2]             # <<<<<<<<<<<<<<
@@ -9834,7 +9834,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s__y, __pyx_t_9) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 636; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
 
-  /* "imusim/maths/quaternions.pyx":637
+  /* "nvg/maths/quaternions.pyx":637
  *         self.x = self.array[:,1]
  *         self.y = self.array[:,2]
  *         self.z = self.array[:,3]             # <<<<<<<<<<<<<<
@@ -9856,7 +9856,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_shape);
@@ -9866,7 +9866,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":639
+/* "nvg/maths/quaternions.pyx":639
  *         self.z = self.array[:,3]
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -9874,9 +9874,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray___init_
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_1__repr__ = {__Pyx_NAMESTR("__repr__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr__, METH_O, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_1__repr__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_1__repr__ = {__Pyx_NAMESTR("__repr__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_1__repr__, METH_O, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_1__repr__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -9887,7 +9887,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr
   __Pyx_RefNannySetupContext("__repr__");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":640
+  /* "nvg/maths/quaternions.pyx":640
  * 
  *     def __repr__(self):
  *         return "QuaternionArray(%r)"%self.array             # <<<<<<<<<<<<<<
@@ -9909,7 +9909,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -9917,7 +9917,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":642
+/* "nvg/maths/quaternions.pyx":642
  *         return "QuaternionArray(%r)"%self.array
  * 
  *     def __add__(self,other):             # <<<<<<<<<<<<<<
@@ -9925,9 +9925,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_1__repr
  *             return QuaternionArray((self.w+other.w,
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_2__add__ = {__Pyx_NAMESTR("__add__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_2__add__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_2__add__ = {__Pyx_NAMESTR("__add__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_2__add__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_2__add__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -9985,12 +9985,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__add__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 642; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":643
+  /* "nvg/maths/quaternions.pyx":643
  * 
  *     def __add__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):             # <<<<<<<<<<<<<<
@@ -10003,15 +10003,15 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   __Pyx_GOTREF(((PyObject *)__pyx_t_2));
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
+  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
   __pyx_t_1 = 0;
   __pyx_t_3 = PyObject_IsInstance(__pyx_v_other, ((PyObject *)__pyx_t_2)); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 643; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":644
+    /* "nvg/maths/quaternions.pyx":644
  *     def __add__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w+other.w,             # <<<<<<<<<<<<<<
@@ -10030,7 +10030,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "imusim/maths/quaternions.pyx":645
+    /* "nvg/maths/quaternions.pyx":645
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w+other.w,
  *                 self.x+other.x, self.y+other.y, self.z+other.z))             # <<<<<<<<<<<<<<
@@ -10090,7 +10090,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":646
+  /* "nvg/maths/quaternions.pyx":646
  *             return QuaternionArray((self.w+other.w,
  *                 self.x+other.x, self.y+other.y, self.z+other.z))
  *         elif np.isscalar(other):             # <<<<<<<<<<<<<<
@@ -10115,7 +10115,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":647
+    /* "nvg/maths/quaternions.pyx":647
  *                 self.x+other.x, self.y+other.y, self.z+other.z))
  *         elif np.isscalar(other):
  *             return QuaternionArray(self.array+other)             # <<<<<<<<<<<<<<
@@ -10146,7 +10146,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":649
+    /* "nvg/maths/quaternions.pyx":649
  *             return QuaternionArray(self.array+other)
  *         else:
  *             raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -10168,7 +10168,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__add__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -10176,7 +10176,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":651
+/* "nvg/maths/quaternions.pyx":651
  *             raise NotImplementedError
  * 
  *     def __sub__(self,other):             # <<<<<<<<<<<<<<
@@ -10184,9 +10184,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_2__add_
  *             return QuaternionArray((self.w-other.w,
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_3__sub__ = {__Pyx_NAMESTR("__sub__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_3__sub__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_3__sub__ = {__Pyx_NAMESTR("__sub__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_3__sub__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_3__sub__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -10244,12 +10244,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__sub__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 651; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":652
+  /* "nvg/maths/quaternions.pyx":652
  * 
  *     def __sub__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):             # <<<<<<<<<<<<<<
@@ -10262,15 +10262,15 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   __Pyx_GOTREF(((PyObject *)__pyx_t_2));
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
+  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
   __pyx_t_1 = 0;
   __pyx_t_3 = PyObject_IsInstance(__pyx_v_other, ((PyObject *)__pyx_t_2)); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 652; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":653
+    /* "nvg/maths/quaternions.pyx":653
  *     def __sub__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w-other.w,             # <<<<<<<<<<<<<<
@@ -10289,7 +10289,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "imusim/maths/quaternions.pyx":654
+    /* "nvg/maths/quaternions.pyx":654
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w-other.w,
  *                 self.x-other.x, self.y-other.y, self.z-other.z))             # <<<<<<<<<<<<<<
@@ -10349,7 +10349,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":655
+  /* "nvg/maths/quaternions.pyx":655
  *             return QuaternionArray((self.w-other.w,
  *                 self.x-other.x, self.y-other.y, self.z-other.z))
  *         elif np.isscalar(other):             # <<<<<<<<<<<<<<
@@ -10374,7 +10374,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":656
+    /* "nvg/maths/quaternions.pyx":656
  *                 self.x-other.x, self.y-other.y, self.z-other.z))
  *         elif np.isscalar(other):
  *             return QuaternionArray(self.array-other)             # <<<<<<<<<<<<<<
@@ -10405,7 +10405,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":658
+    /* "nvg/maths/quaternions.pyx":658
  *             return QuaternionArray(self.array-other)
  *         else:
  *             raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -10427,7 +10427,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__sub__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -10435,7 +10435,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":660
+/* "nvg/maths/quaternions.pyx":660
  *             raise NotImplementedError
  * 
  *     def __neg__(self):             # <<<<<<<<<<<<<<
@@ -10443,9 +10443,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_3__sub_
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_4__neg__ = {__Pyx_NAMESTR("__neg__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg__, METH_O, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_4__neg__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_4__neg__ = {__Pyx_NAMESTR("__neg__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_4__neg__, METH_O, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_4__neg__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -10457,7 +10457,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg_
   __Pyx_RefNannySetupContext("__neg__");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":661
+  /* "nvg/maths/quaternions.pyx":661
  * 
  *     def __neg__(self):
  *         return QuaternionArray(-self.array)             # <<<<<<<<<<<<<<
@@ -10491,7 +10491,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__neg__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__neg__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -10499,7 +10499,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":663
+/* "nvg/maths/quaternions.pyx":663
  *         return QuaternionArray(-self.array)
  * 
  *     def __mul__(self,other):             # <<<<<<<<<<<<<<
@@ -10507,9 +10507,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_4__neg_
  *             return QuaternionArray((
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_5__mul__ = {__Pyx_NAMESTR("__mul__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_5__mul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_5__mul__ = {__Pyx_NAMESTR("__mul__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_5__mul__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_5__mul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -10570,12 +10570,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__mul__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":664
+  /* "nvg/maths/quaternions.pyx":664
  * 
  *     def __mul__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):             # <<<<<<<<<<<<<<
@@ -10588,15 +10588,15 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   __Pyx_GOTREF(((PyObject *)__pyx_t_2));
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
-  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
-  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)));
+  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
+  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)));
   __pyx_t_1 = 0;
   __pyx_t_3 = PyObject_IsInstance(__pyx_v_other, ((PyObject *)__pyx_t_2)); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 664; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":665
+    /* "nvg/maths/quaternions.pyx":665
  *     def __mul__(self,other):
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((             # <<<<<<<<<<<<<<
@@ -10607,7 +10607,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     __pyx_t_2 = __Pyx_GetName(__pyx_m, __pyx_n_s__QuaternionArray); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 665; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "imusim/maths/quaternions.pyx":666
+    /* "nvg/maths/quaternions.pyx":666
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((
  *                 self.w*other.w - self.x*other.x - self.y*other.y - self.z*other.z,             # <<<<<<<<<<<<<<
@@ -10659,7 +10659,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "imusim/maths/quaternions.pyx":667
+    /* "nvg/maths/quaternions.pyx":667
  *             return QuaternionArray((
  *                 self.w*other.w - self.x*other.x - self.y*other.y - self.z*other.z,
  *                 self.w*other.x + self.x*other.w + self.y*other.z - self.z*other.y,             # <<<<<<<<<<<<<<
@@ -10711,7 +10711,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quaternions.pyx":668
+    /* "nvg/maths/quaternions.pyx":668
  *                 self.w*other.w - self.x*other.x - self.y*other.y - self.z*other.z,
  *                 self.w*other.x + self.x*other.w + self.y*other.z - self.z*other.y,
  *                 self.w*other.y - self.x*other.z + self.y*other.w + self.z*other.x,             # <<<<<<<<<<<<<<
@@ -10763,7 +10763,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "imusim/maths/quaternions.pyx":669
+    /* "nvg/maths/quaternions.pyx":669
  *                 self.w*other.x + self.x*other.w + self.y*other.z - self.z*other.y,
  *                 self.w*other.y - self.x*other.z + self.y*other.w + self.z*other.x,
  *                 self.w*other.z + self.x*other.y - self.y*other.x + self.z*other.w))             # <<<<<<<<<<<<<<
@@ -10843,7 +10843,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":670
+  /* "nvg/maths/quaternions.pyx":670
  *                 self.w*other.y - self.x*other.z + self.y*other.w + self.z*other.x,
  *                 self.w*other.z + self.x*other.y - self.y*other.x + self.z*other.w))
  *         elif np.isscalar(other):             # <<<<<<<<<<<<<<
@@ -10868,7 +10868,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":671
+    /* "nvg/maths/quaternions.pyx":671
  *                 self.w*other.z + self.x*other.y - self.y*other.x + self.z*other.w))
  *         elif np.isscalar(other):
  *             return QuaternionArray(other*self.array)             # <<<<<<<<<<<<<<
@@ -10898,7 +10898,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":672
+  /* "nvg/maths/quaternions.pyx":672
  *         elif np.isscalar(other):
  *             return QuaternionArray(other*self.array)
  *         elif isinstance(other,np.ndarray):             # <<<<<<<<<<<<<<
@@ -10911,7 +10911,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   if (__pyx_t_3) {
 
-    /* "imusim/maths/quaternions.pyx":673
+    /* "nvg/maths/quaternions.pyx":673
  *             return QuaternionArray(other*self.array)
  *         elif isinstance(other,np.ndarray):
  *             if other.ndim == 1 and other.shape[0] == self.array.shape[0]:             # <<<<<<<<<<<<<<
@@ -10951,7 +10951,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
     }
     if (__pyx_t_11) {
 
-      /* "imusim/maths/quaternions.pyx":674
+      /* "nvg/maths/quaternions.pyx":674
  *         elif isinstance(other,np.ndarray):
  *             if other.ndim == 1 and other.shape[0] == self.array.shape[0]:
  *                 return QuaternionArray(self.array*other.reshape(-1,1))             # <<<<<<<<<<<<<<
@@ -10991,7 +10991,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":676
+    /* "nvg/maths/quaternions.pyx":676
  *                 return QuaternionArray(self.array*other.reshape(-1,1))
  *         else:
  *             raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -11014,7 +11014,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__mul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -11022,7 +11022,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":678
+/* "nvg/maths/quaternions.pyx":678
  *             raise NotImplementedError
  * 
  *     def __rmul__(self,other):             # <<<<<<<<<<<<<<
@@ -11030,9 +11030,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_5__mul_
  *             return QuaternionArray(other*self.array)
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul__ = {__Pyx_NAMESTR("__rmul__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_6__rmul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_6__rmul__ = {__Pyx_NAMESTR("__rmul__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_6__rmul__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_6__rmul__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -11091,12 +11091,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__rmul__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 678; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":679
+  /* "nvg/maths/quaternions.pyx":679
  * 
  *     def __rmul__(self,other):
  *         if np.isscalar(other):             # <<<<<<<<<<<<<<
@@ -11121,7 +11121,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":680
+    /* "nvg/maths/quaternions.pyx":680
  *     def __rmul__(self,other):
  *         if np.isscalar(other):
  *             return QuaternionArray(other*self.array)             # <<<<<<<<<<<<<<
@@ -11151,20 +11151,20 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":681
+  /* "nvg/maths/quaternions.pyx":681
  *         if np.isscalar(other):
  *             return QuaternionArray(other*self.array)
  *         elif isinstance(other,Quaternion):             # <<<<<<<<<<<<<<
  *             return QuaternionArray((
  *                 other.w*self.w - other.x*self.x - other.y*self.y - other.z*self.z,
  */
-  __pyx_t_2 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+  __pyx_t_2 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
   __Pyx_INCREF(__pyx_t_2);
   __pyx_t_4 = __Pyx_TypeCheck(__pyx_v_other, __pyx_t_2); 
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":682
+    /* "nvg/maths/quaternions.pyx":682
  *             return QuaternionArray(other*self.array)
  *         elif isinstance(other,Quaternion):
  *             return QuaternionArray((             # <<<<<<<<<<<<<<
@@ -11175,7 +11175,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
     __pyx_t_2 = __Pyx_GetName(__pyx_m, __pyx_n_s__QuaternionArray); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 682; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "imusim/maths/quaternions.pyx":683
+    /* "nvg/maths/quaternions.pyx":683
  *         elif isinstance(other,Quaternion):
  *             return QuaternionArray((
  *                 other.w*self.w - other.x*self.x - other.y*self.y - other.z*self.z,             # <<<<<<<<<<<<<<
@@ -11227,7 +11227,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "imusim/maths/quaternions.pyx":684
+    /* "nvg/maths/quaternions.pyx":684
  *             return QuaternionArray((
  *                 other.w*self.w - other.x*self.x - other.y*self.y - other.z*self.z,
  *                 other.w*self.x + other.x*self.w + other.y*self.z - other.z*self.y,             # <<<<<<<<<<<<<<
@@ -11279,7 +11279,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quaternions.pyx":685
+    /* "nvg/maths/quaternions.pyx":685
  *                 other.w*self.w - other.x*self.x - other.y*self.y - other.z*self.z,
  *                 other.w*self.x + other.x*self.w + other.y*self.z - other.z*self.y,
  *                 other.w*self.y - other.x*self.z + other.y*self.w + other.z*self.x,             # <<<<<<<<<<<<<<
@@ -11331,7 +11331,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "imusim/maths/quaternions.pyx":686
+    /* "nvg/maths/quaternions.pyx":686
  *                 other.w*self.x + other.x*self.w + other.y*self.z - other.z*self.y,
  *                 other.w*self.y - other.x*self.z + other.y*self.w + other.z*self.x,
  *                 other.w*self.z + other.x*self.y - other.y*self.x + other.z*self.w))             # <<<<<<<<<<<<<<
@@ -11412,7 +11412,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":689
+    /* "nvg/maths/quaternions.pyx":689
  * 
  *         else:
  *             raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -11435,7 +11435,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__rmul__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -11443,7 +11443,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":691
+/* "nvg/maths/quaternions.pyx":691
  *             raise NotImplementedError
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
@@ -11451,9 +11451,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_7copy = {__Pyx_NAMESTR("copy"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy, METH_O, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_7copy(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_7copy = {__Pyx_NAMESTR("copy"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_7copy, METH_O, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_7copy(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -11465,7 +11465,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(P
   __Pyx_RefNannySetupContext("copy");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":692
+  /* "nvg/maths/quaternions.pyx":692
  * 
  *     def copy(self):
  *         return QuaternionArray(self.array.copy())             # <<<<<<<<<<<<<<
@@ -11502,7 +11502,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(P
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.copy", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -11510,7 +11510,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":696
+/* "nvg/maths/quaternions.pyx":696
  *     __copy__ = copy
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
@@ -11518,10 +11518,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_7copy(P
  *         Natural logarithm of the quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_8log[] = "\n        Natural logarithm of the quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_8log = {__Pyx_NAMESTR("log"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_8log)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_8log(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_8log[] = "\n        Natural logarithm of the quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_8log = {__Pyx_NAMESTR("log"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_8log, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_8log)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_8log(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_v = NULL;
   PyObject *__pyx_v_normv = NULL;
   PyObject *__pyx_v_m = NULL;
@@ -11543,7 +11543,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __Pyx_RefNannySetupContext("log");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":700
+  /* "nvg/maths/quaternions.pyx":700
  *         Natural logarithm of the quaternions.
  *         """
  *         v = self.vector             # <<<<<<<<<<<<<<
@@ -11555,7 +11555,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __pyx_v_v = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":701
+  /* "nvg/maths/quaternions.pyx":701
  *         """
  *         v = self.vector
  *         normv = vectors.norm(v)             # <<<<<<<<<<<<<<
@@ -11579,7 +11579,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __pyx_v_normv = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":702
+  /* "nvg/maths/quaternions.pyx":702
  *         v = self.vector
  *         normv = vectors.norm(v)
  *         m = self.norm             # <<<<<<<<<<<<<<
@@ -11591,7 +11591,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __pyx_v_m = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":703
+  /* "nvg/maths/quaternions.pyx":703
  *         normv = vectors.norm(v)
  *         m = self.norm
  *         w = np.log(m)             # <<<<<<<<<<<<<<
@@ -11615,7 +11615,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __pyx_v_w = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":704
+  /* "nvg/maths/quaternions.pyx":704
  *         m = self.norm
  *         w = np.log(m)
  *         x,y,z = np.nan_to_num((v/normv)*np.arccos(self.w/m))             # <<<<<<<<<<<<<<
@@ -11715,7 +11715,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __pyx_v_z = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":705
+  /* "nvg/maths/quaternions.pyx":705
  *         w = np.log(m)
  *         x,y,z = np.nan_to_num((v/normv)*np.arccos(self.w/m))
  *         return QuaternionArray((w,x,y,z))             # <<<<<<<<<<<<<<
@@ -11760,7 +11760,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.log", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_v);
@@ -11775,7 +11775,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":707
+/* "nvg/maths/quaternions.pyx":707
  *         return QuaternionArray((w,x,y,z))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
@@ -11783,10 +11783,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_8log(Py
  *         Exponential of the quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_9exp[] = "\n        Exponential of the quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_9exp = {__Pyx_NAMESTR("exp"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_9exp)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_9exp(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_9exp[] = "\n        Exponential of the quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_9exp = {__Pyx_NAMESTR("exp"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_9exp, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_9exp)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_9exp(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_v = NULL;
   PyObject *__pyx_v_normv = NULL;
   PyObject *__pyx_v_w = NULL;
@@ -11807,7 +11807,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __Pyx_RefNannySetupContext("exp");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":711
+  /* "nvg/maths/quaternions.pyx":711
  *         Exponential of the quaternions.
  *         """
  *         v = self.vector             # <<<<<<<<<<<<<<
@@ -11819,7 +11819,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __pyx_v_v = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":712
+  /* "nvg/maths/quaternions.pyx":712
  *         """
  *         v = self.vector
  *         normv = vectors.norm(v)             # <<<<<<<<<<<<<<
@@ -11843,7 +11843,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __pyx_v_normv = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":713
+  /* "nvg/maths/quaternions.pyx":713
  *         v = self.vector
  *         normv = vectors.norm(v)
  *         w = np.cos(normv)             # <<<<<<<<<<<<<<
@@ -11867,7 +11867,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __pyx_v_w = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":714
+  /* "nvg/maths/quaternions.pyx":714
  *         normv = vectors.norm(v)
  *         w = np.cos(normv)
  *         x,y,z = np.nan_to_num(v/normv)*np.sin(normv)             # <<<<<<<<<<<<<<
@@ -11962,7 +11962,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __pyx_v_z = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":715
+  /* "nvg/maths/quaternions.pyx":715
  *         w = np.cos(normv)
  *         x,y,z = np.nan_to_num(v/normv)*np.sin(normv)
  *         return QuaternionArray((w,x,y,z))*np.exp(self.w)             # <<<<<<<<<<<<<<
@@ -12027,7 +12027,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.exp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_v);
@@ -12041,7 +12041,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":717
+/* "nvg/maths/quaternions.pyx":717
  *         return QuaternionArray((w,x,y,z))*np.exp(self.w)
  * 
  *     def __pow__(self,p):             # <<<<<<<<<<<<<<
@@ -12049,9 +12049,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_9exp(Py
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_10__pow__ = {__Pyx_NAMESTR("__pow__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_10__pow__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_10__pow__ = {__Pyx_NAMESTR("__pow__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_10__pow__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_10__pow__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_p = 0;
   PyObject *__pyx_r = NULL;
@@ -12103,12 +12103,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__pow__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 717; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":718
+  /* "nvg/maths/quaternions.pyx":718
  * 
  *     def __pow__(self,p):
  *         return (self.log()*p).exp()             # <<<<<<<<<<<<<<
@@ -12139,7 +12139,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__pow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12147,7 +12147,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":720
+/* "nvg/maths/quaternions.pyx":720
  *         return (self.log()*p).exp()
  * 
  *     def __eq__(self,other):             # <<<<<<<<<<<<<<
@@ -12155,9 +12155,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_10__pow
  *             return np.allclose(self.array,other.array)
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_11__eq__ = {__Pyx_NAMESTR("__eq__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_11__eq__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_11__eq__ = {__Pyx_NAMESTR("__eq__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_11__eq__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_11__eq__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -12212,12 +12212,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__eq__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__eq__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__eq__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":721
+  /* "nvg/maths/quaternions.pyx":721
  * 
  *     def __eq__(self,other):
  *         if isinstance(other,QuaternionArray):             # <<<<<<<<<<<<<<
@@ -12230,7 +12230,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quaternions.pyx":722
+    /* "nvg/maths/quaternions.pyx":722
  *     def __eq__(self,other):
  *         if isinstance(other,QuaternionArray):
  *             return np.allclose(self.array,other.array)             # <<<<<<<<<<<<<<
@@ -12266,7 +12266,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":724
+    /* "nvg/maths/quaternions.pyx":724
  *             return np.allclose(self.array,other.array)
  *         else:
  *             return False             # <<<<<<<<<<<<<<
@@ -12289,7 +12289,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__eq__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__eq__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12297,7 +12297,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":726
+/* "nvg/maths/quaternions.pyx":726
  *             return False
  * 
  *     def __getitem__(self,key):             # <<<<<<<<<<<<<<
@@ -12305,9 +12305,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_11__eq_
  *         if np.shape(result) == (4,):
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__getitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_12__getitem__ = {__Pyx_NAMESTR("__getitem__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__getitem__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__getitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_12__getitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_12__getitem__ = {__Pyx_NAMESTR("__getitem__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_12__getitem__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_12__getitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_key = 0;
   PyObject *__pyx_v_result = NULL;
@@ -12365,12 +12365,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__getitem__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 726; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":727
+  /* "nvg/maths/quaternions.pyx":727
  * 
  *     def __getitem__(self,key):
  *         result = self.array[key]             # <<<<<<<<<<<<<<
@@ -12385,7 +12385,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   __pyx_v_result = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":728
+  /* "nvg/maths/quaternions.pyx":728
  *     def __getitem__(self,key):
  *         result = self.array[key]
  *         if np.shape(result) == (4,):             # <<<<<<<<<<<<<<
@@ -12413,7 +12413,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quaternions.pyx":729
+    /* "nvg/maths/quaternions.pyx":729
  *         result = self.array[key]
  *         if np.shape(result) == (4,):
  *             return Quaternion(*result)             # <<<<<<<<<<<<<<
@@ -12423,7 +12423,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = PySequence_Tuple(__pyx_v_result); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(((PyObject *)__pyx_t_2));
-    __pyx_t_3 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_2), NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_2), NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 729; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_3;
@@ -12432,7 +12432,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":730
+  /* "nvg/maths/quaternions.pyx":730
  *         if np.shape(result) == (4,):
  *             return Quaternion(*result)
  *         elif len(np.shape(result)) == 2 and np.shape(result)[1] == 4:             # <<<<<<<<<<<<<<
@@ -12485,7 +12485,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   }
   if (__pyx_t_7) {
 
-    /* "imusim/maths/quaternions.pyx":731
+    /* "nvg/maths/quaternions.pyx":731
  *             return Quaternion(*result)
  *         elif len(np.shape(result)) == 2 and np.shape(result)[1] == 4:
  *             return QuaternionArray(result)             # <<<<<<<<<<<<<<
@@ -12511,7 +12511,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":733
+    /* "nvg/maths/quaternions.pyx":733
  *             return QuaternionArray(result)
  *         else:
  *             return result             # <<<<<<<<<<<<<<
@@ -12531,7 +12531,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_result);
@@ -12540,7 +12540,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":735
+/* "nvg/maths/quaternions.pyx":735
  *             return result
  * 
  *     def __setitem__(self, key, value):             # <<<<<<<<<<<<<<
@@ -12548,9 +12548,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_12__get
  *             self.array[key] = value.components
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__setitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_13__setitem__ = {__Pyx_NAMESTR("__setitem__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__setitem__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__setitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_13__setitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_13__setitem__ = {__Pyx_NAMESTR("__setitem__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_13__setitem__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_13__setitem__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_key = 0;
   PyObject *__pyx_v_value = 0;
@@ -12613,25 +12613,25 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__setitem__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 735; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":736
+  /* "nvg/maths/quaternions.pyx":736
  * 
  *     def __setitem__(self, key, value):
  *         if isinstance(value, Quaternion):             # <<<<<<<<<<<<<<
  *             self.array[key] = value.components
  *         elif isinstance(value, QuaternionArray):
  */
-  __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion));
+  __pyx_t_1 = ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion));
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_value, __pyx_t_1); 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quaternions.pyx":737
+    /* "nvg/maths/quaternions.pyx":737
  *     def __setitem__(self, key, value):
  *         if isinstance(value, Quaternion):
  *             self.array[key] = value.components             # <<<<<<<<<<<<<<
@@ -12648,7 +12648,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quaternions.pyx":738
+  /* "nvg/maths/quaternions.pyx":738
  *         if isinstance(value, Quaternion):
  *             self.array[key] = value.components
  *         elif isinstance(value, QuaternionArray):             # <<<<<<<<<<<<<<
@@ -12661,7 +12661,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quaternions.pyx":739
+    /* "nvg/maths/quaternions.pyx":739
  *             self.array[key] = value.components
  *         elif isinstance(value, QuaternionArray):
  *             self.array[key] = value.array             # <<<<<<<<<<<<<<
@@ -12679,7 +12679,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
   }
   /*else*/ {
 
-    /* "imusim/maths/quaternions.pyx":741
+    /* "nvg/maths/quaternions.pyx":741
  *             self.array[key] = value.array
  *         else:
  *             self.array[key] = value             # <<<<<<<<<<<<<<
@@ -12698,7 +12698,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12706,7 +12706,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":743
+/* "nvg/maths/quaternions.pyx":743
  *             self.array[key] = value
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -12714,9 +12714,9 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_13__set
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_14__len__ = {__Pyx_NAMESTR("__len__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len__, METH_O, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_14__len__(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_14__len__ = {__Pyx_NAMESTR("__len__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_14__len__, METH_O, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_14__len__(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12727,7 +12727,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len
   __Pyx_RefNannySetupContext("__len__");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":744
+  /* "nvg/maths/quaternions.pyx":744
  * 
  *     def __len__(self):
  *         return len(self.array)             # <<<<<<<<<<<<<<
@@ -12749,7 +12749,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.__len__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.__len__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12757,7 +12757,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":746
+/* "nvg/maths/quaternions.pyx":746
  *         return len(self.array)
  * 
  *     def dot(self,other):             # <<<<<<<<<<<<<<
@@ -12765,10 +12765,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_14__len
  *         Dot product with another quaternion array.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_15dot[] = "\n        Dot product with another quaternion array.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_15dot = {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_15dot)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_15dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_15dot[] = "\n        Dot product with another quaternion array.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_15dot = {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_15dot, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_15dot)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_15dot(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_other = 0;
   PyObject *__pyx_r = NULL;
@@ -12823,12 +12823,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(P
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("dot", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":750
+  /* "nvg/maths/quaternions.pyx":750
  *         Dot product with another quaternion array.
  *         """
  *         assert isinstance(other,QuaternionArray), 'Only QuaternionArrays \             # <<<<<<<<<<<<<<
@@ -12846,7 +12846,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(P
   }
   #endif
 
-  /* "imusim/maths/quaternions.pyx":752
+  /* "nvg/maths/quaternions.pyx":752
  *         assert isinstance(other,QuaternionArray), 'Only QuaternionArrays \
  * are supported for dot product'
  *         return np.sum(self.array*other.array,axis=1)             # <<<<<<<<<<<<<<
@@ -12891,7 +12891,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(P
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.dot", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12899,7 +12899,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(P
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":755
+/* "nvg/maths/quaternions.pyx":755
  * 
  *     @property
  *     def magnitude(self):             # <<<<<<<<<<<<<<
@@ -12907,10 +12907,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_15dot(P
  *         Magnitudes of the quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude[] = "\n        Magnitudes of the quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude = {__Pyx_NAMESTR("magnitude"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude[] = "\n        Magnitudes of the quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude = {__Pyx_NAMESTR("magnitude"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12923,7 +12923,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magni
   __Pyx_RefNannySetupContext("magnitude");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":759
+  /* "nvg/maths/quaternions.pyx":759
  *         Magnitudes of the quaternions.
  *         """
  *         return np.sqrt(self.dot(self))             # <<<<<<<<<<<<<<
@@ -12967,7 +12967,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magni
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.magnitude", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.magnitude", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -12975,7 +12975,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magni
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":761
+/* "nvg/maths/quaternions.pyx":761
  *         return np.sqrt(self.dot(self))
  * 
  *     def rotateVector(self,v):             # <<<<<<<<<<<<<<
@@ -12983,10 +12983,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_16magni
  *         Rotate vectors by the rotations of these quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector[] = "\n        Rotate vectors by the rotations of these quaternions.\n\n        Equivalent to M{q*v*q.conjugate} for each q and v.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in their current co-ordinate frame\n            after applying the rotations specified by these quaternions to\n            them.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector = {__Pyx_NAMESTR("rotateVector"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector[] = "\n        Rotate vectors by the rotations of these quaternions.\n\n        Equivalent to M{q*v*q.conjugate} for each q and v.\n\n        @param v: 3xN L{np.ndarray} of column vectors.\n\n        @return: The vectors as they appear in their current co-ordinate frame\n            after applying the rotations specified by these quaternions to\n            them.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector = {__Pyx_NAMESTR("rotateVector"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_v = 0;
   PyObject *__pyx_v_x = NULL;
@@ -13050,12 +13050,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("rotateVector", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 761; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":773
+  /* "nvg/maths/quaternions.pyx":773
  *             them.
  *         """
  *         x,y,z = v.reshape((3,-1))             # <<<<<<<<<<<<<<
@@ -13121,7 +13121,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_z = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":774
+  /* "nvg/maths/quaternions.pyx":774
  *         """
  *         x,y,z = v.reshape((3,-1))
  *         r = np.empty((3,self.array.shape[0]))             # <<<<<<<<<<<<<<
@@ -13161,7 +13161,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_r = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":775
+  /* "nvg/maths/quaternions.pyx":775
  *         x,y,z = v.reshape((3,-1))
  *         r = np.empty((3,self.array.shape[0]))
  *         W = -self.x * x - self.y * y - self.z * z;             # <<<<<<<<<<<<<<
@@ -13197,7 +13197,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_W = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":776
+  /* "nvg/maths/quaternions.pyx":776
  *         r = np.empty((3,self.array.shape[0]))
  *         W = -self.x * x - self.y * y - self.z * z;
  *         X = self.w * x + self.y * z - self.z * y;             # <<<<<<<<<<<<<<
@@ -13230,7 +13230,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_X = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":777
+  /* "nvg/maths/quaternions.pyx":777
  *         W = -self.x * x - self.y * y - self.z * z;
  *         X = self.w * x + self.y * z - self.z * y;
  *         Y = self.w * y - self.x * z + self.z * x;             # <<<<<<<<<<<<<<
@@ -13263,7 +13263,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_Y = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":778
+  /* "nvg/maths/quaternions.pyx":778
  *         X = self.w * x + self.y * z - self.z * y;
  *         Y = self.w * y - self.x * z + self.z * x;
  *         Z = self.w * z + self.x * y - self.y * x;             # <<<<<<<<<<<<<<
@@ -13296,7 +13296,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __pyx_v_Z = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":780
+  /* "nvg/maths/quaternions.pyx":780
  *         Z = self.w * z + self.x * y - self.y * x;
  * 
  *         r[2] = -W * self.z - X * self.y + Y * self.x + Z * self.w;             # <<<<<<<<<<<<<<
@@ -13341,7 +13341,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 2, __pyx_t_4, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 780; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":781
+  /* "nvg/maths/quaternions.pyx":781
  * 
  *         r[2] = -W * self.z - X * self.y + Y * self.x + Z * self.w;
  *         r[1] = -W * self.y + X * self.z + Y * self.w - Z * self.x;             # <<<<<<<<<<<<<<
@@ -13386,7 +13386,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 1, __pyx_t_2, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 781; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":782
+  /* "nvg/maths/quaternions.pyx":782
  *         r[2] = -W * self.z - X * self.y + Y * self.x + Z * self.w;
  *         r[1] = -W * self.y + X * self.z + Y * self.w - Z * self.x;
  *         r[0] = -W * self.x + X * self.w - Y * self.z + Z * self.y;             # <<<<<<<<<<<<<<
@@ -13431,7 +13431,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 0, __pyx_t_4, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 782; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":783
+  /* "nvg/maths/quaternions.pyx":783
  *         r[1] = -W * self.y + X * self.z + Y * self.w - Z * self.x;
  *         r[0] = -W * self.x + X * self.w - Y * self.z + Z * self.y;
  *         return r             # <<<<<<<<<<<<<<
@@ -13451,7 +13451,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.rotateVector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_x);
@@ -13467,7 +13467,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":785
+/* "nvg/maths/quaternions.pyx":785
  *         return r
  * 
  *     def rotateFrame(self,v):             # <<<<<<<<<<<<<<
@@ -13475,10 +13475,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_17rotat
  *         Rotate co-ordinate frames of vectors using these quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame[] = "\n        Rotate co-ordinate frames of vectors using these quaternions.\n\n        Equivalent to M{q.conjugate*v*q} for each q and v.\n\n        @param v: 3xN L{np.ndarray} of column vectors, where N equals the\n            length of this quaternion array.\n\n        @return: The vectors as they appear in the rotated co-ordinate frames\n            obtained by applying the rotations given by these quaternions to\n            their current co-ordinate frame.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame = {__Pyx_NAMESTR("rotateFrame"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame[] = "\n        Rotate co-ordinate frames of vectors using these quaternions.\n\n        Equivalent to M{q.conjugate*v*q} for each q and v.\n\n        @param v: 3xN L{np.ndarray} of column vectors, where N equals the\n            length of this quaternion array.\n\n        @return: The vectors as they appear in the rotated co-ordinate frames\n            obtained by applying the rotations given by these quaternions to\n            their current co-ordinate frame.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame = {__Pyx_NAMESTR("rotateFrame"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_v = 0;
   PyObject *__pyx_v_x = NULL;
@@ -13542,12 +13542,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("rotateFrame", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":798
+  /* "nvg/maths/quaternions.pyx":798
  *             their current co-ordinate frame.
  *         """
  *         x,y,z = v.reshape((3,-1))             # <<<<<<<<<<<<<<
@@ -13613,7 +13613,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_z = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":799
+  /* "nvg/maths/quaternions.pyx":799
  *         """
  *         x,y,z = v.reshape((3,-1))
  *         r = np.empty((3,self.array.shape[0]))             # <<<<<<<<<<<<<<
@@ -13653,7 +13653,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_r = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":800
+  /* "nvg/maths/quaternions.pyx":800
  *         x,y,z = v.reshape((3,-1))
  *         r = np.empty((3,self.array.shape[0]))
  *         W = self.x * x + self.y * y + self.z * z             # <<<<<<<<<<<<<<
@@ -13686,7 +13686,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_W = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":801
+  /* "nvg/maths/quaternions.pyx":801
  *         r = np.empty((3,self.array.shape[0]))
  *         W = self.x * x + self.y * y + self.z * z
  *         X = self.w * x - self.y * z + self.z * y             # <<<<<<<<<<<<<<
@@ -13719,7 +13719,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_X = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":802
+  /* "nvg/maths/quaternions.pyx":802
  *         W = self.x * x + self.y * y + self.z * z
  *         X = self.w * x - self.y * z + self.z * y
  *         Y = self.w * y + self.x * z - self.z * x             # <<<<<<<<<<<<<<
@@ -13752,7 +13752,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_Y = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quaternions.pyx":803
+  /* "nvg/maths/quaternions.pyx":803
  *         X = self.w * x - self.y * z + self.z * y
  *         Y = self.w * y + self.x * z - self.z * x
  *         Z = self.w * z - self.x * y + self.y * x             # <<<<<<<<<<<<<<
@@ -13785,7 +13785,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __pyx_v_Z = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":805
+  /* "nvg/maths/quaternions.pyx":805
  *         Z = self.w * z - self.x * y + self.y * x
  * 
  *         r[2] = W * self.z + X * self.y - Y * self.x + Z * self.w             # <<<<<<<<<<<<<<
@@ -13827,7 +13827,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 2, __pyx_t_2, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 805; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":806
+  /* "nvg/maths/quaternions.pyx":806
  * 
  *         r[2] = W * self.z + X * self.y - Y * self.x + Z * self.w
  *         r[1] = W * self.y - X * self.z + Y * self.w + Z * self.x             # <<<<<<<<<<<<<<
@@ -13869,7 +13869,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 1, __pyx_t_3, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 806; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":807
+  /* "nvg/maths/quaternions.pyx":807
  *         r[2] = W * self.z + X * self.y - Y * self.x + Z * self.w
  *         r[1] = W * self.y - X * self.z + Y * self.w + Z * self.x
  *         r[0] = W * self.x + X * self.w + Y * self.z - Z * self.y             # <<<<<<<<<<<<<<
@@ -13911,7 +13911,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   if (__Pyx_SetItemInt(__pyx_v_r, 0, __pyx_t_2, sizeof(long), PyInt_FromLong) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 807; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":808
+  /* "nvg/maths/quaternions.pyx":808
  *         r[1] = W * self.y - X * self.z + Y * self.w + Z * self.x
  *         r[0] = W * self.x + X * self.w + Y * self.z - Z * self.y
  *         return r             # <<<<<<<<<<<<<<
@@ -13931,7 +13931,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.rotateFrame", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_x);
@@ -13947,7 +13947,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":811
+/* "nvg/maths/quaternions.pyx":811
  * 
  *     @property
  *     def vector(self):             # <<<<<<<<<<<<<<
@@ -13955,10 +13955,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_18rotat
  *         The (imaginary) column vector components of these quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vector(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_19vector[] = "\n        The (imaginary) column vector components of these quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_19vector = {__Pyx_NAMESTR("vector"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vector, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_19vector)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vector(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_19vector(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_19vector[] = "\n        The (imaginary) column vector components of these quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_19vector = {__Pyx_NAMESTR("vector"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_19vector, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_19vector)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_19vector(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13969,7 +13969,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vecto
   __Pyx_RefNannySetupContext("vector");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":815
+  /* "nvg/maths/quaternions.pyx":815
  *         The (imaginary) column vector components of these quaternions.
  *         """
  *         return self.array[:,1:].T             # <<<<<<<<<<<<<<
@@ -13994,7 +13994,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vecto
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.vector", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.vector", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14002,7 +14002,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vecto
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":817
+/* "nvg/maths/quaternions.pyx":817
  *         return self.array[:,1:].T
  *     @property
  *     def conjugate(self):             # <<<<<<<<<<<<<<
@@ -14010,10 +14010,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_19vecto
  *         The conjugates of these quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate[] = "\n        The conjugates of these quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate = {__Pyx_NAMESTR("conjugate"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate[] = "\n        The conjugates of these quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate = {__Pyx_NAMESTR("conjugate"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14028,7 +14028,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conju
   __Pyx_RefNannySetupContext("conjugate");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":821
+  /* "nvg/maths/quaternions.pyx":821
  *         The conjugates of these quaternions.
  *         """
  *         return QuaternionArray((self.w,-self.x,-self.y,-self.z))             # <<<<<<<<<<<<<<
@@ -14091,7 +14091,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conju
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.conjugate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.conjugate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14099,7 +14099,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conju
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":824
+/* "nvg/maths/quaternions.pyx":824
  * 
  *     @property
  *     def norm(self):             # <<<<<<<<<<<<<<
@@ -14107,10 +14107,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_20conju
  *         The 2-norms of these quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_21norm[] = "\n        The 2-norms of these quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_21norm = {__Pyx_NAMESTR("norm"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_21norm)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_21norm(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_21norm[] = "\n        The 2-norms of these quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_21norm = {__Pyx_NAMESTR("norm"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_21norm, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_21norm)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_21norm(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14124,7 +14124,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(
   __Pyx_RefNannySetupContext("norm");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":828
+  /* "nvg/maths/quaternions.pyx":828
  *         The 2-norms of these quaternions.
  *         """
  *         return np.sqrt(np.sum(self.array**2,axis=1))             # <<<<<<<<<<<<<<
@@ -14181,7 +14181,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.norm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14189,7 +14189,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":830
+/* "nvg/maths/quaternions.pyx":830
  *         return np.sqrt(np.sum(self.array**2,axis=1))
  * 
  *     def validity(self):             # <<<<<<<<<<<<<<
@@ -14197,10 +14197,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_21norm(
  *         Obtain a boolean array indicating which elements are valid.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22validity(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_22validity[] = "\n        Obtain a boolean array indicating which elements are valid.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_22validity = {__Pyx_NAMESTR("validity"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22validity, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_22validity)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22validity(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_22validity(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_22validity[] = "\n        Obtain a boolean array indicating which elements are valid.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_22validity = {__Pyx_NAMESTR("validity"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_22validity, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_22validity)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_22validity(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14213,7 +14213,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22valid
   __Pyx_RefNannySetupContext("validity");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":834
+  /* "nvg/maths/quaternions.pyx":834
  *         Obtain a boolean array indicating which elements are valid.
  *         """
  *         return ~np.any(np.isnan(self.array),axis=1)             # <<<<<<<<<<<<<<
@@ -14269,7 +14269,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22valid
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -14277,7 +14277,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22valid
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":836
+/* "nvg/maths/quaternions.pyx":836
  *         return ~np.any(np.isnan(self.array),axis=1)
  * 
  *     def unflipped(self):             # <<<<<<<<<<<<<<
@@ -14285,10 +14285,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_22valid
  *         Obtain a copy of this array with no sign flips between values.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped[] = "\n        Obtain a copy of this array with no sign flips between values.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped = {__Pyx_NAMESTR("unflipped"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped[] = "\n        Obtain a copy of this array with no sign flips between values.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped = {__Pyx_NAMESTR("unflipped"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_new = NULL;
   PyObject *__pyx_v_valid = NULL;
   PyObject *__pyx_v_vals = NULL;
@@ -14310,7 +14310,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __Pyx_RefNannySetupContext("unflipped");
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quaternions.pyx":840
+  /* "nvg/maths/quaternions.pyx":840
  *         Obtain a copy of this array with no sign flips between values.
  *         """
  *         new = QuaternionArray(self.array.copy())             # <<<<<<<<<<<<<<
@@ -14339,7 +14339,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __pyx_v_new = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":841
+  /* "nvg/maths/quaternions.pyx":841
  *         """
  *         new = QuaternionArray(self.array.copy())
  *         valid = self.validity()             # <<<<<<<<<<<<<<
@@ -14354,7 +14354,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __pyx_v_valid = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":842
+  /* "nvg/maths/quaternions.pyx":842
  *         new = QuaternionArray(self.array.copy())
  *         valid = self.validity()
  *         vals = self[valid]             # <<<<<<<<<<<<<<
@@ -14366,7 +14366,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __pyx_v_vals = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":843
+  /* "nvg/maths/quaternions.pyx":843
  *         valid = self.validity()
  *         vals = self[valid]
  *         idx = np.flatnonzero(valid)             # <<<<<<<<<<<<<<
@@ -14390,7 +14390,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __pyx_v_idx = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":844
+  /* "nvg/maths/quaternions.pyx":844
  *         vals = self[valid]
  *         idx = np.flatnonzero(valid)
  *         for i in range(1,len(idx)):             # <<<<<<<<<<<<<<
@@ -14442,7 +14442,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
     __pyx_v_i = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "imusim/maths/quaternions.pyx":845
+    /* "nvg/maths/quaternions.pyx":845
  *         idx = np.flatnonzero(valid)
  *         for i in range(1,len(idx)):
  *             new[idx[i]] = -vals[i] if vals[i].dot(new[idx[i-1]]) < 0 else vals[i]             # <<<<<<<<<<<<<<
@@ -14498,7 +14498,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quaternions.pyx":846
+  /* "nvg/maths/quaternions.pyx":846
  *         for i in range(1,len(idx)):
  *             new[idx[i]] = -vals[i] if vals[i].dot(new[idx[i-1]]) < 0 else vals[i]
  *         new[~valid] = np.nan             # <<<<<<<<<<<<<<
@@ -14516,7 +14516,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":847
+  /* "nvg/maths/quaternions.pyx":847
  *             new[idx[i]] = -vals[i] if vals[i].dot(new[idx[i-1]]) < 0 else vals[i]
  *         new[~valid] = np.nan
  *         return new             # <<<<<<<<<<<<<<
@@ -14536,7 +14536,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.unflipped", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.unflipped", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_new);
@@ -14549,7 +14549,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":849
+/* "nvg/maths/quaternions.pyx":849
  *         return new
  * 
  *     def smoothed(self, stddev=0.001):             # <<<<<<<<<<<<<<
@@ -14557,10 +14557,10 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_23unfli
  *         Obtain a smoothed array of quaternions.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed[] = "\n        Obtain a smoothed array of quaternions.\n\n        Smoothing is perfomed using a cubic spline for each quaternion\n        component. It is assumed that the time between quaternions is\n        constant.\n\n        @param stddev: Standard deviation of the noise expected in each\n            component.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed = {__Pyx_NAMESTR("smoothed"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed)};
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed[] = "\n        Obtain a smoothed array of quaternions.\n\n        Smoothing is perfomed using a cubic spline for each quaternion\n        component. It is assumed that the time between quaternions is\n        constant.\n\n        @param stddev: Standard deviation of the noise expected in each\n            component.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed = {__Pyx_NAMESTR("smoothed"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed)};
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_stddev = 0;
   PyObject *__pyx_v_smoothedData = NULL;
@@ -14621,12 +14621,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("smoothed", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 849; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.smoothed", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.smoothed", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quaternions.pyx":861
+  /* "nvg/maths/quaternions.pyx":861
  *         """
  * 
  *         smoothedData = np.empty_like(self.array)             # <<<<<<<<<<<<<<
@@ -14652,7 +14652,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __pyx_v_smoothedData = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":862
+  /* "nvg/maths/quaternions.pyx":862
  * 
  *         smoothedData = np.empty_like(self.array)
  *         ts = range(len(self.array))             # <<<<<<<<<<<<<<
@@ -14676,7 +14676,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __pyx_v_ts = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":863
+  /* "nvg/maths/quaternions.pyx":863
  *         smoothedData = np.empty_like(self.array)
  *         ts = range(len(self.array))
  *         spl = PartialInputVectorSpline(ts, self.array.T, stddev=stddev)             # <<<<<<<<<<<<<<
@@ -14709,7 +14709,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __pyx_v_spl = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "imusim/maths/quaternions.pyx":864
+  /* "nvg/maths/quaternions.pyx":864
  *         ts = range(len(self.array))
  *         spl = PartialInputVectorSpline(ts, self.array.T, stddev=stddev)
  *         qa = QuaternionArray(spl(ts).T)             # <<<<<<<<<<<<<<
@@ -14741,7 +14741,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __pyx_v_qa = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":865
+  /* "nvg/maths/quaternions.pyx":865
  *         spl = PartialInputVectorSpline(ts, self.array.T, stddev=stddev)
  *         qa = QuaternionArray(spl(ts).T)
  *         return qa * (1.0/qa.magnitude)             # <<<<<<<<<<<<<<
@@ -14771,7 +14771,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionArray.smoothed", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionArray.smoothed", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_smoothedData);
@@ -14783,7 +14783,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":870
+/* "nvg/maths/quaternions.pyx":870
  * 
  * 
  * cpdef QuaternionFactory(w,x,y,z):             # <<<<<<<<<<<<<<
@@ -14791,8 +14791,8 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_15QuaternionArray_24smoot
  *     Factory to create Quaternions or QuaternionArrays depending on the length
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject *__pyx_v_w, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_z, int __pyx_skip_dispatch) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_f_6nvg_5maths_11quaternions_QuaternionFactory(PyObject *__pyx_v_w, PyObject *__pyx_v_x, PyObject *__pyx_v_y, PyObject *__pyx_v_z, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14813,7 +14813,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
   __Pyx_RefNannySetupContext("QuaternionFactory");
   __Pyx_INCREF(__pyx_v_w);
 
-  /* "imusim/maths/quaternions.pyx":876
+  /* "nvg/maths/quaternions.pyx":876
  *     """
  * 
  *     try:             # <<<<<<<<<<<<<<
@@ -14827,7 +14827,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "imusim/maths/quaternions.pyx":877
+      /* "nvg/maths/quaternions.pyx":877
  * 
  *     try:
  *         return Quaternion(w,x,y,z)             # <<<<<<<<<<<<<<
@@ -14849,7 +14849,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
       __Pyx_INCREF(__pyx_v_z);
       PyTuple_SET_ITEM(__pyx_t_4, 3, __pyx_v_z);
       __Pyx_GIVEREF(__pyx_v_z);
-      __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_4), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+      __pyx_t_5 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_4), NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 877; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(((PyObject *)__pyx_t_4)); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_5;
@@ -14870,7 +14870,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "imusim/maths/quaternions.pyx":878
+    /* "nvg/maths/quaternions.pyx":878
  *     try:
  *         return Quaternion(w,x,y,z)
  *     except TypeError:             # <<<<<<<<<<<<<<
@@ -14879,13 +14879,13 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
  */
     __pyx_t_6 = PyErr_ExceptionMatches(__pyx_builtin_TypeError);
     if (__pyx_t_6) {
-      __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_5, &__pyx_t_4, &__pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 878; __pyx_clineno = __LINE__; goto __pyx_L5_except_error;}
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "imusim/maths/quaternions.pyx":879
+      /* "nvg/maths/quaternions.pyx":879
  *         return Quaternion(w,x,y,z)
  *     except TypeError:
  *         if np.isscalar(w):             # <<<<<<<<<<<<<<
@@ -14910,7 +14910,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_11) {
 
-        /* "imusim/maths/quaternions.pyx":880
+        /* "nvg/maths/quaternions.pyx":880
  *     except TypeError:
  *         if np.isscalar(w):
  *             w = np.zeros_like(x)             # <<<<<<<<<<<<<<
@@ -14937,7 +14937,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
       }
       __pyx_L13:;
 
-      /* "imusim/maths/quaternions.pyx":881
+      /* "nvg/maths/quaternions.pyx":881
  *         if np.isscalar(w):
  *             w = np.zeros_like(x)
  *         return QuaternionArray(np.vstack((w,x,y,z)))             # <<<<<<<<<<<<<<
@@ -15023,7 +15023,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_w);
@@ -15032,7 +15032,7 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
   return __pyx_r;
 }
 
-/* "imusim/maths/quaternions.pyx":870
+/* "nvg/maths/quaternions.pyx":870
  * 
  * 
  * cpdef QuaternionFactory(w,x,y,z):             # <<<<<<<<<<<<<<
@@ -15040,9 +15040,9 @@ static PyObject *__pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(PyObject
  *     Factory to create Quaternions or QuaternionArrays depending on the length
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_11quaternions_7QuaternionFactory[] = "\n    Factory to create Quaternions or QuaternionArrays depending on the length\n    of the arguments.\n    ";
-static PyObject *__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_11quaternions_7QuaternionFactory[] = "\n    Factory to create Quaternions or QuaternionArrays depending on the length\n    of the arguments.\n    ";
+static PyObject *__pyx_pf_6nvg_5maths_11quaternions_7QuaternionFactory(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_w = 0;
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_y = 0;
@@ -15113,12 +15113,12 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("QuaternionFactory", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 870; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6imusim_5maths_11quaternions_QuaternionFactory(__pyx_v_w, __pyx_v_x, __pyx_v_y, __pyx_v_z, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 870; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_f_6nvg_5maths_11quaternions_QuaternionFactory(__pyx_v_w, __pyx_v_x, __pyx_v_y, __pyx_v_z, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 870; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -15128,7 +15128,7 @@ static PyObject *__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory(PyObje
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quaternions.QuaternionFactory", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -17071,31 +17071,31 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion __pyx_vtable_6imusim_5maths_11quaternions_Quaternion;
+static struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion __pyx_vtable_6nvg_5maths_11quaternions_Quaternion;
 
-static PyObject *__pyx_tp_new_6imusim_5maths_11quaternions_Quaternion(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *p;
+static PyObject *__pyx_tp_new_6nvg_5maths_11quaternions_Quaternion(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *p;
   PyObject *o = (*t->tp_alloc)(t, 0);
   if (!o) return 0;
-  p = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)o);
-  p->__pyx_vtab = __pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion;
-  if (__pyx_pf_6imusim_5maths_11quaternions_10Quaternion___cinit__(o, a, k) < 0) {
+  p = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)o);
+  p->__pyx_vtab = __pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion;
+  if (__pyx_pf_6nvg_5maths_11quaternions_10Quaternion___cinit__(o, a, k) < 0) {
     Py_DECREF(o); o = 0;
   }
   return o;
 }
 
-static void __pyx_tp_dealloc_6imusim_5maths_11quaternions_Quaternion(PyObject *o) {
+static void __pyx_tp_dealloc_6nvg_5maths_11quaternions_Quaternion(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_w(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_w(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w___get__(o);
 }
 
-static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_w(PyObject *o, PyObject *v, void *x) {
+static int __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_w(PyObject *o, PyObject *v, void *x) {
   if (v) {
-    return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1w_1__set__(o, v);
+    return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1w_1__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -17103,13 +17103,13 @@ static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_w(PyObject *o
   }
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_x(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_x(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x___get__(o);
 }
 
-static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_x(PyObject *o, PyObject *v, void *x) {
+static int __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_x(PyObject *o, PyObject *v, void *x) {
   if (v) {
-    return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1x_1__set__(o, v);
+    return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1x_1__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -17117,13 +17117,13 @@ static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_x(PyObject *o
   }
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_y(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_y(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y___get__(o);
 }
 
-static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_y(PyObject *o, PyObject *v, void *x) {
+static int __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_y(PyObject *o, PyObject *v, void *x) {
   if (v) {
-    return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1y_1__set__(o, v);
+    return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1y_1__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -17131,13 +17131,13 @@ static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_y(PyObject *o
   }
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_z(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_z(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z___get__(o);
 }
 
-static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_z(PyObject *o, PyObject *v, void *x) {
+static int __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_z(PyObject *o, PyObject *v, void *x) {
   if (v) {
-    return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1z_1__set__(o, v);
+    return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1z_1__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -17145,68 +17145,68 @@ static int __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_z(PyObject *o
   }
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_components(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10components___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_components(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10components___get__(o);
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_magnitude(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9magnitude___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_magnitude(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9magnitude___get__(o);
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_conjugate(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9conjugate___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_conjugate(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9conjugate___get__(o);
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_vector(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6vector___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_vector(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6vector___get__(o);
 }
 
-static PyMethodDef __pyx_methods_6imusim_5maths_11quaternions_Quaternion[] = {
-  {__Pyx_NAMESTR("__richcomp__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_1__richcomp__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)},
-  {__Pyx_NAMESTR("log"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_11log, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_11log)},
-  {__Pyx_NAMESTR("exp"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_12exp, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_12exp)},
-  {__Pyx_NAMESTR("copy"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_14copy, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_14copy)},
-  {__Pyx_NAMESTR("normalise"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_15normalise, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_15normalise)},
-  {__Pyx_NAMESTR("negate"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_16negate, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_16negate)},
-  {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_17dot, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_17dot)},
-  {__Pyx_NAMESTR("rotateVector"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_18rotateVector, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_18rotateVector)},
-  {__Pyx_NAMESTR("rotateFrame"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_19rotateFrame, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_19rotateFrame)},
-  {__Pyx_NAMESTR("toMatrix"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_20toMatrix, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_20toMatrix)},
-  {__Pyx_NAMESTR("toAxisAngle"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngle, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_21toAxisAngle)},
-  {__Pyx_NAMESTR("toEuler"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_22toEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_22toEuler)},
-  {__Pyx_NAMESTR("set"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_23set, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_23set)},
-  {__Pyx_NAMESTR("setFromMatrix"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_24setFromMatrix, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_24setFromMatrix)},
-  {__Pyx_NAMESTR("setFromVectors"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_25setFromVectors, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_25setFromVectors)},
-  {__Pyx_NAMESTR("setFromEuler"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_26setFromEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_26setFromEuler)},
-  {__Pyx_NAMESTR("setFromAxisAngle"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_27setFromAxisAngle, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_27setFromAxisAngle)},
-  {__Pyx_NAMESTR("setFromSORA"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_28setFromSORA, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_10Quaternion_28setFromSORA)},
-  {__Pyx_NAMESTR("__reduce__"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_10Quaternion_29__reduce__, METH_NOARGS, __Pyx_DOCSTR(0)},
+static PyMethodDef __pyx_methods_6nvg_5maths_11quaternions_Quaternion[] = {
+  {__Pyx_NAMESTR("__richcomp__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_1__richcomp__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)},
+  {__Pyx_NAMESTR("log"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_11log, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_11log)},
+  {__Pyx_NAMESTR("exp"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_12exp, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_12exp)},
+  {__Pyx_NAMESTR("copy"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_14copy, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_14copy)},
+  {__Pyx_NAMESTR("normalise"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_15normalise, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_15normalise)},
+  {__Pyx_NAMESTR("negate"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_16negate, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_16negate)},
+  {__Pyx_NAMESTR("dot"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_17dot, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_17dot)},
+  {__Pyx_NAMESTR("rotateVector"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_18rotateVector, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_18rotateVector)},
+  {__Pyx_NAMESTR("rotateFrame"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_19rotateFrame, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_19rotateFrame)},
+  {__Pyx_NAMESTR("toMatrix"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_20toMatrix, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_20toMatrix)},
+  {__Pyx_NAMESTR("toAxisAngle"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_21toAxisAngle, METH_NOARGS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_21toAxisAngle)},
+  {__Pyx_NAMESTR("toEuler"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_22toEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_22toEuler)},
+  {__Pyx_NAMESTR("set"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_23set, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_23set)},
+  {__Pyx_NAMESTR("setFromMatrix"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_24setFromMatrix, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_24setFromMatrix)},
+  {__Pyx_NAMESTR("setFromVectors"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_25setFromVectors, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_25setFromVectors)},
+  {__Pyx_NAMESTR("setFromEuler"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_26setFromEuler, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_26setFromEuler)},
+  {__Pyx_NAMESTR("setFromAxisAngle"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_27setFromAxisAngle, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_27setFromAxisAngle)},
+  {__Pyx_NAMESTR("setFromSORA"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_28setFromSORA, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_10Quaternion_28setFromSORA)},
+  {__Pyx_NAMESTR("__reduce__"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_10Quaternion_29__reduce__, METH_NOARGS, __Pyx_DOCSTR(0)},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_6imusim_5maths_11quaternions_Quaternion[] = {
-  {(char *)"w", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_w, __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_w, 0, 0},
-  {(char *)"x", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_x, __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_x, 0, 0},
-  {(char *)"y", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_y, __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_y, 0, 0},
-  {(char *)"z", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_z, __pyx_setprop_6imusim_5maths_11quaternions_10Quaternion_z, 0, 0},
-  {(char *)"components", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_components, 0, 0, 0},
-  {(char *)"magnitude", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_magnitude, 0, 0, 0},
-  {(char *)"conjugate", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_conjugate, 0, 0, 0},
-  {(char *)"vector", __pyx_getprop_6imusim_5maths_11quaternions_10Quaternion_vector, 0, 0, 0},
+static struct PyGetSetDef __pyx_getsets_6nvg_5maths_11quaternions_Quaternion[] = {
+  {(char *)"w", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_w, __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_w, 0, 0},
+  {(char *)"x", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_x, __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_x, 0, 0},
+  {(char *)"y", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_y, __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_y, 0, 0},
+  {(char *)"z", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_z, __pyx_setprop_6nvg_5maths_11quaternions_10Quaternion_z, 0, 0},
+  {(char *)"components", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_components, 0, 0, 0},
+  {(char *)"magnitude", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_magnitude, 0, 0, 0},
+  {(char *)"conjugate", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_conjugate, 0, 0, 0},
+  {(char *)"vector", __pyx_getprop_6nvg_5maths_11quaternions_10Quaternion_vector, 0, 0, 0},
   {0, 0, 0, 0, 0}
 };
 
 static PyNumberMethods __pyx_tp_as_number_Quaternion = {
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_3__add__, /*nb_add*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_4__sub__, /*nb_subtract*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_6__mul__, /*nb_multiply*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_3__add__, /*nb_add*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_4__sub__, /*nb_subtract*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_6__mul__, /*nb_multiply*/
   #if PY_MAJOR_VERSION < 3
   0, /*nb_divide*/
   #endif
   0, /*nb_remainder*/
   0, /*nb_divmod*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_13__pow__, /*nb_power*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_5__neg__, /*nb_negative*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_13__pow__, /*nb_power*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_5__neg__, /*nb_negative*/
   0, /*nb_positive*/
   0, /*nb_absolute*/
   0, /*nb_nonzero*/
@@ -17232,9 +17232,9 @@ static PyNumberMethods __pyx_tp_as_number_Quaternion = {
   #if PY_MAJOR_VERSION < 3
   0, /*nb_hex*/
   #endif
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_8__iadd__, /*nb_inplace_add*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_9__isub__, /*nb_inplace_subtract*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_10__imul__, /*nb_inplace_multiply*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_8__iadd__, /*nb_inplace_add*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_9__isub__, /*nb_inplace_subtract*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_10__imul__, /*nb_inplace_multiply*/
   #if PY_MAJOR_VERSION < 3
   0, /*nb_inplace_divide*/
   #endif
@@ -17246,7 +17246,7 @@ static PyNumberMethods __pyx_tp_as_number_Quaternion = {
   0, /*nb_inplace_xor*/
   0, /*nb_inplace_or*/
   0, /*nb_floor_divide*/
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_7__truediv__, /*nb_true_divide*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_7__truediv__, /*nb_true_divide*/
   0, /*nb_inplace_floor_divide*/
   0, /*nb_inplace_true_divide*/
   #if PY_VERSION_HEX >= 0x02050000
@@ -17294,12 +17294,12 @@ static PyBufferProcs __pyx_tp_as_buffer_Quaternion = {
   #endif
 };
 
-static PyTypeObject __pyx_type_6imusim_5maths_11quaternions_Quaternion = {
+static PyTypeObject __pyx_type_6nvg_5maths_11quaternions_Quaternion = {
   PyVarObject_HEAD_INIT(0, 0)
-  __Pyx_NAMESTR("imusim.maths.quaternions.Quaternion"), /*tp_name*/
-  sizeof(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion), /*tp_basicsize*/
+  __Pyx_NAMESTR("nvg.maths.quaternions.Quaternion"), /*tp_name*/
+  sizeof(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6imusim_5maths_11quaternions_Quaternion, /*tp_dealloc*/
+  __pyx_tp_dealloc_6nvg_5maths_11quaternions_Quaternion, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -17308,7 +17308,7 @@ static PyTypeObject __pyx_type_6imusim_5maths_11quaternions_Quaternion = {
   #else
   0, /*reserved*/
   #endif
-  __pyx_pf_6imusim_5maths_11quaternions_10Quaternion_2__repr__, /*tp_repr*/
+  __pyx_pf_6nvg_5maths_11quaternions_10Quaternion_2__repr__, /*tp_repr*/
   &__pyx_tp_as_number_Quaternion, /*tp_as_number*/
   &__pyx_tp_as_sequence_Quaternion, /*tp_as_sequence*/
   &__pyx_tp_as_mapping_Quaternion, /*tp_as_mapping*/
@@ -17326,9 +17326,9 @@ static PyTypeObject __pyx_type_6imusim_5maths_11quaternions_Quaternion = {
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_6imusim_5maths_11quaternions_Quaternion, /*tp_methods*/
+  __pyx_methods_6nvg_5maths_11quaternions_Quaternion, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_6imusim_5maths_11quaternions_Quaternion, /*tp_getset*/
+  __pyx_getsets_6nvg_5maths_11quaternions_Quaternion, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -17336,7 +17336,7 @@ static PyTypeObject __pyx_type_6imusim_5maths_11quaternions_Quaternion = {
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6imusim_5maths_11quaternions_Quaternion, /*tp_new*/
+  __pyx_tp_new_6nvg_5maths_11quaternions_Quaternion, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -17351,7 +17351,7 @@ static PyTypeObject __pyx_type_6imusim_5maths_11quaternions_Quaternion = {
 };
 
 static PyMethodDef __pyx_methods[] = {
-  {__Pyx_NAMESTR("QuaternionFactory"), (PyCFunction)__pyx_pf_6imusim_5maths_11quaternions_7QuaternionFactory, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_11quaternions_7QuaternionFactory)},
+  {__Pyx_NAMESTR("QuaternionFactory"), (PyCFunction)__pyx_pf_6nvg_5maths_11quaternions_7QuaternionFactory, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_11quaternions_7QuaternionFactory)},
   {0, 0, 0, 0}
 };
 
@@ -17529,7 +17529,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants");
 
-  /* "imusim/maths/quaternions.pyx":303
+  /* "nvg/maths/quaternions.pyx":303
  *     property vector:
  *         def __get__(Quaternion self):
  *             cdef np.ndarray[np.float64_t, ndim=2] v = np.empty((3,1))             # <<<<<<<<<<<<<<
@@ -17552,7 +17552,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_5));
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_6));
 
-  /* "imusim/maths/quaternions.pyx":435
+  /* "nvg/maths/quaternions.pyx":435
  *         """
  *         m = np.matrix([[0,0,0],[0,0,0],[0,0,0]],dtype=float)
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2             # <<<<<<<<<<<<<<
@@ -17569,7 +17569,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_7));
 
-  /* "imusim/maths/quaternions.pyx":436
+  /* "nvg/maths/quaternions.pyx":436
  *         m = np.matrix([[0,0,0],[0,0,0],[0,0,0]],dtype=float)
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2
  *         m[1,0] = 2. * (self.x*self.y + self.w*self.z)             # <<<<<<<<<<<<<<
@@ -17586,7 +17586,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_8));
 
-  /* "imusim/maths/quaternions.pyx":437
+  /* "nvg/maths/quaternions.pyx":437
  *         m[0,0] = 1. - 2.*self.y**2 - 2.*self.z**2
  *         m[1,0] = 2. * (self.x*self.y + self.w*self.z)
  *         m[2,0] = 2. * (self.x*self.z - self.w*self.y)             # <<<<<<<<<<<<<<
@@ -17603,7 +17603,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_9));
 
-  /* "imusim/maths/quaternions.pyx":439
+  /* "nvg/maths/quaternions.pyx":439
  *         m[2,0] = 2. * (self.x*self.z - self.w*self.y)
  * 
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)             # <<<<<<<<<<<<<<
@@ -17620,7 +17620,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_10));
 
-  /* "imusim/maths/quaternions.pyx":440
+  /* "nvg/maths/quaternions.pyx":440
  * 
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)
  *         m[1,1] = 1. - 2.*self.x**2 - 2. *self.z**2             # <<<<<<<<<<<<<<
@@ -17637,7 +17637,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_11));
 
-  /* "imusim/maths/quaternions.pyx":441
+  /* "nvg/maths/quaternions.pyx":441
  *         m[0,1] = 2. * (self.x*self.y - self.w*self.z)
  *         m[1,1] = 1. - 2.*self.x**2 - 2. *self.z**2
  *         m[2,1] = 2. * (self.y*self.z + self.w*self.x)             # <<<<<<<<<<<<<<
@@ -17654,7 +17654,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_12));
 
-  /* "imusim/maths/quaternions.pyx":443
+  /* "nvg/maths/quaternions.pyx":443
  *         m[2,1] = 2. * (self.y*self.z + self.w*self.x)
  * 
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)             # <<<<<<<<<<<<<<
@@ -17671,7 +17671,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_13));
 
-  /* "imusim/maths/quaternions.pyx":444
+  /* "nvg/maths/quaternions.pyx":444
  * 
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)
  *         m[1,2] = 2. * (self.y*self.z - self.w*self.x)             # <<<<<<<<<<<<<<
@@ -17688,7 +17688,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_14));
 
-  /* "imusim/maths/quaternions.pyx":445
+  /* "nvg/maths/quaternions.pyx":445
  *         m[0,2] = 2. * (self.x*self.z + self.w*self.y)
  *         m[1,2] = 2. * (self.y*self.z - self.w*self.x)
  *         m[2,2] = 1. - 2.*self.x**2 - 2.*self.y**2             # <<<<<<<<<<<<<<
@@ -17705,7 +17705,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_15));
 
-  /* "imusim/maths/quaternions.pyx":485
+  /* "nvg/maths/quaternions.pyx":485
  *         Set this quaternion to be eqivalent to a given 3x3 rotation matrix.
  *         """
  *         t = m[0,0]+m[1,1]+m[2,2]             # <<<<<<<<<<<<<<
@@ -17740,7 +17740,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_19));
 
-  /* "imusim/maths/quaternions.pyx":489
+  /* "nvg/maths/quaternions.pyx":489
  *             w2 = sqrt(t+1)
  *             self.w = w2/2
  *             self.x = (m[2,1]-m[1,2])/(2*w2)             # <<<<<<<<<<<<<<
@@ -17766,7 +17766,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_21));
 
-  /* "imusim/maths/quaternions.pyx":490
+  /* "nvg/maths/quaternions.pyx":490
  *             self.w = w2/2
  *             self.x = (m[2,1]-m[1,2])/(2*w2)
  *             self.y = (m[0,2]-m[2,0])/(2*w2)             # <<<<<<<<<<<<<<
@@ -17792,7 +17792,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_23));
 
-  /* "imusim/maths/quaternions.pyx":491
+  /* "nvg/maths/quaternions.pyx":491
  *             self.x = (m[2,1]-m[1,2])/(2*w2)
  *             self.y = (m[0,2]-m[2,0])/(2*w2)
  *             self.z = (m[1,0]-m[0,1])/(2*w2)             # <<<<<<<<<<<<<<
@@ -17818,7 +17818,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_25));
 
-  /* "imusim/maths/quaternions.pyx":493
+  /* "nvg/maths/quaternions.pyx":493
  *             self.z = (m[1,0]-m[0,1])/(2*w2)
  *         else:
  *             t = m[0,0]-m[1,1]-m[2,2]             # <<<<<<<<<<<<<<
@@ -17853,7 +17853,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_28));
 
-  /* "imusim/maths/quaternions.pyx":496
+  /* "nvg/maths/quaternions.pyx":496
  *             if t > 0:
  *                 x2 = sqrt(t+1)
  *                 self.w = (m[2,1]-m[1,2])/(2*x2)             # <<<<<<<<<<<<<<
@@ -17879,7 +17879,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_30));
 
-  /* "imusim/maths/quaternions.pyx":498
+  /* "nvg/maths/quaternions.pyx":498
  *                 self.w = (m[2,1]-m[1,2])/(2*x2)
  *                 self.x = x2/2
  *                 self.y = (m[1,0]+m[0,1])/(2*x2)             # <<<<<<<<<<<<<<
@@ -17905,7 +17905,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_32));
 
-  /* "imusim/maths/quaternions.pyx":499
+  /* "nvg/maths/quaternions.pyx":499
  *                 self.x = x2/2
  *                 self.y = (m[1,0]+m[0,1])/(2*x2)
  *                 self.z = (m[0,2]+m[2,0])/(2*x2)             # <<<<<<<<<<<<<<
@@ -17931,7 +17931,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_34));
 
-  /* "imusim/maths/quaternions.pyx":501
+  /* "nvg/maths/quaternions.pyx":501
  *                 self.z = (m[0,2]+m[2,0])/(2*x2)
  *             else:
  *                 t = m[1,1]-m[0,0]-m[2,2]             # <<<<<<<<<<<<<<
@@ -17966,7 +17966,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_37));
 
-  /* "imusim/maths/quaternions.pyx":504
+  /* "nvg/maths/quaternions.pyx":504
  *                 if t > 0:
  *                     y2 = sqrt(t+1)
  *                     self.w = (m[0,2]-m[2,0])/(2*y2)             # <<<<<<<<<<<<<<
@@ -17992,7 +17992,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_39));
 
-  /* "imusim/maths/quaternions.pyx":505
+  /* "nvg/maths/quaternions.pyx":505
  *                     y2 = sqrt(t+1)
  *                     self.w = (m[0,2]-m[2,0])/(2*y2)
  *                     self.x = (m[1,0]+m[0,1])/(2*y2)             # <<<<<<<<<<<<<<
@@ -18018,7 +18018,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_41));
 
-  /* "imusim/maths/quaternions.pyx":507
+  /* "nvg/maths/quaternions.pyx":507
  *                     self.x = (m[1,0]+m[0,1])/(2*y2)
  *                     self.y = y2/2
  *                     self.z = (m[1,2]+m[2,1])/(2*y2)             # <<<<<<<<<<<<<<
@@ -18044,7 +18044,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_43));
 
-  /* "imusim/maths/quaternions.pyx":509
+  /* "nvg/maths/quaternions.pyx":509
  *                     self.z = (m[1,2]+m[2,1])/(2*y2)
  *                 else:
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)             # <<<<<<<<<<<<<<
@@ -18079,7 +18079,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_46));
 
-  /* "imusim/maths/quaternions.pyx":510
+  /* "nvg/maths/quaternions.pyx":510
  *                 else:
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)             # <<<<<<<<<<<<<<
@@ -18105,7 +18105,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_48));
 
-  /* "imusim/maths/quaternions.pyx":511
+  /* "nvg/maths/quaternions.pyx":511
  *                     z2 = sqrt(m[2,2]-m[0,0]-m[1,1]+1)
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)
  *                     self.x = (m[0,2]+m[2,0])/(2*z2)             # <<<<<<<<<<<<<<
@@ -18131,7 +18131,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_50));
 
-  /* "imusim/maths/quaternions.pyx":512
+  /* "nvg/maths/quaternions.pyx":512
  *                     self.w = (m[1,0]-m[0,1])/(2*z2)
  *                     self.x = (m[0,2]+m[2,0])/(2*z2)
  *                     self.y = (m[1,2]+m[2,1])/(2*z2)             # <<<<<<<<<<<<<<
@@ -18157,7 +18157,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_52));
 
-  /* "imusim/maths/quaternions.pyx":520
+  /* "nvg/maths/quaternions.pyx":520
  *         basis vectors to x,y,z.
  *         """
  *         self.setFromMatrix(np.vstack((x,y,z)).reshape(3,3))             # <<<<<<<<<<<<<<
@@ -18174,7 +18174,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_3);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_53));
 
-  /* "imusim/maths/quaternions.pyx":613
+  /* "nvg/maths/quaternions.pyx":613
  *                 self.array = np.array(data,ndmin=2)
  *             else:
  *                 raise TypeError("List or tuple data must be a sequence of \             # <<<<<<<<<<<<<<
@@ -18188,7 +18188,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(((PyObject *)__pyx_kp_s_58));
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_59));
 
-  /* "imusim/maths/quaternions.pyx":634
+  /* "nvg/maths/quaternions.pyx":634
  *             self.array = self.array.T
  * 
  *         self.w = self.array[:,0]             # <<<<<<<<<<<<<<
@@ -18208,7 +18208,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_0);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_63));
 
-  /* "imusim/maths/quaternions.pyx":635
+  /* "nvg/maths/quaternions.pyx":635
  * 
  *         self.w = self.array[:,0]
  *         self.x = self.array[:,1]             # <<<<<<<<<<<<<<
@@ -18228,7 +18228,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_65));
 
-  /* "imusim/maths/quaternions.pyx":636
+  /* "nvg/maths/quaternions.pyx":636
  *         self.w = self.array[:,0]
  *         self.x = self.array[:,1]
  *         self.y = self.array[:,2]             # <<<<<<<<<<<<<<
@@ -18248,7 +18248,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_2);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_67));
 
-  /* "imusim/maths/quaternions.pyx":637
+  /* "nvg/maths/quaternions.pyx":637
  *         self.x = self.array[:,1]
  *         self.y = self.array[:,2]
  *         self.z = self.array[:,3]             # <<<<<<<<<<<<<<
@@ -18268,7 +18268,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_3);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_69));
 
-  /* "imusim/maths/quaternions.pyx":674
+  /* "nvg/maths/quaternions.pyx":674
  *         elif isinstance(other,np.ndarray):
  *             if other.ndim == 1 and other.shape[0] == self.array.shape[0]:
  *                 return QuaternionArray(self.array*other.reshape(-1,1))             # <<<<<<<<<<<<<<
@@ -18285,7 +18285,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_1);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_71));
 
-  /* "imusim/maths/quaternions.pyx":728
+  /* "nvg/maths/quaternions.pyx":728
  *     def __getitem__(self,key):
  *         result = self.array[key]
  *         if np.shape(result) == (4,):             # <<<<<<<<<<<<<<
@@ -18299,7 +18299,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_int_4);
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_72));
 
-  /* "imusim/maths/quaternions.pyx":773
+  /* "nvg/maths/quaternions.pyx":773
  *             them.
  *         """
  *         x,y,z = v.reshape((3,-1))             # <<<<<<<<<<<<<<
@@ -18322,7 +18322,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_74));
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_75));
 
-  /* "imusim/maths/quaternions.pyx":798
+  /* "nvg/maths/quaternions.pyx":798
  *             their current co-ordinate frame.
  *         """
  *         x,y,z = v.reshape((3,-1))             # <<<<<<<<<<<<<<
@@ -18345,7 +18345,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_76));
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_77));
 
-  /* "imusim/maths/quaternions.pyx":815
+  /* "nvg/maths/quaternions.pyx":815
  *         The (imaginary) column vector components of these quaternions.
  *         """
  *         return self.array[:,1:].T             # <<<<<<<<<<<<<<
@@ -18522,7 +18522,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (__Pyx_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   /*--- Initialize various global constants etc. ---*/
   if (unlikely(__Pyx_InitGlobals() < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__pyx_module_is_main_imusim__maths__quaternions) {
+  if (__pyx_module_is_main_nvg__maths__quaternions) {
     if (__Pyx_SetAttrString(__pyx_m, "__name__", __pyx_n_s____main__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   }
   /*--- Builtin init code ---*/
@@ -18532,20 +18532,20 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   /*--- Global init code ---*/
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("mult_quat_quat", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_mult_quat_quat, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ExportFunction("mult_quat_scalar", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, double, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ExportFunction("quaternion_add", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_quaternion_add, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ExportFunction("quaternion_sub", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_quaternion_sub, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ExportFunction("quaternion_log", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_quaternion_log, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ExportFunction("quaternion_exp", (void (*)(void))__pyx_f_6imusim_5maths_11quaternions_quaternion_exp, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("mult_quat_quat", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_mult_quat_quat, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("mult_quat_scalar", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, double, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("quaternion_add", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_quaternion_add, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("quaternion_sub", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_quaternion_sub, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("quaternion_log", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_quaternion_log, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ExportFunction("quaternion_exp", (void (*)(void))__pyx_f_6nvg_5maths_11quaternions_quaternion_exp, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   /*--- Type init code ---*/
-  __pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion = &__pyx_vtable_6imusim_5maths_11quaternions_Quaternion;
-  __pyx_vtable_6imusim_5maths_11quaternions_Quaternion.log = (struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch))__pyx_f_6imusim_5maths_11quaternions_10Quaternion_log;
-  __pyx_vtable_6imusim_5maths_11quaternions_Quaternion.exp = (struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch))__pyx_f_6imusim_5maths_11quaternions_10Quaternion_exp;
-  if (PyType_Ready(&__pyx_type_6imusim_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_SetVtable(__pyx_type_6imusim_5maths_11quaternions_Quaternion.tp_dict, __pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_SetAttrString(__pyx_m, "Quaternion", (PyObject *)&__pyx_type_6imusim_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_ptype_6imusim_5maths_11quaternions_Quaternion = &__pyx_type_6imusim_5maths_11quaternions_Quaternion;
+  __pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion = &__pyx_vtable_6nvg_5maths_11quaternions_Quaternion;
+  __pyx_vtable_6nvg_5maths_11quaternions_Quaternion.log = (struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch))__pyx_f_6nvg_5maths_11quaternions_10Quaternion_log;
+  __pyx_vtable_6nvg_5maths_11quaternions_Quaternion.exp = (struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch))__pyx_f_6nvg_5maths_11quaternions_10Quaternion_exp;
+  if (PyType_Ready(&__pyx_type_6nvg_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetVtable(__pyx_type_6nvg_5maths_11quaternions_Quaternion.tp_dict, __pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetAttrString(__pyx_m, "Quaternion", (PyObject *)&__pyx_type_6nvg_5maths_11quaternions_Quaternion) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 176; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_ptype_6nvg_5maths_11quaternions_Quaternion = &__pyx_type_6nvg_5maths_11quaternions_Quaternion;
   /*--- Type import code ---*/
   __pyx_ptype_5numpy_dtype = __Pyx_ImportType("numpy", "dtype", sizeof(PyArray_Descr), 0); if (unlikely(!__pyx_ptype_5numpy_dtype)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_5numpy_flatiter = __Pyx_ImportType("numpy", "flatiter", sizeof(PyArrayIterObject), 0); if (unlikely(!__pyx_ptype_5numpy_flatiter)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -18556,24 +18556,24 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   /*--- Function import code ---*/
   /*--- Execution code ---*/
 
-  /* "imusim/maths/quaternions.pyx":22
+  /* "nvg/maths/quaternions.pyx":22
  * 
  * from __future__ import division
  * import numpy as np             # <<<<<<<<<<<<<<
  * from scipy import interpolate
- * from imusim.maths.vector_splines import PartialInputVectorSpline
+ * from nvg.maths.vector_splines import PartialInputVectorSpline
  */
   __pyx_t_1 = __Pyx_Import(((PyObject *)__pyx_n_s__numpy), 0, -1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__np, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 22; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":23
+  /* "nvg/maths/quaternions.pyx":23
  * from __future__ import division
  * import numpy as np
  * from scipy import interpolate             # <<<<<<<<<<<<<<
- * from imusim.maths.vector_splines import PartialInputVectorSpline
- * from imusim.maths import vectors, matrices
+ * from nvg.maths.vector_splines import PartialInputVectorSpline
+ * from nvg.maths import vectors, matrices
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 23; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_1));
@@ -18589,11 +18589,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":24
+  /* "nvg/maths/quaternions.pyx":24
  * import numpy as np
  * from scipy import interpolate
- * from imusim.maths.vector_splines import PartialInputVectorSpline             # <<<<<<<<<<<<<<
- * from imusim.maths import vectors, matrices
+ * from nvg.maths.vector_splines import PartialInputVectorSpline             # <<<<<<<<<<<<<<
+ * from nvg.maths import vectors, matrices
  * import operator
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -18610,10 +18610,10 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":25
+  /* "nvg/maths/quaternions.pyx":25
  * from scipy import interpolate
- * from imusim.maths.vector_splines import PartialInputVectorSpline
- * from imusim.maths import vectors, matrices             # <<<<<<<<<<<<<<
+ * from nvg.maths.vector_splines import PartialInputVectorSpline
+ * from nvg.maths import vectors, matrices             # <<<<<<<<<<<<<<
  * import operator
  * 
  */
@@ -18638,9 +18638,9 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":26
- * from imusim.maths.vector_splines import PartialInputVectorSpline
- * from imusim.maths import vectors, matrices
+  /* "nvg/maths/quaternions.pyx":26
+ * from nvg.maths.vector_splines import PartialInputVectorSpline
+ * from nvg.maths import vectors, matrices
  * import operator             # <<<<<<<<<<<<<<
  * 
  * cimport numpy as np
@@ -18650,16 +18650,16 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__operator, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":38
+  /* "nvg/maths/quaternions.pyx":38
  *     double exp(double x)
  * 
  * cdef double EPS = 1e-6             # <<<<<<<<<<<<<<
  * 
  * cdef inline void mult_quat_quat(quaternion_t *q, quaternion_t *p,
  */
-  __pyx_v_6imusim_5maths_11quaternions_EPS = 1e-6;
+  __pyx_v_6nvg_5maths_11quaternions_EPS = 1e-6;
 
-  /* "imusim/maths/quaternions.pyx":126
+  /* "nvg/maths/quaternions.pyx":126
  *         dest.z = 0
  * 
  * def QuaternionFromEuler(angles,order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18671,36 +18671,36 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_k_1 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_QuaternionFromEuler, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_QuaternionFromEuler, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__QuaternionFromEuler, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 126; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":139
+  /* "nvg/maths/quaternions.pyx":139
  *     return q
  * 
  * def QuaternionFromMatrix(m):             # <<<<<<<<<<<<<<
  *     """
  *     Create a quaternion to be eqivalent to a given 3x3 rotation matrix.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_1QuaternionFromMatrix, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_1QuaternionFromMatrix, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_99, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":147
+  /* "nvg/maths/quaternions.pyx":147
  *     return q
  * 
  * def QuaternionFromVectors(x,y,z):             # <<<<<<<<<<<<<<
  *     """
  *     Create a quaternion that acts as a rotation taking the e1,e2,e3 basis
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_2QuaternionFromVectors, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_2QuaternionFromVectors, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_100, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 147; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":156
+  /* "nvg/maths/quaternions.pyx":156
  *     return q
  * 
  * def QuaternionFromAxisAngle(axis,angle,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18712,12 +18712,12 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_k_2 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_3QuaternionFromAxisAngle, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_3QuaternionFromAxisAngle, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_101, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 156; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":164
+  /* "nvg/maths/quaternions.pyx":164
  *     return q
  * 
  * def QuaternionFromSORA(rx,ry,rz,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18729,47 +18729,47 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_k_3 = __pyx_t_2;
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_4QuaternionFromSORA, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_4QuaternionFromSORA, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__QuaternionFromSORA, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":173
+  /* "nvg/maths/quaternions.pyx":173
  *     return q
  * 
  * def QuaternionNaN():             # <<<<<<<<<<<<<<
  *     return Quaternion(np.nan, np.nan, np.nan, np.nan)
  * 
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_5QuaternionNaN, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_5QuaternionNaN, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__QuaternionNaN, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 173; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":187
+  /* "nvg/maths/quaternions.pyx":187
  * 
  *     # Quaternions are mutable so can't be used for dictionary keys
  *     __hash__ = None             # <<<<<<<<<<<<<<
  * 
  *     property w:
  */
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s____hash__, Py_None) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s____hash__, Py_None) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 187; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":338
+  /* "nvg/maths/quaternions.pyx":338
  *         return Quaternion(self.w,self.x,self.y,self.z,)
  * 
  *     __copy__ = copy             # <<<<<<<<<<<<<<
  * 
  *     def normalise(Quaternion self):
  */
-  __pyx_t_2 = __Pyx_GetName((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion, __pyx_n_s__copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_GetName((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion, __pyx_n_s__copy); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s____copy__, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s____copy__, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 338; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":457
+  /* "nvg/maths/quaternions.pyx":457
  *         return axis,2*angle
  * 
  *     def toEuler(Quaternion self, order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18782,7 +18782,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":522
+  /* "nvg/maths/quaternions.pyx":522
  *         self.setFromMatrix(np.vstack((x,y,z)).reshape(3,3))
  * 
  *     def setFromEuler(Quaternion self,angles,order='zyx',inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18795,7 +18795,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":536
+  /* "nvg/maths/quaternions.pyx":536
  *             (axis.lower(),sin(angle/2.0))))) for angle, axis in zip(angles, order)]))
  * 
  *     def setFromAxisAngle(Quaternion self,axis,angle,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18808,7 +18808,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":550
+  /* "nvg/maths/quaternions.pyx":550
  *         self.x,self.y,self.z = axis * sin(angle/2)
  * 
  *     def setFromSORA(Quaternion self,rx,ry,rz,inDegrees=True):             # <<<<<<<<<<<<<<
@@ -18821,7 +18821,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_GIVEREF(__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":568
+  /* "nvg/maths/quaternions.pyx":568
  *             self.set(Quaternion())
  * 
  *     fromEuler = staticmethod(QuaternionFromEuler)             # <<<<<<<<<<<<<<
@@ -18838,11 +18838,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromEuler, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromEuler, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 568; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":569
+  /* "nvg/maths/quaternions.pyx":569
  * 
  *     fromEuler = staticmethod(QuaternionFromEuler)
  *     fromMatrix = staticmethod(QuaternionFromMatrix)             # <<<<<<<<<<<<<<
@@ -18859,11 +18859,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 569; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromMatrix, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 569; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromMatrix, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 569; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":570
+  /* "nvg/maths/quaternions.pyx":570
  *     fromEuler = staticmethod(QuaternionFromEuler)
  *     fromMatrix = staticmethod(QuaternionFromMatrix)
  *     fromVectors = staticmethod(QuaternionFromVectors)             # <<<<<<<<<<<<<<
@@ -18880,11 +18880,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromVectors, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromVectors, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 570; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":571
+  /* "nvg/maths/quaternions.pyx":571
  *     fromMatrix = staticmethod(QuaternionFromMatrix)
  *     fromVectors = staticmethod(QuaternionFromVectors)
  *     fromAxisAngle = staticmethod(QuaternionFromAxisAngle)             # <<<<<<<<<<<<<<
@@ -18901,11 +18901,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 571; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromAxisAngle, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 571; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromAxisAngle, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 571; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":572
+  /* "nvg/maths/quaternions.pyx":572
  *     fromVectors = staticmethod(QuaternionFromVectors)
  *     fromAxisAngle = staticmethod(QuaternionFromAxisAngle)
  *     fromSORA = staticmethod(QuaternionFromSORA)             # <<<<<<<<<<<<<<
@@ -18922,11 +18922,11 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromSORA, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__fromSORA, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 572; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":573
+  /* "nvg/maths/quaternions.pyx":573
  *     fromAxisAngle = staticmethod(QuaternionFromAxisAngle)
  *     fromSORA = staticmethod(QuaternionFromSORA)
  *     nan = staticmethod(QuaternionNaN)             # <<<<<<<<<<<<<<
@@ -18943,23 +18943,23 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyObject_Call(__pyx_builtin_staticmethod, ((PyObject *)__pyx_t_1), NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__nan, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict, __pyx_n_s__nan, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 573; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  PyType_Modified(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion);
+  PyType_Modified(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion);
 
-  /* "imusim/maths/quaternions.pyx":578
+  /* "nvg/maths/quaternions.pyx":578
  *         return (Quaternion, (self.w, self.x, self.y, self.z))
  * 
  * def QuaternionArrayNaN(length):             # <<<<<<<<<<<<<<
  *     a = np.empty((length,4))
  *     a[:] = np.nan
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_6QuaternionArrayNaN, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_6QuaternionArrayNaN, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__QuaternionArrayNaN, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 578; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":583
+  /* "nvg/maths/quaternions.pyx":583
  *     return QuaternionArray(a)
  * 
  * class QuaternionArray(object):             # <<<<<<<<<<<<<<
@@ -18969,7 +18969,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_t_2 = PyDict_New(); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 583; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_2));
 
-  /* "imusim/maths/quaternions.pyx":589
+  /* "nvg/maths/quaternions.pyx":589
  *     Math operators are overridden to support quaternion math operations.
  *     """
  *     __slots__ = ['array','w','x','y','z']             # <<<<<<<<<<<<<<
@@ -18996,7 +18996,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____slots__, ((PyObject *)__pyx_t_1)) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 589; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":590
+  /* "nvg/maths/quaternions.pyx":590
  *     """
  *     __slots__ = ['array','w','x','y','z']
  *     __hash__ = None             # <<<<<<<<<<<<<<
@@ -19005,7 +19005,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
  */
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____hash__, Py_None) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 590; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quaternions.pyx":591
+  /* "nvg/maths/quaternions.pyx":591
  *     __slots__ = ['array','w','x','y','z']
  *     __hash__ = None
  *     def __init__(self,data,copy=False):             # <<<<<<<<<<<<<<
@@ -19017,96 +19017,96 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_k_57 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray___init__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 591; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray___init__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 591; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____init__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 591; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":639
+  /* "nvg/maths/quaternions.pyx":639
  *         self.z = self.array[:,3]
  * 
  *     def __repr__(self):             # <<<<<<<<<<<<<<
  *         return "QuaternionArray(%r)"%self.array
  * 
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_1__repr__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 639; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_1__repr__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 639; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____repr__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 639; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":642
+  /* "nvg/maths/quaternions.pyx":642
  *         return "QuaternionArray(%r)"%self.array
  * 
  *     def __add__(self,other):             # <<<<<<<<<<<<<<
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w+other.w,
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_2__add__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 642; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_2__add__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 642; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____add__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 642; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":651
+  /* "nvg/maths/quaternions.pyx":651
  *             raise NotImplementedError
  * 
  *     def __sub__(self,other):             # <<<<<<<<<<<<<<
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((self.w-other.w,
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_3__sub__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 651; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_3__sub__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 651; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____sub__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 651; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":660
+  /* "nvg/maths/quaternions.pyx":660
  *             raise NotImplementedError
  * 
  *     def __neg__(self):             # <<<<<<<<<<<<<<
  *         return QuaternionArray(-self.array)
  * 
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_4__neg__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 660; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_4__neg__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 660; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____neg__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 660; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":663
+  /* "nvg/maths/quaternions.pyx":663
  *         return QuaternionArray(-self.array)
  * 
  *     def __mul__(self,other):             # <<<<<<<<<<<<<<
  *         if isinstance(other,(QuaternionArray,Quaternion)):
  *             return QuaternionArray((
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_5__mul__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_5__mul__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____mul__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 663; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":678
+  /* "nvg/maths/quaternions.pyx":678
  *             raise NotImplementedError
  * 
  *     def __rmul__(self,other):             # <<<<<<<<<<<<<<
  *         if np.isscalar(other):
  *             return QuaternionArray(other*self.array)
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_6__rmul__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 678; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_6__rmul__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 678; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____rmul__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 678; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":691
+  /* "nvg/maths/quaternions.pyx":691
  *             raise NotImplementedError
  * 
  *     def copy(self):             # <<<<<<<<<<<<<<
  *         return QuaternionArray(self.array.copy())
  * 
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_7copy, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 691; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_7copy, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 691; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__copy, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 691; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":694
+  /* "nvg/maths/quaternions.pyx":694
  *         return QuaternionArray(self.array.copy())
  * 
  *     __copy__ = copy             # <<<<<<<<<<<<<<
@@ -19118,115 +19118,115 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____copy__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 694; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":696
+  /* "nvg/maths/quaternions.pyx":696
  *     __copy__ = copy
  * 
  *     def log(self):             # <<<<<<<<<<<<<<
  *         """
  *         Natural logarithm of the quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_8log, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 696; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_8log, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 696; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__log, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 696; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":707
+  /* "nvg/maths/quaternions.pyx":707
  *         return QuaternionArray((w,x,y,z))
  * 
  *     def exp(self):             # <<<<<<<<<<<<<<
  *         """
  *         Exponential of the quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_9exp, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 707; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_9exp, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 707; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__exp, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 707; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":717
+  /* "nvg/maths/quaternions.pyx":717
  *         return QuaternionArray((w,x,y,z))*np.exp(self.w)
  * 
  *     def __pow__(self,p):             # <<<<<<<<<<<<<<
  *         return (self.log()*p).exp()
  * 
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_10__pow__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 717; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_10__pow__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 717; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____pow__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 717; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":720
+  /* "nvg/maths/quaternions.pyx":720
  *         return (self.log()*p).exp()
  * 
  *     def __eq__(self,other):             # <<<<<<<<<<<<<<
  *         if isinstance(other,QuaternionArray):
  *             return np.allclose(self.array,other.array)
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_11__eq__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_11__eq__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____eq__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 720; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":726
+  /* "nvg/maths/quaternions.pyx":726
  *             return False
  * 
  *     def __getitem__(self,key):             # <<<<<<<<<<<<<<
  *         result = self.array[key]
  *         if np.shape(result) == (4,):
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_12__getitem__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 726; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_12__getitem__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 726; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____getitem__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 726; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":735
+  /* "nvg/maths/quaternions.pyx":735
  *             return result
  * 
  *     def __setitem__(self, key, value):             # <<<<<<<<<<<<<<
  *         if isinstance(value, Quaternion):
  *             self.array[key] = value.components
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_13__setitem__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 735; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_13__setitem__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 735; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____setitem__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 735; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":743
+  /* "nvg/maths/quaternions.pyx":743
  *             self.array[key] = value
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
  *         return len(self.array)
  * 
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_14__len__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_14__len__, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s____len__, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 743; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":746
+  /* "nvg/maths/quaternions.pyx":746
  *         return len(self.array)
  * 
  *     def dot(self,other):             # <<<<<<<<<<<<<<
  *         """
  *         Dot product with another quaternion array.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_15dot, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_15dot, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__dot, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 746; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":755
+  /* "nvg/maths/quaternions.pyx":755
  * 
  *     @property
  *     def magnitude(self):             # <<<<<<<<<<<<<<
  *         """
  *         Magnitudes of the quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_16magnitude, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 755; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_16magnitude, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 755; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__magnitude, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 755; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":754
+  /* "nvg/maths/quaternions.pyx":754
  *         return np.sum(self.array*other.array,axis=1)
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19246,43 +19246,43 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__magnitude, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 755; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":761
+  /* "nvg/maths/quaternions.pyx":761
  *         return np.sqrt(self.dot(self))
  * 
  *     def rotateVector(self,v):             # <<<<<<<<<<<<<<
  *         """
  *         Rotate vectors by the rotations of these quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_17rotateVector, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 761; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_17rotateVector, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 761; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__rotateVector, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 761; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":785
+  /* "nvg/maths/quaternions.pyx":785
  *         return r
  * 
  *     def rotateFrame(self,v):             # <<<<<<<<<<<<<<
  *         """
  *         Rotate co-ordinate frames of vectors using these quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_18rotateFrame, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_18rotateFrame, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__rotateFrame, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 785; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":811
+  /* "nvg/maths/quaternions.pyx":811
  * 
  *     @property
  *     def vector(self):             # <<<<<<<<<<<<<<
  *         """
  *         The (imaginary) column vector components of these quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_19vector, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 811; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_19vector, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 811; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__vector, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 811; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":810
+  /* "nvg/maths/quaternions.pyx":810
  *         return r
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19302,19 +19302,19 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__vector, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 811; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":817
+  /* "nvg/maths/quaternions.pyx":817
  *         return self.array[:,1:].T
  *     @property
  *     def conjugate(self):             # <<<<<<<<<<<<<<
  *         """
  *         The conjugates of these quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_20conjugate, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 817; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_20conjugate, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 817; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__conjugate, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 817; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":816
+  /* "nvg/maths/quaternions.pyx":816
  *         """
  *         return self.array[:,1:].T
  *     @property             # <<<<<<<<<<<<<<
@@ -19334,19 +19334,19 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__conjugate, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 817; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":824
+  /* "nvg/maths/quaternions.pyx":824
  * 
  *     @property
  *     def norm(self):             # <<<<<<<<<<<<<<
  *         """
  *         The 2-norms of these quaternions.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_21norm, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_21norm, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__norm, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":823
+  /* "nvg/maths/quaternions.pyx":823
  *         return QuaternionArray((self.w,-self.x,-self.y,-self.z))
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19366,31 +19366,31 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__norm, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 824; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":830
+  /* "nvg/maths/quaternions.pyx":830
  *         return np.sqrt(np.sum(self.array**2,axis=1))
  * 
  *     def validity(self):             # <<<<<<<<<<<<<<
  *         """
  *         Obtain a boolean array indicating which elements are valid.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_22validity, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_22validity, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__validity, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 830; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":836
+  /* "nvg/maths/quaternions.pyx":836
  *         return ~np.any(np.isnan(self.array),axis=1)
  * 
  *     def unflipped(self):             # <<<<<<<<<<<<<<
  *         """
  *         Obtain a copy of this array with no sign flips between values.
  */
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_23unflipped, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 836; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_23unflipped, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 836; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__unflipped, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 836; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":849
+  /* "nvg/maths/quaternions.pyx":849
  *         return new
  * 
  *     def smoothed(self, stddev=0.001):             # <<<<<<<<<<<<<<
@@ -19402,12 +19402,12 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __pyx_k_81 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_11quaternions_15QuaternionArray_24smoothed, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 849; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_11quaternions_15QuaternionArray_24smoothed, NULL, __pyx_n_s_98); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 849; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__smoothed, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 849; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":867
+  /* "nvg/maths/quaternions.pyx":867
  *         return qa * (1.0/qa.magnitude)
  * 
  *     nan = staticmethod(QuaternionArrayNaN)             # <<<<<<<<<<<<<<
@@ -19427,7 +19427,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   if (PyObject_SetItem(__pyx_t_2, __pyx_n_s__nan, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 867; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quaternions.pyx":583
+  /* "nvg/maths/quaternions.pyx":583
  *     return QuaternionArray(a)
  * 
  * class QuaternionArray(object):             # <<<<<<<<<<<<<<
@@ -19447,7 +19447,7 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(((PyObject *)__pyx_t_2)); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quaternions.pyx":1
+  /* "nvg/maths/quaternions.pyx":1
  * """             # <<<<<<<<<<<<<<
  * Quaternion maths.
  * """
@@ -19470,10 +19470,10 @@ PyMODINIT_FUNC PyInit_quaternions(void)
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   if (__pyx_m) {
-    __Pyx_AddTraceback("init imusim.maths.quaternions", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("init nvg.maths.quaternions", __pyx_clineno, __pyx_lineno, __pyx_filename);
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init imusim.maths.quaternions");
+    PyErr_SetString(PyExc_ImportError, "init nvg.maths.quaternions");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

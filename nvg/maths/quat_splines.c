@@ -230,8 +230,8 @@
 #define _USE_MATH_DEFINES
 #endif
 #include <math.h>
-#define __PYX_HAVE__imusim__maths__quat_splines
-#define __PYX_HAVE_API__imusim__maths__quat_splines
+#define __PYX_HAVE__nvg__maths__quat_splines
+#define __PYX_HAVE_API__nvg__maths__quat_splines
 #include "stdio.h"
 #include "stdlib.h"
 #include "numpy/arrayobject.h"
@@ -556,19 +556,19 @@ typedef npy_longdouble __pyx_t_5numpy_longdouble_t;
 #endif
 
 /*--- Type declarations ---*/
-struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion;
-struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline;
-struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t;
-typedef struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_t_6imusim_5maths_11quaternions_quaternion_t;
+struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion;
+struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline;
+struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t;
+typedef struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_t_6nvg_5maths_11quaternions_quaternion_t;
 
-/* "imusim/maths/quaternions.pxd":7
+/* "nvg/maths/quaternions.pxd":7
  * """
  * 
  * ctypedef struct quaternion_t:             # <<<<<<<<<<<<<<
  *     double w
  *     double x
  */
-struct __pyx_t_6imusim_5maths_11quaternions_quaternion_t {
+struct __pyx_t_6nvg_5maths_11quaternions_quaternion_t {
   double w;
   double x;
   double y;
@@ -611,30 +611,30 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
 
-/* "imusim/maths/quaternions.pxd":24
+/* "nvg/maths/quaternions.pxd":24
  * cdef inline void quaternion_exp(quaternion_t *q, quaternion_t *dest)
  * 
  * cdef class Quaternion:             # <<<<<<<<<<<<<<
  *     cdef quaternion_t _components
  *     cpdef inline Quaternion log(Quaternion self)
  */
-struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion {
+struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion {
   PyObject_HEAD
-  struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *__pyx_vtab;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t _components;
+  struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *__pyx_vtab;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t _components;
 };
 
 
-/* "imusim/maths/quat_splines.pyx":36
+/* "nvg/maths/quat_splines.pyx":36
  * DEF SPLINE_ORDER = 4
  * 
  * cdef class QuaternionBSpline:             # <<<<<<<<<<<<<<
  *     """
  *     Model of a quaternion function of time using B-spline fitting of keyframes.
  */
-struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline {
+struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline {
   PyObject_HEAD
-  struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_vtab;
+  struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_vtab;
   double tmin;
   double dt;
   PyObject *w;
@@ -645,7 +645,7 @@ struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline {
 
 
 
-/* "imusim/maths/quaternions.pxd":24
+/* "nvg/maths/quaternions.pxd":24
  * cdef inline void quaternion_exp(quaternion_t *q, quaternion_t *dest)
  * 
  * cdef class Quaternion:             # <<<<<<<<<<<<<<
@@ -653,14 +653,14 @@ struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline {
  *     cpdef inline Quaternion log(Quaternion self)
  */
 
-struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion {
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*log)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *(*exp)(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion {
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*log)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *(*exp)(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *__pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion;
+static struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion *__pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion;
 
 
-/* "imusim/maths/quat_splines.pyx":36
+/* "nvg/maths/quat_splines.pyx":36
  * DEF SPLINE_ORDER = 4
  * 
  * cdef class QuaternionBSpline:             # <<<<<<<<<<<<<<
@@ -668,13 +668,13 @@ static struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion *__pyx_vt
  *     Model of a quaternion function of time using B-spline fitting of keyframes.
  */
 
-struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline {
-  double (*B)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
-  double (*Bprime)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
-  double (*tildeB)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
-  PyObject *(*evaluate)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, double);
+struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline {
+  double (*B)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
+  double (*Bprime)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
+  double (*tildeB)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double);
+  PyObject *(*evaluate)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, double);
 };
-static struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_vtabptr_6imusim_5maths_12quat_splines_QuaternionBSpline;
+static struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_vtabptr_6nvg_5maths_12quat_splines_QuaternionBSpline;
 
 
 #ifndef CYTHON_REFNANNY
@@ -1067,14 +1067,14 @@ static void __Pyx_AddTraceback(const char *funcname, int __pyx_clineno,
 
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t); /*proto*/
 
-/* Module declarations from 'imusim.maths.quaternions' */
-static PyTypeObject *__pyx_ptype_6imusim_5maths_11quaternions_Quaternion = 0;
-static void (*__pyx_f_6imusim_5maths_11quaternions_mult_quat_quat)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static void (*__pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, double, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static void (*__pyx_f_6imusim_5maths_11quaternions_quaternion_add)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static void (*__pyx_f_6imusim_5maths_11quaternions_quaternion_sub)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static void (*__pyx_f_6imusim_5maths_11quaternions_quaternion_log)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
-static void (*__pyx_f_6imusim_5maths_11quaternions_quaternion_exp)(__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *); /*proto*/
+/* Module declarations from 'nvg.maths.quaternions' */
+static PyTypeObject *__pyx_ptype_6nvg_5maths_11quaternions_Quaternion = 0;
+static void (*__pyx_f_6nvg_5maths_11quaternions_mult_quat_quat)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static void (*__pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, double, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static void (*__pyx_f_6nvg_5maths_11quaternions_quaternion_add)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static void (*__pyx_f_6nvg_5maths_11quaternions_quaternion_sub)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static void (*__pyx_f_6nvg_5maths_11quaternions_quaternion_log)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
+static void (*__pyx_f_6nvg_5maths_11quaternions_quaternion_exp)(__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *); /*proto*/
 
 /* Module declarations from 'cpython.buffer' */
 
@@ -1107,12 +1107,12 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *); /
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'imusim.maths.quat_splines' */
-static PyTypeObject *__pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline = 0;
-#define __Pyx_MODULE_NAME "imusim.maths.quat_splines"
-int __pyx_module_is_main_imusim__maths__quat_splines = 0;
+/* Module declarations from 'nvg.maths.quat_splines' */
+static PyTypeObject *__pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline = 0;
+#define __Pyx_MODULE_NAME "nvg.maths.quat_splines"
+int __pyx_module_is_main_nvg__maths__quat_splines = 0;
 
-/* Implementation of 'imusim.maths.quat_splines' */
+/* Implementation of 'nvg.maths.quat_splines' */
 static PyObject *__pyx_builtin_staticmethod;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_enumerate;
@@ -1129,9 +1129,9 @@ static char __pyx_k_15[] = "unknown dtype code in numpy.pxd (%d)";
 static char __pyx_k_16[] = "Format string allocated too short, see comment in numpy.pxd";
 static char __pyx_k_19[] = "Format string allocated too short.";
 static char __pyx_k_21[] = "\nSpline fitting of quaternion data.\n";
-static char __pyx_k_22[] = "imusim.maths.quaternions";
-static char __pyx_k_23[] = "imusim.maths.splines";
-static char __pyx_k_24[] = "imusim.maths.quat_splines";
+static char __pyx_k_22[] = "nvg.maths.quaternions";
+static char __pyx_k_23[] = "nvg.maths.splines";
+static char __pyx_k_24[] = "nvg.maths.quat_splines";
 static char __pyx_k_25[] = "\n    Model of a quaternion function of time using the SQUAD algorithm.\n\n    The implementation is based on the derivation given in \"Quaternion Algebra\n    and Calculus\" by David Eberly of Geometric Tools Inc.\n    ";
 static char __pyx_k_26[] = "\n    Quaternion B-spline allowing for undefined regions in output domain.\n\n    Call the resulting object returns a tuple of a QuaternionArray,\n    rotational rate array and rotational acceleration array.\n    ";
 static char __pyx_k_27[] = "PartialInputQuaternionBSpline";
@@ -1342,7 +1342,7 @@ static PyObject *__pyx_k_tuple_17;
 static PyObject *__pyx_k_tuple_18;
 static PyObject *__pyx_k_tuple_20;
 
-/* "imusim/maths/quat_splines.pyx":54
+/* "nvg/maths/quat_splines.pyx":54
  *     cdef double _validTo
  * 
  *     def __cinit__(self, timestamps, quaternions, w=None):             # <<<<<<<<<<<<<<
@@ -1350,8 +1350,8 @@ static PyObject *__pyx_k_tuple_20;
  *         Construct quaternion spline.
  */
 
-static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline___cinit__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_timestamps = 0;
   PyObject *__pyx_v_quaternions = 0;
   PyObject *__pyx_v_w = 0;
@@ -1425,12 +1425,12 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__cinit__", 0, 2, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 54; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":61
+  /* "nvg/maths/quat_splines.pyx":61
  *         @param quaternions: L{QuaternionArray} of keyframe quaternions.
  *         """
  *         self.tmin = timestamps[0]             # <<<<<<<<<<<<<<
@@ -1441,9 +1441,9 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 61; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin = __pyx_t_2;
+  ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin = __pyx_t_2;
 
-  /* "imusim/maths/quat_splines.pyx":62
+  /* "nvg/maths/quat_splines.pyx":62
  *         """
  *         self.tmin = timestamps[0]
  *         self.dt = timestamps[1] - timestamps[0]             # <<<<<<<<<<<<<<
@@ -1460,9 +1460,9 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 62; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt = __pyx_t_2;
+  ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt = __pyx_t_2;
 
-  /* "imusim/maths/quat_splines.pyx":64
+  /* "nvg/maths/quat_splines.pyx":64
  *         self.dt = timestamps[1] - timestamps[0]
  * 
  *         if w is None:             # <<<<<<<<<<<<<<
@@ -1472,7 +1472,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __pyx_t_5 = (__pyx_v_w == Py_None);
   if (__pyx_t_5) {
 
-    /* "imusim/maths/quat_splines.pyx":65
+    /* "nvg/maths/quat_splines.pyx":65
  * 
  *         if w is None:
  *             self.q = [ q for q in quaternions ]             # <<<<<<<<<<<<<<
@@ -1515,19 +1515,19 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_INCREF(((PyObject *)__pyx_t_4));
     __Pyx_GIVEREF(((PyObject *)__pyx_t_4));
-    __Pyx_GOTREF(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
-    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
-    ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q = __pyx_t_4;
+    __Pyx_GOTREF(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
+    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
+    ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q = __pyx_t_4;
     __Pyx_DECREF(((PyObject *)__pyx_t_4)); __pyx_t_4 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":67
+    /* "nvg/maths/quat_splines.pyx":67
  *             self.q = [ q for q in quaternions ]
  *             # Extend quaternions to provide control points at the start and end
  *             self.q.extend([quaternions[-1]]*2)             # <<<<<<<<<<<<<<
  *             self.q.extend([quaternions[0]]*2)
  * 
  */
-    __pyx_t_4 = PyObject_GetAttr(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_n_s__extend); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyObject_GetAttr(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_n_s__extend); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_quaternions, -1, sizeof(long), PyInt_FromLong); if (!__pyx_t_3) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 67; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
@@ -1550,14 +1550,14 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":68
+    /* "nvg/maths/quat_splines.pyx":68
  *             # Extend quaternions to provide control points at the start and end
  *             self.q.extend([quaternions[-1]]*2)
  *             self.q.extend([quaternions[0]]*2)             # <<<<<<<<<<<<<<
  * 
  *             self.w = [(self.q[i-1]**-1 * self.q[i]).log() for i in
  */
-    __pyx_t_3 = PyObject_GetAttr(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_n_s__extend); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyObject_GetAttr(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_n_s__extend); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_quaternions, 0, sizeof(long), PyInt_FromLong); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 68; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
@@ -1580,7 +1580,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     __Pyx_DECREF(((PyObject *)__pyx_t_4)); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":70
+    /* "nvg/maths/quat_splines.pyx":70
  *             self.q.extend([quaternions[0]]*2)
  * 
  *             self.w = [(self.q[i-1]**-1 * self.q[i]).log() for i in             # <<<<<<<<<<<<<<
@@ -1590,14 +1590,14 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(((PyObject *)__pyx_t_1));
 
-    /* "imusim/maths/quat_splines.pyx":71
+    /* "nvg/maths/quat_splines.pyx":71
  * 
  *             self.w = [(self.q[i-1]**-1 * self.q[i]).log() for i in
  *                     range(len(self.q))]             # <<<<<<<<<<<<<<
  *         else:
  *             self.q = quaternions
  */
-    __pyx_t_4 = ((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
+    __pyx_t_4 = ((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
     __Pyx_INCREF(__pyx_t_4);
     if (unlikely(__pyx_t_4 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 71; __pyx_clineno = __LINE__; goto __pyx_L1_error;} 
@@ -1645,7 +1645,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
       __pyx_v_i = __pyx_t_4;
       __pyx_t_4 = 0;
 
-      /* "imusim/maths/quat_splines.pyx":70
+      /* "nvg/maths/quat_splines.pyx":70
  *             self.q.extend([quaternions[0]]*2)
  * 
  *             self.w = [(self.q[i-1]**-1 * self.q[i]).log() for i in             # <<<<<<<<<<<<<<
@@ -1654,13 +1654,13 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
  */
       __pyx_t_4 = PyNumber_Subtract(__pyx_v_i, __pyx_int_1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_8 = PyObject_GetItem(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_t_4); if (!__pyx_t_8) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = PyObject_GetItem(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_t_4); if (!__pyx_t_8) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_4 = PyNumber_Power(__pyx_t_8, __pyx_int_neg_1, Py_None); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyObject_GetItem(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_v_i); if (!__pyx_t_8) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = PyObject_GetItem(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q), __pyx_v_i); if (!__pyx_t_8) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = PyNumber_Multiply(__pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_9);
@@ -1678,15 +1678,15 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_INCREF(((PyObject *)__pyx_t_1));
     __Pyx_GIVEREF(((PyObject *)__pyx_t_1));
-    __Pyx_GOTREF(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w);
-    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
-    ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w = __pyx_t_1;
+    __Pyx_GOTREF(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w);
+    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
+    ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w = __pyx_t_1;
     __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
     goto __pyx_L6;
   }
   /*else*/ {
 
-    /* "imusim/maths/quat_splines.pyx":73
+    /* "nvg/maths/quat_splines.pyx":73
  *                     range(len(self.q))]
  *         else:
  *             self.q = quaternions             # <<<<<<<<<<<<<<
@@ -1696,11 +1696,11 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     if (!(likely(PyList_CheckExact(__pyx_v_quaternions))||((__pyx_v_quaternions) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected list, got %.200s", Py_TYPE(__pyx_v_quaternions)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_INCREF(__pyx_v_quaternions);
     __Pyx_GIVEREF(__pyx_v_quaternions);
-    __Pyx_GOTREF(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
-    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
-    ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q = ((PyObject*)__pyx_v_quaternions);
+    __Pyx_GOTREF(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q);
+    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
+    ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q = ((PyObject*)__pyx_v_quaternions);
 
-    /* "imusim/maths/quat_splines.pyx":74
+    /* "nvg/maths/quat_splines.pyx":74
  *         else:
  *             self.q = quaternions
  *             self.w = w             # <<<<<<<<<<<<<<
@@ -1710,13 +1710,13 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
     if (!(likely(PyList_CheckExact(__pyx_v_w))||((__pyx_v_w) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected list, got %.200s", Py_TYPE(__pyx_v_w)->tp_name), 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 74; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_INCREF(__pyx_v_w);
     __Pyx_GIVEREF(__pyx_v_w);
-    __Pyx_GOTREF(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w);
-    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
-    ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w = ((PyObject*)__pyx_v_w);
+    __Pyx_GOTREF(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w);
+    __Pyx_DECREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
+    ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w = ((PyObject*)__pyx_v_w);
   }
   __pyx_L6:;
 
-  /* "imusim/maths/quat_splines.pyx":76
+  /* "nvg/maths/quat_splines.pyx":76
  *             self.w = w
  * 
  *         self._validFrom = timestamps[2]             # <<<<<<<<<<<<<<
@@ -1727,9 +1727,9 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 76; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validFrom = __pyx_t_2;
+  ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validFrom = __pyx_t_2;
 
-  /* "imusim/maths/quat_splines.pyx":77
+  /* "nvg/maths/quat_splines.pyx":77
  * 
  *         self._validFrom = timestamps[2]
  *         self._validTo = timestamps[-2]             # <<<<<<<<<<<<<<
@@ -1740,7 +1740,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_2 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 77; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validTo = __pyx_t_2;
+  ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validTo = __pyx_t_2;
 
   __pyx_r = 0;
   goto __pyx_L0;
@@ -1750,7 +1750,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.__cinit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_q);
@@ -1760,7 +1760,7 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":80
+/* "nvg/maths/quat_splines.pyx":80
  * 
  *     property validFrom:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -1768,8 +1768,8 @@ static int __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1780,7 +1780,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9val
   __Pyx_RefNannySetupContext("__get__");
   __Pyx_TraceCall("__get__", __pyx_f[0], 80);
 
-  /* "imusim/maths/quat_splines.pyx":81
+  /* "nvg/maths/quat_splines.pyx":81
  *     property validFrom:
  *         def __get__(self):
  *             return self._validFrom             # <<<<<<<<<<<<<<
@@ -1788,7 +1788,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9val
  *     property validTo:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validFrom); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 81; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validFrom); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 81; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1798,7 +1798,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9val
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.validFrom.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.validFrom.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1807,7 +1807,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9val
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":84
+/* "nvg/maths/quat_splines.pyx":84
  * 
  *     property validTo:
  *         def __get__(self):             # <<<<<<<<<<<<<<
@@ -1815,8 +1815,8 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9val
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1827,7 +1827,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7val
   __Pyx_RefNannySetupContext("__get__");
   __Pyx_TraceCall("__get__", __pyx_f[0], 84);
 
-  /* "imusim/maths/quat_splines.pyx":85
+  /* "nvg/maths/quat_splines.pyx":85
  *     property validTo:
  *         def __get__(self):
  *             return self._validTo             # <<<<<<<<<<<<<<
@@ -1835,7 +1835,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7val
  *     def __reduce__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validTo); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 85; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->_validTo); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 85; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1845,7 +1845,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7val
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.validTo.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.validTo.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1854,7 +1854,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7val
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":87
+/* "nvg/maths/quat_splines.pyx":87
  *             return self._validTo
  * 
  *     def __reduce__(self):             # <<<<<<<<<<<<<<
@@ -1862,8 +1862,8 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7val
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_1__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_1__reduce__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1876,7 +1876,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
   __Pyx_RefNannySetupContext("__reduce__");
   __Pyx_TraceCall("__reduce__", __pyx_f[0], 87);
 
-  /* "imusim/maths/quat_splines.pyx":88
+  /* "nvg/maths/quat_splines.pyx":88
  * 
  *     def __reduce__(self):
  *         return (QuaternionBSpline, ([self.tmin, self.tmin + self.dt], self.q, self.w))             # <<<<<<<<<<<<<<
@@ -1884,9 +1884,9 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
  *     @cython.profile(False)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyFloat_FromDouble((((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin + ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyFloat_FromDouble((((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin + ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_3));
@@ -1900,18 +1900,18 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
   __Pyx_GOTREF(((PyObject *)__pyx_t_2));
   PyTuple_SET_ITEM(__pyx_t_2, 0, ((PyObject *)__pyx_t_3));
   __Pyx_GIVEREF(((PyObject *)__pyx_t_3));
-  __Pyx_INCREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
-  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
-  __Pyx_GIVEREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
-  __Pyx_INCREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
-  PyTuple_SET_ITEM(__pyx_t_2, 2, ((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
-  __Pyx_GIVEREF(((PyObject *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
+  __Pyx_INCREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
+  PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
+  __Pyx_GIVEREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->q));
+  __Pyx_INCREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
+  PyTuple_SET_ITEM(__pyx_t_2, 2, ((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
+  __Pyx_GIVEREF(((PyObject *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->w));
   __pyx_t_3 = 0;
   __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 88; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_3));
-  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline)));
-  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline)));
-  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline)));
+  __Pyx_INCREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline)));
+  PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline)));
+  __Pyx_GIVEREF(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline)));
   PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_t_2));
   __Pyx_GIVEREF(((PyObject *)__pyx_t_2));
   __pyx_t_2 = 0;
@@ -1925,7 +1925,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.__reduce__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1934,7 +1934,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":91
+/* "nvg/maths/quat_splines.pyx":91
  * 
  *     @cython.profile(False)
  *     cdef double B(self, int i,int k,double t):             # <<<<<<<<<<<<<<
@@ -1942,7 +1942,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__r
  *         B-Spline basis function B_{i,k}(t).
  */
 
-static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
+static double __pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_B(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
   double __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -1955,7 +1955,7 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("B");
 
-  /* "imusim/maths/quat_splines.pyx":95
+  /* "nvg/maths/quat_splines.pyx":95
  *         B-Spline basis function B_{i,k}(t).
  *         """
  *         if k == 1:             # <<<<<<<<<<<<<<
@@ -1965,7 +1965,7 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
   __pyx_t_1 = (__pyx_v_k == 1);
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quat_splines.pyx":96
+    /* "nvg/maths/quat_splines.pyx":96
  *         """
  *         if k == 1:
  *             return 1 if i <= t < i+1 else 0             # <<<<<<<<<<<<<<
@@ -1987,7 +1987,7 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
   }
   __pyx_L3:;
 
-  /* "imusim/maths/quat_splines.pyx":98
+  /* "nvg/maths/quat_splines.pyx":98
  *             return 1 if i <= t < i+1 else 0
  * 
  *         return ((t-i)/(k-1)) * self.B(i,k-1,t) + \             # <<<<<<<<<<<<<<
@@ -2001,7 +2001,7 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
 
-  /* "imusim/maths/quat_splines.pyx":99
+  /* "nvg/maths/quat_splines.pyx":99
  * 
  *         return ((t-i)/(k-1)) * self.B(i,k-1,t) + \
  *                 ((i+k-t)/(k-1)) * self.B(i+1,k-1,t)             # <<<<<<<<<<<<<<
@@ -2014,20 +2014,20 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
     PyErr_Format(PyExc_ZeroDivisionError, "float division");
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_r = (((__pyx_t_3 / ((double)__pyx_t_2)) * ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, (__pyx_v_k - 1), __pyx_v_t)) + ((__pyx_t_4 / ((double)__pyx_t_5)) * ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, (__pyx_v_i + 1), (__pyx_v_k - 1), __pyx_v_t)));
+  __pyx_r = (((__pyx_t_3 / ((double)__pyx_t_2)) * ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, (__pyx_v_k - 1), __pyx_v_t)) + ((__pyx_t_4 / ((double)__pyx_t_5)) * ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, (__pyx_v_i + 1), (__pyx_v_k - 1), __pyx_v_t)));
   goto __pyx_L0;
 
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("imusim.maths.quat_splines.QuaternionBSpline.B", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("nvg.maths.quat_splines.QuaternionBSpline.B", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":102
+/* "nvg/maths/quat_splines.pyx":102
  * 
  *     @cython.profile(False)
  *     cdef inline double Bprime(self, int i, int k, double t):             # <<<<<<<<<<<<<<
@@ -2035,7 +2035,7 @@ static double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B(struct
  *         1st derivative of basis function B_{i,k}(t).
  */
 
-static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_Bprime(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
+static CYTHON_INLINE double __pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_Bprime(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
   double __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_lineno = 0;
@@ -2043,7 +2043,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("Bprime");
 
-  /* "imusim/maths/quat_splines.pyx":106
+  /* "nvg/maths/quat_splines.pyx":106
  *         1st derivative of basis function B_{i,k}(t).
  *         """
  *         return (1/self.dt)*(self.B(i,k-1,t) - self.B(i+1,k-1,t))             # <<<<<<<<<<<<<<
@@ -2054,20 +2054,20 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
     PyErr_Format(PyExc_ZeroDivisionError, "float division");
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 106; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_r = ((1.0 / __pyx_v_self->dt) * (((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, (__pyx_v_k - 1), __pyx_v_t) - ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, (__pyx_v_i + 1), (__pyx_v_k - 1), __pyx_v_t)));
+  __pyx_r = ((1.0 / __pyx_v_self->dt) * (((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, (__pyx_v_k - 1), __pyx_v_t) - ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, (__pyx_v_i + 1), (__pyx_v_k - 1), __pyx_v_t)));
   goto __pyx_L0;
 
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_WriteUnraisable("imusim.maths.quat_splines.QuaternionBSpline.Bprime", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_WriteUnraisable("nvg.maths.quat_splines.QuaternionBSpline.Bprime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":109
+/* "nvg/maths/quat_splines.pyx":109
  * 
  *     @cython.profile(False)
  *     cdef inline double tildeB(self, int i,int k,double t):             # <<<<<<<<<<<<<<
@@ -2075,7 +2075,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
  *         Cumulative basis function \\tilde{B}_{i,k}(t).
  */
 
-static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_tildeB(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
+static CYTHON_INLINE double __pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_tildeB(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, int __pyx_v_i, int __pyx_v_k, double __pyx_v_t) {
   double __pyx_v_sum;
   int __pyx_v_j;
   double __pyx_r;
@@ -2085,7 +2085,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   int __pyx_t_3;
   __Pyx_RefNannySetupContext("tildeB");
 
-  /* "imusim/maths/quat_splines.pyx":113
+  /* "nvg/maths/quat_splines.pyx":113
  *         Cumulative basis function \\tilde{B}_{i,k}(t).
  *         """
  *         if t >= i+k-1:             # <<<<<<<<<<<<<<
@@ -2095,7 +2095,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   __pyx_t_1 = (__pyx_v_t >= ((__pyx_v_i + __pyx_v_k) - 1));
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quat_splines.pyx":114
+    /* "nvg/maths/quat_splines.pyx":114
  *         """
  *         if t >= i+k-1:
  *             return 1             # <<<<<<<<<<<<<<
@@ -2108,7 +2108,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   }
   __pyx_L3:;
 
-  /* "imusim/maths/quat_splines.pyx":115
+  /* "nvg/maths/quat_splines.pyx":115
  *         if t >= i+k-1:
  *             return 1
  *         if t <= i:             # <<<<<<<<<<<<<<
@@ -2118,7 +2118,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   __pyx_t_1 = (__pyx_v_t <= __pyx_v_i);
   if (__pyx_t_1) {
 
-    /* "imusim/maths/quat_splines.pyx":116
+    /* "nvg/maths/quat_splines.pyx":116
  *             return 1
  *         if t <= i:
  *             return 0             # <<<<<<<<<<<<<<
@@ -2131,7 +2131,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   }
   __pyx_L4:;
 
-  /* "imusim/maths/quat_splines.pyx":118
+  /* "nvg/maths/quat_splines.pyx":118
  *             return 0
  * 
  *         cdef double sum = 0.0             # <<<<<<<<<<<<<<
@@ -2140,7 +2140,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
  */
   __pyx_v_sum = 0.0;
 
-  /* "imusim/maths/quat_splines.pyx":120
+  /* "nvg/maths/quat_splines.pyx":120
  *         cdef double sum = 0.0
  *         cdef int j
  *         for j in range(i,i+k+1):             # <<<<<<<<<<<<<<
@@ -2151,17 +2151,17 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   for (__pyx_t_3 = __pyx_v_i; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
     __pyx_v_j = __pyx_t_3;
 
-    /* "imusim/maths/quat_splines.pyx":121
+    /* "nvg/maths/quat_splines.pyx":121
  *         cdef int j
  *         for j in range(i,i+k+1):
  *             sum += self.B(j,k,t)             # <<<<<<<<<<<<<<
  *         return sum
  * 
  */
-    __pyx_v_sum = (__pyx_v_sum + ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_j, __pyx_v_k, __pyx_v_t));
+    __pyx_v_sum = (__pyx_v_sum + ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_j, __pyx_v_k, __pyx_v_t));
   }
 
-  /* "imusim/maths/quat_splines.pyx":122
+  /* "nvg/maths/quat_splines.pyx":122
  *         for j in range(i,i+k+1):
  *             sum += self.B(j,k,t)
  *         return sum             # <<<<<<<<<<<<<<
@@ -2177,7 +2177,7 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":124
+/* "nvg/maths/quat_splines.pyx":124
  *         return sum
  * 
  *     def __call__(self, t):             # <<<<<<<<<<<<<<
@@ -2185,10 +2185,10 @@ static CYTHON_INLINE double __pyx_f_6imusim_5maths_12quat_splines_17QuaternionBS
  *         Evaluate 0th, 1st and 2nd derivatives of the spline at times t.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__[] = "\n        Evaluate 0th, 1st and 2nd derivatives of the spline at times t.\n\n        @return: L{QuaternionArray} of orientations, 3xN L{np.ndarray} of\n            angular rate vectorsm 3xN L{np.ndarray} of angular acceleration\n            vectors.\n        ";
-struct wrapperbase __pyx_wrapperbase_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__;
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__[] = "\n        Evaluate 0th, 1st and 2nd derivatives of the spline at times t.\n\n        @return: L{QuaternionArray} of orientations, 3xN L{np.ndarray} of\n            angular rate vectorsm 3xN L{np.ndarray} of angular acceleration\n            vectors.\n        ";
+struct wrapperbase __pyx_wrapperbase_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__;
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_t = 0;
   PyObject *__pyx_v_q = NULL;
   PyObject *__pyx_v_w = NULL;
@@ -2246,20 +2246,20 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__call__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 124; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   __Pyx_INCREF(__pyx_v_t);
 
-  /* "imusim/maths/quat_splines.pyx":132
+  /* "nvg/maths/quat_splines.pyx":132
  *             vectors.
  *         """
  *         t -= self.tmin             # <<<<<<<<<<<<<<
  *         if np.isscalar(t):
  *             q,w,a = self.evaluate(t/self.dt)
  */
-  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->tmin); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = PyNumber_InPlaceSubtract(__pyx_v_t, __pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 132; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
@@ -2268,7 +2268,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   __pyx_v_t = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":133
+  /* "nvg/maths/quat_splines.pyx":133
  *         """
  *         t -= self.tmin
  *         if np.isscalar(t):             # <<<<<<<<<<<<<<
@@ -2293,21 +2293,21 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
 
-    /* "imusim/maths/quat_splines.pyx":134
+    /* "nvg/maths/quat_splines.pyx":134
  *         t -= self.tmin
  *         if np.isscalar(t):
  *             q,w,a = self.evaluate(t/self.dt)             # <<<<<<<<<<<<<<
  *         else:
  *             q = QuaternionArray(np.empty((len(t),4)))
  */
-    __pyx_t_3 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_t, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->__pyx_vtab)->evaluate(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self), __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->__pyx_vtab)->evaluate(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self), __pyx_t_5); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 134; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
       PyObject* sequence = __pyx_t_2;
@@ -2366,7 +2366,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   }
   /*else*/ {
 
-    /* "imusim/maths/quat_splines.pyx":136
+    /* "nvg/maths/quat_splines.pyx":136
  *             q,w,a = self.evaluate(t/self.dt)
  *         else:
  *             q = QuaternionArray(np.empty((len(t),4)))             # <<<<<<<<<<<<<<
@@ -2412,7 +2412,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
     __pyx_v_q = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":137
+    /* "nvg/maths/quat_splines.pyx":137
  *         else:
  *             q = QuaternionArray(np.empty((len(t),4)))
  *             w = QuaternionArray(np.empty((len(t),4)))             # <<<<<<<<<<<<<<
@@ -2458,7 +2458,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
     __pyx_v_w = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":138
+    /* "nvg/maths/quat_splines.pyx":138
  *             q = QuaternionArray(np.empty((len(t),4)))
  *             w = QuaternionArray(np.empty((len(t),4)))
  *             a = QuaternionArray(np.empty((len(t),4)))             # <<<<<<<<<<<<<<
@@ -2504,7 +2504,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
     __pyx_v_a = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":139
+    /* "nvg/maths/quat_splines.pyx":139
  *             w = QuaternionArray(np.empty((len(t),4)))
  *             a = QuaternionArray(np.empty((len(t),4)))
  *             for i,T in enumerate(t/self.dt):             # <<<<<<<<<<<<<<
@@ -2513,7 +2513,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
  */
     __Pyx_INCREF(__pyx_int_0);
     __pyx_t_2 = __pyx_int_0;
-    __pyx_t_6 = PyFloat_FromDouble(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = PyFloat_FromDouble(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->dt); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_t, __pyx_t_6); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 139; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
@@ -2557,7 +2557,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
       __pyx_t_2 = __pyx_t_1;
       __pyx_t_1 = 0;
 
-      /* "imusim/maths/quat_splines.pyx":140
+      /* "nvg/maths/quat_splines.pyx":140
  *             a = QuaternionArray(np.empty((len(t),4)))
  *             for i,T in enumerate(t/self.dt):
  *                 q[i],w[i],a[i] = self.evaluate(T)             # <<<<<<<<<<<<<<
@@ -2565,7 +2565,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
  *         return q, w.vector, a.vector
  */
       __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_v_T); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __pyx_t_1 = ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->__pyx_vtab)->evaluate(((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self), __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_1 = ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self)->__pyx_vtab)->evaluate(((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self), __pyx_t_5); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 140; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_1);
       if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
         PyObject* sequence = __pyx_t_1;
@@ -2626,7 +2626,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   }
   __pyx_L6:;
 
-  /* "imusim/maths/quat_splines.pyx":142
+  /* "nvg/maths/quat_splines.pyx":142
  *                 q[i],w[i],a[i] = self.evaluate(T)
  * 
  *         return q, w.vector, a.vector             # <<<<<<<<<<<<<<
@@ -2663,7 +2663,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_q);
@@ -2678,7 +2678,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":144
+/* "nvg/maths/quat_splines.pyx":144
  *         return q, w.vector, a.vector
  * 
  *     cdef inline evaluate(self, double t):             # <<<<<<<<<<<<<<
@@ -2686,25 +2686,25 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__c
  *         Evaluate the derivatives of this QuaternionBSpline at time t.
  */
 
-static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_evaluate(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, double __pyx_v_t) {
+static CYTHON_INLINE PyObject *__pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_evaluate(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *__pyx_v_self, double __pyx_v_t) {
   int __pyx_v_l;
   int __pyx_v_i;
   int __pyx_v_j;
   double __pyx_v_B;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q0 = 0;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_q = 0;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t *__pyx_v_w;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_exp[4];
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_dot_exp[4];
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_ddot_exp[4];
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_wexp;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_tmp;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_dotq;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_ddotq_1;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_ddotq_2;
-  __pyx_t_6imusim_5maths_11quaternions_quaternion_t __pyx_v_qc2;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_dq = NULL;
-  struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *__pyx_v_ddq = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q0 = 0;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_q = 0;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t *__pyx_v_w;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_exp[4];
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_dot_exp[4];
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_ddot_exp[4];
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_wexp;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_tmp;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_dotq;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_ddotq_1;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_ddotq_2;
+  __pyx_t_6nvg_5maths_11quaternions_quaternion_t __pyx_v_qc2;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_dq = NULL;
+  struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *__pyx_v_ddq = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2721,7 +2721,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __Pyx_RefNannySetupContext("evaluate");
   __Pyx_TraceCall("evaluate", __pyx_f[0], 144);
 
-  /* "imusim/maths/quat_splines.pyx":148
+  /* "nvg/maths/quat_splines.pyx":148
  *         Evaluate the derivatives of this QuaternionBSpline at time t.
  *         """
  *         t += 2             # <<<<<<<<<<<<<<
@@ -2730,7 +2730,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
  */
   __pyx_v_t = (__pyx_v_t + 2.0);
 
-  /* "imusim/maths/quat_splines.pyx":149
+  /* "nvg/maths/quat_splines.pyx":149
  *         """
  *         t += 2
  *         cdef int l = int(math.floor(t))             # <<<<<<<<<<<<<<
@@ -2765,7 +2765,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_l = __pyx_t_4;
 
-  /* "imusim/maths/quat_splines.pyx":153
+  /* "nvg/maths/quat_splines.pyx":153
  *         cdef int j
  *         cdef double B
  *         cdef Quaternion q0 = self.q[l-SPLINE_ORDER+1]             # <<<<<<<<<<<<<<
@@ -2775,11 +2775,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __pyx_t_5 = ((__pyx_v_l - 4) + 1);
   __pyx_t_1 = __Pyx_GetItemInt_List(((PyObject *)__pyx_v_self->q), __pyx_t_5, sizeof(long), PyInt_FromLong); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_q0 = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 153; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_q0 = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":154
+  /* "nvg/maths/quat_splines.pyx":154
  *         cdef double B
  *         cdef Quaternion q0 = self.q[l-SPLINE_ORDER+1]
  *         cdef Quaternion q = q0.copy()             # <<<<<<<<<<<<<<
@@ -2791,11 +2791,11 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __pyx_t_3 = PyObject_Call(__pyx_t_1, ((PyObject *)__pyx_empty_tuple), NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_6imusim_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_q = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_3);
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_6nvg_5maths_11quaternions_Quaternion))))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 154; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_q = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":162
+  /* "nvg/maths/quat_splines.pyx":162
  *         cdef quaternion_t tmp
  * 
  *         for j in range(SPLINE_ORDER-1):             # <<<<<<<<<<<<<<
@@ -2805,7 +2805,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   for (__pyx_t_4 = 0; __pyx_t_4 < 3; __pyx_t_4+=1) {
     __pyx_v_j = __pyx_t_4;
 
-    /* "imusim/maths/quat_splines.pyx":163
+    /* "nvg/maths/quat_splines.pyx":163
  * 
  *         for j in range(SPLINE_ORDER-1):
  *             i = l - SPLINE_ORDER + 2 + j             # <<<<<<<<<<<<<<
@@ -2814,7 +2814,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
  */
     __pyx_v_i = (((__pyx_v_l - 4) + 2) + __pyx_v_j);
 
-    /* "imusim/maths/quat_splines.pyx":164
+    /* "nvg/maths/quat_splines.pyx":164
  *         for j in range(SPLINE_ORDER-1):
  *             i = l - SPLINE_ORDER + 2 + j
  *             w = &(<Quaternion>self.w[i])._components             # <<<<<<<<<<<<<<
@@ -2823,182 +2823,182 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
  */
     __pyx_t_3 = __Pyx_GetItemInt_List(((PyObject *)__pyx_v_self->w), __pyx_v_i, sizeof(int), PyInt_FromLong); if (!__pyx_t_3) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 164; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_v_w = (&((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
+    __pyx_v_w = (&((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":165
+    /* "nvg/maths/quat_splines.pyx":165
  *             i = l - SPLINE_ORDER + 2 + j
  *             w = &(<Quaternion>self.w[i])._components
  *             B = self.B(i, SPLINE_ORDER-1, t)             # <<<<<<<<<<<<<<
  * 
  *             #exp[j] = (w * self.tildeB(i, SPLINE_ORDER, t)).exp()
  */
-    __pyx_v_B = ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, 3, __pyx_v_t);
+    __pyx_v_B = ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->B(__pyx_v_self, __pyx_v_i, 3, __pyx_v_t);
 
-    /* "imusim/maths/quat_splines.pyx":168
+    /* "nvg/maths/quat_splines.pyx":168
  * 
  *             #exp[j] = (w * self.tildeB(i, SPLINE_ORDER, t)).exp()
  *             mult_quat_scalar(w, self.tildeB(i, SPLINE_ORDER, t), &exp[j])             # <<<<<<<<<<<<<<
  *             quaternion_exp(&exp[j], &exp[j])
  * 
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar(__pyx_v_w, ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->tildeB(__pyx_v_self, __pyx_v_i, 4, __pyx_v_t), (&(__pyx_v_exp[__pyx_v_j])));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar(__pyx_v_w, ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->tildeB(__pyx_v_self, __pyx_v_i, 4, __pyx_v_t), (&(__pyx_v_exp[__pyx_v_j])));
 
-    /* "imusim/maths/quat_splines.pyx":169
+    /* "nvg/maths/quat_splines.pyx":169
  *             #exp[j] = (w * self.tildeB(i, SPLINE_ORDER, t)).exp()
  *             mult_quat_scalar(w, self.tildeB(i, SPLINE_ORDER, t), &exp[j])
  *             quaternion_exp(&exp[j], &exp[j])             # <<<<<<<<<<<<<<
  * 
  *             #wexp = w * exp[j]
  */
-    __pyx_f_6imusim_5maths_11quaternions_quaternion_exp((&(__pyx_v_exp[__pyx_v_j])), (&(__pyx_v_exp[__pyx_v_j])));
+    __pyx_f_6nvg_5maths_11quaternions_quaternion_exp((&(__pyx_v_exp[__pyx_v_j])), (&(__pyx_v_exp[__pyx_v_j])));
 
-    /* "imusim/maths/quat_splines.pyx":172
+    /* "nvg/maths/quat_splines.pyx":172
  * 
  *             #wexp = w * exp[j]
  *             mult_quat_quat(w, &exp[j], &wexp)             # <<<<<<<<<<<<<<
  * 
  *             #dot_exp[j] = wexp * B
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_w, (&(__pyx_v_exp[__pyx_v_j])), (&__pyx_v_wexp));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_w, (&(__pyx_v_exp[__pyx_v_j])), (&__pyx_v_wexp));
 
-    /* "imusim/maths/quat_splines.pyx":175
+    /* "nvg/maths/quat_splines.pyx":175
  * 
  *             #dot_exp[j] = wexp * B
  *             mult_quat_scalar(&wexp, B, &dot_exp[j])             # <<<<<<<<<<<<<<
  * 
  *             #ddot_exp[j] = wexp * self.Bprime(i, SPLINE_ORDER-1, t) +
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_wexp), __pyx_v_B, (&(__pyx_v_dot_exp[__pyx_v_j])));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_wexp), __pyx_v_B, (&(__pyx_v_dot_exp[__pyx_v_j])));
 
-    /* "imusim/maths/quat_splines.pyx":180
+    /* "nvg/maths/quat_splines.pyx":180
  *             #    w * dot_exp[j] * B
  *             mult_quat_scalar(&wexp, self.Bprime(i, SPLINE_ORDER-1, t),
  *                     &ddot_exp[j])             # <<<<<<<<<<<<<<
  *             mult_quat_quat(w, &dot_exp[j], &tmp)
  *             mult_quat_scalar(&tmp, B, &tmp)
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_wexp), ((struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->Bprime(__pyx_v_self, __pyx_v_i, 3, __pyx_v_t), (&(__pyx_v_ddot_exp[__pyx_v_j])));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_wexp), ((struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline *)__pyx_v_self->__pyx_vtab)->Bprime(__pyx_v_self, __pyx_v_i, 3, __pyx_v_t), (&(__pyx_v_ddot_exp[__pyx_v_j])));
 
-    /* "imusim/maths/quat_splines.pyx":181
+    /* "nvg/maths/quat_splines.pyx":181
  *             mult_quat_scalar(&wexp, self.Bprime(i, SPLINE_ORDER-1, t),
  *                     &ddot_exp[j])
  *             mult_quat_quat(w, &dot_exp[j], &tmp)             # <<<<<<<<<<<<<<
  *             mult_quat_scalar(&tmp, B, &tmp)
  *             quaternion_add(&ddot_exp[j], &tmp, &ddot_exp[j])
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat(__pyx_v_w, (&(__pyx_v_dot_exp[__pyx_v_j])), (&__pyx_v_tmp));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat(__pyx_v_w, (&(__pyx_v_dot_exp[__pyx_v_j])), (&__pyx_v_tmp));
 
-    /* "imusim/maths/quat_splines.pyx":182
+    /* "nvg/maths/quat_splines.pyx":182
  *                     &ddot_exp[j])
  *             mult_quat_quat(w, &dot_exp[j], &tmp)
  *             mult_quat_scalar(&tmp, B, &tmp)             # <<<<<<<<<<<<<<
  *             quaternion_add(&ddot_exp[j], &tmp, &ddot_exp[j])
  * 
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_tmp), __pyx_v_B, (&__pyx_v_tmp));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_tmp), __pyx_v_B, (&__pyx_v_tmp));
 
-    /* "imusim/maths/quat_splines.pyx":183
+    /* "nvg/maths/quat_splines.pyx":183
  *             mult_quat_quat(w, &dot_exp[j], &tmp)
  *             mult_quat_scalar(&tmp, B, &tmp)
  *             quaternion_add(&ddot_exp[j], &tmp, &ddot_exp[j])             # <<<<<<<<<<<<<<
  * 
  *             # q *= exp[j]
  */
-    __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&(__pyx_v_ddot_exp[__pyx_v_j])), (&__pyx_v_tmp), (&(__pyx_v_ddot_exp[__pyx_v_j])));
+    __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&(__pyx_v_ddot_exp[__pyx_v_j])), (&__pyx_v_tmp), (&(__pyx_v_ddot_exp[__pyx_v_j])));
 
-    /* "imusim/maths/quat_splines.pyx":186
+    /* "nvg/maths/quat_splines.pyx":186
  * 
  *             # q *= exp[j]
  *             mult_quat_quat(&q._components, &exp[j], &q._components)             # <<<<<<<<<<<<<<
  * 
  *         #-----------------------------------------------------------------------
  */
-    __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_q->_components), (&(__pyx_v_exp[__pyx_v_j])), (&__pyx_v_q->_components));
+    __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_q->_components), (&(__pyx_v_exp[__pyx_v_j])), (&__pyx_v_q->_components));
   }
 
-  /* "imusim/maths/quat_splines.pyx":191
+  /* "nvg/maths/quat_splines.pyx":191
  *         # \dot{q}
  *         cdef quaternion_t dotq
  *         mult_quat_quat(&dot_exp[0], &exp[1], &dotq)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&dotq, &exp[2], &dotq)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":192
+  /* "nvg/maths/quat_splines.pyx":192
  *         cdef quaternion_t dotq
  *         mult_quat_quat(&dot_exp[0], &exp[1], &dotq)
  *         mult_quat_quat(&dotq, &exp[2], &dotq)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_dotq), (&(__pyx_v_exp[2])), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_dotq), (&(__pyx_v_exp[2])), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":194
+  /* "nvg/maths/quat_splines.pyx":194
  *         mult_quat_quat(&dotq, &exp[2], &dotq)
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &exp[2], &tmp)
  *         quaternion_add(&dotq, &tmp, &dotq)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":195
+  /* "nvg/maths/quat_splines.pyx":195
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&dotq, &tmp, &dotq)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":196
+  /* "nvg/maths/quat_splines.pyx":196
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &exp[2], &tmp)
  *         quaternion_add(&dotq, &tmp, &dotq)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_dotq), (&__pyx_v_tmp), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_dotq), (&__pyx_v_tmp), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":198
+  /* "nvg/maths/quat_splines.pyx":198
  *         quaternion_add(&dotq, &tmp, &dotq)
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&dotq, &tmp, &dotq)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":199
+  /* "nvg/maths/quat_splines.pyx":199
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&dotq, &tmp, &dotq)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":200
+  /* "nvg/maths/quat_splines.pyx":200
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&dotq, &tmp, &dotq)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&q0._components, &dotq, &dotq)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_dotq), (&__pyx_v_tmp), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_dotq), (&__pyx_v_tmp), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":202
+  /* "nvg/maths/quat_splines.pyx":202
  *         quaternion_add(&dotq, &tmp, &dotq)
  * 
  *         mult_quat_quat(&q0._components, &dotq, &dotq)             # <<<<<<<<<<<<<<
  *         mult_quat_scalar(&dotq, (1.0 / self.dt), &dotq)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_dotq), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_dotq), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":203
+  /* "nvg/maths/quat_splines.pyx":203
  * 
  *         mult_quat_quat(&q0._components, &dotq, &dotq)
  *         mult_quat_scalar(&dotq, (1.0 / self.dt), &dotq)             # <<<<<<<<<<<<<<
@@ -3009,90 +3009,90 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
     PyErr_Format(PyExc_ZeroDivisionError, "float division");
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 203; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_dotq), (1.0 / __pyx_v_self->dt), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_dotq), (1.0 / __pyx_v_self->dt), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":208
+  /* "nvg/maths/quat_splines.pyx":208
  *         # \ddot{q}
  *         cdef quaternion_t ddotq_1
  *         mult_quat_quat(&ddot_exp[0], &exp[1], &ddotq_1)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&ddotq_1, &exp[2], &ddotq_1)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_ddot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_ddot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":209
+  /* "nvg/maths/quat_splines.pyx":209
  *         cdef quaternion_t ddotq_1
  *         mult_quat_quat(&ddot_exp[0], &exp[1], &ddotq_1)
  *         mult_quat_quat(&ddotq_1, &exp[2], &ddotq_1)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&exp[0], &ddot_exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_ddotq_1), (&(__pyx_v_exp[2])), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_ddotq_1), (&(__pyx_v_exp[2])), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":211
+  /* "nvg/maths/quat_splines.pyx":211
  *         mult_quat_quat(&ddotq_1, &exp[2], &ddotq_1)
  * 
  *         mult_quat_quat(&exp[0], &ddot_exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &exp[2], &tmp)
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_ddot_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_ddot_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":212
+  /* "nvg/maths/quat_splines.pyx":212
  * 
  *         mult_quat_quat(&exp[0], &ddot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":213
+  /* "nvg/maths/quat_splines.pyx":213
  *         mult_quat_quat(&exp[0], &ddot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &exp[2], &tmp)
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_tmp), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_tmp), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":215
+  /* "nvg/maths/quat_splines.pyx":215
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &ddot_exp[2], &tmp)
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":216
+  /* "nvg/maths/quat_splines.pyx":216
  * 
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &ddot_exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_ddot_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_ddot_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":217
+  /* "nvg/maths/quat_splines.pyx":217
  *         mult_quat_quat(&exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &ddot_exp[2], &tmp)
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&q0._components, &ddotq_1, &ddotq_1)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_tmp), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_tmp), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":219
+  /* "nvg/maths/quat_splines.pyx":219
  *         quaternion_add(&ddotq_1, &tmp, &ddotq_1)
  * 
  *         mult_quat_quat(&q0._components, &ddotq_1, &ddotq_1)             # <<<<<<<<<<<<<<
  *         mult_quat_scalar(&ddotq_1, (1.0 / self.dt), &ddotq_1)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_ddotq_1), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_ddotq_1), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":220
+  /* "nvg/maths/quat_splines.pyx":220
  * 
  *         mult_quat_quat(&q0._components, &ddotq_1, &ddotq_1)
  *         mult_quat_scalar(&ddotq_1, (1.0 / self.dt), &ddotq_1)             # <<<<<<<<<<<<<<
@@ -3103,90 +3103,90 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
     PyErr_Format(PyExc_ZeroDivisionError, "float division");
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 220; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_ddotq_1), (1.0 / __pyx_v_self->dt), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_ddotq_1), (1.0 / __pyx_v_self->dt), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":223
+  /* "nvg/maths/quat_splines.pyx":223
  * 
  *         cdef quaternion_t ddotq_2
  *         mult_quat_quat(&dot_exp[0], &dot_exp[1], &ddotq_2)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&ddotq_2, &exp[2], &ddotq_2)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":224
+  /* "nvg/maths/quat_splines.pyx":224
  *         cdef quaternion_t ddotq_2
  *         mult_quat_quat(&dot_exp[0], &dot_exp[1], &ddotq_2)
  *         mult_quat_quat(&ddotq_2, &exp[2], &ddotq_2)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&dot_exp[0], &exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_ddotq_2), (&(__pyx_v_exp[2])), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_ddotq_2), (&(__pyx_v_exp[2])), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":226
+  /* "nvg/maths/quat_splines.pyx":226
  *         mult_quat_quat(&ddotq_2, &exp[2], &ddotq_2)
  * 
  *         mult_quat_quat(&dot_exp[0], &exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_dot_exp[0])), (&(__pyx_v_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":227
+  /* "nvg/maths/quat_splines.pyx":227
  * 
  *         mult_quat_quat(&dot_exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":228
+  /* "nvg/maths/quat_splines.pyx":228
  *         mult_quat_quat(&dot_exp[0], &exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_2), (&__pyx_v_tmp), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_2), (&__pyx_v_tmp), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":230
+  /* "nvg/maths/quat_splines.pyx":230
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)             # <<<<<<<<<<<<<<
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&(__pyx_v_exp[0])), (&(__pyx_v_dot_exp[1])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":231
+  /* "nvg/maths/quat_splines.pyx":231
  * 
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)             # <<<<<<<<<<<<<<
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_tmp), (&(__pyx_v_dot_exp[2])), (&__pyx_v_tmp));
 
-  /* "imusim/maths/quat_splines.pyx":232
+  /* "nvg/maths/quat_splines.pyx":232
  *         mult_quat_quat(&exp[0], &dot_exp[1], &tmp)
  *         mult_quat_quat(&tmp, &dot_exp[2], &tmp)
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&q0._components, &ddotq_2, &ddotq_2)
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_2), (&__pyx_v_tmp), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_2), (&__pyx_v_tmp), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":234
+  /* "nvg/maths/quat_splines.pyx":234
  *         quaternion_add(&ddotq_2, &tmp, &ddotq_2)
  * 
  *         mult_quat_quat(&q0._components, &ddotq_2, &ddotq_2)             # <<<<<<<<<<<<<<
  *         mult_quat_scalar(&ddotq_2, (2.0 / self.dt), &ddotq_2)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_ddotq_2), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_q0->_components), (&__pyx_v_ddotq_2), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":235
+  /* "nvg/maths/quat_splines.pyx":235
  * 
  *         mult_quat_quat(&q0._components, &ddotq_2, &ddotq_2)
  *         mult_quat_scalar(&ddotq_2, (2.0 / self.dt), &ddotq_2)             # <<<<<<<<<<<<<<
@@ -3197,18 +3197,18 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
     PyErr_Format(PyExc_ZeroDivisionError, "float division");
     {__pyx_filename = __pyx_f[0]; __pyx_lineno = 235; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_ddotq_2), (2.0 / __pyx_v_self->dt), (&__pyx_v_ddotq_2));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_ddotq_2), (2.0 / __pyx_v_self->dt), (&__pyx_v_ddotq_2));
 
-  /* "imusim/maths/quat_splines.pyx":237
+  /* "nvg/maths/quat_splines.pyx":237
  *         mult_quat_scalar(&ddotq_2, (2.0 / self.dt), &ddotq_2)
  * 
  *         quaternion_add(&ddotq_1, &ddotq_2, &ddotq_1)             # <<<<<<<<<<<<<<
  * 
  *         #-----------------------------------------------------------------------
  */
-  __pyx_f_6imusim_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_ddotq_2), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_quaternion_add((&__pyx_v_ddotq_1), (&__pyx_v_ddotq_2), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":240
+  /* "nvg/maths/quat_splines.pyx":240
  * 
  *         #-----------------------------------------------------------------------
  *         cdef quaternion_t qc2 = (<Quaternion> q.conjugate)._components             # <<<<<<<<<<<<<<
@@ -3217,28 +3217,28 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
  */
   __pyx_t_3 = PyObject_GetAttr(((PyObject *)__pyx_v_q), __pyx_n_s__conjugate); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 240; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_v_qc2 = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components;
+  __pyx_v_qc2 = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_3)->_components;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":241
+  /* "nvg/maths/quat_splines.pyx":241
  *         #-----------------------------------------------------------------------
  *         cdef quaternion_t qc2 = (<Quaternion> q.conjugate)._components
  *         mult_quat_scalar(&qc2, 2, &qc2)             # <<<<<<<<<<<<<<
  * 
  *         mult_quat_quat(&qc2, &dotq, &dotq)
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar((&__pyx_v_qc2), 2.0, (&__pyx_v_qc2));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar((&__pyx_v_qc2), 2.0, (&__pyx_v_qc2));
 
-  /* "imusim/maths/quat_splines.pyx":243
+  /* "nvg/maths/quat_splines.pyx":243
  *         mult_quat_scalar(&qc2, 2, &qc2)
  * 
  *         mult_quat_quat(&qc2, &dotq, &dotq)             # <<<<<<<<<<<<<<
  *         dq = Quaternion(dotq.w, dotq.x, dotq.y, dotq.z)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_qc2), (&__pyx_v_dotq), (&__pyx_v_dotq));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_qc2), (&__pyx_v_dotq), (&__pyx_v_dotq));
 
-  /* "imusim/maths/quat_splines.pyx":244
+  /* "nvg/maths/quat_splines.pyx":244
  * 
  *         mult_quat_quat(&qc2, &dotq, &dotq)
  *         dq = Quaternion(dotq.w, dotq.x, dotq.y, dotq.z)             # <<<<<<<<<<<<<<
@@ -3267,22 +3267,22 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_7), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_6 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_7), NULL); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 244; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(((PyObject *)__pyx_t_7)); __pyx_t_7 = 0;
-  __pyx_v_dq = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_6);
+  __pyx_v_dq = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":246
+  /* "nvg/maths/quat_splines.pyx":246
  *         dq = Quaternion(dotq.w, dotq.x, dotq.y, dotq.z)
  * 
  *         mult_quat_quat(&qc2, &ddotq_1, &ddotq_1)             # <<<<<<<<<<<<<<
  *         ddq = Quaternion(ddotq_1.w, ddotq_1.x, ddotq_1.y, ddotq_1.z)
  * 
  */
-  __pyx_f_6imusim_5maths_11quaternions_mult_quat_quat((&__pyx_v_qc2), (&__pyx_v_ddotq_1), (&__pyx_v_ddotq_1));
+  __pyx_f_6nvg_5maths_11quaternions_mult_quat_quat((&__pyx_v_qc2), (&__pyx_v_ddotq_1), (&__pyx_v_ddotq_1));
 
-  /* "imusim/maths/quat_splines.pyx":247
+  /* "nvg/maths/quat_splines.pyx":247
  * 
  *         mult_quat_quat(&qc2, &ddotq_1, &ddotq_1)
  *         ddq = Quaternion(ddotq_1.w, ddotq_1.x, ddotq_1.y, ddotq_1.z)             # <<<<<<<<<<<<<<
@@ -3311,13 +3311,13 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __pyx_t_7 = 0;
   __pyx_t_2 = 0;
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_3), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)), ((PyObject *)__pyx_t_3), NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 247; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
-  __pyx_v_ddq = ((struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion *)__pyx_t_1);
+  __pyx_v_ddq = ((struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":249
+  /* "nvg/maths/quat_splines.pyx":249
  *         ddq = Quaternion(ddotq_1.w, ddotq_1.x, ddotq_1.y, ddotq_1.z)
  * 
  *         return q, dq, ddq             # <<<<<<<<<<<<<<
@@ -3348,7 +3348,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.QuaternionBSpline.evaluate", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.QuaternionBSpline.evaluate", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_q0);
@@ -3361,7 +3361,7 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":259
+/* "nvg/maths/quat_splines.pyx":259
  *     """
  * 
  *     def __init__(self, timestamps, quaternions):             # <<<<<<<<<<<<<<
@@ -3369,10 +3369,10 @@ static CYTHON_INLINE PyObject *__pyx_f_6imusim_5maths_12quat_splines_17Quaternio
  *         Construct SQUAD interpolator.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__[] = "\n        Construct SQUAD interpolator.\n\n        @param timestamps: Sequence of monotonically increasing keyframe times.\n        @param quaternions: L{QuaternionArray} of keyframe quaternions.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__ = {__Pyx_NAMESTR("__init__"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__[] = "\n        Construct SQUAD interpolator.\n\n        @param timestamps: Sequence of monotonically increasing keyframe times.\n        @param quaternions: L{QuaternionArray} of keyframe quaternions.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__ = {__Pyx_NAMESTR("__init__"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_timestamps = 0;
   PyObject *__pyx_v_quaternions = 0;
@@ -3445,12 +3445,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 259; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":266
+  /* "nvg/maths/quat_splines.pyx":266
  *         @param quaternions: L{QuaternionArray} of keyframe quaternions.
  *         """
  *         assert len(timestamps) == len(quaternions)             # <<<<<<<<<<<<<<
@@ -3466,7 +3466,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   #endif
 
-  /* "imusim/maths/quat_splines.pyx":267
+  /* "nvg/maths/quat_splines.pyx":267
  *         """
  *         assert len(timestamps) == len(quaternions)
  *         self._quaternions = [q for q in quaternions]             # <<<<<<<<<<<<<<
@@ -3510,7 +3510,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s___quaternions, ((PyObject *)__pyx_t_3)) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 267; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":268
+  /* "nvg/maths/quat_splines.pyx":268
  *         assert len(timestamps) == len(quaternions)
  *         self._quaternions = [q for q in quaternions]
  *         self._timestamps = np.array(timestamps,copy=True)             # <<<<<<<<<<<<<<
@@ -3541,7 +3541,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s___timestamps, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 268; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":273
+  /* "nvg/maths/quat_splines.pyx":273
  *         # first and last intervals. Result is that q[-1] = q[0] and
  *         # q[N] = q[N-1], where N is the number of interpolation points
  *         self._quaternions.append(self._quaternions[-1])             # <<<<<<<<<<<<<<
@@ -3561,7 +3561,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":274
+  /* "nvg/maths/quat_splines.pyx":274
  *         # q[N] = q[N-1], where N is the number of interpolation points
  *         self._quaternions.append(self._quaternions[-1])
  *         self._quaternions.append(self._quaternions[0])             # <<<<<<<<<<<<<<
@@ -3581,7 +3581,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":276
+  /* "nvg/maths/quat_splines.pyx":276
  *         self._quaternions.append(self._quaternions[0])
  * 
  *         N = len(quaternions)             # <<<<<<<<<<<<<<
@@ -3594,7 +3594,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_N = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":277
+  /* "nvg/maths/quat_splines.pyx":277
  * 
  *         N = len(quaternions)
  *         assert self._quaternions[0] == self._quaternions[-1]             # <<<<<<<<<<<<<<
@@ -3624,7 +3624,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   #endif
 
-  /* "imusim/maths/quat_splines.pyx":278
+  /* "nvg/maths/quat_splines.pyx":278
  *         N = len(quaternions)
  *         assert self._quaternions[0] == self._quaternions[-1]
  *         assert self._quaternions[N] == self._quaternions[N-1]             # <<<<<<<<<<<<<<
@@ -3657,7 +3657,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   #endif
 
-  /* "imusim/maths/quat_splines.pyx":280
+  /* "nvg/maths/quat_splines.pyx":280
  *         assert self._quaternions[N] == self._quaternions[N-1]
  * 
  *         self._controlPoints = self._calculateControlPoints()             # <<<<<<<<<<<<<<
@@ -3672,7 +3672,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   if (PyObject_SetAttr(__pyx_v_self, __pyx_n_s___controlPoints, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 280; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":282
+  /* "nvg/maths/quat_splines.pyx":282
  *         self._controlPoints = self._calculateControlPoints()
  * 
  *         dts = np.diff(timestamps)             # <<<<<<<<<<<<<<
@@ -3696,7 +3696,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_dts = __pyx_t_6;
   __pyx_t_6 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":283
+  /* "nvg/maths/quat_splines.pyx":283
  * 
  *         dts = np.diff(timestamps)
  *         self._dt = dts[0] if np.allclose(dts,dts[0]) else None             # <<<<<<<<<<<<<<
@@ -3743,7 +3743,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_N);
@@ -3755,7 +3755,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":285
+/* "nvg/maths/quat_splines.pyx":285
  *         self._dt = dts[0] if np.allclose(dts,dts[0]) else None
  * 
  *     def _indexfunction(self,t):             # <<<<<<<<<<<<<<
@@ -3763,9 +3763,9 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *             return int(math.ceil(t/self._dt))
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction = {__Pyx_NAMESTR("_indexfunction"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction = {__Pyx_NAMESTR("_indexfunction"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_t = 0;
   PyObject *__pyx_r = NULL;
@@ -3821,12 +3821,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_indexfunction", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 285; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline._indexfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline._indexfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":286
+  /* "nvg/maths/quat_splines.pyx":286
  * 
  *     def _indexfunction(self,t):
  *         if self._dt:             # <<<<<<<<<<<<<<
@@ -3839,7 +3839,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quat_splines.pyx":287
+    /* "nvg/maths/quat_splines.pyx":287
  *     def _indexfunction(self,t):
  *         if self._dt:
  *             return int(math.ceil(t/self._dt))             # <<<<<<<<<<<<<<
@@ -3881,7 +3881,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   /*else*/ {
 
-    /* "imusim/maths/quat_splines.pyx":289
+    /* "nvg/maths/quat_splines.pyx":289
  *             return int(math.ceil(t/self._dt))
  *         else:
  *             return np.searchsorted(self._timestamps,t)             # <<<<<<<<<<<<<<
@@ -3920,7 +3920,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline._indexfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline._indexfunction", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3929,7 +3929,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":291
+/* "nvg/maths/quat_splines.pyx":291
  *             return np.searchsorted(self._timestamps,t)
  * 
  *     def __call__(self,t,n):             # <<<<<<<<<<<<<<
@@ -3937,10 +3937,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Evaluate the n-th derivative of the quaternion function at times t.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__[] = "\n        Evaluate the n-th derivative of the quaternion function at times t.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__ = {__Pyx_NAMESTR("__call__"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__[] = "\n        Evaluate the n-th derivative of the quaternion function at times t.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__ = {__Pyx_NAMESTR("__call__"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_t = 0;
   PyObject *__pyx_v_n = 0;
@@ -4007,12 +4007,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__call__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 291; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":295
+  /* "nvg/maths/quat_splines.pyx":295
  *         Evaluate the n-th derivative of the quaternion function at times t.
  *         """
  *         if n == 0:             # <<<<<<<<<<<<<<
@@ -4025,7 +4025,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quat_splines.pyx":296
+    /* "nvg/maths/quat_splines.pyx":296
  *         """
  *         if n == 0:
  *             return self.squad(*self._setupParams(t))             # <<<<<<<<<<<<<<
@@ -4059,7 +4059,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     goto __pyx_L6;
   }
 
-  /* "imusim/maths/quat_splines.pyx":297
+  /* "nvg/maths/quat_splines.pyx":297
  *         if n == 0:
  *             return self.squad(*self._setupParams(t))
  *         elif n == 1:             # <<<<<<<<<<<<<<
@@ -4072,7 +4072,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_2) {
 
-    /* "imusim/maths/quat_splines.pyx":298
+    /* "nvg/maths/quat_splines.pyx":298
  *             return self.squad(*self._setupParams(t))
  *         elif n == 1:
  *             return self.squadOmega(*self._setupParams(t))             # <<<<<<<<<<<<<<
@@ -4107,7 +4107,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   /*else*/ {
 
-    /* "imusim/maths/quat_splines.pyx":300
+    /* "nvg/maths/quat_splines.pyx":300
  *             return self.squadOmega(*self._setupParams(t))
  *         else:
  *             raise NotImplementedError('Order %d derivatives not implemented')             # <<<<<<<<<<<<<<
@@ -4129,7 +4129,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4138,7 +4138,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":302
+/* "nvg/maths/quat_splines.pyx":302
  *             raise NotImplementedError('Order %d derivatives not implemented')
  * 
  *     def _setupParams(self,ts):             # <<<<<<<<<<<<<<
@@ -4146,10 +4146,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Setup parameters for squad and squadPrime calls.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams[] = "\n        Setup parameters for squad and squadPrime calls.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams = {__Pyx_NAMESTR("_setupParams"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams[] = "\n        Setup parameters for squad and squadPrime calls.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams = {__Pyx_NAMESTR("_setupParams"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_ts = 0;
   PyObject *__pyx_v_shape = NULL;
@@ -4220,13 +4220,13 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_setupParams", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline._setupParams", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline._setupParams", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   __Pyx_INCREF(__pyx_v_ts);
 
-  /* "imusim/maths/quat_splines.pyx":306
+  /* "nvg/maths/quat_splines.pyx":306
  *         Setup parameters for squad and squadPrime calls.
  *         """
  *         ts = np.array(ts,ndmin=1)             # <<<<<<<<<<<<<<
@@ -4255,7 +4255,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_ts = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":307
+  /* "nvg/maths/quat_splines.pyx":307
  *         """
  *         ts = np.array(ts,ndmin=1)
  *         shape = (ts.shape[0],4)             # <<<<<<<<<<<<<<
@@ -4278,7 +4278,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_shape = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":308
+  /* "nvg/maths/quat_splines.pyx":308
  *         ts = np.array(ts,ndmin=1)
  *         shape = (ts.shape[0],4)
  *         q1 = np.empty(shape)             # <<<<<<<<<<<<<<
@@ -4302,7 +4302,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q1 = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":309
+  /* "nvg/maths/quat_splines.pyx":309
  *         shape = (ts.shape[0],4)
  *         q1 = np.empty(shape)
  *         q2 = np.empty(shape)             # <<<<<<<<<<<<<<
@@ -4326,7 +4326,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q2 = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":310
+  /* "nvg/maths/quat_splines.pyx":310
  *         q1 = np.empty(shape)
  *         q2 = np.empty(shape)
  *         a = np.empty(shape)             # <<<<<<<<<<<<<<
@@ -4350,7 +4350,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_a = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":311
+  /* "nvg/maths/quat_splines.pyx":311
  *         q2 = np.empty(shape)
  *         a = np.empty(shape)
  *         b = np.empty(shape)             # <<<<<<<<<<<<<<
@@ -4374,7 +4374,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_b = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":312
+  /* "nvg/maths/quat_splines.pyx":312
  *         a = np.empty(shape)
  *         b = np.empty(shape)
  *         u = np.empty_like(ts)             # <<<<<<<<<<<<<<
@@ -4398,7 +4398,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_u = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":313
+  /* "nvg/maths/quat_splines.pyx":313
  *         b = np.empty(shape)
  *         u = np.empty_like(ts)
  *         dt = np.empty_like(ts)             # <<<<<<<<<<<<<<
@@ -4422,7 +4422,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_dt = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":314
+  /* "nvg/maths/quat_splines.pyx":314
  *         u = np.empty_like(ts)
  *         dt = np.empty_like(ts)
  *         for i,t in enumerate(ts):             # <<<<<<<<<<<<<<
@@ -4469,7 +4469,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __pyx_t_4 = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":315
+    /* "nvg/maths/quat_splines.pyx":315
  *         dt = np.empty_like(ts)
  *         for i,t in enumerate(ts):
  *             futureIndex = self._indexfunction(t)             # <<<<<<<<<<<<<<
@@ -4491,7 +4491,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __pyx_v_futureIndex = __pyx_t_7;
     __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":316
+    /* "nvg/maths/quat_splines.pyx":316
  *         for i,t in enumerate(ts):
  *             futureIndex = self._indexfunction(t)
  *             pastIndex = futureIndex-1             # <<<<<<<<<<<<<<
@@ -4504,7 +4504,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __pyx_v_pastIndex = __pyx_t_7;
     __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":317
+    /* "nvg/maths/quat_splines.pyx":317
  *             futureIndex = self._indexfunction(t)
  *             pastIndex = futureIndex-1
  *             q1[i] = self._quaternions[futureIndex].components             # <<<<<<<<<<<<<<
@@ -4522,7 +4522,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     if (PyObject_SetItem(__pyx_v_q1, __pyx_v_i, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 317; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":318
+    /* "nvg/maths/quat_splines.pyx":318
  *             pastIndex = futureIndex-1
  *             q1[i] = self._quaternions[futureIndex].components
  *             q2[i] = self._quaternions[pastIndex].components             # <<<<<<<<<<<<<<
@@ -4540,7 +4540,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     if (PyObject_SetItem(__pyx_v_q2, __pyx_v_i, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 318; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":319
+    /* "nvg/maths/quat_splines.pyx":319
  *             q1[i] = self._quaternions[futureIndex].components
  *             q2[i] = self._quaternions[pastIndex].components
  *             a[i] = self._controlPoints[pastIndex].components             # <<<<<<<<<<<<<<
@@ -4558,7 +4558,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     if (PyObject_SetItem(__pyx_v_a, __pyx_v_i, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 319; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":320
+    /* "nvg/maths/quat_splines.pyx":320
  *             q2[i] = self._quaternions[pastIndex].components
  *             a[i] = self._controlPoints[pastIndex].components
  *             b[i] = self._controlPoints[futureIndex].components             # <<<<<<<<<<<<<<
@@ -4576,7 +4576,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     if (PyObject_SetItem(__pyx_v_b, __pyx_v_i, __pyx_t_7) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 320; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":321
+    /* "nvg/maths/quat_splines.pyx":321
  *             a[i] = self._controlPoints[pastIndex].components
  *             b[i] = self._controlPoints[futureIndex].components
  *             u[i] = ((t-self._timestamps[pastIndex]) /             # <<<<<<<<<<<<<<
@@ -4592,7 +4592,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":322
+    /* "nvg/maths/quat_splines.pyx":322
  *             b[i] = self._controlPoints[futureIndex].components
  *             u[i] = ((t-self._timestamps[pastIndex]) /
  *                 (self._timestamps[futureIndex] -self._timestamps[pastIndex]))             # <<<<<<<<<<<<<<
@@ -4618,7 +4618,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":321
+    /* "nvg/maths/quat_splines.pyx":321
  *             a[i] = self._controlPoints[pastIndex].components
  *             b[i] = self._controlPoints[futureIndex].components
  *             u[i] = ((t-self._timestamps[pastIndex]) /             # <<<<<<<<<<<<<<
@@ -4628,7 +4628,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     if (PyObject_SetItem(__pyx_v_u, __pyx_v_i, __pyx_t_8) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 321; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":323
+    /* "nvg/maths/quat_splines.pyx":323
  *             u[i] = ((t-self._timestamps[pastIndex]) /
  *                 (self._timestamps[futureIndex] -self._timestamps[pastIndex]))
  *             dt = self._timestamps[futureIndex] - self._timestamps[pastIndex]             # <<<<<<<<<<<<<<
@@ -4656,7 +4656,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":325
+  /* "nvg/maths/quat_splines.pyx":325
  *             dt = self._timestamps[futureIndex] - self._timestamps[pastIndex]
  * 
  *         return (QuaternionArray(q1),QuaternionArray(q2),QuaternionArray(a),             # <<<<<<<<<<<<<<
@@ -4698,7 +4698,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":326
+  /* "nvg/maths/quat_splines.pyx":326
  * 
  *         return (QuaternionArray(q1),QuaternionArray(q2),QuaternionArray(a),
  *             QuaternionArray(b),u,dt)             # <<<<<<<<<<<<<<
@@ -4749,7 +4749,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline._setupParams", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline._setupParams", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_shape);
@@ -4770,7 +4770,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":329
+/* "nvg/maths/quat_splines.pyx":329
  * 
  *     @staticmethod
  *     def slerp(q1,q2,u):             # <<<<<<<<<<<<<<
@@ -4778,10 +4778,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Perform spherical linear interpolation between quaternions q1 and q2 at
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp[] = "\n        Perform spherical linear interpolation between quaternions q1 and q2 at\n        normalised time u.\n\n        @param q1: Starting quaternion.\n        @param q2: Ending quaternion.\n        @param u: Normalised time parameter 0 <= u <= 1.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp = {__Pyx_NAMESTR("slerp"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp[] = "\n        Perform spherical linear interpolation between quaternions q1 and q2 at\n        normalised time u.\n\n        @param q1: Starting quaternion.\n        @param q2: Ending quaternion.\n        @param u: Normalised time parameter 0 <= u <= 1.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp = {__Pyx_NAMESTR("slerp"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_u = 0;
@@ -4852,12 +4852,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("slerp", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":338
+  /* "nvg/maths/quat_splines.pyx":338
  *         @param u: Normalised time parameter 0 <= u <= 1.
  *         """
  *         assert np.all(u >= 0)             # <<<<<<<<<<<<<<
@@ -4889,7 +4889,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   #endif
 
-  /* "imusim/maths/quat_splines.pyx":339
+  /* "nvg/maths/quat_splines.pyx":339
  *         """
  *         assert np.all(u >= 0)
  *         assert np.all(u <= 1)             # <<<<<<<<<<<<<<
@@ -4921,7 +4921,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   }
   #endif
 
-  /* "imusim/maths/quat_splines.pyx":341
+  /* "nvg/maths/quat_splines.pyx":341
  *         assert np.all(u <= 1)
  * 
  *         cosTheta = q1.dot(q2)             # <<<<<<<<<<<<<<
@@ -4942,7 +4942,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_cosTheta = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":342
+  /* "nvg/maths/quat_splines.pyx":342
  * 
  *         cosTheta = q1.dot(q2)
  *         theta = np.arccos(cosTheta)             # <<<<<<<<<<<<<<
@@ -4966,7 +4966,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_theta = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":343
+  /* "nvg/maths/quat_splines.pyx":343
  *         cosTheta = q1.dot(q2)
  *         theta = np.arccos(cosTheta)
  *         sinTheta = np.sin(theta)             # <<<<<<<<<<<<<<
@@ -4990,7 +4990,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_sinTheta = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":344
+  /* "nvg/maths/quat_splines.pyx":344
  *         theta = np.arccos(cosTheta)
  *         sinTheta = np.sin(theta)
  *         return (q1*np.nan_to_num(np.sin((1-u)*theta)/sinTheta) +             # <<<<<<<<<<<<<<
@@ -5038,7 +5038,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":345
+  /* "nvg/maths/quat_splines.pyx":345
  *         sinTheta = np.sin(theta)
  *         return (q1*np.nan_to_num(np.sin((1-u)*theta)/sinTheta) +
  *             q2*np.nan_to_num(np.sin(u*theta)/sinTheta))             # <<<<<<<<<<<<<<
@@ -5097,7 +5097,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerp", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerp", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_cosTheta);
@@ -5109,7 +5109,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":348
+/* "nvg/maths/quat_splines.pyx":348
  * 
  *     @staticmethod
  *     def slerpPrime(q1,q2,u):             # <<<<<<<<<<<<<<
@@ -5117,10 +5117,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Calculate the derivative of the slerp between q1 and q2 at normalised
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime[] = "\n        Calculate the derivative of the slerp between q1 and q2 at normalised\n        time u.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime = {__Pyx_NAMESTR("slerpPrime"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime[] = "\n        Calculate the derivative of the slerp between q1 and q2 at normalised\n        time u.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime = {__Pyx_NAMESTR("slerpPrime"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_u = 0;
@@ -5186,12 +5186,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("slerpPrime", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerpPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerpPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":353
+  /* "nvg/maths/quat_splines.pyx":353
  *         time u.
  *         """
  *         q = q1**-1 * q2             # <<<<<<<<<<<<<<
@@ -5206,7 +5206,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":354
+  /* "nvg/maths/quat_splines.pyx":354
  *         """
  *         q = q1**-1 * q2
  *         return q1*q**u * q.log()             # <<<<<<<<<<<<<<
@@ -5238,7 +5238,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerpPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerpPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_q);
@@ -5248,7 +5248,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":357
+/* "nvg/maths/quat_splines.pyx":357
  * 
  *     @staticmethod
  *     def slerpOmega(q1,q2,u):             # <<<<<<<<<<<<<<
@@ -5256,10 +5256,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Calculate the rotational rate vector, in the rotating frame, at
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega[] = "\n        Calculate the rotational rate vector, in the rotating frame, at\n        normalised time u as slerping between q1 and q2.\n\n        Uses the relationship M{qdot = 1/2 omega * q}.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega = {__Pyx_NAMESTR("slerpOmega"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega[] = "\n        Calculate the rotational rate vector, in the rotating frame, at\n        normalised time u as slerping between q1 and q2.\n\n        Uses the relationship M{qdot = 1/2 omega * q}.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega = {__Pyx_NAMESTR("slerpOmega"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_u = 0;
@@ -5326,12 +5326,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("slerpOmega", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerpOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerpOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":364
+  /* "nvg/maths/quat_splines.pyx":364
  *         Uses the relationship M{qdot = 1/2 omega * q}.
  *         """
  *         qdot = SQUADQuaternionSpline.slerpPrime(q1,q2,u)             # <<<<<<<<<<<<<<
@@ -5361,7 +5361,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_qdot = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":365
+  /* "nvg/maths/quat_splines.pyx":365
  *         """
  *         qdot = SQUADQuaternionSpline.slerpPrime(q1,q2,u)
  *         q = SQUADQuaternionSpline.slerp(q1,q2,u)             # <<<<<<<<<<<<<<
@@ -5391,7 +5391,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":366
+  /* "nvg/maths/quat_splines.pyx":366
  *         qdot = SQUADQuaternionSpline.slerpPrime(q1,q2,u)
  *         q = SQUADQuaternionSpline.slerp(q1,q2,u)
  *         return (2 * qdot*q.conjugate).vector             # <<<<<<<<<<<<<<
@@ -5420,7 +5420,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.slerpOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.slerpOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_qdot);
@@ -5431,7 +5431,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":369
+/* "nvg/maths/quat_splines.pyx":369
  * 
  *     @staticmethod
  *     def squad(q1,q2,a,b,u,*args):             # <<<<<<<<<<<<<<
@@ -5439,10 +5439,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Perform spherical cubic interpolation.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad[] = "\n        Perform spherical cubic interpolation.\n\n        @param q1: Starting quaternion.\n        @param q2: Ending quaternion\n        @param a: Control point a.\n        @param b: Control point b.\n        @param u - normalised time 0 <= u <= 1\n        @param args: Additional arguments are ignored.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad = {__Pyx_NAMESTR("squad"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad[] = "\n        Perform spherical cubic interpolation.\n\n        @param q1: Starting quaternion.\n        @param q2: Ending quaternion\n        @param a: Control point a.\n        @param b: Control point b.\n        @param u - normalised time 0 <= u <= 1\n        @param args: Additional arguments are ignored.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad = {__Pyx_NAMESTR("squad"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_a = 0;
@@ -5543,12 +5543,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_RaiseArgtupleInvalid("squad", 0, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_args); __pyx_v_args = 0;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squad", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":380
+  /* "nvg/maths/quat_splines.pyx":380
  *         @param args: Additional arguments are ignored.
  *         """
  *         slerp = SQUADQuaternionSpline.slerp             # <<<<<<<<<<<<<<
@@ -5563,7 +5563,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_slerp = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":381
+  /* "nvg/maths/quat_splines.pyx":381
  *         """
  *         slerp = SQUADQuaternionSpline.slerp
  *         return slerp(slerp(q1,q2,u),slerp(a,b,u),2*u*(1-u))             # <<<<<<<<<<<<<<
@@ -5633,7 +5633,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squad", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_args);
@@ -5644,7 +5644,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":384
+/* "nvg/maths/quat_splines.pyx":384
  * 
  *     @staticmethod
  *     def squadPrime(q1,q2,a,b,u):             # <<<<<<<<<<<<<<
@@ -5652,10 +5652,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Calculate the derivative of SQUAD at normalised time u.
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime[] = "\n        Calculate the derivative of SQUAD at normalised time u.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime = {__Pyx_NAMESTR("squadPrime"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime[] = "\n        Calculate the derivative of SQUAD at normalised time u.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime = {__Pyx_NAMESTR("squadPrime"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_a = 0;
@@ -5749,12 +5749,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("squadPrime", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 384; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squadPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squadPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":388
+  /* "nvg/maths/quat_splines.pyx":388
  *         Calculate the derivative of SQUAD at normalised time u.
  *         """
  *         slerp = SQUADQuaternionSpline.slerp             # <<<<<<<<<<<<<<
@@ -5769,7 +5769,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_slerp = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":389
+  /* "nvg/maths/quat_splines.pyx":389
  *         """
  *         slerp = SQUADQuaternionSpline.slerp
  *         slerpPrime = SQUADQuaternionSpline.slerpPrime             # <<<<<<<<<<<<<<
@@ -5784,7 +5784,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_slerpPrime = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":390
+  /* "nvg/maths/quat_splines.pyx":390
  *         slerp = SQUADQuaternionSpline.slerp
  *         slerpPrime = SQUADQuaternionSpline.slerpPrime
  *         U = slerp(q1,q2,u)             # <<<<<<<<<<<<<<
@@ -5808,7 +5808,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_U = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":391
+  /* "nvg/maths/quat_splines.pyx":391
  *         slerpPrime = SQUADQuaternionSpline.slerpPrime
  *         U = slerp(q1,q2,u)
  *         V = slerp(a,b,u)             # <<<<<<<<<<<<<<
@@ -5832,7 +5832,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_V = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":392
+  /* "nvg/maths/quat_splines.pyx":392
  *         U = slerp(q1,q2,u)
  *         V = slerp(a,b,u)
  *         W = U**-1 * V             # <<<<<<<<<<<<<<
@@ -5847,7 +5847,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_W = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":393
+  /* "nvg/maths/quat_splines.pyx":393
  *         V = slerp(a,b,u)
  *         W = U**-1 * V
  *         UPrime = slerpPrime(q1,q2,u)             # <<<<<<<<<<<<<<
@@ -5871,7 +5871,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_UPrime = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":394
+  /* "nvg/maths/quat_splines.pyx":394
  *         W = U**-1 * V
  *         UPrime = slerpPrime(q1,q2,u)
  *         VPrime = slerpPrime(a,b,u)             # <<<<<<<<<<<<<<
@@ -5895,7 +5895,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_VPrime = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":395
+  /* "nvg/maths/quat_splines.pyx":395
  *         UPrime = slerpPrime(q1,q2,u)
  *         VPrime = slerpPrime(a,b,u)
  *         WPrime = U**-1 * VPrime - U**-2 * UPrime *V             # <<<<<<<<<<<<<<
@@ -5922,7 +5922,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_WPrime = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":396
+  /* "nvg/maths/quat_splines.pyx":396
  *         VPrime = slerpPrime(a,b,u)
  *         WPrime = U**-1 * VPrime - U**-2 * UPrime *V
  *         t = 2*u*(1-u)             # <<<<<<<<<<<<<<
@@ -5940,7 +5940,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_t = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":397
+  /* "nvg/maths/quat_splines.pyx":397
  *         WPrime = U**-1 * VPrime - U**-2 * UPrime *V
  *         t = 2*u*(1-u)
  *         return U*(W**t*W.log()*(2-4*u) + W**(t-1)*WPrime*t) + UPrime*W**t             # <<<<<<<<<<<<<<
@@ -6005,7 +6005,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squadPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squadPrime", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_slerp);
@@ -6023,7 +6023,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":400
+/* "nvg/maths/quat_splines.pyx":400
  * 
  *     @staticmethod
  *     def squadOmega(q1,q2,a,b,u,dt):             # <<<<<<<<<<<<<<
@@ -6031,10 +6031,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Calculate the rotational rate vector, in the rotating frame, at
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega[] = "\n        Calculate the rotational rate vector, in the rotating frame, at\n        normalised time u, while performing SQUAD(q1,q2,a,b,u).\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega = {__Pyx_NAMESTR("squadOmega"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega[] = "\n        Calculate the rotational rate vector, in the rotating frame, at\n        normalised time u, while performing SQUAD(q1,q2,a,b,u).\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega = {__Pyx_NAMESTR("squadOmega"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_q1 = 0;
   PyObject *__pyx_v_q2 = 0;
   PyObject *__pyx_v_a = 0;
@@ -6131,12 +6131,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("squadOmega", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squadOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squadOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":405
+  /* "nvg/maths/quat_splines.pyx":405
  *         normalised time u, while performing SQUAD(q1,q2,a,b,u).
  *         """
  *         qdot = SQUADQuaternionSpline.squadPrime(q1,q2,a,b,u)             # <<<<<<<<<<<<<<
@@ -6172,7 +6172,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_qdot = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":406
+  /* "nvg/maths/quat_splines.pyx":406
  *         """
  *         qdot = SQUADQuaternionSpline.squadPrime(q1,q2,a,b,u)
  *         q = SQUADQuaternionSpline.squad(q1,q2,a,b,u)             # <<<<<<<<<<<<<<
@@ -6208,7 +6208,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":407
+  /* "nvg/maths/quat_splines.pyx":407
  *         qdot = SQUADQuaternionSpline.squadPrime(q1,q2,a,b,u)
  *         q = SQUADQuaternionSpline.squad(q1,q2,a,b,u)
  *         return (2 * qdot*q.conjugate).vector/dt             # <<<<<<<<<<<<<<
@@ -6240,7 +6240,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline.squadOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline.squadOmega", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_qdot);
@@ -6251,7 +6251,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":409
+/* "nvg/maths/quat_splines.pyx":409
  *         return (2 * qdot*q.conjugate).vector/dt
  * 
  *     def _calculateControlPoints(self):             # <<<<<<<<<<<<<<
@@ -6259,10 +6259,10 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  *         Calculate the appropriate control point for Squad interpolation given
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static char __pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints[] = "\n        Calculate the appropriate control point for Squad interpolation given\n        the index, n, into the keyframe array.\n        ";
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints = {__Pyx_NAMESTR("_calculateControlPoints"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints, METH_O, __Pyx_DOCSTR(__pyx_doc_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static char __pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints[] = "\n        Calculate the appropriate control point for Squad interpolation given\n        the index, n, into the keyframe array.\n        ";
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints = {__Pyx_NAMESTR("_calculateControlPoints"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints, METH_O, __Pyx_DOCSTR(__pyx_doc_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_v_q = NULL;
   Py_ssize_t __pyx_v_N;
   PyObject *__pyx_v_n = NULL;
@@ -6287,7 +6287,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_TraceCall("_calculateControlPoints", __pyx_f[0], 409);
   __pyx_self = __pyx_self;
 
-  /* "imusim/maths/quat_splines.pyx":414
+  /* "nvg/maths/quat_splines.pyx":414
  *         the index, n, into the keyframe array.
  *         """
  *         q = self._quaternions             # <<<<<<<<<<<<<<
@@ -6299,7 +6299,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_v_q = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":415
+  /* "nvg/maths/quat_splines.pyx":415
  *         """
  *         q = self._quaternions
  *         N = len(q)-1             # <<<<<<<<<<<<<<
@@ -6309,7 +6309,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_t_2 = PyObject_Length(__pyx_v_q); if (unlikely(__pyx_t_2 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 415; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_N = (__pyx_t_2 - 1);
 
-  /* "imusim/maths/quat_splines.pyx":417
+  /* "nvg/maths/quat_splines.pyx":417
  *         N = len(q)-1
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +             # <<<<<<<<<<<<<<
@@ -6320,7 +6320,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 417; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_1));
 
-  /* "imusim/maths/quat_splines.pyx":418
+  /* "nvg/maths/quat_splines.pyx":418
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +
  *             np.log(q[n]**-1 * q[n-1]))/4) for n in range(N)]             # <<<<<<<<<<<<<<
@@ -6368,7 +6368,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __pyx_v_n = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":417
+    /* "nvg/maths/quat_splines.pyx":417
  *         N = len(q)-1
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +             # <<<<<<<<<<<<<<
@@ -6383,7 +6383,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":418
+    /* "nvg/maths/quat_splines.pyx":418
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +
  *             np.log(q[n]**-1 * q[n-1]))/4) for n in range(N)]             # <<<<<<<<<<<<<<
@@ -6396,7 +6396,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":417
+    /* "nvg/maths/quat_splines.pyx":417
  *         N = len(q)-1
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +             # <<<<<<<<<<<<<<
@@ -6427,7 +6427,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(((PyObject *)__pyx_t_10)); __pyx_t_10 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":418
+    /* "nvg/maths/quat_splines.pyx":418
  * 
  *         return [q[n] * np.exp(-(np.log(q[n]**-1 * q[n+1]) +
  *             np.log(q[n]**-1 * q[n-1]))/4) for n in range(N)]             # <<<<<<<<<<<<<<
@@ -6506,7 +6506,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.SQUADQuaternionSpline._calculateControlPoints", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.SQUADQuaternionSpline._calculateControlPoints", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_q);
@@ -6517,7 +6517,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":429
+/* "nvg/maths/quat_splines.pyx":429
  *     _splineClass = QuaternionBSpline
  * 
  *     def _validity(self, y):             # <<<<<<<<<<<<<<
@@ -6525,9 +6525,9 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_
  * 
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity = {__Pyx_NAMESTR("_validity"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity = {__Pyx_NAMESTR("_validity"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_y = 0;
   PyObject *__pyx_r = NULL;
@@ -6581,12 +6581,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_validity", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.PartialInputQuaternionBSpline._validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.PartialInputQuaternionBSpline._validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":430
+  /* "nvg/maths/quat_splines.pyx":430
  * 
  *     def _validity(self, y):
  *         return y.validity()             # <<<<<<<<<<<<<<
@@ -6608,7 +6608,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.PartialInputQuaternionBSpline._validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.PartialInputQuaternionBSpline._validity", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6617,7 +6617,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   return __pyx_r;
 }
 
-/* "imusim/maths/quat_splines.pyx":432
+/* "nvg/maths/quat_splines.pyx":432
  *         return y.validity()
  * 
  *     def _output(self, x, conditions, results, undefined):             # <<<<<<<<<<<<<<
@@ -6625,9 +6625,9 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
  *         q = QuaternionArray(np.empty((length,4)))
  */
 
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output = {__Pyx_NAMESTR("_output"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
-static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output = {__Pyx_NAMESTR("_output"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output, METH_VARARGS|METH_KEYWORDS, __Pyx_DOCSTR(0)};
+static PyObject *__pyx_pf_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
   PyObject *__pyx_v_x = 0;
   PyObject *__pyx_v_conditions = 0;
@@ -6724,12 +6724,12 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("_output", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
-  __Pyx_AddTraceback("imusim.maths.quat_splines.PartialInputQuaternionBSpline._output", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.PartialInputQuaternionBSpline._output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
 
-  /* "imusim/maths/quat_splines.pyx":433
+  /* "nvg/maths/quat_splines.pyx":433
  * 
  *     def _output(self, x, conditions, results, undefined):
  *         length = len(np.atleast_1d(x))             # <<<<<<<<<<<<<<
@@ -6754,7 +6754,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_length = __pyx_t_4;
 
-  /* "imusim/maths/quat_splines.pyx":434
+  /* "nvg/maths/quat_splines.pyx":434
  *     def _output(self, x, conditions, results, undefined):
  *         length = len(np.atleast_1d(x))
  *         q = QuaternionArray(np.empty((length,4)))             # <<<<<<<<<<<<<<
@@ -6799,7 +6799,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_v_q = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":435
+  /* "nvg/maths/quat_splines.pyx":435
  *         length = len(np.atleast_1d(x))
  *         q = QuaternionArray(np.empty((length,4)))
  *         w = np.empty((3,length))             # <<<<<<<<<<<<<<
@@ -6833,7 +6833,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_v_w = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":436
+  /* "nvg/maths/quat_splines.pyx":436
  *         q = QuaternionArray(np.empty((length,4)))
  *         w = np.empty((3,length))
  *         a = np.empty((3,length))             # <<<<<<<<<<<<<<
@@ -6867,7 +6867,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __pyx_v_a = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":437
+  /* "nvg/maths/quat_splines.pyx":437
  *         w = np.empty((3,length))
  *         a = np.empty((3,length))
  *         for condition, result in izip(conditions, results):             # <<<<<<<<<<<<<<
@@ -6964,7 +6964,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
     __pyx_v_result = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "imusim/maths/quat_splines.pyx":438
+    /* "nvg/maths/quat_splines.pyx":438
  *         a = np.empty((3,length))
  *         for condition, result in izip(conditions, results):
  *             q[condition], w[:,condition], a[:,condition] = result             # <<<<<<<<<<<<<<
@@ -7043,7 +7043,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":439
+  /* "nvg/maths/quat_splines.pyx":439
  *         for condition, result in izip(conditions, results):
  *             q[condition], w[:,condition], a[:,condition] = result
  *         q.array[undefined] = np.nan             # <<<<<<<<<<<<<<
@@ -7061,7 +7061,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":440
+  /* "nvg/maths/quat_splines.pyx":440
  *             q[condition], w[:,condition], a[:,condition] = result
  *         q.array[undefined] = np.nan
  *         w[:,undefined] = np.nan             # <<<<<<<<<<<<<<
@@ -7085,7 +7085,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_DECREF(((PyObject *)__pyx_t_1)); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":441
+  /* "nvg/maths/quat_splines.pyx":441
  *         q.array[undefined] = np.nan
  *         w[:,undefined] = np.nan
  *         a[:,undefined] = np.nan             # <<<<<<<<<<<<<<
@@ -7109,7 +7109,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":442
+  /* "nvg/maths/quat_splines.pyx":442
  *         w[:,undefined] = np.nan
  *         a[:,undefined] = np.nan
  *         if np.isscalar(x):             # <<<<<<<<<<<<<<
@@ -7134,7 +7134,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_9) {
 
-    /* "imusim/maths/quat_splines.pyx":443
+    /* "nvg/maths/quat_splines.pyx":443
  *         a[:,undefined] = np.nan
  *         if np.isscalar(x):
  *             return q[0],w,a             # <<<<<<<<<<<<<<
@@ -7162,7 +7162,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   }
   /*else*/ {
 
-    /* "imusim/maths/quat_splines.pyx":445
+    /* "nvg/maths/quat_splines.pyx":445
  *             return q[0],w,a
  *         else:
  *             return q,w,a             # <<<<<<<<<<<<<<
@@ -7193,7 +7193,7 @@ static PyObject *__pyx_pf_6imusim_5maths_12quat_splines_29PartialInputQuaternion
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("imusim.maths.quat_splines.PartialInputQuaternionBSpline._output", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("nvg.maths.quat_splines.PartialInputQuaternionBSpline._output", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_q);
@@ -9172,32 +9172,32 @@ static CYTHON_INLINE PyObject *__pyx_f_5numpy_get_array_base(PyArrayObject *__py
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_6imusim_5maths_12quat_splines_QuaternionBSpline __pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline;
+static struct __pyx_vtabstruct_6nvg_5maths_12quat_splines_QuaternionBSpline __pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline;
 
-static PyObject *__pyx_tp_new_6imusim_5maths_12quat_splines_QuaternionBSpline(PyTypeObject *t, PyObject *a, PyObject *k) {
-  struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *p;
+static PyObject *__pyx_tp_new_6nvg_5maths_12quat_splines_QuaternionBSpline(PyTypeObject *t, PyObject *a, PyObject *k) {
+  struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *p;
   PyObject *o = (*t->tp_alloc)(t, 0);
   if (!o) return 0;
-  p = ((struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)o);
-  p->__pyx_vtab = __pyx_vtabptr_6imusim_5maths_12quat_splines_QuaternionBSpline;
+  p = ((struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)o);
+  p->__pyx_vtab = __pyx_vtabptr_6nvg_5maths_12quat_splines_QuaternionBSpline;
   p->w = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->q = ((PyObject*)Py_None); Py_INCREF(Py_None);
-  if (__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline___cinit__(o, a, k) < 0) {
+  if (__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline___cinit__(o, a, k) < 0) {
     Py_DECREF(o); o = 0;
   }
   return o;
 }
 
-static void __pyx_tp_dealloc_6imusim_5maths_12quat_splines_QuaternionBSpline(PyObject *o) {
-  struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)o;
+static void __pyx_tp_dealloc_6nvg_5maths_12quat_splines_QuaternionBSpline(PyObject *o) {
+  struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)o;
   Py_XDECREF(((PyObject *)p->w));
   Py_XDECREF(((PyObject *)p->q));
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static int __pyx_tp_traverse_6imusim_5maths_12quat_splines_QuaternionBSpline(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_6nvg_5maths_12quat_splines_QuaternionBSpline(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)o;
+  struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)o;
   if (p->w) {
     e = (*v)(p->w, a); if (e) return e;
   }
@@ -9207,8 +9207,8 @@ static int __pyx_tp_traverse_6imusim_5maths_12quat_splines_QuaternionBSpline(PyO
   return 0;
 }
 
-static int __pyx_tp_clear_6imusim_5maths_12quat_splines_QuaternionBSpline(PyObject *o) {
-  struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *)o;
+static int __pyx_tp_clear_6nvg_5maths_12quat_splines_QuaternionBSpline(PyObject *o) {
+  struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *p = (struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *)o;
   PyObject* tmp;
   tmp = ((PyObject*)p->w);
   p->w = ((PyObject*)Py_None); Py_INCREF(Py_None);
@@ -9219,22 +9219,22 @@ static int __pyx_tp_clear_6imusim_5maths_12quat_splines_QuaternionBSpline(PyObje
   return 0;
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_12quat_splines_17QuaternionBSpline_validFrom(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_12quat_splines_17QuaternionBSpline_validFrom(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_9validFrom___get__(o);
 }
 
-static PyObject *__pyx_getprop_6imusim_5maths_12quat_splines_17QuaternionBSpline_validTo(PyObject *o, void *x) {
-  return __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(o);
+static PyObject *__pyx_getprop_6nvg_5maths_12quat_splines_17QuaternionBSpline_validTo(PyObject *o, void *x) {
+  return __pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_7validTo___get__(o);
 }
 
-static PyMethodDef __pyx_methods_6imusim_5maths_12quat_splines_QuaternionBSpline[] = {
-  {__Pyx_NAMESTR("__reduce__"), (PyCFunction)__pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_1__reduce__, METH_NOARGS, __Pyx_DOCSTR(0)},
+static PyMethodDef __pyx_methods_6nvg_5maths_12quat_splines_QuaternionBSpline[] = {
+  {__Pyx_NAMESTR("__reduce__"), (PyCFunction)__pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_1__reduce__, METH_NOARGS, __Pyx_DOCSTR(0)},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_6imusim_5maths_12quat_splines_QuaternionBSpline[] = {
-  {(char *)"validFrom", __pyx_getprop_6imusim_5maths_12quat_splines_17QuaternionBSpline_validFrom, 0, 0, 0},
-  {(char *)"validTo", __pyx_getprop_6imusim_5maths_12quat_splines_17QuaternionBSpline_validTo, 0, 0, 0},
+static struct PyGetSetDef __pyx_getsets_6nvg_5maths_12quat_splines_QuaternionBSpline[] = {
+  {(char *)"validFrom", __pyx_getprop_6nvg_5maths_12quat_splines_17QuaternionBSpline_validFrom, 0, 0, 0},
+  {(char *)"validTo", __pyx_getprop_6nvg_5maths_12quat_splines_17QuaternionBSpline_validTo, 0, 0, 0},
   {0, 0, 0, 0, 0}
 };
 
@@ -9336,12 +9336,12 @@ static PyBufferProcs __pyx_tp_as_buffer_QuaternionBSpline = {
   #endif
 };
 
-static PyTypeObject __pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline = {
+static PyTypeObject __pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline = {
   PyVarObject_HEAD_INIT(0, 0)
-  __Pyx_NAMESTR("imusim.maths.quat_splines.QuaternionBSpline"), /*tp_name*/
-  sizeof(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline), /*tp_basicsize*/
+  __Pyx_NAMESTR("nvg.maths.quat_splines.QuaternionBSpline"), /*tp_name*/
+  sizeof(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_dealloc*/
+  __pyx_tp_dealloc_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -9355,22 +9355,22 @@ static PyTypeObject __pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline =
   &__pyx_tp_as_sequence_QuaternionBSpline, /*tp_as_sequence*/
   &__pyx_tp_as_mapping_QuaternionBSpline, /*tp_as_mapping*/
   0, /*tp_hash*/
-  __pyx_pf_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__, /*tp_call*/
+  __pyx_pf_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__, /*tp_call*/
   0, /*tp_str*/
   0, /*tp_getattro*/
   0, /*tp_setattro*/
   &__pyx_tp_as_buffer_QuaternionBSpline, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   __Pyx_DOCSTR("\n    Model of a quaternion function of time using B-spline fitting of keyframes.\n\n    Quaternion interpolation is performed using the algorithm from \"A general\n    Construction Scheme for Unit Quaternion Curves with Simple High Order\n    Derivatives\" by Kim, M.-J., Kim M.-S., and Shin, S. Y.\n\n    This interpolation method should be used in preference to the SQUAD\n    algorithm as it is C^2 continuous.\n    "), /*tp_doc*/
-  __pyx_tp_traverse_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_traverse*/
-  __pyx_tp_clear_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_clear*/
+  __pyx_tp_traverse_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_traverse*/
+  __pyx_tp_clear_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_methods*/
+  __pyx_methods_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_getset*/
+  __pyx_getsets_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -9378,7 +9378,7 @@ static PyTypeObject __pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline =
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6imusim_5maths_12quat_splines_QuaternionBSpline, /*tp_new*/
+  __pyx_tp_new_6nvg_5maths_12quat_splines_QuaternionBSpline, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -9522,7 +9522,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants");
 
-  /* "imusim/maths/quat_splines.pyx":300
+  /* "nvg/maths/quat_splines.pyx":300
  *             return self.squadOmega(*self._setupParams(t))
  *         else:
  *             raise NotImplementedError('Order %d derivatives not implemented')             # <<<<<<<<<<<<<<
@@ -9536,7 +9536,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(((PyObject *)__pyx_kp_s_2));
   __Pyx_GIVEREF(((PyObject *)__pyx_k_tuple_3));
 
-  /* "imusim/maths/quat_splines.pyx":438
+  /* "nvg/maths/quat_splines.pyx":438
  *         a = np.empty((3,length))
  *         for condition, result in izip(conditions, results):
  *             q[condition], w[:,condition], a[:,condition] = result             # <<<<<<<<<<<<<<
@@ -9550,7 +9550,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_k_slice_6);
   __Pyx_GIVEREF(__pyx_k_slice_6);
 
-  /* "imusim/maths/quat_splines.pyx":440
+  /* "nvg/maths/quat_splines.pyx":440
  *             q[condition], w[:,condition], a[:,condition] = result
  *         q.array[undefined] = np.nan
  *         w[:,undefined] = np.nan             # <<<<<<<<<<<<<<
@@ -9561,7 +9561,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_k_slice_7);
   __Pyx_GIVEREF(__pyx_k_slice_7);
 
-  /* "imusim/maths/quat_splines.pyx":441
+  /* "nvg/maths/quat_splines.pyx":441
  *         q.array[undefined] = np.nan
  *         w[:,undefined] = np.nan
  *         a[:,undefined] = np.nan             # <<<<<<<<<<<<<<
@@ -9728,7 +9728,7 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (__Pyx_SetAttrString(__pyx_m, "__builtins__", __pyx_b) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   /*--- Initialize various global constants etc. ---*/
   if (unlikely(__Pyx_InitGlobals() < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__pyx_module_is_main_imusim__maths__quat_splines) {
+  if (__pyx_module_is_main_nvg__maths__quat_splines) {
     if (__Pyx_SetAttrString(__pyx_m, "__name__", __pyx_n_s____main__) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   }
   /*--- Builtin init code ---*/
@@ -9739,26 +9739,26 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   /*--- Variable export code ---*/
   /*--- Function export code ---*/
   /*--- Type init code ---*/
-  __pyx_vtabptr_6imusim_5maths_12quat_splines_QuaternionBSpline = &__pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline;
-  __pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline.B = (double (*)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_B;
-  __pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline.Bprime = (double (*)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_Bprime;
-  __pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline.tildeB = (double (*)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_tildeB;
-  __pyx_vtable_6imusim_5maths_12quat_splines_QuaternionBSpline.evaluate = (PyObject *(*)(struct __pyx_obj_6imusim_5maths_12quat_splines_QuaternionBSpline *, double))__pyx_f_6imusim_5maths_12quat_splines_17QuaternionBSpline_evaluate;
-  if (PyType_Ready(&__pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_vtabptr_6nvg_5maths_12quat_splines_QuaternionBSpline = &__pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline;
+  __pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline.B = (double (*)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_B;
+  __pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline.Bprime = (double (*)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_Bprime;
+  __pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline.tildeB = (double (*)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, int, int, double))__pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_tildeB;
+  __pyx_vtable_6nvg_5maths_12quat_splines_QuaternionBSpline.evaluate = (PyObject *(*)(struct __pyx_obj_6nvg_5maths_12quat_splines_QuaternionBSpline *, double))__pyx_f_6nvg_5maths_12quat_splines_17QuaternionBSpline_evaluate;
+  if (PyType_Ready(&__pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   {
-    PyObject *wrapper = __Pyx_GetAttrString((PyObject *)&__pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline, "__call__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    PyObject *wrapper = __Pyx_GetAttrString((PyObject *)&__pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline, "__call__"); if (unlikely(!wrapper)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
-      __pyx_wrapperbase_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__.doc = __pyx_doc_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6imusim_5maths_12quat_splines_17QuaternionBSpline_2__call__;
+      __pyx_wrapperbase_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__.doc = __pyx_doc_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_6nvg_5maths_12quat_splines_17QuaternionBSpline_2__call__;
     }
   }
-  if (__Pyx_SetVtable(__pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline.tp_dict, __pyx_vtabptr_6imusim_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_SetAttrString(__pyx_m, "QuaternionBSpline", (PyObject *)&__pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline = &__pyx_type_6imusim_5maths_12quat_splines_QuaternionBSpline;
+  if (__Pyx_SetVtable(__pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline.tp_dict, __pyx_vtabptr_6nvg_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_SetAttrString(__pyx_m, "QuaternionBSpline", (PyObject *)&__pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 36; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline = &__pyx_type_6nvg_5maths_12quat_splines_QuaternionBSpline;
   /*--- Type import code ---*/
-  __pyx_ptype_6imusim_5maths_11quaternions_Quaternion = __Pyx_ImportType("imusim.maths.quaternions", "Quaternion", sizeof(struct __pyx_obj_6imusim_5maths_11quaternions_Quaternion), 1); if (unlikely(!__pyx_ptype_6imusim_5maths_11quaternions_Quaternion)) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion = (struct __pyx_vtabstruct_6imusim_5maths_11quaternions_Quaternion*)__Pyx_GetVtable(__pyx_ptype_6imusim_5maths_11quaternions_Quaternion->tp_dict); if (unlikely(!__pyx_vtabptr_6imusim_5maths_11quaternions_Quaternion)) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_ptype_6nvg_5maths_11quaternions_Quaternion = __Pyx_ImportType("nvg.maths.quaternions", "Quaternion", sizeof(struct __pyx_obj_6nvg_5maths_11quaternions_Quaternion), 1); if (unlikely(!__pyx_ptype_6nvg_5maths_11quaternions_Quaternion)) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion = (struct __pyx_vtabstruct_6nvg_5maths_11quaternions_Quaternion*)__Pyx_GetVtable(__pyx_ptype_6nvg_5maths_11quaternions_Quaternion->tp_dict); if (unlikely(!__pyx_vtabptr_6nvg_5maths_11quaternions_Quaternion)) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_5numpy_dtype = __Pyx_ImportType("numpy", "dtype", sizeof(PyArray_Descr), 0); if (unlikely(!__pyx_ptype_5numpy_dtype)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 151; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_5numpy_flatiter = __Pyx_ImportType("numpy", "flatiter", sizeof(PyArrayIterObject), 0); if (unlikely(!__pyx_ptype_5numpy_flatiter)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 161; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_5numpy_broadcast = __Pyx_ImportType("numpy", "broadcast", sizeof(PyArrayMultiIterObject), 0); if (unlikely(!__pyx_ptype_5numpy_broadcast)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 165; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -9766,21 +9766,21 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __pyx_ptype_5numpy_ufunc = __Pyx_ImportType("numpy", "ufunc", sizeof(PyUFuncObject), 0); if (unlikely(!__pyx_ptype_5numpy_ufunc)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 857; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   /*--- Variable import code ---*/
   /*--- Function import code ---*/
-  __pyx_t_1 = __Pyx_ImportModule("imusim.maths.quaternions"); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "mult_quat_quat", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_mult_quat_quat, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "mult_quat_scalar", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_mult_quat_scalar, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, double, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_add", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_quaternion_add, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_sub", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_quaternion_sub, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_log", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_quaternion_log, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_exp", (void (**)(void))&__pyx_f_6imusim_5maths_11quaternions_quaternion_exp, "void (__pyx_t_6imusim_5maths_11quaternions_quaternion_t *, __pyx_t_6imusim_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_ImportModule("nvg.maths.quaternions"); if (!__pyx_t_1) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "mult_quat_quat", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_mult_quat_quat, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "mult_quat_scalar", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_mult_quat_scalar, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, double, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_add", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_quaternion_add, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_sub", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_quaternion_sub, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_log", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_quaternion_log, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (__Pyx_ImportFunction(__pyx_t_1, "quaternion_exp", (void (**)(void))&__pyx_f_6nvg_5maths_11quaternions_quaternion_exp, "void (__pyx_t_6nvg_5maths_11quaternions_quaternion_t *, __pyx_t_6nvg_5maths_11quaternions_quaternion_t *)") < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   Py_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   /*--- Execution code ---*/
 
-  /* "imusim/maths/quat_splines.pyx":23
+  /* "nvg/maths/quat_splines.pyx":23
  * 
  * from __future__ import division
- * from imusim.maths.quaternions import QuaternionArray, QuaternionFactory             # <<<<<<<<<<<<<<
- * from imusim.maths.splines import Spline, PartialInputSpline
+ * from nvg.maths.quaternions import QuaternionArray, QuaternionFactory             # <<<<<<<<<<<<<<
+ * from nvg.maths.splines import Spline, PartialInputSpline
  * from itertools import izip
  */
   __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 23; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -9804,10 +9804,10 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":24
+  /* "nvg/maths/quat_splines.pyx":24
  * from __future__ import division
- * from imusim.maths.quaternions import QuaternionArray, QuaternionFactory
- * from imusim.maths.splines import Spline, PartialInputSpline             # <<<<<<<<<<<<<<
+ * from nvg.maths.quaternions import QuaternionArray, QuaternionFactory
+ * from nvg.maths.splines import Spline, PartialInputSpline             # <<<<<<<<<<<<<<
  * from itertools import izip
  * import numpy as np
  */
@@ -9832,9 +9832,9 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":25
- * from imusim.maths.quaternions import QuaternionArray, QuaternionFactory
- * from imusim.maths.splines import Spline, PartialInputSpline
+  /* "nvg/maths/quat_splines.pyx":25
+ * from nvg.maths.quaternions import QuaternionArray, QuaternionFactory
+ * from nvg.maths.splines import Spline, PartialInputSpline
  * from itertools import izip             # <<<<<<<<<<<<<<
  * import numpy as np
  * import math
@@ -9853,8 +9853,8 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":26
- * from imusim.maths.splines import Spline, PartialInputSpline
+  /* "nvg/maths/quat_splines.pyx":26
+ * from nvg.maths.splines import Spline, PartialInputSpline
  * from itertools import izip
  * import numpy as np             # <<<<<<<<<<<<<<
  * import math
@@ -9865,19 +9865,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__np, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":27
+  /* "nvg/maths/quat_splines.pyx":27
  * from itertools import izip
  * import numpy as np
  * import math             # <<<<<<<<<<<<<<
  * 
- * from imusim.maths.quaternions cimport Quaternion, quaternion_t, mult_quat_quat
+ * from nvg.maths.quaternions cimport Quaternion, quaternion_t, mult_quat_quat
  */
   __pyx_t_3 = __Pyx_Import(((PyObject *)__pyx_n_s__math), 0, -1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s__math, __pyx_t_3) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":251
+  /* "nvg/maths/quat_splines.pyx":251
  *         return q, dq, ddq
  * 
  * class SQUADQuaternionSpline(Spline):             # <<<<<<<<<<<<<<
@@ -9887,67 +9887,67 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 251; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_3));
 
-  /* "imusim/maths/quat_splines.pyx":259
+  /* "nvg/maths/quat_splines.pyx":259
  *     """
  * 
  *     def __init__(self, timestamps, quaternions):             # <<<<<<<<<<<<<<
  *         """
  *         Construct SQUAD interpolator.
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline___init__, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 259; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline___init__, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 259; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s____init__, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 259; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":285
+  /* "nvg/maths/quat_splines.pyx":285
  *         self._dt = dts[0] if np.allclose(dts,dts[0]) else None
  * 
  *     def _indexfunction(self,t):             # <<<<<<<<<<<<<<
  *         if self._dt:
  *             return int(math.ceil(t/self._dt))
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 285; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_1_indexfunction, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 285; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___indexfunction, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 285; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":291
+  /* "nvg/maths/quat_splines.pyx":291
  *             return np.searchsorted(self._timestamps,t)
  * 
  *     def __call__(self,t,n):             # <<<<<<<<<<<<<<
  *         """
  *         Evaluate the n-th derivative of the quaternion function at times t.
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 291; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_2__call__, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 291; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s____call__, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 291; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":302
+  /* "nvg/maths/quat_splines.pyx":302
  *             raise NotImplementedError('Order %d derivatives not implemented')
  * 
  *     def _setupParams(self,ts):             # <<<<<<<<<<<<<<
  *         """
  *         Setup parameters for squad and squadPrime calls.
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_3_setupParams, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___setupParams, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 302; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":329
+  /* "nvg/maths/quat_splines.pyx":329
  * 
  *     @staticmethod
  *     def slerp(q1,q2,u):             # <<<<<<<<<<<<<<
  *         """
  *         Perform spherical linear interpolation between quaternions q1 and q2 at
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_4slerp, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerp, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":328
+  /* "nvg/maths/quat_splines.pyx":328
  *             QuaternionArray(b),u,dt)
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -9967,19 +9967,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerp, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 329; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":348
+  /* "nvg/maths/quat_splines.pyx":348
  * 
  *     @staticmethod
  *     def slerpPrime(q1,q2,u):             # <<<<<<<<<<<<<<
  *         """
  *         Calculate the derivative of the slerp between q1 and q2 at normalised
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_5slerpPrime, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerpPrime, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":347
+  /* "nvg/maths/quat_splines.pyx":347
  *             q2*np.nan_to_num(np.sin(u*theta)/sinTheta))
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -9999,19 +9999,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerpPrime, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 348; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":357
+  /* "nvg/maths/quat_splines.pyx":357
  * 
  *     @staticmethod
  *     def slerpOmega(q1,q2,u):             # <<<<<<<<<<<<<<
  *         """
  *         Calculate the rotational rate vector, in the rotating frame, at
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_6slerpOmega, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerpOmega, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":356
+  /* "nvg/maths/quat_splines.pyx":356
  *         return q1*q**u * q.log()
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -10031,19 +10031,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__slerpOmega, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 357; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":369
+  /* "nvg/maths/quat_splines.pyx":369
  * 
  *     @staticmethod
  *     def squad(q1,q2,a,b,u,*args):             # <<<<<<<<<<<<<<
  *         """
  *         Perform spherical cubic interpolation.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_7squad, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_7squad, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squad, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":368
+  /* "nvg/maths/quat_splines.pyx":368
  *         return (2 * qdot*q.conjugate).vector
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -10063,19 +10063,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squad, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 369; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":384
+  /* "nvg/maths/quat_splines.pyx":384
  * 
  *     @staticmethod
  *     def squadPrime(q1,q2,a,b,u):             # <<<<<<<<<<<<<<
  *         """
  *         Calculate the derivative of SQUAD at normalised time u.
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 384; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_8squadPrime, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 384; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squadPrime, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 384; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":383
+  /* "nvg/maths/quat_splines.pyx":383
  *         return slerp(slerp(q1,q2,u),slerp(a,b,u),2*u*(1-u))
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -10095,19 +10095,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squadPrime, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 384; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":400
+  /* "nvg/maths/quat_splines.pyx":400
  * 
  *     @staticmethod
  *     def squadOmega(q1,q2,a,b,u,dt):             # <<<<<<<<<<<<<<
  *         """
  *         Calculate the rotational rate vector, in the rotating frame, at
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_9squadOmega, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squadOmega, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":399
+  /* "nvg/maths/quat_splines.pyx":399
  *         return U*(W**t*W.log()*(2-4*u) + W**(t-1)*WPrime*t) + UPrime*W**t
  * 
  *     @staticmethod             # <<<<<<<<<<<<<<
@@ -10127,19 +10127,19 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s__squadOmega, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 400; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":409
+  /* "nvg/maths/quat_splines.pyx":409
  *         return (2 * qdot*q.conjugate).vector/dt
  * 
  *     def _calculateControlPoints(self):             # <<<<<<<<<<<<<<
  *         """
  *         Calculate the appropriate control point for Squad interpolation given
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_21SQUADQuaternionSpline_10_calculateControlPoints, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s_1, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 409; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":251
+  /* "nvg/maths/quat_splines.pyx":251
  *         return q, dq, ddq
  * 
  * class SQUADQuaternionSpline(Spline):             # <<<<<<<<<<<<<<
@@ -10161,7 +10161,7 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":420
+  /* "nvg/maths/quat_splines.pyx":420
  *             np.log(q[n]**-1 * q[n-1]))/4) for n in range(N)]
  * 
  * class PartialInputQuaternionBSpline(PartialInputSpline):             # <<<<<<<<<<<<<<
@@ -10171,40 +10171,40 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 420; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(((PyObject *)__pyx_t_3));
 
-  /* "imusim/maths/quat_splines.pyx":427
+  /* "nvg/maths/quat_splines.pyx":427
  *     rotational rate array and rotational acceleration array.
  *     """
  *     _splineClass = QuaternionBSpline             # <<<<<<<<<<<<<<
  * 
  *     def _validity(self, y):
  */
-  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___splineClass, ((PyObject *)((PyObject*)__pyx_ptype_6imusim_5maths_12quat_splines_QuaternionBSpline))) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___splineClass, ((PyObject *)((PyObject*)__pyx_ptype_6nvg_5maths_12quat_splines_QuaternionBSpline))) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 427; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "imusim/maths/quat_splines.pyx":429
+  /* "nvg/maths/quat_splines.pyx":429
  *     _splineClass = QuaternionBSpline
  * 
  *     def _validity(self, y):             # <<<<<<<<<<<<<<
  *         return y.validity()
  * 
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline__validity, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___validity, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 429; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":432
+  /* "nvg/maths/quat_splines.pyx":432
  *         return y.validity()
  * 
  *     def _output(self, x, conditions, results, undefined):             # <<<<<<<<<<<<<<
  *         length = len(np.atleast_1d(x))
  *         q = QuaternionArray(np.empty((length,4)))
  */
-  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6imusim_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __pyx_binding_PyCFunctionType_NewEx(&__pyx_mdef_6nvg_5maths_12quat_splines_29PartialInputQuaternionBSpline_1_output, NULL, __pyx_n_s_24); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   if (PyObject_SetItem(__pyx_t_3, __pyx_n_s___output, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 432; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":420
+  /* "nvg/maths/quat_splines.pyx":420
  *             np.log(q[n]**-1 * q[n-1]))/4) for n in range(N)]
  * 
  * class PartialInputQuaternionBSpline(PartialInputSpline):             # <<<<<<<<<<<<<<
@@ -10226,7 +10226,7 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(((PyObject *)__pyx_t_3)); __pyx_t_3 = 0;
 
-  /* "imusim/maths/quat_splines.pyx":1
+  /* "nvg/maths/quat_splines.pyx":1
  * # cython: profile=True             # <<<<<<<<<<<<<<
  * """
  * Spline fitting of quaternion data.
@@ -10250,10 +10250,10 @@ PyMODINIT_FUNC PyInit_quat_splines(void)
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   if (__pyx_m) {
-    __Pyx_AddTraceback("init imusim.maths.quat_splines", __pyx_clineno, __pyx_lineno, __pyx_filename);
+    __Pyx_AddTraceback("init nvg.maths.quat_splines", __pyx_clineno, __pyx_lineno, __pyx_filename);
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init imusim.maths.quat_splines");
+    PyErr_SetString(PyExc_ImportError, "init nvg.maths.quat_splines");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

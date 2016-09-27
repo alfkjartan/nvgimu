@@ -13,10 +13,9 @@ import scipy.io as sio
 from datetime import datetime, timedelta, date
 from imusim.maths import quaternions as quat
 from imusim.algorithms import orientation
-from imusim.utilities import time_series
+#from imusim.utilities import time_series
 
-sys.path.append('/home/kjartan/Dropbox/khpython/util')
-import pointfinder
+from imusim.ximu import pointfinder
 
 
 

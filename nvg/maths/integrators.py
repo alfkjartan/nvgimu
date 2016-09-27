@@ -18,7 +18,7 @@ Iterative integrator implementations.
 # You should have received a copy of the GNU General Public License
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
-from imusim.utilities.documentation import prepend_method_doc
+from nvg.utilities.documentation import prepend_method_doc
 from abc import ABCMeta, abstractmethod
 from copy import copy
 

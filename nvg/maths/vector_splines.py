@@ -21,7 +21,7 @@ Spline fitting of vector data.
 from __future__ import division
 from splines import Spline, UnivariateSpline, PartialInputSpline
 import numpy as np
-from imusim.maths import vectors
+from nvg.maths import vectors
 from itertools import izip
 
 class UnivariateVectorSpline(Spline):
