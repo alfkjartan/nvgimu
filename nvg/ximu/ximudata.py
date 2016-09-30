@@ -22,7 +22,7 @@ from nvg.ximu import pointfinder
 
 class NVGData:
 
-    def __init__(self, hdfFilename='e:/nvg/nvg201209.hdf5'):
+    def __init__(self, hdfFilename):
         """ Creates the database if not already existing """
         self.fname = hdfFilename
         # No need: self.create_nvg_db(). Better to just add subject data
@@ -1694,7 +1694,7 @@ def nvg_2012_09_data():
 
 
             
-def split_files_main(db=NVGData(), rawData=nvg_2012_09_data, initStart=20, initLength=120):
+def split_files_main(db, rawData=nvg_2012_09_data, initStart=20, initLength=120):
     """ This function reads in raw data, syncs across the different IMUs, splits it according to trial condition, and adds to the database. """
     [dta, events] = rawData()
 

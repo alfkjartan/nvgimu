@@ -3,24 +3,24 @@ Gravitational field models.
 """
 # Copyright (C) 2009-2011 University of Edinburgh
 #
-# This file is part of IMUSim.
+# This file is part of Nvg.
 #
-# IMUSim is free software: you can redistribute it and/or modify it
+# Nvg is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# IMUSim is distributed in the hope that it will be useful,
+# Nvg is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
+# along with Nvg.  If not, see <http://www.gnu.org/licenses/>.
 
 import numpy as np
-from imusim.maths.vectors import vector
-from imusim.maths.vector_fields import ConstantVectorField
+from nvg.maths.vectors import vector
+from nvg.maths.vector_fields import ConstantVectorField
 
 """ Standard Earth gravity in m/s^2. """
 STANDARD_GRAVITY = 9.81

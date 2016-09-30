@@ -125,8 +125,8 @@ De flesta beräkningar på data bygger på att man har hittat början på steget
 Också dess kan anropas på varje försök eller på delmängder av alla försök. T.ex.
 #+begin_example
 >>> res = db.apply_to_all_trials(db.get_RoM_angle_to_vertical, {'imu':'N'},
-                                           subjlist=['S2', 'S3'], triallist=['b', 'n'])
+                                           subjlist=['S2', 'S3'], triallist=['B', 'N'])
 #+end_example
-vilket vill beräkna range of motion för vinkeln mot vertikalen för imu N for försöken "b" och "n" för försökspersonerna S2 och S3.
+vilket vill beräkna range of motion för vinkeln mot vertikalen för imu N for försöken "B" och "N" för försökspersonerna S2 och S3.
 
 
