@@ -19,9 +19,10 @@ Loader for Qualisys optical capture data in TSV format.
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import division
-from imusim.capture.marker import MarkerCapture, Marker3DOF, Marker6DOF
-from imusim.maths.quaternions import Quaternion, QuaternionArray
+from nvg.capture.marker import MarkerCapture, Marker3DOF, Marker6DOF
+from nvg.maths.quaternions import Quaternion, QuaternionArray
 import numpy as np
+from datetime import datetime, timedelta, date
 
 def loadQualisysTSVFile(filename):
     """
@@ -53,11 +54,27 @@ def loadQualisysTSVFile(filename):
         key = items[0]
         values = items[1:]
 
+
         # Handle relevant fields.
         if key == 'FREQUENCY':
             # Frame rate.
             capture.frameRate = int(values[0])
             capture.framePeriod = 1/capture.frameRate
+        elif key == 'TIME_STAMP':
+            seconddecimal = values[1].split('.')
+            microsecs = int(seconddecimal[1][:6])
+            stamp = datetime.strptime(values[0], "%Y-%m-%d, %H:%M:%S.%f")
+            #capture.timeStamp = stamp.replace(microsecond=microsecs)
+            capture.timeStamp = stamp
+            print capture.timeStamp
+
+        elif key == 'SYNC_TIME':
+            print values[0]
+            seconddecimal = values[1].split('.')
+            microsecs = int(seconddecimal[1][:6])
+            stamp = datetime.strptime(values[0], "%Y-%m-%d, %H:%M:%S.%f")
+            capture.syncTime = stamp
+            #capture.syncTime = stamp.replace(microsecond=microsecs)
         elif key == 'DATA_INCLUDED':
             # 3D or 6D data.
             type = values[0]

@@ -17,6 +17,7 @@ from nvg.algorithms import orientation
 
 from nvg.ximu import pointfinder
 
+from cyclicpython import cyclic_path
 
 
 
@@ -27,13 +28,15 @@ class NVGData:
         self.fname = hdfFilename
         # No need: self.create_nvg_db(). Better to just add subject data
         self.hdfFile = h5py.File(self.fname)
-        
+
+        self.rotationEstimator = CyclicEstimator(14); # Default is cyclic estimator
+
 
     def close(self):
         self.hdfFile.close()
 
     def create_nvg_db(self):
-        """ 
+        """
         Creates the hd5 database for the nvg project and adds a subgroup for each subject.
         """
         try:
@@ -51,7 +54,7 @@ class NVGData:
                             g.create_group(c)
                         except ValueError:
                             print("Sub group " + c + " already exists")
-                            
+
             self.hdfFile = f
         except ValueError:
             print("Error opening file " + fname)
@@ -105,21 +108,21 @@ class NVGData:
             return tr.attrs[attrname]
         else:
             return None
-            
+
     def descriptive_statistics_decorator(self, func):
-        """ Decorator that will call the provided function to get data, 
-        then calculate descriptive statistics and returning the 
+        """ Decorator that will call the provided function to get data,
+        then calculate descriptive statistics and returning the
         list of  values [mean, std, min, Q1, Q2, Q3, max]
         typical usage::
            nvgDB = NVGData()
            nvgDB.apply_to_all_trials( \
-              nvgDB.descriptive_statistics_decorator(nvgDB.get_trial_attribute), 
+              nvgDB.descriptive_statistics_decorator(nvgDB.get_trial_attribute),
               dict(attrname="cycleFrequency"))
         """
         def wrapper(self,*args,**kwargs):
             result = func(self,*args, **kwargs)
-            return [np.mean(result), np.std(result), np.min(result), 
-                    np.percentile(result, 25), np.median(result), 
+            return [np.mean(result), np.std(result), np.min(result),
+                    np.percentile(result, 25), np.median(result),
                     np.percentile(result, 75), np.max(result)]
         return wrapper
 
@@ -139,15 +142,15 @@ class NVGData:
         """ Make a boxplot, and saves the figure as a pdf file
         using the title and date.
         The results argument is a dict with keys (subj, trial), as returned
-        from a call to apply_to_all_trials. 
+        from a call to apply_to_all_trials.
         A tab-spaced text file with the data is also generated
         """
-        
+
         # Unique list of subjects
         subjects = list(set([subj for (subj, trial) in results.keys()]))
-        
+
         # Sort them
-        subjects.sort(key=lambda id: int(id[1:])) 
+        subjects.sort(key=lambda id: int(id[1:]))
 
         # Order of conditions
         conds = ["N", "B", "M", "D"]
@@ -172,10 +175,10 @@ class NVGData:
                     dta = results[(subj, c)]
                 except:
                     # Assuming error occurs because data missing. Put in a few nans
-                    print "Exception. Missing data"                    
+                    print "Exception. Missing data"
                     dta = np.array([np.nan for i in range(10)])
-                condmeans.append(np.mean(dta)) 
-                condstds.append(np.std(dta)) 
+                condmeans.append(np.mean(dta))
+                condstds.append(np.std(dta))
                 subjdta.append(dta)
                 maxp = max(maxp, np.max(dta))
             subjmeans.append(condmeans)
@@ -243,7 +246,7 @@ class NVGData:
         The start and end events are recorded in the attribute 'PNAtCycleEvents' as
         a list of two-tuples.
         """
-        
+
         subj = self.hdfFile[subject]
         tr = subj[trial]
         ics =tr.attrs["PNAtICLA"]
@@ -258,14 +261,14 @@ class NVGData:
         cycles = [(start_, stop_) for (stepl_, start_, stop_) \
                       in itertools.izip(steplengths, ics[:-2], ics[1:]) \
                       if (stepl_ > lowthr and stepl_ < highthr)]
-        
+
         tr.attrs["PNAtCycleEvents"] = cycles
         print "%d of %d cycles discarded (%2.1f %%)" \
-            % ((len(ics)-len(cycles)), len(ics), 
-               float(len(ics)-len(cycles))/len(ics)*100) 
+            % ((len(ics)-len(cycles)), len(ics),
+               float(len(ics)-len(cycles))/len(ics)*100)
         pyplot.hist(steplengths, 60)
-        pyplot.plot([lowthr, lowthr], [0, 10], 'r') 
-        pyplot.plot([highthr, highthr], [0, 10], 'r') 
+        pyplot.plot([lowthr, lowthr], [0, 10], 'r')
+        pyplot.plot([highthr, highthr], [0, 10], 'r')
 
         pyplot.hist([(stop_-start_) for (start_, stop_) in cycles], 60, color='g')
 
@@ -286,17 +289,23 @@ class NVGData:
         sg = g[trial]
         ds = sg[imu]
 
-        pyplot.figure()
+        pyplot.figure(figsize=(12,10))
 
         pyplot.subplot(3,1,1)
         pyplot.plot(ds[:,0], ds[:,1:4])
+        pyplot.ylabel("Gyro [deg/s]")
+
         pyplot.subplot(3,1,2)
         pyplot.plot(ds[:,0], ds[:,4:7])
+        pyplot.ylabel("Acc [g]")
+
         pyplot.subplot(3,1,3)
         pyplot.plot(ds[:,0], ds[:,7:10])
-        
+        pyplot.ylabel("Magn [G]")
+
+        pyplot.title("IMU data for subject %s, trial %s, imu %s" % (subject, trial, imu))
         pyplot.show()
-        
+
         return ds
 
     def detect_steps(self, subject="S7", trial="D"):
@@ -312,16 +321,16 @@ class NVGData:
 
             figh = pyplot.figure()
             pyplot.plot(ankledata[:,0], accmagn)
-            pyplot.title("Vertical acc for %s in trial %s of subject %s" % (ankle,trial,subject)) 
+            pyplot.title("Vertical acc for %s in trial %s of subject %s" % (ankle,trial,subject))
             answer = raw_input("Threshold to use?: ")
             thr = float(answer)
-            
+
             abovethreshold = np.nonzero(accmagn > thr)
             # Find peaks in the continues blocks of data above threshold
             peaks = []
             currentpeak = 0
             currentpeakind = 0
-            prevind = 0            
+            prevind = 0
             prevpeakind = 0
             for ind in abovethreshold[0]:
                 if ind > prevind+1:
@@ -329,7 +338,7 @@ class NVGData:
                     if currentpeakind > prevpeakind + mindist:
                         peaks.append(currentpeakind)
                         prevpeakind = currentpeakind
-                        
+
                     currentpeak = 0
                 if accmagn[ind] > currentpeak:
                   currentpeak = accmagn[ind]
@@ -341,16 +350,16 @@ class NVGData:
                 pyplot.plot([ind, ind], yl, 'm')
 
             pyplot.title("Initial contact in data for " + ankle)
-            
+
             tr.attrs["PNAtIC"+ankle] = peaks
         self.hdfFile.flush()
-    
+
     def get_cycle_frequency(self, subject="S7", trial="D",\
                                 startTime=5*60,\
                                 anTime=60, doPlots=True):
         """ Will determine the cycle frequency for the given trial, assuming that
-        the start of each cycle is detected and available in the trial attribute 'PNAtICLA'. 
-        The result will be stored in the trial attribute 'cycleFrequency' as an array, 
+        the start of each cycle is detected and available in the trial attribute 'PNAtICLA'.
+        The result will be stored in the trial attribute 'cycleFrequency' as an array,
         and returned to the caller.
 
         """
@@ -385,12 +394,12 @@ class NVGData:
             pyplot.xlabel("Frequency [Hz]")
             pyplot.title("Cycle frequencies for subj %s, trial %s"\
                              % (subject, trial))
-            
+
         return freqs
 
-    def get_ROM_joint_angle(self, subject="S7", trial="D", imus=["LA", "LT"], 
+    def get_ROM_joint_angle(self, subject="S7", trial="D", imus=["LA", "LT"],
                            startTime=5*60, anTime=60, doPlots=True):
-        mma = self.get_minmax_joint_angle(subject, trial, imus, 
+        mma = self.get_minmax_joint_angle(subject, trial, imus,
                                           startTime, anTime, False)
 
         rom = [(maxs-mins)*180/np.pi for (mins, maxs) in mma]
@@ -401,11 +410,11 @@ class NVGData:
             pyplot.xlabel("Angle")
             pyplot.title("Range of motion in joint (%s, %s) for subj %s, trial %s"\
                              % (imus[0], imus[1], subject, trial))
-        
-        
+
+
         return rom
-               
-    def get_minmax_joint_angle(self, subject="S7", trial="D", imus=["LA", "LT"], 
+
+    def get_minmax_joint_angle(self, subject="S7", trial="D", imus=["LA", "LT"],
                            startTime=5*60, anTime=60, doPlots=True):
 
         # First see if angle exists? Not at the moment. Implement later if needed
@@ -427,26 +436,26 @@ class NVGData:
             pyplot.xlabel("Angle")
             pyplot.title("Maximum joint angle (%s, %s) for subj %s, trial %s"\
                              % (imus[0], imus[1], subject, trial))
-        
-        
+
+
             fig = pyplot.figure()
             ax = fig.add_subplot(1,1,1)
             ax.hist([(maxs-mins)*180/np.pi for (mins, maxs) in minmaxangle], bins=10)
             pyplot.xlabel("Angle")
             pyplot.title("Range of motion in knee joint for subj %s, trial %s"\
                              % (subject, trial))
-        
-        
+
+
         return minmaxangle
 
     def get_angle_between_segments(self, subject="S7", trial="D", imus=["LA", "LT"],
                                    startTime=5*60, anTime=60, doPlots=True):
         """ Gets the angle to the vertical for the two imus listed, then compute
-        the difference in these angles. 
+        the difference in these angles.
         """
-        a2v0 = self.get_angle_to_vertical(subject, trial, imus[0], 
+        a2v0 = self.get_angle_to_vertical(subject, trial, imus[0],
                                           startTime, anTime, False)
-        a2v1 = self.get_angle_to_vertical(subject, trial, imus[1], 
+        a2v1 = self.get_angle_to_vertical(subject, trial, imus[1],
                                           startTime, anTime, False)
 
         angleBetweenSegments = []
@@ -458,12 +467,12 @@ class NVGData:
             x0 = np.linspace(0,100, len(a0f))
             f0 = interp1d(x0, a0f, kind='linear')
             a0i = f0(x)
-            
+
             a1f = a1.flatten()
             x1 = np.linspace(0,100, len(a1f))
             f1 = interp1d(x1, a1f, kind='linear')
             a1i = f1(x)
-            
+
             angleBetweenSegments.append(a0i-a1i)
 
         if doPlots:
@@ -485,20 +494,20 @@ class NVGData:
 
         return angleBetweenSegments
 
-    def get_minmax_angle_to_vertical(self, subject="S7", trial="D", imu="N", 
+    def get_minmax_angle_to_vertical(self, subject="S7", trial="D", imu="N",
                            startTime=5*60, anTime=60, doPlots=True):
 
         va = self.get_angle_to_vertical(subject, trial, imu, startTime,
                                         anTime, False)
         # va is a list of np arrays
         minmaxangle =  [(np.amin(angle), np.amax(angle)) for angle in va]
-        
+
         return minmaxangle
 
-    def get_RoM_angle_to_vertical(self, subject="S7", trial="D", imu="N", 
+    def get_RoM_angle_to_vertical(self, subject="S7", trial="D", imu="N",
                            startTime=5*60, anTime=60, doPlots=True):
 
-        mma = self.get_minmax_angle_to_vertical(subject, trial, imu, 
+        mma = self.get_minmax_angle_to_vertical(subject, trial, imu,
                                                 startTime, anTime, False)
 
         rom = [(maxs-mins)*180/np.pi for (mins, maxs) in mma]
@@ -509,25 +518,34 @@ class NVGData:
             pyplot.xlabel("Angle")
             pyplot.title("Range of angle to vertical in imu %s for subj %s, trial %s"\
                              % (imu, subject, trial))
-        
-        
+
+
         return rom
-               
+
 
 
     def get_angle_to_vertical(self, subject="S7", trial="D", imu="LT",
-                              startTime=5*60, anTime=4*60, doPlots=True, sagittalPlane=True):
-        """ Tracks the orientation, finds the direction of the vertical, and 
-        calculates the angle to the vertical. If sagittalPlane is true, then the angle 
-        is calculated in the x-y plane of the imu."""
+                              startTime=5*60, anTime=4*60,
+                              doPlots=True, sagittalPlane=True, useCyclic=14):
+        """ Tracks the orientation, finds the direction of the vertical, and
+        calculates the angle to the vertical. If sagittalPlane is true, then the angle
+        is calculated in the x-y plane of the imu.
+        Will by default use the cyclic motion method with 14 harmonics unless useCyclic=0 or
+        useCyclic=False"""
 
-        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu, 
+
+        if useCyclic:
+            [qimu, cycledta, imudta, cycleinds] = self.track_cyclic_orientation(useCyclic,subject, trial, imu,
+                                                          startTime, anTime, False)
+            print "Using cyclic orientation method"
+        else:
+            [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu,
                                                           startTime, anTime, False)
 
-        [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = self.track_displacement(subject, 
-                                                                                  trial, 
+        [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = self.track_displacement(subject,
+                                                                                  trial,
                                                                                   imu,
-                                                                                  startTime, 
+                                                                                  startTime,
                                                                                   anTime,
                                                                                   False)
 
@@ -535,13 +553,13 @@ class NVGData:
         for (q_, g_) in itertools.izip(qimu, imuGvec):
             # g_ is in static frame coinciding with imu-frame at start of
             # each cycle.
-            # The longitudinal direction of the segment is defined by the 
+            # The longitudinal direction of the segment is defined by the
             # x-axis (pointing downward)
             qa = quat.QuaternionArray(q_[:,1:5])
             g_.shape = (3,1)
             x_ = np.array([[-1., 0, 0]]).T
             imux_ = qa.rotateFrame(x_)
-            
+
             if sagittalPlane:
                 imux_[2,:] = 0.0
                 g_[2,] = 0.0
@@ -551,14 +569,14 @@ class NVGData:
             gnormed = g_ / gnrm
             xdotg = np.dot(imux_.T, gnormed)
             xdotg = xdotg.flatten() / np.sqrt(np.sum(imux_**2, 0))
-                       
+
             # Make sure acos will work
             xdotg[np.nonzero(xdotg>1)] = 1.
             xdotg[np.nonzero(xdotg<-1)] = -1.
 
             gcross = np.cross(imux_.T, gnormed.T)
             sgn = np.sign(gcross[:,2])
-            
+
             a2v.append(np.arccos(xdotg) * sgn.T)
 
         if doPlots:
@@ -567,7 +585,7 @@ class NVGData:
                 pyplot.plot(a*180/np.pi)
             pyplot.title("Angle to vertical for subj %s, trial %s, imu %s"\
                              % (subject, trial, imu))
-            
+
         subj = self.hdfFile[subject]
         tr = subj[trial]
         try:
@@ -579,7 +597,7 @@ class NVGData:
 
         return a2v
 
-    
+
 
     def get_range_of_motion(self, subject="S7", trial="D", imu="LA",
                             startTime=5*60,
@@ -587,7 +605,7 @@ class NVGData:
         """ Will track the orientation of the imu, and then
         calculate the range of motion in degrees.
         """
-        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu, 
+        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu,
                                                           startTime, anTime, False)
 
         def _rotation(q):
@@ -600,7 +618,7 @@ class NVGData:
             return rot
 
         RoM = []
-        rots = [] 
+        rots = []
         for q_ in qimu:
             rot = _rotation(q_)
             rots.append(rot)
@@ -611,13 +629,13 @@ class NVGData:
             pyplot.hist(RoM, bins=20)
             pyplot.title("Range of motion in degrees for subj %s, trial %s, imu %s"\
                              % (subject, trial, imu))
-            
+
         subj = self.hdfFile[subject]
         tr = subj[trial]
         imud = tr[imu]
         imud.attrs['rangeOfMotion'] = RoM
 
-        
+
         return RoM
 
     def get_vertical_displacement(self, subject="S7", trial="D", imu="LA",\
@@ -628,7 +646,7 @@ class NVGData:
         The vertical direction is determined from the average acceleration over
         each cycle
         """
-        
+
         [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = \
             self.track_displacement(subject, trial, imu,
                                     startTime, anTime,
@@ -644,25 +662,25 @@ class NVGData:
             pyplot.hist(vDisps, bins=20)
             pyplot.title("Vertical displacment for subj %s, trial %s, imu %s"\
                              % (subject, trial, imu))
-            
+
         subj = self.hdfFile[subject]
         tr = subj[trial]
         tr.attrs['verticalDisplacement'] = vDisps
         return vDisps
 
-        
+
 
     def track_displacement(self, subject="S7", trial="D", imu="LA",\
                               startTime=5*60,\
                               anTime=60, doPlots=True):
-        """ Will first track the orientation and the displacement of the imu, 
-        restarting the tracking at the beginning of each step. The direction of 
+        """ Will first track the orientation and the displacement of the imu,
+        restarting the tracking at the beginning of each step. The direction of
         gravity is identified and the displacement is corrected for the apparent
-        gravitational acceleration. The resulting displacement is returned. 
+        gravitational acceleration. The resulting displacement is returned.
         Note that a body-fixed (imu-fixed) coordinate system is used.
         """
 
-        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu, 
+        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu,
                                                           startTime, anTime, False)
 
         aimu = []
@@ -713,15 +731,15 @@ class NVGData:
             pyplot.ylim(yl)
 
         return [dimu, vimu, gvecs, cycledta, cycleinds]
-    
-            
+
+
     def track_orientation(self, subject="S7", trial="D", imu="LA",\
                               startTime=5*60,\
                               anTime=60, doPlots=True):
-        """ Will track the orientation of the imu. Assumes that the start of each cycle 
-        is detected and available in the trial attribute 'PNAtICLA'. 
-        The tracking algorithm is restarted at each step. So, for each timestep, 
-        a quaternion is estimated that describes the orientation of the IMU w.r.t. the 
+        """ Will track the orientation of the imu. Assumes that the start of each cycle
+        is detected and available in the trial attribute 'PNAtICLA'.
+        The tracking algorithm is restarted at each step. So, for each timestep,
+        a quaternion is estimated that describes the orientation of the IMU w.r.t. the
         orientation at the initical contact of the current gait cycle.
         """
 
@@ -749,7 +767,8 @@ class NVGData:
             (indEnd,) = np.nonzero(imudta[:,0] > cstop)
             indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
             imud = imudta[indx]
-            [q, cinds] = self.get_orientation(imud, [cstart, cstop], doPlots)
+            #[q, cinds] = self.get_orientation(imud, [cstart, cstop], doPlots)
+            [q, cinds] = self.orientationEstimator.estimatea(imud, [cstart, cstop], doPlots)
             imuq.append(q)
             cycleinds.append(cinds)
             imuDataSplit.append(imud)
@@ -757,6 +776,48 @@ class NVGData:
             #[imuq, cycleinds] = self.get_orientation(imudta, cycledta, doPlots)
         #return [imuq, cycledta, imudta, cycleinds]
         return [imuq, cycledta, imuDataSplit, cycleinds]
+
+    def track_cyclic_orientation(self, nHarmonics=14, subject="S7", trial="D", imu="LA",\
+                              startTime=5*60,\
+                              anTime=60, doPlots=True):
+        """ Will track the orientation of the imu using a model of the orientation as a
+        truncated Fourier series. Assumes that the start of each cycle
+        is detected and available in the trial attribute 'PNAtICLA'.
+        The tracking algorithm is restarted at each step. So, for each timestep,
+        a quaternion is estimated that describes the orientation of the IMU w.r.t. the
+        orientation at the initical contact of the current gait cycle.
+        """
+
+        [imudta, tr, subj] = self.get_imu_data(subject, trial, imu, startTime, anTime)
+        firstPN = imudta[0,0]
+        lastPN = imudta[-1,0]
+
+        try:
+            cycledta = self.get_cycle_data(subject, trial, imu, firstPN, lastPN)
+        except KeyError:
+            print "No step cycles found yet. Run detect_steps first!"
+
+        if doPlots: # Check results
+            pyplot.figure()
+            pyplot.plot(imudta[:,0], imudta[:,4:7])
+            for ind in cycledta:
+                pyplot.plot([ind, ind], [-5, 5], 'm')
+
+        # Use cyclic tracking algorithm
+        imuq = []
+        cycleinds = []
+        imuDataSplit = []
+        for (cstart, cstop) in cycledta:
+            (indStart,) = np.nonzero(imudta[:,0] < cstart)
+            (indEnd,) = np.nonzero(imudta[:,0] > cstop)
+            indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
+            imud = imudta[indx]
+            q = self.get_cyclic_orientation(imud, nHarmonics)
+            imuq.append(q)
+            #cycleinds.append(cinds)
+            imuDataSplit.append(imud)
+
+        return [imuq, cycledta, imud, cycleinds]
 
     def get_cycle_data(self, subject, trial, imu, firstPN, lastPN):
         syncimu = self.get_PN_at_sync(subject,imu)
@@ -767,13 +828,31 @@ class NVGData:
         #cycledtaold = [ind-syncLA[0]+syncimu[0] for ind in tr.attrs["PNAtICLA"] if \
         #                ind-syncLA[0] > firstPN-syncimu[0] \
         #                and ind-syncLA[0] < lastPN-syncimu[0]]
-        
+
         cycledta = [(start_-syncLA[0]+syncimu[0], stop_-syncLA[0]+syncimu[0]) \
                         for (start_, stop_) in tr.attrs["PNAtCycleEvents"] \
                         if start_-syncLA[0] > firstPN-syncimu[0] \
                         and stop_-syncLA[0] < lastPN-syncimu[0]]
 
         return cycledta
+
+    def get_cyclic_orientation(self, imudta, nHarmonics):
+        """
+        Runs the cyclic orientation method assuming that the imud is a single cycledta
+        """
+        dt = 1.0/256.0
+        tvec = imudta[:,0]*dt
+
+        #accdta = imudta[:,4:7]*9.82
+        gyrodta = imudta[:,1:4]*np.pi/180.0
+        magdta = imudta[:,7:10]
+
+        omega = 2*np.pi/ (tvec[-1]  - tvec[0])
+
+        (qEst, bEst) = cyclic_path.estimate_cyclic_orientation(tvec, gyrodta, magdta, omega, nHarmonics)
+        tvec.shape = (len(tvec), 1)
+        return np.hstack((tvec, qEst))
+
 
     def get_orientation(self, imudta, cycledta, doPlots):
         imuq = np.zeros((imudta.shape[0], 5))
@@ -793,20 +872,20 @@ class NVGData:
         cycledtainds = []
         for i in range(imuq.shape[0]):
             t = imudta[i,0]*dt
-            if (int(imudta[i,0]) >= cycledta[cycleind]) or i == 0: 
+            if (int(imudta[i,0]) >= cycledta[cycleind]) or i == 0:
                 # Start of new cycle
                 #if orientFilter != None:
                     #initialRotVelocity = orientFilter.rotationalVelocity.latestValue
                     #initCov = np.diag(np.array([1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1]))
 
                 orientFilter = orientation.GyroIntegrator(t, initRotation)
-                #initRotVelocity, 
+                #initRotVelocity,
                 #                         initCov, measuremCov, procNoiseVar, tau)
                 if i != 0:
                     cycleind += 1
                     cycledtainds.append(i)
             else:
-                
+
                 orientFilter(imudtaT[4:7,i]*gMagn, imudtaT[7:10,i], imudtaT[1:4,i]*deg2rad, t)
 
             imuq[i,0] = t
@@ -821,46 +900,46 @@ class NVGData:
             pyplot.plot(imuq[:,0], imuq[:,1:5])
             for ind in cycledta:
                 pyplot.plot([dt*ind, dt*ind], [-1, 1], 'm')
-        
-        return [imuq, cycledtainds]    
-        
+
+        return [imuq, cycledtainds]
+
     def get_imu_data(self, subject="S7", trial="D", imu="LH",\
                          startTime=0,\
                          anTime=600):
-        """ Returns data for the specified subject, trial and imu. 
+        """ Returns data for the specified subject, trial and imu.
         The data returned starts at the specified time into the trial, and has the
-        specified length in seconds. 
+        specified length in seconds.
         """
 
-    
+
         subj = self.hdfFile[subject]
         tr = subj[trial]
         imudta = tr[imu]
-        
+
         #PNperSecond = self.hdfFile.attrs['PNperSecond']
         sfreq = self.hdfFile.attrs['SamplingFrequency']
 
         # There could be a few packets missing, but we ignore this at the moment.
         return [imudta[startTime*sfreq:(startTime+anTime)*sfreq,:], tr, subj]
-        
-        
+
+
 
     def add_imu_data(self, subgroup, datafiles, eventLogFile, syncdata=None,initTime=240):
         """ Adds imu data for a single trial for one subject. Deletes any data
         for this subject already in the file.
-        The datafiles are synced using the sync event 
-        (a sharp negative acc in x-direction) occurring in the beginning 
-        of the experiment. 
+        The datafiles are synced using the sync event
+        (a sharp negative acc in x-direction) occurring in the beginning
+        of the experiment.
         :param subgroup: The subgroup whose data should be addded. Example ``S3``
         :type subgroup: Str
-        :param datafiles: Dictionary providing full path to csv data files. 
+        :param datafiles: Dictionary providing full path to csv data files.
         Expected keys ``["LA", "LT", "LH", "B", "N", "RA", "RT", "RH"]``
         :type datafiles: Dict
         :param eventLogFile: Timestamps and keystrokes in chronological order
         :type eventLogFile: Str
         :param syncdata: If given, is list of packetnumbers at sync event
         :type syncdata: List
-        :param initTime: Time interval at beggining of each file containing the sync 
+        :param initTime: Time interval at beggining of each file containing the sync
         pulse.
         :type initTime: int seconds
         :raises: ValueError, if not able to read and handle data
@@ -908,7 +987,7 @@ class NVGData:
         trials = ['N', 'D', 'B', 'M']
         for tr in trials:
             # The parsing of the event sequence is a bit complicated since
-            # we need to check if an event is cancelled by three consecutive 
+            # we need to check if an event is cancelled by three consecutive
             # 'c' keys, or if two events are close, then the last one is
             # the one to use
             ind = 0
@@ -943,7 +1022,7 @@ class NVGData:
             # If trialStart exists, but not trialEnd, then use 10 minutes from trialStart
             if (trialStart != None and trialEnd == None):
                 trialEnd = trialStart + timedelta(minutes=10)
-            
+
             if (trialEnd == None or trialStart == None):
                 raise ValueError("Unable to find start and end events")
 
@@ -954,7 +1033,7 @@ class NVGData:
                 # Created, so delete first
                 del g[tr]
                 trialGroup = g.create_group(tr)
-                
+
             # Now read csv data
             for key, fnames in datafiles.iteritems():
                 if len(fnames) == 2:
@@ -976,17 +1055,17 @@ class NVGData:
             keys = ["RT", "LA", "LH", "N", "LT", "RA", "RH"]
         else:
             keys = ["RT", "B", "LA", "LH", "N", "LT", "RA", "RH"]
-        
+
         ind = keys.index(imu)
         return PNs[ind]
 
 def _integrate_acc(acc, cycledta):
-    """ Integrate acceleration to get velocity and displacement. The 
-    integration is done using the trapezoidal rule, and reset at 
+    """ Integrate acceleration to get velocity and displacement. The
+    integration is done using the trapezoidal rule, and reset at
     the start of each cycle. The mean acceleration and mean displacement
-    are removed during each cycle. 
+    are removed during each cycle.
     """
-    
+
     #[imuV, gvecs] = _integrate_cyclic(acc, cycledta)
     #[imuD, slask] = _integrate_cyclic(imuV, cycledta)
     #return [imuD, imuV, gvecs]
@@ -1040,12 +1119,12 @@ def _integrate_cyclic(a, cycledta):
         meanA += dt*a[i,1:4]
         currentV += dt*0.5*(a[i-1, 1:4] + a[i, 1:4])
         v[i,1:4] = currentV
-        
+
     cycledta.pop()
     return [v, gvecs]
 
 class TimeKeeper:
-    ''' 
+    '''
     Reads table of packet number and time stamp generated by x-imu.
     The order of the columns is
     Packet number, year, month, day, hours, minutes, seconds
@@ -1060,7 +1139,7 @@ class TimeKeeper:
                            for row in reader]
 
         # Choosing the distance between the last and first row to compute sampling period
-        # 
+        #
         dt = self.ttable[-1][1] - self.ttable[0][1]
         dp = self.ttable[-1][0] - self.ttable[0][0]
 
@@ -1079,7 +1158,7 @@ class TimeKeeper:
             before = [packettime for packettime in self.ttable if (packettime[1] < timestamp)]
             after = [packettime for packettime in self.ttable if (packettime[1] > timestamp)]
             rowbefore = before[-1]
-            
+
             if len(after) == 0:
                 # Asked to access packet after last timestamp. Just return the last packet
                 return  self.ttable[-1][0]
@@ -1105,7 +1184,7 @@ class TimeKeeper:
             rowbefore = before[-1]
             dp1 = int(packet - rowbefore[0])
             return (rowbefore[1] + dp1*self.dt)
-        
+
     def first_timestamp(self):
         return self.ttable[0][1]
 
@@ -1126,7 +1205,7 @@ def find_narrow_peaks(signal_, threshold, peakwidth, mindist=100, maxdist=400):
     peak = -1
     currentwidth = 0
     while ind < len(indConseq):
-        if not indConseq[ind]: 
+        if not indConseq[ind]:
             # Check if we were considering a peak. If so, then it is a
             # legible narrow peak, and should be added to the list
             if peak > -1:
@@ -1141,7 +1220,7 @@ def find_narrow_peaks(signal_, threshold, peakwidth, mindist=100, maxdist=400):
             peak = indAbove[ind]
             currentwidth = 1
         else:
-            # Already considering this as a peak. Increment the peakwidth, and 
+            # Already considering this as a peak. Increment the peakwidth, and
             # see if it is above the maxwidth
             currentwidth += 1
             if currentwidth > peakwidth:
@@ -1154,9 +1233,9 @@ def find_narrow_peaks(signal_, threshold, peakwidth, mindist=100, maxdist=400):
                         break
                     ind += 1
         ind += 1
-    # Now that the narrow peaks are found, look for a double peak at least mindist apart, 
+    # Now that the narrow peaks are found, look for a double peak at least mindist apart,
     # but not more than maxdist.
-    
+
 
     # Problem with the code below. Return just all peaks
     return narrow_peaks
@@ -1175,7 +1254,7 @@ def find_narrow_peaks(signal_, threshold, peakwidth, mindist=100, maxdist=400):
     return []
 
 def read_part(csvfilename, startTime, endTime, timeKeeper):
-    ''' 
+    '''
     Reads the csv file and returns the part of the file which was recorded
     between startTime and endTime
     '''
@@ -1184,13 +1263,13 @@ def read_part(csvfilename, startTime, endTime, timeKeeper):
     endPacket = timeKeeper.get_packet(endTime)
     reader = csv.reader(csvfile)
     reader.next()
-    
+
     # Discard rows until startPacket found
     row = reader.next()
     while ( int(row[0]) < startPacket): row = reader.next()
-    
+
     # Read rows until endPacket found
-    return np.array([[float(col) for col in row]  for row in 
+    return np.array([[float(col) for col in row]  for row in
                      list(itertools.takewhile(lambda x: int(x[0]) <= endPacket, reader))])
 
 
@@ -1203,7 +1282,7 @@ def main():
     dtaset = "06522";
     dttme1 = TimeKeeper(dtapath + dtaset + "_DateTime.csv")
     return dttme1
-        
+
 
 def manually_set_range(signal, timekeeper, channel):
 
@@ -1212,7 +1291,7 @@ def manually_set_range(signal, timekeeper, channel):
 
     dt = timedelta(microseconds=10.0**6/128)
     time = mdates.drange(tstart, tend, dt)
-    
+
     #1/0
     #
     #    np.linspace(tstart.minute*60*10**6 + tstart.second*10**6 + tstart.microsecond,\
@@ -1240,7 +1319,7 @@ def manually_set_range(signal, timekeeper, channel):
     intAfter = np.nonzero(time > max(sel))
     ntime = time[intBefore[0][-1]:intAfter[0][0]]
     nsignal = signal[intBefore[0][-1]:intAfter[0][0], :]
-    
+
     #intStart = np.nonzero(time == min(sel))
     #intEnd = np.nonzero(time == max(sel))
     #signal = signal[intStart[0][0]:intEnd[0][0], :]
@@ -1254,17 +1333,17 @@ def manually_set_range(signal, timekeeper, channel):
     pyplot.xticks(rotation='vertical')
 
     return nsignal
-    
 
 
-    
+
+
 def sync_signals(signals_, timeKeepers, channel=4, threshold=0.4,
                  maxpeakwidth=40, checkConcensus=False):
     """ Will look for two narrow peaks more than 100 samples but less than
     400 samples apartwithin  in the list of signals at the given channel.
     The first threshold passing is taken as the sync signal.
     The packet number and signal index at the peak are returned in a list.
-    
+
     """
     mindist = 100
     maxdist = 400
@@ -1342,16 +1421,16 @@ def plot_sync(signals_, packetAtSync, imunames, channel=4):
             print "Unexpected large acceleration (%1.4f) at end for imu %s " \
                 % (accmagn[-10:].mean(), imu)
 
-  
+
         pyplot.show()
 
 def _sync_signals_old(signals_, timeKeepers, channel=4, threshold=1.0,\
                           checkConsensus=False):
     """ Will look for a peak in the list of signals at the given channel.
     The packet number at the peak is returned in a list.
-    
+
     """
-    
+
     find_ = np.argmax
 
     mysignals = []
@@ -1395,7 +1474,7 @@ def add_to_event_log(theDB, timestamp, key):
         conn = sqlite3.connect(theDB, detect_types=sqlite3.PARSE_DECLTYPES)
         c = conn.cursor()
         c.execute('INSERT INTO testlog (timestamp, note) values (?,?)', (timestamp, key))
-        conn.commit()                  
+        conn.commit()
         c.close()
     except sqlite3.OperationalError, msg:
         print 'Sqlite error: ' + msg.message
@@ -1406,7 +1485,7 @@ def read_event_log(theDB):
     try:
         conn = sqlite3.connect(theDB)
         c = conn.cursor()
- 
+
         # select rows of interest from database
         events = []
         for row in c.execute("SELECT * FROM testlog WHERE note IN ('b','m','n','d','c')"):
@@ -1416,13 +1495,13 @@ def read_event_log(theDB):
                 events.append([datetime.strptime(row[0], "%Y-%m-%d %H:%M:%S"), row[1]])
 
         c.close()
-        
+
         # Sort in chronological order
         return sorted(events, key=lambda ev: ev[0])
 
     except sqlite3.OperationalError, msg:
         print 'Sqlite error: ' + msg.message
-    
+
 def create_event_log(theDB, events):
     """ Will create a new event log sqlite file with the events provided """
     try:
@@ -1553,7 +1632,7 @@ def nvg_2012_09_data():
 
     s6events = dp + "NVG_2012_S6_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-20/S7/"
     s7 = {}
     s7["LA"] = [dp + "NVG_2012_S7_A_LA_00206_DateTime.csv", \
@@ -1575,7 +1654,7 @@ def nvg_2012_09_data():
 
     s7events = dp + "NVG_2012_S7_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-21/S8/"
     s8 = {}
     s8["LA"] = [dp + "NVG_2012_S8_A_LA_00207_DateTime.csv", \
@@ -1597,7 +1676,7 @@ def nvg_2012_09_data():
 
     s8events = dp + "NVG_2012_S8_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-21/S9/"
     s9 = {}
     s9["LA"] = [dp + "NVG_2012_S9_A_LA_00208_DateTime.csv", \
@@ -1619,7 +1698,7 @@ def nvg_2012_09_data():
 
     s9events = dp + "NVG_2012_S9_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-24/S10/"
     s10 = {}
     s10["LA"] = [dp + "NVG_2012_S10_A_LA_00209_DateTime.csv", \
@@ -1641,7 +1720,7 @@ def nvg_2012_09_data():
 
     s10events = dp + "NVG_2012_S10_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-24/S11/"
     s11 = {}
     s11["LA"] = [dp + "NVG_2012_S11_A_LA_00210_DateTime.csv", \
@@ -1663,7 +1742,7 @@ def nvg_2012_09_data():
 
     s11events = dp + "NVG_2012_S11_eventlog"
 
-    
+
     dp = "/media/2893-C7B3/NVG/2012-09-24/S12/"
     s12 = {}
     s12["LA"] = [dp + "NVG_2012_S12_A_LA_00211_DateTime.csv", \
@@ -1685,7 +1764,7 @@ def nvg_2012_09_data():
 
     s12events = dp + "NVG_2012_S12_eventlog"
 
-    
+
     return [dict(S2=s2, S3=s3, S4=s4, S5=s5, S6=s6, S7=s7, S8=s8, S9=s9, \
                      S10=s10, S11=s11, S12=s12), \
                 dict(S2=s2events, S3=s3events, S4=s4events, S5=s5events, S6=s6events,\
@@ -1693,7 +1772,7 @@ def nvg_2012_09_data():
                          S11=s11events, S12=s12events)]
 
 
-            
+
 def split_files_main(db, rawData=nvg_2012_09_data, initStart=20, initLength=120):
     """ This function reads in raw data, syncs across the different IMUs, splits it according to trial condition, and adds to the database. """
     [dta, events] = rawData()
@@ -1727,16 +1806,16 @@ def split_files_main(db, rawData=nvg_2012_09_data, initStart=20, initLength=120)
 
             [packetNumberAtSync, syncdata] = sync_signals(myinitdata, timers)
             plot_sync(syncdata, packetNumberAtSync, imuname)
-                
+
             answer = raw_input("Sync OK? [y/n]: ")
             if answer.lower() != "y":
                 print "Skipping this subject. Fix sync."
                 #2/0
                 continue
-                    
+
             db.add_imu_data(subject, subjdata, events[subject], syncdata=packetNumberAtSync)
 
-    
+
     # Plot data
     #two_plot.plotwndw.plotData(neckinit[:,0], neckinit[:,4:6])
 
@@ -1764,7 +1843,7 @@ class TestXIMU(unittest.TestCase):
         acc = np.column_stack((inds[::2], a[::2], np.zeros((n/2,2))))
         T = sf/w*2*np.pi
         cycledta = [i*T for i in range(10)]
-        
+
         [di, vi] = _integrate_acc(acc,cycledta)
 
         pyplot.figure()
@@ -1773,7 +1852,7 @@ class TestXIMU(unittest.TestCase):
         pyplot.plot(di[:,0], di[:,1])
         for ind in cycledta:
             pyplot.plot([ind, ind], [-1, 1], 'm')
- 
+
         pyplot.subplot(2,1,2)
         pyplot.plot(inds, v)
         pyplot.plot(vi[:,0], vi[:,1])
@@ -1781,9 +1860,9 @@ class TestXIMU(unittest.TestCase):
             pyplot.plot([ind, ind], [-1, 1], 'm')
 
         pyplot.show()
-        
-                              
-    
+
+
+
     def test_find_narrow_peak(self):
 
         s = np.random.random((100,1))
@@ -1805,8 +1884,7 @@ class TestXIMU(unittest.TestCase):
         self.assertTrue( len(narrowpeaks) == 1 )
         self.assertEqual( narrowpeaks[0], 10 )
 
-        
+
 
 if __name__ == '__main__':
     unittest.main()
-

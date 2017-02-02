@@ -19,10 +19,10 @@ Reading and writing BVH body model movement files.
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import with_statement
-from imusim.trajectories.rigid_body import SampledBodyModel, SampledJoint, \
+from nvg.trajectories.rigid_body import SampledBodyModel, SampledJoint, \
         PointTrajectory
-from imusim.maths.quaternions import Quaternion
-from imusim.maths.transforms import convertCGtoNED, convertNEDtoCG
+from nvg.maths.quaternions import Quaternion
+from nvg.maths.transforms import convertCGtoNED, convertNEDtoCG
 import numpy as np
 
 # Conversion co-efficient to convert CMU skeletal dimensions to meters

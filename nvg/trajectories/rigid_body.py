@@ -29,12 +29,12 @@ the body model is specified by a L{PositionTrajectory}.
 # You should have received a copy of the GNU General Public License
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
-from imusim.trajectories.offset import OffsetTrajectory
-from imusim.trajectories.sampled import SampledPositionTrajectory
-from imusim.trajectories.sampled import SampledRotationTrajectory
-from imusim.trajectories.splined import SplinedPositionTrajectory
-from imusim.trajectories.splined import SplinedRotationTrajectory
-from imusim.utilities.trees import TreeNode
+from nvg.trajectories.offset import OffsetTrajectory
+from nvg.trajectories.sampled import SampledPositionTrajectory
+from nvg.trajectories.sampled import SampledRotationTrajectory
+from nvg.trajectories.splined import SplinedPositionTrajectory
+from nvg.trajectories.splined import SplinedRotationTrajectory
+from nvg.utilities.trees import TreeNode
 import numpy as np
 
 class Point(TreeNode):

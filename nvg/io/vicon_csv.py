@@ -3,7 +3,7 @@ Loader for Vicon optical capture data in CSV format.
 """
 
 from __future__ import division
-from imusim.capture.marker import MarkerCapture, Marker3DOF
+from nvg.capture.marker import MarkerCapture, Marker3DOF
 import numpy as np
 
 def loadViconCSVFile(filename):

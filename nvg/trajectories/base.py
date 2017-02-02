@@ -19,7 +19,7 @@ Base classes for trajectories.
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
 from abc import ABCMeta, abstractmethod, abstractproperty
-from imusim.maths.quaternions import Quaternion, QuaternionArray
+from nvg.maths.quaternions import Quaternion, QuaternionArray
 from scipy.linalg import expm
 import numpy as np
 

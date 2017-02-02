@@ -18,7 +18,7 @@ Code for reading and writing various data formats.
 # You should have received a copy of the GNU General Public License
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
-from imusim.io.bvh import loadBVHFile, saveBVHFile
-from imusim.io.asf_amc import loadASFFile
-from imusim.io.qualisys_tsv import loadQualisysTSVFile
-from imusim.io.vicon_csv import loadViconCSVFile
+from nvg.io.bvh import loadBVHFile, saveBVHFile
+from nvg.io.asf_amc import loadASFFile
+from nvg.io.qualisys_tsv import loadQualisysTSVFile
+from nvg.io.vicon_csv import loadViconCSVFile

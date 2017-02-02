@@ -1,5 +1,5 @@
 """
-Loads Qualisys motion capture data and IMU data and makes comparison 
+Loads Qualisys motion capture data and IMU data and makes comparison
 """
 # Copyright (C) 2014-- Kjartan Halvorsen
 #
@@ -19,6 +19,7 @@ Loads Qualisys motion capture data and IMU data and makes comparison
 # along with nvgimu.  If not, see <http://www.gnu.org/licenses/>.
 
 from datetime import datetime, timedelta, date
+import os
 import numpy.testing as npt
 import numpy as np
 import matplotlib.pyplot as plt
@@ -50,12 +51,49 @@ def test_three_point_angle():
     npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p2,np.array([0,0,1.0])), np.pi/4 )
     npt.assert_almost_equal( _three_point_angle(p1,p0,p3,np.array([0,0,1.0])), np.pi/2)
     npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p3,np.array([0,0,1.0])), np.pi/2 )
- 
+
 
 def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/Dropbox/project/nvg/resultat/compare-mocap", peakat=70):
     """
     Compares Range of motion of knee flexion for trial N (Normal condition).
     """
+
+    # Check if startTime and anTime is set in mocapdata. If not, then show marker data (z-coordinate only)
+    # and let user pick
+
+    try:
+        startTime = mocapdata.startTime
+        anTime = mocapdata.anTime
+    except AttributeError:
+        # No start time or anTime set
+        md = mocapdata
+        ankle = md.marker('ANKLE')
+        knee  = md.marker('KNEE')
+        thigh = md.marker('THIGH')
+        hip = md.marker('HIP')
+
+        #frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
+        #frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
+
+        ankled = ankle.position(md.frameTimes)
+        kneed = knee.position(md.frameTimes)
+        hipd = hip.position(md.frameTimes)
+        thighd = thigh.position(md.frameTimes)
+
+        plt.figure()
+        plt.plot(md.frameTimes, ankled[2,:])
+
+        plt.figure()
+        plt.plot(md.frameTimes, kneed[2,:])
+
+        plt.figure()
+        plt.plot(md.frameTimes, hipd[2,:])
+
+        plt.figure()
+        plt.plot(md.frameTimes, thighd[2,:])
+
+        #return
+
     startTime = 1*60 # s
     anTime = 180 # s
 
@@ -76,24 +114,25 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     thigh = md.marker('THIGH')
     hip = md.marker('HIP')
 
-    timeSinceSync = md.timeStamp - md.syncTime 
+    timeSinceSync = md.timeStamp - md.syncTime
 
     frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
     frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
-    
+
     ankled = ankle.position(frames2use)
     kneed = knee.position(frames2use)
     hipd = hip.position(frames2use)
     thighd = thigh.position(frames2use)
 
-    
+
     #jointangle = _three_point_angle( hipd, kneed, ankled, np.array([-1.0,0,0]) )
     #jointangle = _three_point_angle_projected( thighd, kneed, ankled, np.array([-1.0,0,0]) )
-    jointangle = _four_point_angle_projected( hipd, thighd, ankled, kneed, np.array([-1.0,0,0]) )
+    jointangle = _three_point_angle_projected( hipd, kneed, ankled, np.array([-1.0,0,0]) )
+    #jointangle = _four_point_angle_projected( hipd, thighd, ankled, kneed, np.array([-1.0,0,0]) )
 
     ft = frames2use + timeSinceSync.total_seconds()
 
-    # Split and normalize to 100 datapoints. 
+    # Split and normalize to 100 datapoints.
     x = np.linspace(0,100, 100)
     jointangleSplit = []
     for (cstart,cstop) in cycledta:
@@ -108,16 +147,16 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
         x0 = np.linspace(0,100, len(ja))
         f = interp1d(x0, ja, kind='linear')
         jointangleSplit.append(f(x))
-                               
-                               
+
+
     #accmagn = np.sqrt(np.sum(imudt[0][:,4:7]**2, axis=1))
-    #imufr = imudt[0][:,0] - syncLA[0] 
-                               
+    #imufr = imudt[0][:,0] - syncLA[0]
+
     angleBetweenSegments = xdb.get_angle_between_segments(subject, trial, ["LA", "LT"],
-                                                          startTime=startTime, anTime=anTime, 
+                                                          startTime=startTime, anTime=anTime,
                                                           doPlots=False)
 
-    
+
     # Normalize by finding positive peak, setting angle to zero at negative peak, determining time vector
     # with zero at peak, and index of peak
 
@@ -146,13 +185,13 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     plt.figure()
     for ja in kneeangle_md:
         plt.plot(ja[1], ja[0]*180/np.pi)
-    plt.title("Knee angle from marker data") 
+    plt.title("Knee angle from marker data")
     plt.ylabel("Degrees")
 
     plt.figure()
     for ja in kneeangle_imu:
         plt.plot(ja[1], ja[0]*180/np.pi)
-    plt.title("Knee angle from imu data") 
+    plt.title("Knee angle from imu data")
     plt.ylabel("Degrees")
 
     imuflat = np.array([])
@@ -160,7 +199,7 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     imuvals = [np.array([]) for i in range(90)]
     mdvals = [np.array([]) for i in range(90)]
     tt = range(-70,20)
-    
+
     #imumean = np.array([0, for i in range(100)])
     #imumean1 = np.array([0, for i in range(100)])
     #imustd = np.array([0, for i in range(100)])
@@ -171,7 +210,7 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     for (mda,imua) in itertools.izip(kneeangle_md, kneeangle_imu):
         mdta = mda[0]
         idta = imua[0]
-        if (len(mdta) == 100) and (len(idta) == 100): 
+        if (len(mdta) == 100) and (len(idta) == 100):
             mpind = mda[2]
             ipind = imua[2]
             if mpind < ipind:
@@ -209,7 +248,7 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
             imuflat = np.append(imuflat, idta_)
             mdflat = np.append(mdflat, mdta_)
 
-    
+
     imumeans = np.array([np.mean(vals) for vals in imuvals])
     imustd = np.array([np.std(vals) for vals in imuvals])
     mdmeans = np.array([np.mean(vals) for vals in mdvals])
@@ -225,32 +264,32 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     pmd, = plt.plot(tt,mdmeans*180/np.pi, linewidth=3, color=myblue)
     plt.plot(tt,(mdmeans+2*mdstd)*180/np.pi, color=myblue, linewidth=1, linestyle='--')
     plt.plot(tt,(mdmeans-2*mdstd)*180/np.pi, color=myblue, linewidth=1, linestyle='--')
-    
+
     plt.legend([pimu, pmd], ["IMU data", "Marker data"], loc=2)
     plt.title('Knee flexion. Ensemble mean +/- 2 std  ' + subject + ' trial ' + trial )
     plt.ylabel('Degrees')
     plt.xticks([])
     plt.xlabel('One gait cycle')
-    
+
     plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mean-std.pdf')
 
-            
+
     plt.figure()
     bland_altman_plot(mdflat.ravel(), imuflat.ravel())
     plt.title('Bland-Altman Plot')
-  
+
     plt.show()
 
 def compare_foot_clearance(xdb, mocapdata, subject, trial="N"):
     """
-    Compares foot clearance per step for all steps during two minutes in middle of 
+    Compares foot clearance per step for all steps during two minutes in middle of
     trial N (Normal condition).
     """
 
     md = mocapdata
     anklepos = md.marker('ANKLE')
 
-    timeSinceSync = md.timeStamp - md.syncTime 
+    timeSinceSync = md.timeStamp - md.syncTime
 
     ankleposz = anklepos.position(md.frameTimes).transpose()[:,2]
     ft = md.frameTimes + timeSinceSync.total_seconds()
@@ -261,8 +300,8 @@ def compare_foot_clearance(xdb, mocapdata, subject, trial="N"):
 
     imudt = xdb.get_imu_data(subject, trial, "LA", 0, 500)
     accmagn = np.sqrt(np.sum(imudt[0][:,4:7]**2, axis=1))
-    imufr = imudt[0][:,0] - syncLA[0] 
-    
+    imufr = imudt[0][:,0] - syncLA[0]
+
 
     plt.figure()
     plt.plot(ft, ankleposz)
@@ -280,16 +319,16 @@ def _four_point_angle(pp1, pp2, pd1, pd2, posdir):
     Computes the angle between the lines pp1-pp2 and pd1-pd2.
       posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
     """
-    
+
     v1 = pp1-pp2
     v2 = pd1-pd2
 
     return _two_vec_angle(v1,v2,posdir)
-    
+
 def _three_point_angle(p1, pcentral, p2, posdir):
-    """ 
+    """
     Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral). 
+    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
     """
     v1 = p1-pcentral
     v2 = p2-pcentral
@@ -307,7 +346,7 @@ def _two_vec_angle(v1,v2,posdir):
     for i in range(v1.shape[1]):
         v1_ = v1[:,i]
         v2_ = v2[:,i]
-        
+
         theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
         v3_ = np.cross(v1_,v2_)
         if (np.inner(v3_, posdir) < 0):
@@ -320,18 +359,18 @@ def _four_point_angle_projected(pp1, pp2, pd1, pd2, posdir):
     Computes the angle between the lines pp1-pp2 and pd1-pd2.
       posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
     """
-    
+
     v1 = pp1-pp2
     v2 = pd1-pd2
 
     return _two_vec_angle_projected(v1,v2,posdir)
 
 def _three_point_angle_projected(p1, pcentral, p2, posdir):
-    """ 
-    Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral). 
     """
-    
+    Will compute the angle between the three points, using pcentral as the center.
+    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
+    """
+
     v1 = p1-pcentral
     v2 = p2-pcentral
 
@@ -351,7 +390,7 @@ def _two_vec_angle_projected(v1,v2,posdir):
     for i in range(v1.shape[1]):
         v1_ = np.dot( Pr, v1[:,i] )
         v2_ = np.dot( Pr, v2[:,i] )
-        
+
         theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
         v3_ = np.cross(v1_,v2_)
         if (np.inner(v3_, posdir) < 0):
@@ -359,12 +398,77 @@ def _two_vec_angle_projected(v1,v2,posdir):
 
     return theta
 
+def check_sync(syncfilename="/home/kjartan/Dropbox/projekt/nvg/data/solna09/S7/NVG_2012_S7_sync.tsv"):
+    """
+        Loads the tsv file with markerdata from the synchronization experiment. Plots the z-coordinate of the marker
+        'clapper1'.
+    """
+    md = qtsv.loadQualisysTSVFile(syncfilename)
+    clapper = md.marker('clapper1')
+    clapposz = clapper.position(md.frameTimes).transpose()[:,2]
+
+    plt.figure()
+    plt.plot(clapposz)
+
+
+def main_2017(subj="S4", trial="N"):
+    resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/" + date.isoformat(date.today())
+    if not os.path.exists(resdir):
+        os.makedirs(resdir)
+
+    dtaroot = '/media/ubuntu-15-10'
+
+    db = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
+
+    if subj == "S4":
+        peakat = 70  # Approximately where in cycle peak appears
+        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S4/NVG_2012_S4_N.tsv'
+        md = qtsv.loadQualisysTSVFile(mcfilename)
+        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
+
+    elif subj == "S10":
+        peakat = 70  # Approximately where in cycle peak appears
+        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S10/NVG_2012_S10_N.tsv'
+        md = qtsv.loadQualisysTSVFile(mcfilename)
+        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
+
+    elif subj == "S12":
+        peakat = 70  # Approximately where in cycle peak appears
+        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S12/NVG_2012_S12_N.tsv'
+        md = qtsv.loadQualisysTSVFile(mcfilename)
+        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
+
+
+    return db, md
+
+
+def main_2016():
+    resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/" + date.isoformat(date.today())
+    if not os.path.exists(resdir):
+        os.makedirs(resdir)
+
+    db = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
+    #######
+    # S7
+    #######
+    subj = "S7"
+    peakat = 70  # Approximately where in cycle peak appears
+    mcfilename = '/home/kjartan/Dropbox/projekt/nvg/data/solna09/S7/NVG_2012_S7_N.tsv'
+    trial = "N"
+    md = qtsv.loadQualisysTSVFile(mcfilename)
+    compare_knee_RoM(db, md, subj,trial, resdir, peakat)
+
 def main():
     resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/2014-08-08"
 
     db = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
 
-    ####### 
+    #######
+    # S7
+    #######
+
+
+    #######
     # S4
     #######
     subj = "S4"
@@ -380,7 +484,7 @@ def main():
     #compare_knee_RoM(db, md, subj,trial, resdir, peakat)
 
 
-    ####### 
+    #######
     # S10
     #######
     subj = "S10"
@@ -396,7 +500,7 @@ def main():
     compare_knee_RoM(db, md, subj,trial, resdir, peakat)
 
 
-    ####### 
+    #######
     # S12
     #######
     subj = "S12"
@@ -419,7 +523,7 @@ def check_PN_vs_time():
     dtapath = "/home/kjartan/nvg/2012-09-20/S7/"
     dtaset = "NVG_2012_S7_A_LT_00406";
     tk = xdt.TimeKeeper(dtapath + dtaset + "_DateTime.csv")
-    
+
     t0 = tk.ttable[0][1]
     pns = np.array([row[0] for row in tk.ttable])
     times = np.array([(row[1]-t0).total_seconds() for row in tk.ttable])
@@ -434,10 +538,10 @@ def check_PN_vs_time():
     print "dt = %0.4f s\n" % (dt,)
     print "samplefreq= %0.4f Hz\n" % (1.0/dt,)
 
-    
+
     return pns,times
-    
+
 if __name__ == '__main__':
-    
+
     print 'main'
     #unittest.main()

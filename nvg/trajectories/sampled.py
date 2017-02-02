@@ -7,7 +7,7 @@ should be constructed. See L{splined}
 """
 # Copyright (C) 2009-2011 University of Edinburgh
 #
-# This file is part of IMUSim.
+# This file is part of nvg.
 #
 # IMUSim is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
@@ -20,13 +20,13 @@ should be constructed. See L{splined}
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
+# along with nvg.  If not, see <http://www.gnu.org/licenses/>.
 
 from base import PositionTrajectory, RotationTrajectory
-from imusim.maths.quaternions import Quaternion, QuaternionArray
-from imusim.utilities.caching import CacheLastValue
-from imusim.utilities.time_series import TimeSeries
-import imusim.maths.vectors as vectors
+from nvg.maths.quaternions import Quaternion, QuaternionArray
+from nvg.utilities.caching import CacheLastValue
+from nvg.utilities.time_series import TimeSeries
+import nvg.maths.vectors as vectors
 import numpy as np
 
 class SampledPositionTrajectory(PositionTrajectory):
@@ -58,7 +58,7 @@ class SampledPositionTrajectory(PositionTrajectory):
         """
         Not implemented for sampled trajectories.
 
-        See L{imusim.trajectories.splined} for support.
+        See L{nvg.trajectories.splined} for support.
         """
         raise NotImplementedError, \
             "Derivative not available from sampled trajectory. " \
@@ -68,7 +68,7 @@ class SampledPositionTrajectory(PositionTrajectory):
         """
         Not implemented for sampled trajectories.
 
-        See L{imusim.trajectories.splined} for support.
+        See L{nvg.trajectories.splined} for support.
         """
         raise NotImplementedError, \
             "Derivative not available from sampled trajectory. " \

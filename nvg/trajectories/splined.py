@@ -19,12 +19,12 @@ Continuous splined trajectories from sampled trajectories.
 # along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import division
-from imusim.trajectories.sampled import SampledPositionTrajectory, SampledRotationTrajectory
-from imusim.trajectories.sampled import SampledTrajectory
-from imusim.maths.vector_splines import PartialInputVectorSpline
-from imusim.maths.quat_splines import PartialInputQuaternionBSpline
-from imusim.utilities.caching import CacheLastValue
-from imusim.utilities.time_series import TimeSeries
+from nvg.trajectories.sampled import SampledPositionTrajectory, SampledRotationTrajectory
+from nvg.trajectories.sampled import SampledTrajectory
+from nvg.maths.vector_splines import PartialInputVectorSpline
+from nvg.maths.quat_splines import PartialInputQuaternionBSpline
+from nvg.utilities.caching import CacheLastValue
+from nvg.utilities.time_series import TimeSeries
 
 class SplinedPositionTrajectory(SampledPositionTrajectory):
     """

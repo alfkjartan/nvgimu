@@ -3,7 +3,7 @@ Trajectories at fixed offsets from other trajectories.
 """
 # Copyright (C) 2009-2011 University of Edinburgh
 #
-# This file is part of IMUSim.
+# This file is part of nvg.
 #
 # IMUSim is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License as published by
@@ -16,14 +16,14 @@ Trajectories at fixed offsets from other trajectories.
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with IMUSim.  If not, see <http://www.gnu.org/licenses/>.
+# along with nvg.  If not, see <http://www.gnu.org/licenses/>.
 
 import numpy as np
-from imusim.maths import vectors
-from imusim.trajectories.base import PositionTrajectory, RotationTrajectory
-from imusim.maths.quaternions import Quaternion
-from imusim.utilities.caching import CacheLastValue
-from imusim.utilities.documentation import prepend_method_doc
+from nvg.maths import vectors
+from nvg.trajectories.base import PositionTrajectory, RotationTrajectory
+from nvg.maths.quaternions import Quaternion
+from nvg.utilities.caching import CacheLastValue
+from nvg.utilities.documentation import prepend_method_doc
 
 class OffsetTrajectory(PositionTrajectory, RotationTrajectory):
     """
