@@ -1,3 +1,8 @@
+""" Functions for processing data from the ximu IMU sensors. """
+
+__version__ = '0.2'
+__author__ = 'Kjartan Halvorsen'
+
 import sys
 import numpy as np
 import math
@@ -11,10 +16,10 @@ import matplotlib.dates as mdates
 from scipy.interpolate import interp1d
 import scipy.io as sio
 from datetime import datetime, timedelta, date
+
 from nvg.maths import quaternions as quat
 from nvg.algorithms import orientation
 #from nvg.utilities import time_series
-
 from nvg.ximu import pointfinder
 
 from cyclicpython import cyclic_path
@@ -29,7 +34,7 @@ class NVGData:
         # No need: self.create_nvg_db(). Better to just add subject data
         self.hdfFile = h5py.File(self.fname)
 
-        self.rotationEstimator = CyclicEstimator(14); # Default is cyclic estimator
+        #self.rotationEstimator = CyclicEstimator(14); # Default is cyclic estimator
 
 
     def close(self):
@@ -910,7 +915,6 @@ class NVGData:
         The data returned starts at the specified time into the trial, and has the
         specified length in seconds.
         """
-
 
         subj = self.hdfFile[subject]
         tr = subj[trial]

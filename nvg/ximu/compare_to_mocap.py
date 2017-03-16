@@ -53,10 +53,102 @@ def test_three_point_angle():
     npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p3,np.array([0,0,1.0])), np.pi/2 )
 
 
-def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/Dropbox/project/nvg/resultat/compare-mocap", peakat=70):
+def get_comparison_data(xdb, mocapdatafile, markers,  subject, trial, imus,
+                        startTime=1, anTime=180):
+    """ Returns imu data and mocapdata
+
+    Arguments:
+    xdb           -> database object
+    mocapdatafile -> file name with full path
+    markers       -> list of marker names, e.g. ['ANKLE', ̈́'KNEE', 'THIGH']
+    subject       -> Subject. String such as 'S4'
+    trial         -> Trial. Can be either 'D' or 'N'
+    imus          -> List of imus, e.g ['LA', 'LT']
+    startTime     -> Time after sync to start reading data
+    anTime        -> Number of seconds of data to return
+
+    Returns tuple:
+    md    <-  dict with markerdata
+    imudt <-  imu data
     """
-    Compares Range of motion of knee flexion for trial N (Normal condition).
+
+    # Load cycledata from imu data
+    dt = 1.0/262.0 # Weird, but this is the actual sampling period
+    imudata = {}
+    for imu in imus:
+        imudt = xdb.get_imu_data(subject, trial, imu, startTime, anTime)
+        firstPN = imudt[0][0,0]
+        lastPN = imudt[0][-1,0]
+        cycledta_no_shift= xdb.get_cycle_data(subject, trial, imu, firstPN, lastPN)
+        syncLA = xdb.get_PN_at_sync(subject, imu)
+        cycledta = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
+        firstCycleStart = cycledta[0][0]
+        lastCycleEnd = cycledta[-1][1]
+
+        # Add a 11th column to imu data with time stamps in seconds since sync
+        tvec = dt*(imudt[0][:,0]-syncLA[0])
+        imudt[0] = np.hstack( (imudt[0], np.asmatrix(tvec).T) )
+        imudata[imu] =  imudt
+
+    imudata['cycledata'] = cycledta # times in seconds since sync
+
+    md = qtsv.loadQualisysTSVFile(mocapdatafile)
+    timeSinceSync = md.timeStamp - md.syncTime
+
+
+    frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
+    frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
+    ft = frames2use + timeSinceSync.total_seconds()
+
+    markerdata = {'frames':frames2use}
+    markerdata['frametimes'] = ft
+    for m in markers:
+        markerdata[m] = md.marker(m).position(frames2use)
+
+    return (markerdata, imudata)
+
+def split_in_cycles(tvec, dta, cycledta):
+    """ Will split the data matrix dta (timeseries in columns) into cycles given
+    in cycledta.
+
+    Arguments:
+    tvec     -> time vector (N,)
+    dta      -> data matrix (N,m)
+    cycledta -> cycle
+
+    Returns tuple:
+    timespl  <- the time vector split in cycles, list
+    dtaspl   <- the data matrix split in cycles, list
     """
+    timespl = []
+    dtaspl = []
+    tv = np.asarray(tvec).ravel() # Make sure it is a numpy 1d-array
+    for (cstart,cstop) in cycledta:
+        (indStart,) = np.nonzero(tv < cstart)
+        (indEnd,) = np.nonzero(tv > cstop)
+        if len(indStart) == 0:
+            indStart = [0]
+        if len(indEnd) == 0:
+            indEnd = [len(tv)-1]
+
+        timespl.append(tv[indStart[-1]:indEnd[0]])
+
+        if dta.ndim == 1:
+            dtaspl.append(dta[indStart[-1]:indEnd[0]])
+        else:
+            dtaspl.append(dta[indStart[-1]:indEnd[0],:])
+
+    return (timespl, dtaspl)
+
+def resample_timeseries(x, t, tnew, kind='linear'):
+    """ Resamples the timeseries x defined at times t by interpolation """
+    f = interp1d(t, x, kind=kind, axis=0)
+    return f(tnew)
+
+def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
+                    resdir="/home/kjartan/Dropbox/project/nvg/resultat/compare-mocap",
+                    peakat=70):
+    """  Compares Range of motion of knee flexion for trial N (Normal condition). """
 
     # Check if startTime and anTime is set in mocapdata. If not, then show marker data (z-coordinate only)
     # and let user pick
@@ -133,20 +225,13 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N", resdir="/home/kjartan/D
     ft = frames2use + timeSinceSync.total_seconds()
 
     # Split and normalize to 100 datapoints.
-    x = np.linspace(0,100, 100)
+    (timeSplit, jointangleSplitNoNorm) = split_in_cycles(ft, jointangle, cycledta)
+    tnew = np.linspace(0,100, 100)
     jointangleSplit = []
-    for (cstart,cstop) in cycledta:
-        (indStart,) = np.nonzero(ft < cstart)
-        (indEnd,) = np.nonzero(ft > cstop)
-        if len(indStart) == 0:
-            indStart = [0]
-        if len(indEnd) == 0:
-            indEnd = [len(ft)-1]
+    for ja in jointangleSplitNoNorm:
 
-        ja = jointangle[indStart[-1]:indEnd[0]]
-        x0 = np.linspace(0,100, len(ja))
-        f = interp1d(x0, ja, kind='linear')
-        jointangleSplit.append(f(x))
+        t0 = np.linspace(0,100, len(ja))
+        jointangleSplit.append(resample_timeseries(ja, t0, tnew))
 
 
     #accmagn = np.sqrt(np.sum(imudt[0][:,4:7]**2, axis=1))

@@ -21,6 +21,7 @@ Implementation of the multiplicative Kalman filter"""
 
 import numpy.testing as npt
 import numpy as np
+from nvg.maths import quaternions as quat
 
 def measurement_update(x, P, acc, g0, Ra, mag, m0, Rm, type='quat'):
     """ Function that performs the measurement update in the multiplicative
@@ -43,82 +44,101 @@ def measurement_update(x, P, acc, g0, Ra, mag, m0, Rm, type='quat'):
         x   -   filtered states (t|t)
         P   -   filtered covariance (t|t)
 
-        """
+    """
 
 
-        Rt = x.toMatrix()
+    Rt = x.toMatrix()
 
 
-        if type == 'err':
+    if type == 'err':
             #Multiplicative extended Kalman filter (MEKF) with quaternion error states
-            Ca = -crossMat(Rt*g0);
-            Cm = -crossMat(Rt*m0);
+            Cm = -crossMat(x.rotateVector(m0))
 
-    if rank(Ra) == 3 && rank(Rm) == 3
-        R = [Ra zeros(3);
-             zeros(3) Rm];
-        C = [Ca Cm];
-        y = [acc; mag];
-        yp = [Rt*g0; Rt*m0];
-    elseif rank(Ra) == 3
-        R = Ra;
-        C = Ca;
-        y = acc;
-        yp = Rt*g0;
-    elseif rank(Rm) == 3
-        R = Rm;
-        C = Cm;
-        y = mag;
-        yp = Rt*m0;
-    else
-        return;
-    end
+            Pt = P
+            if acc is not None:
+                yp = x.rotateVector(g0)
+                C = crossMat(yp)
+                R = Ra
+                y = acc
 
-    % Compute error state and covariance
-    C = C';
-    eta = P*C'/(C*P*C'+R)*(y-yp); % Error state
-    Pt = P - P*C'/(C*P*C'+R)*C*P; % Error state covariance
+                #Compute error state and covariance
+                ypCov = np.dot(C, np.dot(P, C.T)) + R
+                PC = np.dot(P, C.T)
+                KT = linalg.solve(ypCov, PC.T) # Transpose of Kalman gain
+                eta = np.dot(KT.T, y-yp)
+                # eta = P*C'/(C*P*C'+R)*(y-yp); # Error state
+                Pt -= np.dot(KT.T, PC.T)
+                # Pt = P - P*C'/(C*P*C'+R)*C*P; % Error state covariance
 
-    % Relinearize (update quaternion state and covariance)
-    if norm(eta) ~= 0
-        deta = [cos(norm(eta)/2); eta/norm(eta)*sin(norm(eta)/2)];
-    else
-        deta = [1 0 0 0]';
-    end
-    x = quatmultiply(x',deta')';
-    J = eye(3) - (1/2)*crossMat(eta);
-    P = J*Pt*J';
-else
-    %% Extended Kalman filter (EKF) with quaternion states
-    q0 = x(1); q1 = x(2); q2 = x(3); q3 = x(4);
-    dQ1 = [ 4*q0 4*q1    0     0;
-           -2*q3 2*q2 2*q1 -2*q0;
-            2*q2 2*q3 2*q0  2*q1];
-    dQ2 = [ 2*q3  2*q2 2*q1 2*q0;
-            4*q0     0 4*q2    0;
-           -2*q1 -2*q0 2*q3 2*q2];
-    dQ3 = [-2*q2 2*q3 -2*q0 2*q1;
-            2*q1 2*q0  2*q3 2*q2;
-            4*q0    0     0 4*q3];
+                #Relinearize (update quaternion state and covariance)
+                normEta = np.linalg.norm(eta)
+                if normEta > 1e-10:
+                    deta = quat.Quaternion([np.cos(normEta/2), *(np.sin(normEta/2)/normEta * eta.flatten()))
+                else:
+                    deta = quat.Quaternion() # Unit quaternion
+                    x *= deta
 
-    Ca = g0(1)*dQ1 + g0(2)*dQ2 + g0(3)*dQ3;
-    Cm = m0(1)*dQ1 + m0(2)*dQ2 + m0(3)*dQ3;
-    if rank(Ra) == 3 && rank(Rm) == 3
-        R = [Ra zeros(3);
-             zeros(3) Rm];
-        C = [Ca; Cm];
-        yt = [acc - Rt*g0; mag - Rt*m0];
-    elseif rank(Ra) == 3
-        R = Ra;
-        C = Ca;
-        yt = acc - Rt*g0;
-    elseif rank(Rm) == 3
-        R = Rm;
-        C = Cm;
-        yt = mag - Rt*m0;
-    else
-        return;
-    end
+                J = np.eye(3) - 0.5*crossMat(eta)
+                Pt = np.dot(J, np.dot(Pt, J.T) )
+
+            if mag is not None:
+                yp = x.rotateVector(m0)
+                R = Rm
+                C = crossMat(yp)
+                y = mag
+
+                #Compute error state and covariance
+                ypCov = np.dot(C, np.dot(P, C.T)) + R
+                PC = np.dot(P, C.T)
+                KT = linalg.solve(ypCov, PC.T) # Transpose of Kalman gain
+                eta = np.dot(KT.T, y-yp)
+                # eta = P*C'/(C*P*C'+R)*(y-yp); # Error state
+                Pt -= np.dot(KT.T, PC.T)
+                # Pt = P - P*C'/(C*P*C'+R)*C*P; % Error state covariance
+
+                #Relinearize (update quaternion state and covariance)
+                normEta = np.linalg.norm(eta)
+                if normEta > 1e-10:
+                    deta = quat.Quaternion([np.cos(normEta/2), *(np.sin(normEta/2)/normEta * eta.flatten()))
+                else:
+                    deta = quat.Quaternion() # Unit quaternion
+                    x *= deta
+
+                J = np.eye(3) - 0.5*crossMat(eta)
+                Pt = np.dot(J, np.dot(Pt, J.T) )
+
+
+        else:
+            %% Extended Kalman filter (EKF) with quaternion states
+            q0 = x(1); q1 = x(2); q2 = x(3); q3 = x(4);
+            dQ1 = [ [4*q0 4*q1    0     0],
+                [-2*q3 2*q2 2*q1 -2*q0],
+                [2*q2 2*q3 2*q0  2*q1] ]
+            dQ2 = [ [2*q3  2*q2 2*q1 2*q0],
+                [4*q0     0 4*q2    0],
+                [-2*q1 -2*q0 2*q3 2*q2] ]
+            dQ3 = [ [-2*q2 2*q3 -2*q0 2*q1],
+                [2*q1 2*q0  2*q3 2*q2],
+                [4*q0    0     0 4*q3] ]
+
+            Ca = np.dot(g0[0],dQ1) + g0(2)*dQ2 + g0(3)*dQ3
+            Cm = m0(1)*dQ1 + m0(2)*dQ2 + m0(3)*dQ3
+
+            if rank(Ra) == 3 && rank(Rm) == 3:
+                R = [Ra zeros(3);
+                    zeros(3) Rm];
+                C = [Ca; Cm];
+                yt = [acc - Rt*g0; mag - Rt*m0];
+            elif rank(Ra) == 3:
+                R = Ra;
+                C = Ca;
+                yt = acc - Rt*g0;
+            elif rank(Rm) == 3:
+                R = Rm;
+                C = Cm;
+                yt = mag - Rt*m0;
+            else:
+                pass
 
     S = C*P*C' + R;
     K = (P*C')/S;
