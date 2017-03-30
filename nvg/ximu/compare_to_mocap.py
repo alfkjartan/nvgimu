@@ -603,11 +603,15 @@ def main():
 
     return db, md
 
-def check_PN_vs_time():
-    dtapath = "/home/kjartan/Dropbox/projekt/nvg/data/test0910/6522/"
-    dtapath = "/home/kjartan/nvg/2012-09-20/S7/"
-    dtaset = "NVG_2012_S7_A_LT_00406";
-    tk = xdt.TimeKeeper(dtapath + dtaset + "_DateTime.csv")
+def check_PN_vs_time(dateTimeFile=("/media/ubuntu-15-10/home/kjartan/nvg/"+
+                                    "2012-09-19-S4/S4/LA-200/"+
+                                    "NVG_2012_S4_A_LA_00203_DateTime.csv")):
+
+    #dtapath = "/home/kjartan/Dropbox/projekt/nvg/data/test0910/6522/"
+    #dtapath = "/home/kjartan/nvg/2012-09-20/S7/"
+    #dtaset = "NVG_2012_S7_A_LT_00406";
+    #tk = xdt.TimeKeeper(dtapath + dtaset + "_DateTime.csv")
+    tk = xdt.TimeKeeper(dateTimeFile)
 
     t0 = tk.ttable[0][1]
     pns = np.array([row[0] for row in tk.ttable])
@@ -620,9 +624,9 @@ def check_PN_vs_time():
 
     #Seconds per PN
     dt = (times[-1] - times[0]) / (pns[-1] - pns[0])
-    print "dt = %0.4f s\n" % (dt,)
-    print "samplefreq= %0.4f Hz\n" % (1.0/dt,)
-
+    print "dt = %0.4f seconds per packet number\n" % (dt,)
+    print "samplefreq= %0.4f packets per second\n" % (1.0/dt,)
+    print "But every second packet is missing in the data"
 
     return pns,times
 

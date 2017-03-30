@@ -24,6 +24,256 @@ from nvg.ximu import pointfinder
 
 from cyclicpython import cyclic_path
 
+def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
+    """
+        Lists all data files for the nvg project acquired in September 2012.
+        OBS: The eventlogs are missing.
+    """
+    dp = dtaroot + "2012-09-18/S2/"
+    s2 = {}
+    s2["LA"] = [dp + "LA-200/NVG_2012_S2_A_LA_00201_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S2_A_LA_00201_CalInertialAndMag.csv"]
+    s2["LH"] = [dp + "LH-800/NVG_2012_S2_A_LH_00801_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S2_A_LH_00801_CalInertialAndMag.csv"]
+    s2["LT"] = [dp + "LT-400/NVG_2012_S2_A_LT_00401_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S2_A_LT_00401_CalInertialAndMag.csv"]
+    s2["N"] = [dp + "N-600/NVG_2012_S2_A_N_00601_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S2_A_N_00601_CalInertialAndMag.csv"]
+    s2["B"] = []
+    s2["RA"] = [dp + "RA-100/NVG_2012_S2_A_RA_00101_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S2_A_RA_00101_CalInertialAndMag.csv"]
+    s2["RH"] = [dp + "RH-700/NVG_2012_S2_A_RH_00701_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S2_A_RH_00701_CalInertialAndMag.csv"]
+    s2["RT"] = [dp + "RT-300/NVG_2012_S2_A_RT_00301_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S2_A_RT_00301_CalInertialAndMag.csv"]
+
+    s2events = dp + "NVG_2012_S2_eventlog_fix"
+
+    dp = dtaroot + "2012-09-18/S3/"
+    s3 = {}
+    s3["LA"] = [dp + "LA-200/NVG_2012_S3_A_LA_00202_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S3_A_LA_00202_CalInertialAndMag.csv"]
+    s3["LH"] = [dp + "LH-800/NVG_2012_S3_A_LH_00802_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S3_A_LH_00802_CalInertialAndMag.csv"]
+    s3["LT"] = [dp + "LT-400/NVG_2012_S3_A_LT_00402_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S3_A_LT_00402_CalInertialAndMag.csv"]
+    s3["N"] = [dp + "N-600/NVG_2012_S3_A_N_00602_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S3_A_N_00602_CalInertialAndMag.csv"]
+    s3["B"] = []
+    s3["RA"] = [dp + "RA-100/NVG_2012_S3_A_RA_00102_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S3_A_RA_00102_CalInertialAndMag.csv"]
+    s3["RH"] = [dp + "RH-700/NVG_2012_S3_A_RH_00702_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S3_A_RH_00702_CalInertialAndMag.csv"]
+    s3["RT"] = [dp + "RT-300/NVG_2012_S3_A_RT_00302_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S3_A_RT_00302_CalInertialAndMag.csv"]
+
+    s3events = dp + "NVG_2012_S3_eventlog"
+
+    dp = dtaroot + "2012-09-19-S4/S4/"
+    s4 = {}
+    s4["LA"] = [dp + "LA-200/NVG_2012_S4_A_LA_00203_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S4_A_LA_00203_CalInertialAndMag.csv"]
+    s4["LH"] = [dp + "LH-800/NVG_2012_S4_A_LH_00803_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S4_A_LH_00803_CalInertialAndMag.csv"]
+    s4["LT"] = [dp + "LT-400/NVG_2012_S4_A_LT_00403_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S4_A_LT_00403_CalInertialAndMag.csv"]
+    s4["N"] = [dp + "N-600/NVG_2012_S4_A_N_00603_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S4_A_N_00603_CalInertialAndMag.csv"]
+    s4["B"] = [dp + "B-500/NVG_2012_S4_A_B_00503_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S4_A_B_00503_CalInertialAndMag.csv"]
+    s4["RA"] = [dp + "RA-100/NVG_2012_S4_A_RA_00103_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S4_A_RA_00103_CalInertialAndMag.csv"]
+    s4["RH"] = [dp + "RH-700/NVG_2012_S4_A_RH_00703_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S4_A_RH_00703_CalInertialAndMag.csv"]
+    s4["RT"] = [dp + "RT-300/NVG_2012_S4_A_RT_00303_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S4_A_RT_00303_CalInertialAndMag.csv"]
+
+    s4events = dp + "NVG_2012_S4_eventlog"
+
+
+    dp = dtaroot + "2012-09-19-S5/S5"
+    s5 = {}
+    s5["LA"] = [dp + "LA-200/NVG_2012_S5_A_LA_00204_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S5_A_LA_00204_CalInertialAndMag.csv"]
+    s5["LH"] = [dp + "LH-800/NVG_2012_S5_A_LH_00804_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S5_A_LH_00804_CalInertialAndMag.csv"]
+    s5["LT"] = [dp + "LT-400/NVG_2012_S5_A_LT_00404_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S5_A_LT_00404_CalInertialAndMag.csv"]
+    s5["N"] = [dp + "N-600/NVG_2012_S5_A_N_00604_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S5_A_N_00604_CalInertialAndMag.csv"]
+    s5["B"] = [dp + "B-500/NVG_2012_S5_A_B_00504_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S5_A_B_00504_CalInertialAndMag.csv"]
+    s5["RA"] = [dp + "RA-100/NVG_2012_S5_A_RA_00104_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S5_A_RA_00104_CalInertialAndMag.csv"]
+    s5["RH"] = [dp + "RH-700/NVG_2012_S5_A_RH_00704_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S5_A_RH_00704_CalInertialAndMag.csv"]
+    s5["RT"] = [dp + "RT-300/NVG_2012_S5_A_RT_00304_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S5_A_RT_00304_CalInertialAndMag.csv"]
+
+    s5events = dp + "NVG_2012_S5_eventlog"
+
+
+    dp = dtaroot + "2012-09-19-S6/S6/"
+    s6 = {}
+    s6["LA"] = [dp + "LA-200/NVG_2012_S6_A_LA_00205_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S6_A_LA_00205_CalInertialAndMag.csv"]
+    s6["LH"] = [dp + "LH-800/NVG_2012_S6_A_LH_00805_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S6_A_LH_00805_CalInertialAndMag.csv"]
+    s6["LT"] = [dp + "LT-400/NVG_2012_S6_A_LT_00405_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S6_A_LT_00405_CalInertialAndMag.csv"]
+    s6["N"] = [dp + "N-600/NVG_2012_S6_A_N_00605_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S6_A_N_00605_CalInertialAndMag.csv"]
+    s6["B"] = [dp + "B-500/NVG_2012_S6_A_B_00505_DateTime.csv", \
+                   dp + "B-500/NVG_2012_S6_A_B_00505_CalInertialAndMag.csv"]
+    s6["RA"] = [dp + "RA-100/NVG_2012_S6_A_RA_00105_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S6_A_RA_00105_CalInertialAndMag.csv"]
+    s6["RH"] = [dp + "RH-700/NVG_2012_S6_A_RH_00705_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S6_A_RH_00705_CalInertialAndMag.csv"]
+    s6["RT"] = [dp + "RT-300/NVG_2012_S6_A_RT_00305_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S6_A_RT_00305_CalInertialAndMag.csv"]
+
+    s6events = dp + "NVG_2012_S6_eventlog"
+
+
+    dp = dtaroot + "2012-09-20/S7/"
+    s7 = {}
+    s7["LA"] = [dp + "LA-200/NVG_2012_S7_A_LA_00206_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S7_A_LA_00206_CalInertialAndMag.csv"]
+    s7["LH"] = [dp + "LH-800/NVG_2012_S7_A_LH_00806_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S7_A_LH_00806_CalInertialAndMag.csv"]
+    s7["LT"] = [dp + "LT-400/NVG_2012_S7_A_LT_00406_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S7_A_LT_00406_CalInertialAndMag.csv"]
+    s7["N"] = [dp + "N-600/NVG_2012_S7_A_N_00606_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S7_A_N_00606_CalInertialAndMag.csv"]
+    s7["B"] = [dp + "B-500/NVG_2012_S7_A_B_00506_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S7_A_B_00506_CalInertialAndMag.csv"]
+    s7["RA"] = [dp + "RA-100/NVG_2012_S7_A_RA_00106_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S7_A_RA_00106_CalInertialAndMag.csv"]
+    s7["RH"] = [dp + "RH-700/NVG_2012_S7_A_RH_00706_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S7_A_RH_00706_CalInertialAndMag.csv"]
+    s7["RT"] = [dp + "RT-300/NVG_2012_S7_A_RT_00306_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S7_A_RT_00306_CalInertialAndMag.csv"]
+
+    s7events = dp + "NVG_2012_S7_eventlog"
+
+
+    dp = dtaroot + "2012-09-21/S8/"
+    s8 = {}
+    s8["LA"] = [dp + "LA-200/NVG_2012_S8_A_LA_00207_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S8_A_LA_00207_CalInertialAndMag.csv"]
+    s8["LH"] = [dp + "LH-800/NVG_2012_S8_A_LH_00807_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S8_A_LH_00807_CalInertialAndMag.csv"]
+    s8["LT"] = [dp + "LT-400/NVG_2012_S8_A_LT_00407_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S8_A_LT_00407_CalInertialAndMag.csv"]
+    s8["N"] = [dp + "N-600/NVG_2012_S8_A_N_00607_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S8_A_N_00607_CalInertialAndMag.csv"]
+    s8["B"] = [dp + "B-500/NVG_2012_S8_A_B_00507_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S8_A_B_00507_CalInertialAndMag.csv"]
+    s8["RA"] = [dp + "RA-100/NVG_2012_S8_A_RA_00107_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S8_A_RA_00107_CalInertialAndMag.csv"]
+    s8["RH"] = [dp + "RH-700/NVG_2012_S8_A_RH_00707_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S8_A_RH_00707_CalInertialAndMag.csv"]
+    s8["RT"] = [dp + "RT-300/NVG_2012_S8_A_RT_00307_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S8_A_RT_00307_CalInertialAndMag.csv"]
+
+    s8events = dp + "NVG_2012_S8_eventlog"
+
+
+    dp = dtaroot + "2012-09-21/S9/"
+    s9 = {}
+    s9["LA"] = [dp + "LA-200/NVG_2012_S9_A_LA_00208_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S9_A_LA_00208_CalInertialAndMag.csv"]
+    s9["LH"] = [dp + "LH-800/NVG_2012_S9_A_LH_00808_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S9_A_LH_00808_CalInertialAndMag.csv"]
+    s9["LT"] = [dp + "LT-400/NVG_2012_S9_A_LT_00408_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S9_A_LT_00408_CalInertialAndMag.csv"]
+    s9["N"] = [dp + "N-600/NVG_2012_S9_A_N_00608_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S9_A_N_00608_CalInertialAndMag.csv"]
+    s9["B"] = [dp + "B-500/NVG_2012_S9_A_B_00508_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S9_A_B_00508_CalInertialAndMag.csv"]
+    s9["RA"] = [dp + "RA-100/NVG_2012_S9_A_RA_00108_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S9_A_RA_00108_CalInertialAndMag.csv"]
+    s9["RH"] = [dp + "RH-700/NVG_2012_S9_A_RH_00708_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S9_A_RH_00708_CalInertialAndMag.csv"]
+    s9["RT"] = [dp + "RT-300/NVG_2012_S9_A_RT_00308_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S9_A_RT_00308_CalInertialAndMag.csv"]
+
+    s9events = dp + "NVG_2012_S9_eventlog"
+
+
+    dp = dtaroot + "2012-09-24/S10/"
+    s10 = {}
+    s10["LA"] = [dp + "LA-200/NVG_2012_S10_A_LA_00209_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S10_A_LA_00209_CalInertialAndMag.csv"]
+    s10["LH"] = [dp + "LH-800/NVG_2012_S10_A_LH_00809_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S10_A_LH_00809_CalInertialAndMag.csv"]
+    s10["LT"] = [dp + "LT-400/NVG_2012_S10_A_LT_00409_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S10_A_LT_00409_CalInertialAndMag.csv"]
+    s10["N"] = [dp + "N-600/NVG_2012_S10_A_N_00609_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S10_A_N_00609_CalInertialAndMag.csv"]
+    s10["B"] = [dp + "B-500/NVG_2012_S10_A_B_00509_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S10_A_B_00509_CalInertialAndMag.csv"]
+    s10["RA"] = [dp + "RA-100/NVG_2012_S10_A_RA_00109_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S10_A_RA_00109_CalInertialAndMag.csv"]
+    s10["RH"] = [dp + "RH-700/NVG_2012_S10_A_RH_00709_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S10_A_RH_00709_CalInertialAndMag.csv"]
+    s10["RT"] = [dp + "RT-300/NVG_2012_S10_A_RT_00309_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S10_A_RT_00309_CalInertialAndMag.csv"]
+
+    s10events = dp + "NVG_2012_S10_eventlog"
+
+
+    dp = dtaroot + "2012-09-24/S11/"
+    s11 = {}
+    s11["LA"] = [dp + "LA-200/NVG_2012_S11_A_LA_00210_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S11_A_LA_00210_CalInertialAndMag.csv"]
+    s11["LH"] = [dp + "LH-800/NVG_2012_S11_A_LH_00810_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S11_A_LH_00810_CalInertialAndMag.csv"]
+    s11["LT"] = [dp + "LT-400/NVG_2012_S11_A_LT_00410_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S11_A_LT_00410_CalInertialAndMag.csv"]
+    s11["N"] = [dp + "N-600/NVG_2012_S11_A_N_00610_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S11_A_N_00610_CalInertialAndMag.csv"]
+    s11["B"] = [dp + "B-500/NVG_2012_S11_A_B_00510_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S11_A_B_00510_CalInertialAndMag.csv"]
+    s11["RA"] = [dp + "RA-100/NVG_2012_S11_A_RA_00110_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S11_A_RA_00110_CalInertialAndMag.csv"]
+    s11["RH"] = [dp + "RH-700/NVG_2012_S11_A_RH_00710_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S11_A_RH_00710_CalInertialAndMag.csv"]
+    s11["RT"] = [dp + "RT-300/NVG_2012_S11_A_RT_00310_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S11_A_RT_00310_CalInertialAndMag.csv"]
+
+    s11events = dp + "NVG_2012_S11_eventlog"
+
+
+    dp = dtaroot + "2012-09-24/S12/"
+    s12 = {}
+    s12["LA"] = [dp + "LA-200/NVG_2012_S12_A_LA_00211_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S12_A_LA_00211_CalInertialAndMag.csv"]
+    s12["LH"] = [dp + "LH-800/NVG_2012_S12_A_LH_00811_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S12_A_LH_00811_CalInertialAndMag.csv"]
+    s12["LT"] = [dp + "LT-400/NVG_2012_S12_A_LT_00411_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S12_A_LT_00411_CalInertialAndMag.csv"]
+    s12["N"] = [dp + "N-600/NVG_2012_S12_A_N_00611_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S12_A_N_00611_CalInertialAndMag.csv"]
+    s12["B"] = [dp + "B-500/NVG_2012_S12_A_B_00511_DateTime.csv", \
+                    dp + "B-500/NVG_2012_S12_A_B_00511_CalInertialAndMag.csv"]
+    s12["RA"] = [dp + "RA-100/NVG_2012_S12_A_RA_00111_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S12_A_RA_00111_CalInertialAndMag.csv"]
+    s12["RH"] = [dp + "RH-700/NVG_2012_S12_A_RH_00711_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S12_A_RH_00711_CalInertialAndMag.csv"]
+    s12["RT"] = [dp + "RT-300/NVG_2012_S12_A_RT_00311_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S12_A_RT_00311_CalInertialAndMag.csv"]
+
+    s12events = dp + "NVG_2012_S12_eventlog"
+
+
+    return [dict(S2=s2, S3=s3, S4=s4, S5=s5, S6=s6, S7=s7, S8=s8, S9=s9, \
+                     S10=s10, S11=s11, S12=s12), \
+                dict(S2=s2events, S3=s3events, S4=s4events, S5=s5events, S6=s6events,\
+                         S7=s7events, S8=s8events, S9=s9events, S10=s10events, \
+                         S11=s11events, S12=s12events)]
+
+
 
 
 class NVGData:
@@ -378,7 +628,9 @@ class NVGData:
             print "No step cycles found yet. Run detect_steps first!"
             return
 
-        dt = 1.0/256
+        #dt = 1.0/256
+        dt = 1.0/262.0 # Weird, but this is the actual sampling period
+
         #periods = [(cPN-pPN)*dt for (cPN, pPN) in itertools.izip(cycledta[1:], cycledta[:-1])]
         periods = [(stop_-start_)*dt for (start_, stop_) in cycledta]
         freqs = [1.0/p for p in periods]
@@ -824,6 +1076,7 @@ class NVGData:
 
         return [imuq, cycledta, imud, cycleinds]
 
+
     def get_cycle_data(self, subject, trial, imu, firstPN, lastPN):
         syncimu = self.get_PN_at_sync(subject,imu)
         syncLA = self.get_PN_at_sync(subject,"LA")
@@ -840,6 +1093,7 @@ class NVGData:
                         and stop_-syncLA[0] < lastPN-syncimu[0]]
 
         return cycledta
+
 
     def get_cyclic_orientation(self, imudta, nHarmonics):
         """
@@ -910,23 +1164,31 @@ class NVGData:
 
     def get_imu_data(self, subject="S7", trial="D", imu="LH",\
                          startTime=0,\
-                         anTime=600):
+                         anTime=600, rawData=nvg_2012_09_data):
         """ Returns data for the specified subject, trial and imu.
         The data returned starts at the specified time into the trial, and has the
         specified length in seconds.
+
+        New 2017-03-30: If startTime is negative, look up raw data file and
+        read from this.
         """
 
         subj = self.hdfFile[subject]
         tr = subj[trial]
+        #PNperSecond = self.hdfFile.attrs['PNperSecond']
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+
         imudta = tr[imu]
 
-        #PNperSecond = self.hdfFile.attrs['PNperSecond']
-        sfreq = self.hdfFile.attrs['SamplingFrequency']
-
-        # There could be a few packets missing, but we ignore this at the moment.
-        return [imudta[startTime*sfreq:(startTime+anTime)*sfreq,:], tr, subj]
-
-
+        if startTime >= 0:
+            # There could be a few packets missing, but we ignore this at the moment.
+            return (imudta[startTime*sfreq:(startTime+anTime)*sfreq,:], tr, subj)
+        else:
+            (dta, events) = rawData()
+            fnames = dta[subject][imu] # (DateTime.csv, CalInertialAndMag.csv)
+            startPacket = startTime*sfreq + imudta[0,0]
+            endPacket = anTime*sfreq + imudta[0,0]
+            return (read_packets(fnames[1], startPacket, endPacket), tr, subj)
 
     def add_imu_data(self, subgroup, datafiles, eventLogFile, syncdata=None,initTime=240):
         """ Adds imu data for a single trial for one subject. Deletes any data
@@ -962,7 +1224,7 @@ class NVGData:
                     initdata.append(read_part(fnames[1], time0+deltaT0, time0+deltaT, timeKeeper))
                     timeKeepers.append(timeKeeper)
 
-            packetN = sync_signals(initdata, timeKeepers)
+            (packetN,sign) = sync_signals(initdata, timeKeepers)
             #plot_sync(initdata.values(), packetN)
         else:
             packetN = syncdata
@@ -1262,19 +1524,36 @@ def read_part(csvfilename, startTime, endTime, timeKeeper):
     Reads the csv file and returns the part of the file which was recorded
     between startTime and endTime
     '''
-    csvfile = open(csvfilename, 'rb')
     startPacket = timeKeeper.get_packet(startTime)
     endPacket = timeKeeper.get_packet(endTime)
+
+    return read_packets(csvfilename, startPacket, endPacket)
+
+def read_packets(csvfilename, startPacket=None, endPacket=None):
+    """
+    Reads the imu data in the csv file between startPacket and endPacket.
+    If startPacket is None, read from first row. If endPacket is None read
+    to end of file.
+    """
+    csvfile = open(csvfilename, 'rb')
     reader = csv.reader(csvfile)
-    reader.next()
+    reader.next() # Skip first row which contains headers
 
-    # Discard rows until startPacket found
-    row = reader.next()
-    while ( int(row[0]) < startPacket): row = reader.next()
+    if startPacket is not None:
+        # Discard rows until startPacket found
+        row = reader.next()
+        while ( int(row[0]) < startPacket): row = reader.next()
 
-    # Read rows until endPacket found
-    return np.array([[float(col) for col in row]  for row in
-                     list(itertools.takewhile(lambda x: int(x[0]) <= endPacket, reader))])
+
+    print(reader.next())
+
+    if endPacket is not None:
+        # Read rows until endPacket found
+        return np.array([[float(col) for col in row]  for row in
+                        list(itertools.takewhile(
+                        lambda x: int(x[0]) <= endPacket, reader))])
+    else:
+        return np.array([[float(col) for col in row]  for row in reader])
 
 
 
@@ -1529,251 +1808,6 @@ def list_files():
         print "==========================================="
         for [imu, fnames] in subjdata.iteritems():
             print imu
-
-def nvg_2012_09_data():
-    dp = "/home/kjartan/nvg/2012-09-18/S2/"
-    s2 = {}
-    s2["LA"] = [dp + "NVG_2012_S2_A_LA_00201_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_LA_00201_CalInertialAndMag.csv"]
-    s2["LH"] = [dp + "NVG_2012_S2_A_LH_00801_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_LH_00801_CalInertialAndMag.csv"]
-    s2["LT"] = [dp + "NVG_2012_S2_A_LT_00401_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_LT_00401_CalInertialAndMag.csv"]
-    s2["N"] = [dp + "NVG_2012_S2_A_N_00601_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_N_00601_CalInertialAndMag.csv"]
-    s2["B"] = []
-    s2["RA"] = [dp + "NVG_2012_S2_A_RA_00101_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_RA_00101_CalInertialAndMag.csv"]
-    s2["RH"] = [dp + "NVG_2012_S2_A_RH_00701_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_RH_00701_CalInertialAndMag.csv"]
-    s2["RT"] = [dp + "NVG_2012_S2_A_RT_00301_DateTime.csv", \
-                    dp + "NVG_2012_S2_A_RT_00301_CalInertialAndMag.csv"]
-
-    s2events = dp + "NVG_2012_S2_eventlog_fix"
-
-    dp = "/home/kjartan/nvg/2012-09-18/S3/"
-    s3 = {}
-    s3["LA"] = [dp + "NVG_2012_S3_A_LA_00202_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_LA_00202_CalInertialAndMag.csv"]
-    s3["LH"] = [dp + "NVG_2012_S3_A_LH_00802_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_LH_00802_CalInertialAndMag.csv"]
-    s3["LT"] = [dp + "NVG_2012_S3_A_LT_00402_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_LT_00402_CalInertialAndMag.csv"]
-    s3["N"] = [dp + "NVG_2012_S3_A_N_00602_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_N_00602_CalInertialAndMag.csv"]
-    s3["B"] = []
-    s3["RA"] = [dp + "NVG_2012_S3_A_RA_00102_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_RA_00102_CalInertialAndMag.csv"]
-    s3["RH"] = [dp + "NVG_2012_S3_A_RH_00702_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_RH_00702_CalInertialAndMag.csv"]
-    s3["RT"] = [dp + "NVG_2012_S3_A_RT_00302_DateTime.csv", \
-                    dp + "NVG_2012_S3_A_RT_00302_CalInertialAndMag.csv"]
-
-    s3events = dp + "NVG_2012_S3_eventlog"
-
-    dp = "/media/2893-C7B6/NVG/2012-09-19/S4/"
-    s4 = {}
-    s4["LA"] = [dp + "NVG_2012_S4_A_LA_00203_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_LA_00203_CalInertialAndMag.csv"]
-    s4["LH"] = [dp + "NVG_2012_S4_A_LH_00803_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_LH_00803_CalInertialAndMag.csv"]
-    s4["LT"] = [dp + "NVG_2012_S4_A_LT_00403_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_LT_00403_CalInertialAndMag.csv"]
-    s4["N"] = [dp + "NVG_2012_S4_A_N_00603_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_N_00603_CalInertialAndMag.csv"]
-    s4["B"] = [dp + "NVG_2012_S4_A_B_00503_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_B_00503_CalInertialAndMag.csv"]
-    s4["RA"] = [dp + "NVG_2012_S4_A_RA_00103_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_RA_00103_CalInertialAndMag.csv"]
-    s4["RH"] = [dp + "NVG_2012_S4_A_RH_00703_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_RH_00703_CalInertialAndMag.csv"]
-    s4["RT"] = [dp + "NVG_2012_S4_A_RT_00303_DateTime.csv", \
-                    dp + "NVG_2012_S4_A_RT_00303_CalInertialAndMag.csv"]
-
-    s4events = dp + "NVG_2012_S4_eventlog"
-
-
-    dp = "/media/2893-C7B6/NVG/2012-09-19/S5/"
-    s5 = {}
-    s5["LA"] = [dp + "NVG_2012_S5_A_LA_00204_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_LA_00204_CalInertialAndMag.csv"]
-    s5["LH"] = [dp + "NVG_2012_S5_A_LH_00804_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_LH_00804_CalInertialAndMag.csv"]
-    s5["LT"] = [dp + "NVG_2012_S5_A_LT_00404_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_LT_00404_CalInertialAndMag.csv"]
-    s5["N"] = [dp + "NVG_2012_S5_A_N_00604_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_N_00604_CalInertialAndMag.csv"]
-    s5["B"] = [dp + "NVG_2012_S5_A_B_00504_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_B_00504_CalInertialAndMag.csv"]
-    s5["RA"] = [dp + "NVG_2012_S5_A_RA_00104_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_RA_00104_CalInertialAndMag.csv"]
-    s5["RH"] = [dp + "NVG_2012_S5_A_RH_00704_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_RH_00704_CalInertialAndMag.csv"]
-    s5["RT"] = [dp + "NVG_2012_S5_A_RT_00304_DateTime.csv", \
-                    dp + "NVG_2012_S5_A_RT_00304_CalInertialAndMag.csv"]
-
-    s5events = dp + "NVG_2012_S5_eventlog"
-
-
-    dp = "/media/2893-C7B6/NVG/2012-09-19/S6/"
-    s6 = {}
-    s6["LA"] = [dp + "NVG_2012_S6_A_LA_00205_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_LA_00205_CalInertialAndMag.csv"]
-    s6["LH"] = [dp + "NVG_2012_S6_A_LH_00805_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_LH_00805_CalInertialAndMag.csv"]
-    s6["LT"] = [dp + "NVG_2012_S6_A_LT_00405_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_LT_00405_CalInertialAndMag.csv"]
-    s6["N"] = [dp + "NVG_2012_S6_A_N_00605_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_N_00605_CalInertialAndMag.csv"]
-    s6["B"] = [dp + "NVG_2012_S6_A_B_00505_DateTime.csv", \
-                   dp + "NVG_2012_S6_A_B_00505_CalInertialAndMag.csv"]
-    s6["RA"] = [dp + "NVG_2012_S6_A_RA_00105_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_RA_00105_CalInertialAndMag.csv"]
-    s6["RH"] = [dp + "NVG_2012_S6_A_RH_00705_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_RH_00705_CalInertialAndMag.csv"]
-    s6["RT"] = [dp + "NVG_2012_S6_A_RT_00305_DateTime.csv", \
-                    dp + "NVG_2012_S6_A_RT_00305_CalInertialAndMag.csv"]
-
-    s6events = dp + "NVG_2012_S6_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-20/S7/"
-    s7 = {}
-    s7["LA"] = [dp + "NVG_2012_S7_A_LA_00206_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_LA_00206_CalInertialAndMag.csv"]
-    s7["LH"] = [dp + "NVG_2012_S7_A_LH_00806_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_LH_00806_CalInertialAndMag.csv"]
-    s7["LT"] = [dp + "NVG_2012_S7_A_LT_00406_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_LT_00406_CalInertialAndMag.csv"]
-    s7["N"] = [dp + "NVG_2012_S7_A_N_00606_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_N_00606_CalInertialAndMag.csv"]
-    s7["B"] = [dp + "NVG_2012_S7_A_B_00506_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_B_00506_CalInertialAndMag.csv"]
-    s7["RA"] = [dp + "NVG_2012_S7_A_RA_00106_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_RA_00106_CalInertialAndMag.csv"]
-    s7["RH"] = [dp + "NVG_2012_S7_A_RH_00706_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_RH_00706_CalInertialAndMag.csv"]
-    s7["RT"] = [dp + "NVG_2012_S7_A_RT_00306_DateTime.csv", \
-                    dp + "NVG_2012_S7_A_RT_00306_CalInertialAndMag.csv"]
-
-    s7events = dp + "NVG_2012_S7_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-21/S8/"
-    s8 = {}
-    s8["LA"] = [dp + "NVG_2012_S8_A_LA_00207_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_LA_00207_CalInertialAndMag.csv"]
-    s8["LH"] = [dp + "NVG_2012_S8_A_LH_00807_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_LH_00807_CalInertialAndMag.csv"]
-    s8["LT"] = [dp + "NVG_2012_S8_A_LT_00407_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_LT_00407_CalInertialAndMag.csv"]
-    s8["N"] = [dp + "NVG_2012_S8_A_N_00607_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_N_00607_CalInertialAndMag.csv"]
-    s8["B"] = [dp + "NVG_2012_S8_A_B_00507_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_B_00507_CalInertialAndMag.csv"]
-    s8["RA"] = [dp + "NVG_2012_S8_A_RA_00107_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_RA_00107_CalInertialAndMag.csv"]
-    s8["RH"] = [dp + "NVG_2012_S8_A_RH_00707_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_RH_00707_CalInertialAndMag.csv"]
-    s8["RT"] = [dp + "NVG_2012_S8_A_RT_00307_DateTime.csv", \
-                    dp + "NVG_2012_S8_A_RT_00307_CalInertialAndMag.csv"]
-
-    s8events = dp + "NVG_2012_S8_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-21/S9/"
-    s9 = {}
-    s9["LA"] = [dp + "NVG_2012_S9_A_LA_00208_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_LA_00208_CalInertialAndMag.csv"]
-    s9["LH"] = [dp + "NVG_2012_S9_A_LH_00808_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_LH_00808_CalInertialAndMag.csv"]
-    s9["LT"] = [dp + "NVG_2012_S9_A_LT_00408_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_LT_00408_CalInertialAndMag.csv"]
-    s9["N"] = [dp + "NVG_2012_S9_A_N_00608_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_N_00608_CalInertialAndMag.csv"]
-    s9["B"] = [dp + "NVG_2012_S9_A_B_00508_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_B_00508_CalInertialAndMag.csv"]
-    s9["RA"] = [dp + "NVG_2012_S9_A_RA_00108_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_RA_00108_CalInertialAndMag.csv"]
-    s9["RH"] = [dp + "NVG_2012_S9_A_RH_00708_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_RH_00708_CalInertialAndMag.csv"]
-    s9["RT"] = [dp + "NVG_2012_S9_A_RT_00308_DateTime.csv", \
-                    dp + "NVG_2012_S9_A_RT_00308_CalInertialAndMag.csv"]
-
-    s9events = dp + "NVG_2012_S9_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-24/S10/"
-    s10 = {}
-    s10["LA"] = [dp + "NVG_2012_S10_A_LA_00209_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_LA_00209_CalInertialAndMag.csv"]
-    s10["LH"] = [dp + "NVG_2012_S10_A_LH_00809_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_LH_00809_CalInertialAndMag.csv"]
-    s10["LT"] = [dp + "NVG_2012_S10_A_LT_00409_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_LT_00409_CalInertialAndMag.csv"]
-    s10["N"] = [dp + "NVG_2012_S10_A_N_00609_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_N_00609_CalInertialAndMag.csv"]
-    s10["B"] = [dp + "NVG_2012_S10_A_B_00509_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_B_00509_CalInertialAndMag.csv"]
-    s10["RA"] = [dp + "NVG_2012_S10_A_RA_00109_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_RA_00109_CalInertialAndMag.csv"]
-    s10["RH"] = [dp + "NVG_2012_S10_A_RH_00709_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_RH_00709_CalInertialAndMag.csv"]
-    s10["RT"] = [dp + "NVG_2012_S10_A_RT_00309_DateTime.csv", \
-                    dp + "NVG_2012_S10_A_RT_00309_CalInertialAndMag.csv"]
-
-    s10events = dp + "NVG_2012_S10_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-24/S11/"
-    s11 = {}
-    s11["LA"] = [dp + "NVG_2012_S11_A_LA_00210_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_LA_00210_CalInertialAndMag.csv"]
-    s11["LH"] = [dp + "NVG_2012_S11_A_LH_00810_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_LH_00810_CalInertialAndMag.csv"]
-    s11["LT"] = [dp + "NVG_2012_S11_A_LT_00410_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_LT_00410_CalInertialAndMag.csv"]
-    s11["N"] = [dp + "NVG_2012_S11_A_N_00610_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_N_00610_CalInertialAndMag.csv"]
-    s11["B"] = [dp + "NVG_2012_S11_A_B_00510_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_B_00510_CalInertialAndMag.csv"]
-    s11["RA"] = [dp + "NVG_2012_S11_A_RA_00110_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_RA_00110_CalInertialAndMag.csv"]
-    s11["RH"] = [dp + "NVG_2012_S11_A_RH_00710_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_RH_00710_CalInertialAndMag.csv"]
-    s11["RT"] = [dp + "NVG_2012_S11_A_RT_00310_DateTime.csv", \
-                    dp + "NVG_2012_S11_A_RT_00310_CalInertialAndMag.csv"]
-
-    s11events = dp + "NVG_2012_S11_eventlog"
-
-
-    dp = "/media/2893-C7B3/NVG/2012-09-24/S12/"
-    s12 = {}
-    s12["LA"] = [dp + "NVG_2012_S12_A_LA_00211_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_LA_00211_CalInertialAndMag.csv"]
-    s12["LH"] = [dp + "NVG_2012_S12_A_LH_00811_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_LH_00811_CalInertialAndMag.csv"]
-    s12["LT"] = [dp + "NVG_2012_S12_A_LT_00411_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_LT_00411_CalInertialAndMag.csv"]
-    s12["N"] = [dp + "NVG_2012_S12_A_N_00611_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_N_00611_CalInertialAndMag.csv"]
-    s12["B"] = [dp + "NVG_2012_S12_A_B_00511_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_B_00511_CalInertialAndMag.csv"]
-    s12["RA"] = [dp + "NVG_2012_S12_A_RA_00111_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_RA_00111_CalInertialAndMag.csv"]
-    s12["RH"] = [dp + "NVG_2012_S12_A_RH_00711_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_RH_00711_CalInertialAndMag.csv"]
-    s12["RT"] = [dp + "NVG_2012_S12_A_RT_00311_DateTime.csv", \
-                    dp + "NVG_2012_S12_A_RT_00311_CalInertialAndMag.csv"]
-
-    s12events = dp + "NVG_2012_S12_eventlog"
-
-
-    return [dict(S2=s2, S3=s3, S4=s4, S5=s5, S6=s6, S7=s7, S8=s8, S9=s9, \
-                     S10=s10, S11=s11, S12=s12), \
-                dict(S2=s2events, S3=s3events, S4=s4events, S5=s5events, S6=s6events,\
-                         S7=s7events, S8=s8events, S9=s9events, S10=s10events, \
-                         S11=s11events, S12=s12events)]
 
 
 
