@@ -284,7 +284,7 @@ class NVGData:
         # No need: self.create_nvg_db(). Better to just add subject data
         self.hdfFile = h5py.File(self.fname)
 
-        #self.rotationEstimator = CyclicEstimator(14); # Default is cyclic estimator
+        self.rotationEstimator = self.CyclicEstimator(14); # Default is cyclic estimator
 
 
     def close(self):
@@ -1025,7 +1025,7 @@ class NVGData:
             indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
             imud = imudta[indx]
             #[q, cinds] = self.get_orientation(imud, [cstart, cstop], doPlots)
-            [q, cinds] = self.orientationEstimator.estimatea(imud, [cstart, cstop], doPlots)
+            [q, cinds] = self.rotationEstimator.estimate(imud, [cstart, cstop], doPlots)
             imuq.append(q)
             cycleinds.append(cinds)
             imuDataSplit.append(imud)
@@ -1064,12 +1064,13 @@ class NVGData:
         imuq = []
         cycleinds = []
         imuDataSplit = []
+        cyclicEst = self.CyclicEstimator(nHarmonics)
         for (cstart, cstop) in cycledta:
             (indStart,) = np.nonzero(imudta[:,0] < cstart)
             (indEnd,) = np.nonzero(imudta[:,0] > cstop)
             indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
             imud = imudta[indx]
-            q = self.get_cyclic_orientation(imud, nHarmonics)
+            [q, cinds] = cyclicEst.estimate(imud, [cstart, cstop], doPlots)
             imuq.append(q)
             #cycleinds.append(cinds)
             imuDataSplit.append(imud)
@@ -1095,72 +1096,78 @@ class NVGData:
         return cycledta
 
 
-    def get_cyclic_orientation(self, imudta, nHarmonics):
-        """
-        Runs the cyclic orientation method assuming that the imud is a single cycledta
-        """
-        dt = 1.0/256.0
-        tvec = imudta[:,0]*dt
+    class CyclicEstimator:
+        def __init__(self, nHarmonics):
+            self.nHarmonics = nHarmonics
 
-        #accdta = imudta[:,4:7]*9.82
-        gyrodta = imudta[:,1:4]*np.pi/180.0
-        magdta = imudta[:,7:10]
+        def estimate(self, imudta, cycledta, doPlots):
+            """
+            Runs the cyclic orientation method assuming that the imud is a single cycledta
+            """
+            dt = 1.0/256.0
+            tvec = imudta[:,0]*dt
 
-        omega = 2*np.pi/ (tvec[-1]  - tvec[0])
+            #accdta = imudta[:,4:7]*9.82
+            gyrodta = imudta[:,1:4]*np.pi/180.0
+            magdta = imudta[:,7:10]
 
-        (qEst, bEst) = cyclic_path.estimate_cyclic_orientation(tvec, gyrodta, magdta, omega, nHarmonics)
-        tvec.shape = (len(tvec), 1)
-        return np.hstack((tvec, qEst))
+            omega = 2*np.pi/ (tvec[-1]  - tvec[0])
+
+            (qEst, bEst) = cyclic_path.estimate_cyclic_orientation(tvec, gyrodta,
+                            magdta, omega, self.nHarmonics)
+            tvec.shape = (len(tvec), 1)
+            return (np.hstack((tvec, qEst)), None)
 
 
-    def get_orientation(self, imudta, cycledta, doPlots):
-        imuq = np.zeros((imudta.shape[0], 5))
-        initRotation = quat.Quaternion(1,0,0,0)
-        initRotVelocity = np.zeros((3,1))
-        initCov = np.diag(np.array([1, 1, 1, 1e-1, 1e-1, 1e-1, 1e-1]))
-        measuremCov = np.diag(np.array([1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1]))
-        procNoiseVar = 0.5 # rad^2/s^2
-        tau = 0.5 # s, time constant of cont time model of movement
-        orientFilter = None
-        dt = 1/256.0 # s per packet number
-        gMagn = 9.82
-        deg2rad = np.pi/180.0
-        imudtaT = imudta.T
-        cycleind = 0
-        cycledta.append(1e+12)
-        cycledtainds = []
-        for i in range(imuq.shape[0]):
-            t = imudta[i,0]*dt
-            if (int(imudta[i,0]) >= cycledta[cycleind]) or i == 0:
-                # Start of new cycle
-                #if orientFilter != None:
+    class GyroIntegratorOrientation:
+        def estimate(self, imudta, cycledta, doPlots):
+            imuq = np.zeros((imudta.shape[0], 5))
+            initRotation = quat.Quaternion(1,0,0,0)
+            initRotVelocity = np.zeros((3,1))
+            initCov = np.diag(np.array([1, 1, 1, 1e-1, 1e-1, 1e-1, 1e-1]))
+            measuremCov = np.diag(np.array([1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1]))
+            procNoiseVar = 0.5 # rad^2/s^2
+            tau = 0.5 # s, time constant of cont time model of movement
+            orientFilter = None
+            dt = 1/256.0 # s per packet number
+            gMagn = 9.82
+            deg2rad = np.pi/180.0
+            imudtaT = imudta.T
+            cycleind = 0
+            cycledta.append(1e+12)
+            cycledtainds = []
+            for i in range(imuq.shape[0]):
+                t = imudta[i,0]*dt
+                if (int(imudta[i,0]) >= cycledta[cycleind]) or i == 0:
+                    # Start of new cycle
+                    #if orientFilter != None:
                     #initialRotVelocity = orientFilter.rotationalVelocity.latestValue
                     #initCov = np.diag(np.array([1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1, 1e-1]))
 
-                orientFilter = orientation.GyroIntegrator(t, initRotation)
+                    orientFilter = orientation.GyroIntegrator(t, initRotation)
                 #initRotVelocity,
                 #                         initCov, measuremCov, procNoiseVar, tau)
-                if i != 0:
-                    cycleind += 1
-                    cycledtainds.append(i)
-            else:
+                    if i != 0:
+                        cycleind += 1
+                        cycledtainds.append(i)
+                else:
 
-                orientFilter(imudtaT[4:7,i]*gMagn, imudtaT[7:10,i], imudtaT[1:4,i]*deg2rad, t)
+                    orientFilter(imudtaT[4:7,i]*gMagn, imudtaT[7:10,i], imudtaT[1:4,i]*deg2rad, t)
 
-            imuq[i,0] = t
-            imuq[i,1] = orientFilter.rotation.latestValue.w
-            imuq[i,2] = orientFilter.rotation.latestValue.x
-            imuq[i,3] = orientFilter.rotation.latestValue.y
-            imuq[i,4] = orientFilter.rotation.latestValue.z
+                imuq[i,0] = t
+                imuq[i,1] = orientFilter.rotation.latestValue.w
+                imuq[i,2] = orientFilter.rotation.latestValue.x
+                imuq[i,3] = orientFilter.rotation.latestValue.y
+                imuq[i,4] = orientFilter.rotation.latestValue.z
 
-        cycledta.pop()
-        if doPlots: # Check results
-            pyplot.figure()
-            pyplot.plot(imuq[:,0], imuq[:,1:5])
-            for ind in cycledta:
-                pyplot.plot([dt*ind, dt*ind], [-1, 1], 'm')
+            cycledta.pop()
+            if doPlots: # Check results
+                pyplot.figure()
+                pyplot.plot(imuq[:,0], imuq[:,1:5])
+                for ind in cycledta:
+                    pyplot.plot([dt*ind, dt*ind], [-1, 1], 'm')
 
-        return [imuq, cycledtainds]
+            return [imuq, cycledtainds]
 
     def get_imu_data(self, subject="S7", trial="D", imu="LH",\
                          startTime=0,\

@@ -28,29 +28,10 @@ import itertools
 from nvg.io import qualisys_tsv as qtsv
 from nvg.ximu import ximudata as xdt
 
-def bland_altman_plot(data1, data2, *args, **kwargs):
-    data1     = np.asarray(data1)
-    data2     = np.asarray(data2)
-    mean      = np.mean([data1, data2], axis=0)
-    diff      = data1 - data2                   # Difference between data1 and data2
-    md        = np.mean(diff)                   # Mean of the difference
-    sd        = np.std(diff, axis=0)            # Standard deviation of the difference
 
-    plt.scatter(mean, diff, *args, **kwargs)
-    plt.axhline(md,        color='gray', linestyle='--')
-    plt.axhline(md + 2*sd, color='gray', linestyle='--')
-    plt.axhline(md - 2*sd, color='gray', linestyle='--')
+# Load the imu data so that it is accessible as a global variable in this module
+xdb = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
 
-def test_three_point_angle():
-    p0 = np.array([0.0,0,0])
-    p1 = np.array([1.0,0,0])
-    p2 = np.array([1.0,1.0,0])
-    p3 = np.array([0.0,2.0,0])
-
-    npt.assert_almost_equal( _three_point_angle(p1,p0,p2,np.array([0,0,1.0])), np.pi/4)
-    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p2,np.array([0,0,1.0])), np.pi/4 )
-    npt.assert_almost_equal( _three_point_angle(p1,p0,p3,np.array([0,0,1.0])), np.pi/2)
-    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p3,np.array([0,0,1.0])), np.pi/2 )
 
 
 def get_comparison_data(xdb, mocapdatafile, markers,  subject, trial, imus,
@@ -172,17 +153,17 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
         hipd = hip.position(md.frameTimes)
         thighd = thigh.position(md.frameTimes)
 
-        plt.figure()
-        plt.plot(md.frameTimes, ankled[2,:])
+        #plt.figure()
+        #plt.plot(md.frameTimes, ankled[2,:])
 
-        plt.figure()
-        plt.plot(md.frameTimes, kneed[2,:])
+        #plt.figure()
+        #plt.plot(md.frameTimes, kneed[2,:])
 
-        plt.figure()
-        plt.plot(md.frameTimes, hipd[2,:])
+        #plt.figure()
+        #plt.plot(md.frameTimes, hipd[2,:])
 
-        plt.figure()
-        plt.plot(md.frameTimes, thighd[2,:])
+        #plt.figure()
+        #plt.plot(md.frameTimes, thighd[2,:])
 
         #return
 
@@ -270,14 +251,16 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     plt.figure()
     for ja in kneeangle_md:
         plt.plot(ja[1], ja[0]*180/np.pi)
-    plt.title("Knee angle from marker data")
+    plt.title("Knee angle from marker data " + subject + ' trial ' + trial )
     plt.ylabel("Degrees")
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mocap.pdf')
 
     plt.figure()
     for ja in kneeangle_imu:
         plt.plot(ja[1], ja[0]*180/np.pi)
-    plt.title("Knee angle from imu data")
+    plt.title("Knee angle from imu data " + subject + ' trial ' + trial )
     plt.ylabel("Degrees")
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-imu.pdf')
 
     imuflat = np.array([])
     mdflat = np.array([])
@@ -359,11 +342,10 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mean-std.pdf')
 
 
-    plt.figure()
-    bland_altman_plot(mdflat.ravel(), imuflat.ravel())
-    plt.title('Bland-Altman Plot')
+    #plt.figure()
+    #bland_altman_plot(mdflat.ravel(), imuflat.ravel())
+    #plt.title('Bland-Altman Plot')
 
-    plt.show()
 
 def compare_foot_clearance(xdb, mocapdata, subject, trial="N"):
     """
@@ -399,133 +381,133 @@ def compare_foot_clearance(xdb, mocapdata, subject, trial="N"):
 
     plt.show()
 
-def _four_point_angle(pp1, pp2, pd1, pd2, posdir):
-    """
-    Computes the angle between the lines pp1-pp2 and pd1-pd2.
-      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = pp1-pp2
-    v2 = pd1-pd2
-
-    return _two_vec_angle(v1,v2,posdir)
-
-def _three_point_angle(p1, pcentral, p2, posdir):
-    """
-    Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-    v1 = p1-pcentral
-    v2 = p2-pcentral
-
-    return _two_vec_angle(v1,v2,posdir)
-
-def _two_vec_angle(v1,v2,posdir):
-
-    if v1.ndim == 1:
-        v1.shape += (1,)
-        v2.shape += (1,)
-
-    theta = np.zeros((v1.shape[1],))
-
-    for i in range(v1.shape[1]):
-        v1_ = v1[:,i]
-        v2_ = v2[:,i]
-
-        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
-        v3_ = np.cross(v1_,v2_)
-        if (np.inner(v3_, posdir) < 0):
-            theta[i] = 2*np.pi - theta[i]
-
-    return theta
-
-def _four_point_angle_projected(pp1, pp2, pd1, pd2, posdir):
-    """
-    Computes the angle between the lines pp1-pp2 and pd1-pd2.
-      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = pp1-pp2
-    v2 = pd1-pd2
-
-    return _two_vec_angle_projected(v1,v2,posdir)
-
-def _three_point_angle_projected(p1, pcentral, p2, posdir):
-    """
-    Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = p1-pcentral
-    v2 = p2-pcentral
-
-    return _two_vec_angle_projected(v1,v2,posdir)
-
-def _two_vec_angle_projected(v1,v2,posdir):
-
-    Pr = np.identity(3) - np.outer(posdir,posdir)
-
-
-    if v1.ndim == 1:
-        v1.shape += (1,)
-        v2.shape += (1,)
-
-    theta = np.zeros((v1.shape[1],))
-
-    for i in range(v1.shape[1]):
-        v1_ = np.dot( Pr, v1[:,i] )
-        v2_ = np.dot( Pr, v2[:,i] )
-
-        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
-        v3_ = np.cross(v1_,v2_)
-        if (np.inner(v3_, posdir) < 0):
-            theta[i] = 2*np.pi - theta[i]
-
-    return theta
-
 def check_sync(syncfilename="/home/kjartan/Dropbox/projekt/nvg/data/solna09/S7/NVG_2012_S7_sync.tsv"):
     """
         Loads the tsv file with markerdata from the synchronization experiment. Plots the z-coordinate of the marker
         'clapper1'.
     """
+    title = "Checking sync of file %s" %syncfilename
+
     md = qtsv.loadQualisysTSVFile(syncfilename)
+    timeToSync = md.syncTime - md.timeStamp
+
     clapper = md.marker('clapper1')
     clapposz = clapper.position(md.frameTimes).transpose()[:,2]
 
     plt.figure()
-    plt.plot(clapposz)
+    plt.plot(md.frameTimes, clapposz)
+    plt.plot(timeToSync.total_seconds()*np.array([1, 1]), [-0.3, 1])
+    plt.title(title)
+
+def markerdata_list():
+    """
+    Returns a list of markerdata file names
+    """
+    comparisonData = []
+    dtaroot = '/media/ubuntu-15-10/home/kjartan/nvg/Data/'
+    comparisonData.append( ("S4", "N", dtaroot + "S4/NVG_2012_S4_N.tsv" ) )
+    comparisonData.append( ("S4", "D", dtaroot + "S4/NVG_2012_S4_D.tsv" ) )
+    #comparisonData.append( ("S6", "N", dtaroot + "S6/NVG_2012_S6_N.tsv" ) )
+    #comparisonData.append( ("S6", "D", dtaroot + "S6/NVG_2012_S6_D.tsv" ) )
+    comparisonData.append( ("S10", "N", dtaroot + "S10/NVG_2012_S10_N.tsv" ) )
+    comparisonData.append( ("S10", "D", dtaroot + "S10/NVG_2012_S10_D.tsv" ) )
+    comparisonData.append( ("S12", "N", dtaroot + "S12/NVG_2012_S12_N.tsv" ) )
+    comparisonData.append( ("S12", "D", dtaroot + "S12/NVG_2012_S12_D.tsv" ) )
+
+    return comparisonData
+
+def markerdata_sync_list():
+    """
+    Returns a list of markerdata filenames for the sync experiment
+    """
+    syncData = {}
+    dtaroot = '/media/ubuntu-15-10/home/kjartan/nvg/Data/'
+    syncData["S4"] =  dtaroot + "S4/NVG_2012_S4_sync.tsv"
+    syncData["S6"] =  dtaroot + "S6/NVG_2012_S6_sync.tsv"
+    syncData["S10"] =  dtaroot + "S10/NVG_2012_S10_sync.tsv"
+    syncData["S12"] =  dtaroot + "S12/NVG_2012_S12_sync.tsv"
+
+    return syncData
 
 
-def main_2017(subj="S4", trial="N"):
+def plot_marker_data(markerdata = None):
+    """
+    Will load the markerdata in the provided list and plot marker trajectories.
+    @param comparisonData: list of comparison data to use. Each element in the
+                           list is a tuple with (subj, trial, mcfilename)
+    """
+
+    if markerdata is None:
+        md = markerdata_list()
+    else:
+        md = markerdata
+
+    startTime = 1*60 # s
+    anTime = 180 # s
+
+    for (subject, trial, mcfilename) in md:
+
+
+        # Load cycledata from imu data in order to get the cycle events.
+        imudt = xdb.get_imu_data(subject, trial, "LA", startTime, anTime)
+        firstPN = imudt[0][0,0]
+        lastPN = imudt[0][-1,0]
+        dt = 1.0/262.0 # Weird, but this is the actual sampling period
+        cycledta_no_shift= xdb.get_cycle_data(subject, trial, 'LA', firstPN, lastPN)
+        syncLA = xdb.get_PN_at_sync(subject, 'LA')
+        cycledta = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
+        # cycledta now contains time (in seconds) since sync.
+        firstCycleStart = cycledta[0][0]
+        lastCycleEnd = cycledta[-1][1]
+
+        # Load the markerdata
+        md = qtsv.loadQualisysTSVFile(mcfilename)
+        ankle = md.marker('ANKLE')
+        knee = md.marker('KNEE')
+        thigh = md.marker('THIGH')
+        hip = md.marker('HIP')
+
+        timeSinceSync = md.timeStamp - md.syncTime
+
+        frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
+        frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
+
+        ankled = ankle.position(frames2use)
+        kneed = knee.position(frames2use)
+        hipd = hip.position(frames2use)
+        thighd = thigh.position(frames2use)
+
+        1/0
+        plt.figure()
+        plt.subplot(2,2,1)
+        plt.plot(ankled)
+
+
+def main_2017(comparisonData = None):
+    """
+    Compares knee angle and foot clearance.
+    @param comparisonData: list of comparison data to use. Each element in the
+                           list is a tuple with (subj, trial, mcfilename)
+    """
     resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/" + date.isoformat(date.today())
     if not os.path.exists(resdir):
         os.makedirs(resdir)
 
-    dtaroot = '/media/ubuntu-15-10'
+    if comparisonData is None:
+        # Make list of all
+        comparisonData = markerdata_list()
 
-    db = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
 
-    if subj == "S4":
-        peakat = 70  # Approximately where in cycle peak appears
-        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S4/NVG_2012_S4_N.tsv'
+    # Compare knee angle
+    peakat = 70  # Approximately where in cycle peak appears
+    for (subj, trial, mcfilename) in comparisonData:
+        print("Subject %s trial %s" %(subj, trial))
+
         md = qtsv.loadQualisysTSVFile(mcfilename)
-        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
-
-    elif subj == "S10":
-        peakat = 70  # Approximately where in cycle peak appears
-        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S10/NVG_2012_S10_N.tsv'
-        md = qtsv.loadQualisysTSVFile(mcfilename)
-        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
-
-    elif subj == "S12":
-        peakat = 70  # Approximately where in cycle peak appears
-        mcfilename = dtaroot + '/home/kjartan/nvg/Data/S12/NVG_2012_S12_N.tsv'
-        md = qtsv.loadQualisysTSVFile(mcfilename)
-        compare_knee_RoM(db, md, subj,trial, resdir, peakat)
+        compare_knee_RoM(xdb, md, subj,trial, resdir, peakat)
 
 
-    return db, md
-
+    plt.show()
 
 def main_2016():
     resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/" + date.isoformat(date.today())
@@ -629,6 +611,115 @@ def check_PN_vs_time(dateTimeFile=("/media/ubuntu-15-10/home/kjartan/nvg/"+
     print "But every second packet is missing in the data"
 
     return pns,times
+
+def bland_altman_plot(data1, data2, *args, **kwargs):
+    data1     = np.asarray(data1)
+    data2     = np.asarray(data2)
+    mean      = np.mean([data1, data2], axis=0)
+    diff      = data1 - data2                   # Difference between data1 and data2
+    md        = np.mean(diff)                   # Mean of the difference
+    sd        = np.std(diff, axis=0)            # Standard deviation of the difference
+
+    plt.scatter(mean, diff, *args, **kwargs)
+    plt.axhline(md,        color='gray', linestyle='--')
+    plt.axhline(md + 2*sd, color='gray', linestyle='--')
+    plt.axhline(md - 2*sd, color='gray', linestyle='--')
+
+def test_three_point_angle():
+    p0 = np.array([0.0,0,0])
+    p1 = np.array([1.0,0,0])
+    p2 = np.array([1.0,1.0,0])
+    p3 = np.array([0.0,2.0,0])
+
+    npt.assert_almost_equal( _three_point_angle(p1,p0,p2,np.array([0,0,1.0])), np.pi/4)
+    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p2,np.array([0,0,1.0])), np.pi/4 )
+    npt.assert_almost_equal( _three_point_angle(p1,p0,p3,np.array([0,0,1.0])), np.pi/2)
+    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p3,np.array([0,0,1.0])), np.pi/2 )
+
+def _four_point_angle(pp1, pp2, pd1, pd2, posdir):
+    """
+    Computes the angle between the lines pp1-pp2 and pd1-pd2.
+      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
+    """
+
+    v1 = pp1-pp2
+    v2 = pd1-pd2
+
+    return _two_vec_angle(v1,v2,posdir)
+
+def _three_point_angle(p1, pcentral, p2, posdir):
+    """
+    Will compute the angle between the three points, using pcentral as the center.
+    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
+    """
+    v1 = p1-pcentral
+    v2 = p2-pcentral
+
+    return _two_vec_angle(v1,v2,posdir)
+
+def _two_vec_angle(v1,v2,posdir):
+
+    if v1.ndim == 1:
+        v1.shape += (1,)
+        v2.shape += (1,)
+
+    theta = np.zeros((v1.shape[1],))
+
+    for i in range(v1.shape[1]):
+        v1_ = v1[:,i]
+        v2_ = v2[:,i]
+
+        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
+        v3_ = np.cross(v1_,v2_)
+        if (np.inner(v3_, posdir) < 0):
+            theta[i] = 2*np.pi - theta[i]
+
+    return theta
+
+def _four_point_angle_projected(pp1, pp2, pd1, pd2, posdir):
+    """
+    Computes the angle between the lines pp1-pp2 and pd1-pd2.
+      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
+    """
+
+    v1 = pp1-pp2
+    v2 = pd1-pd2
+
+    return _two_vec_angle_projected(v1,v2,posdir)
+
+def _three_point_angle_projected(p1, pcentral, p2, posdir):
+    """
+    Will compute the angle between the three points, using pcentral as the center.
+    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
+    """
+
+    v1 = p1-pcentral
+    v2 = p2-pcentral
+
+    return _two_vec_angle_projected(v1,v2,posdir)
+
+def _two_vec_angle_projected(v1,v2,posdir):
+
+    Pr = np.identity(3) - np.outer(posdir,posdir)
+
+
+    if v1.ndim == 1:
+        v1.shape += (1,)
+        v2.shape += (1,)
+
+    theta = np.zeros((v1.shape[1],))
+
+    for i in range(v1.shape[1]):
+        v1_ = np.dot( Pr, v1[:,i] )
+        v2_ = np.dot( Pr, v2[:,i] )
+
+        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
+        v3_ = np.cross(v1_,v2_)
+        if (np.inner(v3_, posdir) < 0):
+            theta[i] = 2*np.pi - theta[i]
+
+    return theta
+
 
 if __name__ == '__main__':
 
