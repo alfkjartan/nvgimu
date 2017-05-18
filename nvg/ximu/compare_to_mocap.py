@@ -34,12 +34,11 @@ xdb = xdt.NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5')
 
 
 
-def get_comparison_data(xdb, mocapdatafile, markers,  subject, trial, imus,
-                        startTime=1, anTime=180):
+def get_comparison_data(mocapdatafile, markers,  subject, trial, imus,
+                        startTime=60, anTime=180):
     """ Returns imu data and mocapdata
 
     Arguments:
-    xdb           -> database object
     mocapdatafile -> file name with full path
     markers       -> list of marker names, e.g. ['ANKLE', ̈́'KNEE', 'THIGH']
     subject       -> Subject. String such as 'S4'
@@ -53,29 +52,42 @@ def get_comparison_data(xdb, mocapdatafile, markers,  subject, trial, imus,
     imudt <-  imu data
     """
 
-    # Load cycledata from imu data
-    dt = 1.0/262.0 # Weird, but this is the actual sampling period
+    # Load imu data. These will be synced
     imudata = {}
     for imu in imus:
-        imudt = xdb.get_imu_data(subject, trial, imu, startTime, anTime)
-        firstPN = imudt[0][0,0]
-        lastPN = imudt[0][-1,0]
-        cycledta_no_shift= xdb.get_cycle_data(subject, trial, imu, firstPN, lastPN)
-        syncLA = xdb.get_PN_at_sync(subject, imu)
-        cycledta = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
-        firstCycleStart = cycledta[0][0]
-        lastCycleEnd = cycledta[-1][1]
-
-        # Add a 11th column to imu data with time stamps in seconds since sync
-        tvec = dt*(imudt[0][:,0]-syncLA[0])
-        imudt[0] = np.hstack( (imudt[0], np.asmatrix(tvec).T) )
+        (imudt, subj_, trial_) = xdb.get_imu_data(subject, trial, imu, startTime, anTime)
         imudata[imu] =  imudt
 
-    imudata['cycledata'] = cycledta # times in seconds since sync
 
-    md = qtsv.loadQualisysTSVFile(mocapdatafile)
+    (imudt, subj_, trial_) = xdb.get_imu_data(subject, trial, "LA", startTime, anTime)
+    firstPN = imudt[0,0]
+    lastPN = imudt[-1,0]
+    syncLA = xdb.get_PN_at_sync(subject, "LA")
+    dt = 1.0/262.0 # Weird, but this is the actual sampling period
+    tvec = dt*(imudt[:,0]-syncLA[0])
+    cycledtaNoShift= xdb.get_cycle_data(subject, trial, "LA", firstPN, lastPN)
+
+    packetNumbers = np.asarray(imudt[:,0], np.int32)
+    cycledtaInds = [ (np.where(packetNumbers <= cd_[0])[0][-1],
+                      np.where(packetNumbers >= cd_[1])[0][0])
+                        for cd_ in cycledtaNoShift ]
+
+    cycledtaSec = [ ( (cd_[0]-syncLA[0])*dt, (cd_[1]-syncLA[0])*dt )
+                        for cd_ in cycledtaNoShift]
+
+    imudata['cycledata'] = cycledtaNoShift # PNs of LA imu at events
+    imudata['cycledataSec'] = cycledtaSec # times in seconds since sync
+    imudata['cycledataInds'] = cycledtaInds # times in seconds since sync
+
+    if isinstance(mocapdatafile, basestring):
+        md = qtsv.loadQualisysTSVFile(mocapdatafile)
+    else:
+        md = mocapdatafile
+
     timeSinceSync = md.timeStamp - md.syncTime
 
+    firstCycleStart = cycledtaSec[0][0]
+    lastCycleEnd = cycledtaSec[-1][-1]
 
     frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
     frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
@@ -126,115 +138,60 @@ def resample_timeseries(x, t, tnew, kind='linear'):
     f = interp1d(t, x, kind=kind, axis=0)
     return f(tnew)
 
-def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
+def compare_knee_RoM(mocapdata, subject, trial="N",
                     resdir="/home/kjartan/Dropbox/project/nvg/resultat/compare-mocap",
+                    startTime = 60,
+                    anTime = 180,
                     peakat=70):
     """  Compares Range of motion of knee flexion for trial N (Normal condition). """
 
-    # Check if startTime and anTime is set in mocapdata. If not, then show marker data (z-coordinate only)
-    # and let user pick
+    (md, imudt) = get_comparison_data(mocapdata,
+                                ['ANKLE', 'KNEE', 'THIGH', 'HIP'],
+                                subject, trial, ['LA'],
+                                startTime, anTime)
+    ankled = md['ANKLE']
+    kneed = md['KNEE']
+    thighd = md['THIGH']
+    hipd = md['HIP']
 
-    try:
-        startTime = mocapdata.startTime
-        anTime = mocapdata.anTime
-    except AttributeError:
-        # No start time or anTime set
-        md = mocapdata
-        ankle = md.marker('ANKLE')
-        knee  = md.marker('KNEE')
-        thigh = md.marker('THIGH')
-        hip = md.marker('HIP')
-
-        #frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
-        #frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
-
-        ankled = ankle.position(md.frameTimes)
-        kneed = knee.position(md.frameTimes)
-        hipd = hip.position(md.frameTimes)
-        thighd = thigh.position(md.frameTimes)
-
-        #plt.figure()
-        #plt.plot(md.frameTimes, ankled[2,:])
-
-        #plt.figure()
-        #plt.plot(md.frameTimes, kneed[2,:])
-
-        #plt.figure()
-        #plt.plot(md.frameTimes, hipd[2,:])
-
-        #plt.figure()
-        #plt.plot(md.frameTimes, thighd[2,:])
-
-        #return
-
-    startTime = 1*60 # s
-    anTime = 180 # s
-
-    # Load cycledata from imu data
-    imudt = xdb.get_imu_data(subject, trial, "LA", startTime, anTime)
-    firstPN = imudt[0][0,0]
-    lastPN = imudt[0][-1,0]
-    dt = 1.0/262.0 # Weird, but this is the actual sampling period
-    cycledta_no_shift= xdb.get_cycle_data(subject, trial, 'LA', firstPN, lastPN)
-    syncLA = xdb.get_PN_at_sync(subject, 'LA')
-    cycledta = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
-    firstCycleStart = cycledta[0][0]
-    lastCycleEnd = cycledta[-1][1]
-
-    md = mocapdata
-    ankle = md.marker('ANKLE')
-    knee = md.marker('KNEE')
-    thigh = md.marker('THIGH')
-    hip = md.marker('HIP')
-
-    timeSinceSync = md.timeStamp - md.syncTime
-
-    frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
-    frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
-
-    ankled = ankle.position(frames2use)
-    kneed = knee.position(frames2use)
-    hipd = hip.position(frames2use)
-    thighd = thigh.position(frames2use)
-
-
-    #jointangle = _three_point_angle( hipd, kneed, ankled, np.array([-1.0,0,0]) )
+    jointangle = _three_point_angle( hipd, kneed, ankled, np.array([-1.0,0,0]) )
     #jointangle = _three_point_angle_projected( thighd, kneed, ankled, np.array([-1.0,0,0]) )
-    jointangle = _three_point_angle_projected( hipd, kneed, ankled, np.array([-1.0,0,0]) )
+    #jointangle = _three_point_angle_projected( hipd, kneed, ankled, np.array([-1.0,0,0]) )
     #jointangle = _four_point_angle_projected( hipd, thighd, ankled, kneed, np.array([-1.0,0,0]) )
 
-    ft = frames2use + timeSinceSync.total_seconds()
-
+    ft = md['frametimes']
+    cycledta = imudt['cycledataSec']
     # Split and normalize to 100 datapoints.
     (timeSplit, jointangleSplitNoNorm) = split_in_cycles(ft, jointangle, cycledta)
-    tnew = np.linspace(0,100, 100)
+    tnew = np.linspace(0,99, 100)
     jointangleSplit = []
     for ja in jointangleSplitNoNorm:
 
-        t0 = np.linspace(0,100, len(ja))
+        t0 = np.linspace(0,99, len(ja))
         jointangleSplit.append(resample_timeseries(ja, t0, tnew))
 
 
-    #accmagn = np.sqrt(np.sum(imudt[0][:,4:7]**2, axis=1))
-    #imufr = imudt[0][:,0] - syncLA[0]
-
-    angleBetweenSegments = xdb.get_angle_between_segments(subject, trial, ["LA", "LT"],
-                                                          startTime=startTime, anTime=anTime,
-                                                          doPlots=False)
-
+    angleBetweenSegments = xdb.get_angle_between_segments(subject, trial,
+                                                    ["LA", "LT"],
+                                                    startTime=startTime,
+                                                    anTime=anTime,
+                                                    jointAxes=[],
+                                                    doPlots=False)
 
     # Normalize by finding positive peak, setting angle to zero at negative peak, determining time vector
     # with zero at peak, and index of peak
 
     kneeangle_md = []
-    tvec = np.linspace(0,100,100)
+    tvec = np.linspace(0,99,100)
+    #1/0
     for ja in jointangleSplit:
         (peakind,) = np.nonzero(ja == np.max(ja))
         peakind = peakind[0]
         (negpeakind,) = np.nonzero(ja == np.min(ja))
         negpeakind = negpeakind[0]
         t = tvec - peakind
-        angle = ja - ja[negpeakind]
+        #angle = ja - ja[negpeakind]
+        angle = ja
         kneeangle_md.append( (angle, t, peakind) )
 
     kneeangle_imu = []
@@ -244,7 +201,8 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
         (negpeakind,) = np.nonzero(ja == np.min(ja))
         negpeakind = negpeakind[0]
         t = tvec - peakind
-        angle = ja - ja[negpeakind]
+        #angle = ja - ja[negpeakind]
+        angle = ja
         kneeangle_imu.append( (angle, t, peakind) )
 
 
@@ -255,12 +213,32 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     plt.ylabel("Degrees")
     plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mocap.pdf')
 
+    #1/0
     plt.figure()
     for ja in kneeangle_imu:
         plt.plot(ja[1], ja[0]*180/np.pi)
     plt.title("Knee angle from imu data " + subject + ' trial ' + trial )
     plt.ylabel("Degrees")
     plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-imu.pdf')
+
+    _stats_plot(kneeangle_md, kneeangle_imu, peakat)
+    plt.title('Knee flexion. Ensemble mean +/- 2 std  ' + subject + ' trial ' + trial )
+    plt.ylabel('Degrees')
+    plt.xticks([])
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mean-std.pdf')
+
+def _stats_plot(dta_md, dta_imu, peakat=0):
+    """
+    Calculates ensemble mean and standard deviation from the sets of time series
+    and plots.
+
+    Arguments:
+    dta_md  ->  list of timeseries obtained using markerdata. Each element
+                corresponds to a gait cycles
+    dta_imu ->  As above, but for imu data
+    peakat  ->  Approximately procentage of cycle at which peak occurs. This is
+                used in order to align the time series
+    """
 
     imuflat = np.array([])
     mdflat = np.array([])
@@ -275,7 +253,7 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     #mdmean1 = np.array([0, for i in range(100)])
     #mdstd = np.array([0, for i in range(100)])
 
-    for (mda,imua) in itertools.izip(kneeangle_md, kneeangle_imu):
+    for (mda,imua) in itertools.izip(dta_md, dta_imu):
         mdta = mda[0]
         idta = imua[0]
         if (len(mdta) == 100) and (len(idta) == 100):
@@ -334,12 +312,8 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     plt.plot(tt,(mdmeans-2*mdstd)*180/np.pi, color=myblue, linewidth=1, linestyle='--')
 
     plt.legend([pimu, pmd], ["IMU data", "Marker data"], loc=2)
-    plt.title('Knee flexion. Ensemble mean +/- 2 std  ' + subject + ' trial ' + trial )
-    plt.ylabel('Degrees')
-    plt.xticks([])
     plt.xlabel('One gait cycle')
 
-    plt.savefig(resdir + '/' + subject + '_' + trial + '_knee-angle-mean-std.pdf')
 
 
     #plt.figure()
@@ -347,37 +321,67 @@ def compare_knee_RoM(xdb, mocapdata, subject, trial="N",
     #plt.title('Bland-Altman Plot')
 
 
-def compare_foot_clearance(xdb, mocapdata, subject, trial="N"):
+def compare_foot_clearance(mocapdata, subject, trial,
+                            resdir, peakat=0, startTime=60, anTime=180):
+    """  Compares foot clearance calculated using IMU data to the vertical
+    displacement of the ANKLE marker
     """
-    Compares foot clearance per step for all steps during two minutes in middle of
-    trial N (Normal condition).
-    """
 
-    md = mocapdata
-    anklepos = md.marker('ANKLE')
+    (md, imudt) = get_comparison_data(mocapdata,
+                                        ['ANKLE',],
+                                        subject, trial, ['LA'],
+                                        startTime, anTime)
 
-    timeSinceSync = md.timeStamp - md.syncTime
+    anklepos = md['ANKLE']
+    ankleposz = anklepos.transpose()[:,2]
 
-    ankleposz = anklepos.position(md.frameTimes).transpose()[:,2]
-    ft = md.frameTimes + timeSinceSync.total_seconds()
+    # Split and normalize to 100 datapoints.
+    ft = md['frametimes']
+    cycledta = imudt['cycledata']
 
-    # Load cycledata from imu data and check if ok wrt marker data
-    cycledta = xdb.get_cycle_data(subject, trial, 'LA', 0, 800000000)
-    syncLA = xdb.get_PN_at_sync(subject, 'LA')
+    (timeSplit, azSplitNoNorm) = split_in_cycles(ft, ankleposz, cycledta)
+    tnew = np.linspace(0,100, 101)
+    az_md = []
+    for az_ in azSplitNoNorm:
+        # Normalize to 101 points between 0 and 100
+        azmin = np.min(az_)
+        t0 = np.linspace(0,100, len(az_))
+        az_md.append(resample_timeseries(az_-azmin, t0, tnew))
 
-    imudt = xdb.get_imu_data(subject, trial, "LA", 0, 500)
-    accmagn = np.sqrt(np.sum(imudt[0][:,4:7]**2, axis=1))
-    imufr = imudt[0][:,0] - syncLA[0]
 
+    [imuDisp, imuVel, imuGvec, cdta, cinds] = xdb.track_displacement(subject,
+                                                trial, 'LA',
+                                                startTime, anTime,
+                                                doPlots = False)
+
+
+    #az_imu = xdb.get_vertical_displacement(subject, trial, 'LA', startTime, anTime)
+
+    az_imu = []
+    for (d_, g_) in itertools.izip(imuDisp, imuGvec):
+        vd = np.dot(d_[:,1:], g_)
+        vDisps.append(np.max(vd) - np.min(vd))
 
     plt.figure()
-    plt.plot(ft, ankleposz)
-    dt = 1.0/262.0
-    for ind in cycledta:
-        plt.plot([dt*float(ind[0]-syncLA[0]), dt*float(ind[0]-syncLA[0])], [-1, 1], 'm')
-        plt.plot([dt*float(ind[1]-syncLA[0]), dt*float(ind[1]-syncLA[0])], [-1, 1], 'c')
+    for az_ in az_md:
+        plt.plot(az_[1], az_[0])
+    plt.title("vertical displacement of ankle from marker data " + subject + ' trial ' + trial )
+    plt.ylabel("m")
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_foot-clearance-mocap.pdf')
 
-    plt.plot(imufr*dt, accmagn, 'r')
+    plt.figure()
+    for az_ in az_imu:
+        plt.plot(az_[1], az_[0])
+
+    plt.title("Vertical displacement of ankle from imu data " + subject + ' trial ' + trial )
+    plt.ylabel("m")
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_foot-clearance-imu.pdf')
+
+    _stats_plot(az_md, az_imu)
+    plt.title('Foot clearance. Ensemble mean +/- 2 std  ' + subject + ' trial ' + trial )
+    plt.ylabel('Degrees')
+    plt.xticks([])
+    plt.savefig(resdir + '/' + subject + '_' + trial + '_foot-clearance-mean-std.pdf')
 
     plt.show()
 
@@ -455,10 +459,10 @@ def plot_marker_data(markerdata = None):
         dt = 1.0/262.0 # Weird, but this is the actual sampling period
         cycledta_no_shift= xdb.get_cycle_data(subject, trial, 'LA', firstPN, lastPN)
         syncLA = xdb.get_PN_at_sync(subject, 'LA')
-        cycledta = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
+        cycledtaSec = [[(t[0]-syncLA[0])*dt, (t[1]-syncLA[0])*dt] for t in cycledta_no_shift]
         # cycledta now contains time (in seconds) since sync.
-        firstCycleStart = cycledta[0][0]
-        lastCycleEnd = cycledta[-1][1]
+        firstCycleStart = cycledtaSec[0][0]
+        lastCycleEnd = cycledtaSec[-1][1]
 
         # Load the markerdata
         md = qtsv.loadQualisysTSVFile(mcfilename)
@@ -498,16 +502,35 @@ def main_2017(comparisonData = None):
         comparisonData = markerdata_list()
 
 
+    _compare_knee_angle(comparisonData, resdir)
+
+    #_compare_foot_clearance(comparisonData, resdir)
+
+def _compare_knee_angle(comparisonData, resdir):
+
     # Compare knee angle
     peakat = 70  # Approximately where in cycle peak appears
     for (subj, trial, mcfilename) in comparisonData:
         print("Subject %s trial %s" %(subj, trial))
 
         md = qtsv.loadQualisysTSVFile(mcfilename)
-        compare_knee_RoM(xdb, md, subj,trial, resdir, peakat)
+        compare_knee_RoM(md, subj,trial, resdir, peakat)
 
 
     plt.show()
+
+def _compare_foot_clearance(comparisonData, resdir):
+
+    #peakat = 70  # Approximately where in cycle peak appears
+    for (subj, trial, mcfilename) in comparisonData:
+        print("Subject %s trial %s" %(subj, trial))
+
+        md = qtsv.loadQualisysTSVFile(mcfilename)
+        compare_foot_clearance(md, subj,trial, resdir)
+
+
+    plt.show()
+
 
 def main_2016():
     resdir = "/home/kjartan/Dropbox/projekt/nvg/resultat/compare-mocap/" + date.isoformat(date.today())
@@ -653,7 +676,7 @@ def _three_point_angle(p1, pcentral, p2, posdir):
     posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
     """
     v1 = p1-pcentral
-    v2 = p2-pcentral
+    v2 = -(p2-pcentral)
 
     return _two_vec_angle(v1,v2,posdir)
 
@@ -672,7 +695,8 @@ def _two_vec_angle(v1,v2,posdir):
         theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
         v3_ = np.cross(v1_,v2_)
         if (np.inner(v3_, posdir) < 0):
-            theta[i] = 2*np.pi - theta[i]
+            #theta[i] = 2*np.pi - theta[i]
+            theta[i] = - theta[i]
 
     return theta
 

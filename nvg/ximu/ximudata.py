@@ -14,6 +14,8 @@ import unittest
 import matplotlib.pyplot as pyplot
 import matplotlib.dates as mdates
 from scipy.interpolate import interp1d
+import scipy.optimize as optimize
+
 import scipy.io as sio
 from datetime import datetime, timedelta, date
 
@@ -23,6 +25,9 @@ from nvg.algorithms import orientation
 from nvg.ximu import pointfinder
 
 from cyclicpython import cyclic_path
+from cyclicpython.algorithms import kinematics as cpkinematics
+from cyclicpython.algorithms import fomatlab as fomatlab
+
 
 def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     """
@@ -245,7 +250,7 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     s11events = dp + "NVG_2012_S11_eventlog"
 
 
-    dp = dtaroot + "2012-09-24/S12/"
+    dp = dtaroot + "2012-09-24-S12/S12/"
     s12 = {}
     s12["LA"] = [dp + "LA-200/NVG_2012_S12_A_LA_00211_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S12_A_LA_00211_CalInertialAndMag.csv"]
@@ -285,6 +290,8 @@ class NVGData:
         self.hdfFile = h5py.File(self.fname)
 
         self.rotationEstimator = self.CyclicEstimator(14); # Default is cyclic estimator
+        # Use tracking algorithm from nvg. Restart at each cycle start
+        #self.rotationEstimator = self.GyroIntegratorOrientation(self.hdfFile.attrs['packetNumbersPerSecond'])
 
 
     def close(self):
@@ -706,31 +713,91 @@ class NVGData:
         return minmaxangle
 
     def get_angle_between_segments(self, subject="S7", trial="D", imus=["LA", "LT"],
-                                   startTime=5*60, anTime=60, doPlots=True):
-        """ Gets the angle to the vertical for the two imus listed, then compute
-        the difference in these angles.
+                                   startTime=5*60, anTime=60,
+                                   jointAxes=None, doPlots=False):
+        """ Calculates the angle between the two IMUs. If the argument jointAxis
+        is provided, this is assumed to be a (2x3) numpy array with the joint
+        axis direction in the local frames of the two IMUs, respectively. The
+        angle is then calculated by projecting the angular velocity onto the
+        plane normal to the joint axes, and integrating the difference.
+        The integration is restarted at each cycle start.
+        If jointAxis is None, then the angle to the vertical is calculated,
+        and then the difference in the angle to vertical is returned.
         """
-        a2v0 = self.get_angle_to_vertical(subject, trial, imus[0],
+
+        if jointAxes is not None:
+            if jointAxes == []:
+                # Estimate the axes
+                (d0, d1) = self.estimate_joint_axes(subject, trial, imus,
+                                                startTime, anTime)
+            else:
+                d0 = jointAxes[0]
+                d1 = jointAxes[1]
+
+            print "Joint axes used in the calculation"
+            print d0
+            print d1
+
+            [imudta0, s_, tr_] = self.get_imu_data(subject, trial, imus[0],
+                                            startTime, anTime, split=True)
+            [imudta1, s_, tr_] = self.get_imu_data(subject, trial, imus[1],
+                                            startTime, anTime, split=True)
+
+            sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+            dt = 1.0/sfreq
+
+            angleBetweenSegments = []
+            x = np.linspace(0,100, 100)
+            for (dta0_, dta1_) in itertools.izip(imudta0, imudta1):
+                g0 = dta0_[:,1:4]*np.pi/180.0
+                g1 = dta1_[:,1:4]*np.pi/180.0
+
+                t0_ = (dta0_[:,0] - dta0_[0,0])*dt
+                t1_ = (dta1_[:,0] - dta1_[0,0])*dt
+                if t0_[-1] > t1_[-1]:
+                    # Resample the longer data set to the shorter
+                    f_ = interp1d(t0_,g0, kind='linear', axis=0)
+                    g0_ = f_(t1_)
+                    g1_ = g1
+                    tvec = t1_
+                else:
+                    f_ = interp1d(t1_, g1, kind='linear', axis=0)
+                    g1_ = f_(t0_)
+                    g0_ = g0
+                    tvec = t0_
+
+                ja = cpkinematics.planar_joint_angle_integrated(g0_, g1_,
+                                                                tvec,
+                                                                d0, d1)
+
+                # Normalize to 100 data points,
+                x0 = np.linspace(0,100, len(ja))
+                f0 = interp1d(x0, ja, kind='linear')
+                angleBetweenSegments.append(f0(x))
+
+        else:
+            a2v0 = self.get_angle_to_vertical(subject, trial, imus[0],
                                           startTime, anTime, False)
-        a2v1 = self.get_angle_to_vertical(subject, trial, imus[1],
+            a2v1 = self.get_angle_to_vertical(subject, trial, imus[1],
                                           startTime, anTime, False)
 
-        angleBetweenSegments = []
+            angleBetweenSegments = []
 
-        x = np.linspace(0,100, 100)
-        for (a0, a1) in itertools.izip(a2v0, a2v1):
-            # Normalize to 100 data points, then compute the difference
-            a0f = a0.flatten()
-            x0 = np.linspace(0,100, len(a0f))
-            f0 = interp1d(x0, a0f, kind='linear')
-            a0i = f0(x)
+            x = np.linspace(0,100, 100)
+            for (a0, a1) in itertools.izip(a2v0, a2v1):
+                # Normalize to 100 data points, then compute the difference
+                a0f = a0.flatten()
+                x0 = np.linspace(0,100, len(a0f))
+                f0 = interp1d(x0, a0f, kind='linear')
+                a0i = f0(x)
 
-            a1f = a1.flatten()
-            x1 = np.linspace(0,100, len(a1f))
-            f1 = interp1d(x1, a1f, kind='linear')
-            a1i = f1(x)
+                a1f = a1.flatten()
+                x1 = np.linspace(0,100, len(a1f))
+                f1 = interp1d(x1, a1f, kind='linear')
+                a1i = f1(x)
 
-            angleBetweenSegments.append(a0i-a1i)
+                angleBetweenSegments.append(a0i-a1i)
+
 
         if doPlots:
             pyplot.figure()
@@ -783,28 +850,22 @@ class NVGData:
 
     def get_angle_to_vertical(self, subject="S7", trial="D", imu="LT",
                               startTime=5*60, anTime=4*60,
-                              doPlots=True, sagittalPlane=True, useCyclic=14):
+                              doPlots=True, sagittalPlane=True):
         """ Tracks the orientation, finds the direction of the vertical, and
         calculates the angle to the vertical. If sagittalPlane is true, then the angle
         is calculated in the x-y plane of the imu.
-        Will by default use the cyclic motion method with 14 harmonics unless useCyclic=0 or
-        useCyclic=False"""
+        """
 
+        [qimu, imudta] = self.track_orientation(subject,
+                                                trial, imu,
+                                                startTime, anTime, False)
 
-        if useCyclic:
-            [qimu, cycledta, imudta, cycleinds] = self.track_cyclic_orientation(useCyclic,subject, trial, imu,
-                                                          startTime, anTime, False)
-            print "Using cyclic orientation method"
-        else:
-            [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu,
-                                                          startTime, anTime, False)
-
-        [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = self.track_displacement(subject,
-                                                                                  trial,
-                                                                                  imu,
-                                                                                  startTime,
-                                                                                  anTime,
-                                                                                  False)
+        [imuDisp, imuVel, imuGvec] = self.track_displacement(subject,
+                                                                      trial,
+                                                                      imu,
+                                                                      startTime,
+                                                                      anTime,
+                                                                      qimu=qimu)
 
         a2v = []
         for (q_, g_) in itertools.izip(qimu, imuGvec):
@@ -902,6 +963,9 @@ class NVGData:
         calculate the displacement in the vertical direction for each cycle.
         The vertical direction is determined from the average acceleration over
         each cycle
+
+        Returns:
+        List with vertical displacement for each gait cycle
         """
 
         [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = \
@@ -929,18 +993,31 @@ class NVGData:
 
     def track_displacement(self, subject="S7", trial="D", imu="LA",\
                               startTime=5*60,\
-                              anTime=60, doPlots=True):
+                              anTime=60, doPlots=True, qimu=None):
         """ Will first track the orientation and the displacement of the imu,
         restarting the tracking at the beginning of each step. The direction of
         gravity is identified and the displacement is corrected for the apparent
         gravitational acceleration. The resulting displacement is returned.
         Note that a body-fixed (imu-fixed) coordinate system is used.
+
+        Returns:
+        displ    <-
+        vel      <-
+        gvec     <-
+
+
         """
 
-        [qimu, cycledta, imudta, cycleinds] = self.track_orientation(subject, trial, imu,
-                                                          startTime, anTime, False)
-
-        aimu = []
+        if qimu is None:
+            [qimu, imudta] = self.track_orientation(subject, trial, imu,
+                                                      startTime, anTime, False)
+        else:
+            [imudta, s_, tr_] = self.get_imu_data(subject, trial, imu,
+                                                    startTime, anTime,
+                                                    split=True)
+        dimu = []
+        vimu = []
+        gvecs = []
         for (imudta_, qimu_) in itertools.izip(imudta, qimu):
             accimu = imudta_[:, [0,4,5,6]].copy()
             accimu[:, 1:] *= 9.82
@@ -948,46 +1025,29 @@ class NVGData:
             # Rotate acceleration vectors
             qaimu = quat.QuaternionArray(qimu_[:,1:5])
             accimu[:,1:] = (qaimu.rotateFrame(accimu[:,1:].T)).T
-            aimu.append(accimu)
-        # Integrate by trapezoidal rule
-        [dimu, vimu, gvecs] = _integrate_acc(aimu, cycledta)
+            # Integrate by trapezoidal rule
+            [dimu_, vimu_, g_] = self._integrate_acc(accimu)
+            dimu.append(dimu_)
+            vimu.append(vimu_)
+            gvecs.append(g_)
 
         if doPlots: # Check results
             pyplot.figure()
-            pyplot.subplot(3,1,1)
+            pyplot.subplot(2,1,1)
             for d_ in dimu:
                 pyplot.plot(d_[:,0], d_[:,1], 'b')
                 pyplot.plot(d_[:,0], d_[:,2], 'g')
                 pyplot.plot(d_[:,0], d_[:,3], 'r')
             yl = (-0.3, 0.3)
-            for (s_, e_) in cycledta:
-                pyplot.plot([s_, s_], yl, 'm')
-                pyplot.plot([e_, e_], yl, 'c')
-            pyplot.ylim(yl)
 
-            pyplot.subplot(3,1,2)
+            pyplot.subplot(2,1,2)
             for v_ in vimu:
                 pyplot.plot(v_[:,0], v_[:,1], 'b')
                 pyplot.plot(v_[:,0], v_[:,2], 'g')
                 pyplot.plot(v_[:,0], v_[:,3], 'r')
             yl = (-2, 2)
-            for (s_, e_) in cycledta:
-                pyplot.plot([s_, s_], yl, 'm')
-                pyplot.plot([e_, e_], yl, 'c')
-            pyplot.ylim(yl)
 
-            pyplot.subplot(3,1,3)
-            for a_ in aimu:
-                pyplot.plot(a_[:,0], a_[:,1], 'b')
-                pyplot.plot(a_[:,0], a_[:,2], 'g')
-                pyplot.plot(a_[:,0], a_[:,3], 'r')
-            yl = (-30, 30)
-            for (s_, e_) in cycledta:
-                pyplot.plot([s_, s_], yl, 'm')
-                pyplot.plot([e_, e_], yl, 'c')
-            pyplot.ylim(yl)
-
-        return [dimu, vimu, gvecs, cycledta, cycleinds]
+        return [dimu, vimu, gvecs]
 
 
     def track_orientation(self, subject="S7", trial="D", imu="LA",\
@@ -998,87 +1058,29 @@ class NVGData:
         The tracking algorithm is restarted at each step. So, for each timestep,
         a quaternion is estimated that describes the orientation of the IMU w.r.t. the
         orientation at the initical contact of the current gait cycle.
+
+        Returns:
+        imuq        <- List of quaternions for each gait cycle
+        imudtaSplit <- IMU data split in cycles
         """
 
-        [imudta, tr, subj] = self.get_imu_data(subject, trial, imu, startTime, anTime)
-        firstPN = imudta[0,0]
-        lastPN = imudta[-1,0]
+        [imudta, tr, subj] = self.get_imu_data(subject, trial, imu,
+                                startTime, anTime,
+                                split=True)
 
-        try:
-            cycledta = self.get_cycle_data(subject, trial, imu, firstPN, lastPN)
-        except KeyError:
-            print "No step cycles found yet. Run detect_steps first!"
+        imuq = [ self.rotationEstimator.estimate(dta_, doPlots) for dta_ in imudta]
 
-        if doPlots: # Check results
-            pyplot.figure()
-            pyplot.plot(imudta[:,0], imudta[:,4:7])
-            for ind in cycledta:
-                pyplot.plot([ind, ind], [-5, 5], 'm')
-
-        # Use tracking algorithm from nvg. Restart at each cycle start
-        imuq = []
-        cycleinds = []
-        imuDataSplit = []
-        for (cstart, cstop) in cycledta:
-            (indStart,) = np.nonzero(imudta[:,0] < cstart)
-            (indEnd,) = np.nonzero(imudta[:,0] > cstop)
-            indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
-            imud = imudta[indx]
-            #[q, cinds] = self.get_orientation(imud, [cstart, cstop], doPlots)
-            [q, cinds] = self.rotationEstimator.estimate(imud, [cstart, cstop], doPlots)
-            imuq.append(q)
-            cycleinds.append(cinds)
-            imuDataSplit.append(imud)
-
-            #[imuq, cycleinds] = self.get_orientation(imudta, cycledta, doPlots)
-        #return [imuq, cycledta, imudta, cycleinds]
-        return [imuq, cycledta, imuDataSplit, cycleinds]
-
-    def track_cyclic_orientation(self, nHarmonics=14, subject="S7", trial="D", imu="LA",\
-                              startTime=5*60,\
-                              anTime=60, doPlots=True):
-        """ Will track the orientation of the imu using a model of the orientation as a
-        truncated Fourier series. Assumes that the start of each cycle
-        is detected and available in the trial attribute 'PNAtICLA'.
-        The tracking algorithm is restarted at each step. So, for each timestep,
-        a quaternion is estimated that describes the orientation of the IMU w.r.t. the
-        orientation at the initical contact of the current gait cycle.
-        """
-
-        [imudta, tr, subj] = self.get_imu_data(subject, trial, imu, startTime, anTime)
-        firstPN = imudta[0,0]
-        lastPN = imudta[-1,0]
-
-        try:
-            cycledta = self.get_cycle_data(subject, trial, imu, firstPN, lastPN)
-        except KeyError:
-            print "No step cycles found yet. Run detect_steps first!"
-
-        if doPlots: # Check results
-            pyplot.figure()
-            pyplot.plot(imudta[:,0], imudta[:,4:7])
-            for ind in cycledta:
-                pyplot.plot([ind, ind], [-5, 5], 'm')
-
-        # Use cyclic tracking algorithm
-        imuq = []
-        cycleinds = []
-        imuDataSplit = []
-        cyclicEst = self.CyclicEstimator(nHarmonics)
-        for (cstart, cstop) in cycledta:
-            (indStart,) = np.nonzero(imudta[:,0] < cstart)
-            (indEnd,) = np.nonzero(imudta[:,0] > cstop)
-            indx = np.ix_(range(indStart[-1], indEnd[1]), range(imudta.shape[1]))
-            imud = imudta[indx]
-            [q, cinds] = cyclicEst.estimate(imud, [cstart, cstop], doPlots)
-            imuq.append(q)
-            #cycleinds.append(cinds)
-            imuDataSplit.append(imud)
-
-        return [imuq, cycledta, imud, cycleinds]
+        return [imuq, imudta]
 
 
     def get_cycle_data(self, subject, trial, imu, firstPN, lastPN):
+        """
+        Returns a list with tuples (startcyclePN, stopcyclePN) for all cycles
+        that are within the time interval (firstPN, lastPN). The packet numbers
+        firstPN and lastPN refer to packet numbers for the LA imu, which is then
+        one used in detecting steps.
+
+        """
         syncimu = self.get_PN_at_sync(subject,imu)
         syncLA = self.get_PN_at_sync(subject,"LA")
         subj = self.hdfFile[subject]
@@ -1088,10 +1090,14 @@ class NVGData:
         #                ind-syncLA[0] > firstPN-syncimu[0] \
         #                and ind-syncLA[0] < lastPN-syncimu[0]]
 
+        #cycledtaold2 = [(start_-syncLA[0]+syncimu[0], stop_-syncLA[0]+syncimu[0]) \
+        #                for (start_, stop_) in tr.attrs["PNAtCycleEvents"] \
+        #                if start_-syncLA[0] > firstPN-syncimu[0] \
+        #                and stop_-syncLA[0] < lastPN-syncimu[0]]
+
         cycledta = [(start_-syncLA[0]+syncimu[0], stop_-syncLA[0]+syncimu[0]) \
-                        for (start_, stop_) in tr.attrs["PNAtCycleEvents"] \
-                        if start_-syncLA[0] > firstPN-syncimu[0] \
-                        and stop_-syncLA[0] < lastPN-syncimu[0]]
+                for (start_, stop_) in tr.attrs["PNAtCycleEvents"] \
+                if start_>firstPN and stop_<lastPN]
 
         return cycledta
 
@@ -1100,7 +1106,7 @@ class NVGData:
         def __init__(self, nHarmonics):
             self.nHarmonics = nHarmonics
 
-        def estimate(self, imudta, cycledta, doPlots):
+        def estimate(self, imudta, doPlots):
             """
             Runs the cyclic orientation method assuming that the imud is a single cycledta
             """
@@ -1116,11 +1122,45 @@ class NVGData:
             (qEst, bEst) = cyclic_path.estimate_cyclic_orientation(tvec, gyrodta,
                             magdta, omega, self.nHarmonics)
             tvec.shape = (len(tvec), 1)
-            return (np.hstack((tvec, qEst)), None)
+            return np.hstack((tvec, qEst))
 
 
     class GyroIntegratorOrientation:
-        def estimate(self, imudta, cycledta, doPlots):
+        def __init__(self, sampleFreq):
+            self.dt = 1.0 / float(sampleFreq)
+
+        def estimate(self, imudta, doPlots):
+            imuq = np.zeros((imudta.shape[0], 5))
+            initRotation = quat.Quaternion(1,0,0,0)
+            gMagn = 9.82
+            deg2rad = np.pi/180.0
+            imudtaT = imudta.T
+            t = imudta[0,0]*self.dt
+            orientFilter = None
+            for i in range(0,imuq.shape[0]):
+                if i == 0:
+                    orientFilter = orientation.GyroIntegrator(t, initRotation)
+                else:
+                    t = imudta[i,0]*self.dt
+                    orientFilter(imudtaT[4:7,i]*gMagn, imudtaT[7:10,i],
+                            imudtaT[1:4,i]*deg2rad, t)
+
+                imuq[i,0] = t
+                imuq[i,1] = orientFilter.rotation.latestValue.w
+                imuq[i,2] = orientFilter.rotation.latestValue.x
+                imuq[i,3] = orientFilter.rotation.latestValue.y
+                imuq[i,4] = orientFilter.rotation.latestValue.z
+
+
+            if doPlots: # Check results
+                pyplot.figure()
+                pyplot.plot(imuq[:,0], imuq[:,1:5])
+
+            #return [imuq, cycledtainds]
+            return imuq
+
+    class EKFOrientation:
+        def estimate(self, imudta, doPlots):
             imuq = np.zeros((imudta.shape[0], 5))
             initRotation = quat.Quaternion(1,0,0,0)
             initRotVelocity = np.zeros((3,1))
@@ -1167,35 +1207,250 @@ class NVGData:
                 for ind in cycledta:
                     pyplot.plot([dt*ind, dt*ind], [-1, 1], 'm')
 
-            return [imuq, cycledtainds]
+            #return [imuq, cycledtainds]
+            return imuq
 
     def get_imu_data(self, subject="S7", trial="D", imu="LH",\
-                         startTime=0,\
-                         anTime=600, rawData=nvg_2012_09_data):
+                         startTime=60,\
+                         anTime=120, rawData=nvg_2012_09_data,
+                         split=False):
         """ Returns data for the specified subject, trial and imu.
         The data returned starts at the specified time into the trial, and has the
-        specified length in seconds.
+        specified length in seconds. The start of the trial is according to the
+        time of the LA imu, since this is used for the cycle events. Because of
+        slight out-of-sync start of the IMU data (the trial data for the different
+        IMUs stored in the hdf file are NOT syncronized).
 
         New 2017-03-30: If startTime is negative, look up raw data file and
         read from this.
+
+        Arguments:
+        subject, trial, imu  -> self evident
+        startTime, anTime    -> In seconds time out in trial to fetch data and
+                                how many seconds to get. Can be negative or None
+                                If None, data is read from the beginning of the
+                                imu data file no matter the trial.
+        rawData              -> callable that will return list of files
+        split                -> If True, splits the data into gait cycles
+                                and returns data in the form of a list
+
+        Returns:
+        imudta  <-  array with IMU data
+        tr      <-  the trial dataset
+        subj    <-  the subject dataset
         """
+
+        syncimu = self.get_PN_at_sync(subject,imu)
+        syncLA = self.get_PN_at_sync(subject,"LA")
 
         subj = self.hdfFile[subject]
         tr = subj[trial]
-        #PNperSecond = self.hdfFile.attrs['PNperSecond']
-        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
-
         imudta = tr[imu]
 
+        imudtaLA = tr["LA"]
+        startPN_LA = imudtaLA[0,0]
+        startPN = imudta[0,0]
+
+        PNsinceSyncLA = startPN_LA - syncLA[0]
+        PNsinceSync = startPN - syncimu[0]
+        PNoffset = PNsinceSyncLA - PNsinceSync
+        #print PNoffset
+        # If the offset is positive the imu data starts before the LA, and so
+        # we should return data further ahead in the data array.
+
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+
+        if startTime is not None:
+            startTime += float(PNoffset)/float(sfreq)
+        # Only every second packet present in data
+        imudtPart = None
         if startTime >= 0:
+            startInd = int(startTime*sfreq/2)
+            endInd = int((startTime + anTime)*sfreq/2)
             # There could be a few packets missing, but we ignore this at the moment.
-            return (imudta[startTime*sfreq:(startTime+anTime)*sfreq,:], tr, subj)
-        else:
+            imudtPart = imudta[startInd:endInd, :]
+        elif startTime is None:
+            # Read from start of data file
+            startPacket = 0
+            endPacket = anTime*sfreq
             (dta, events) = rawData()
             fnames = dta[subject][imu] # (DateTime.csv, CalInertialAndMag.csv)
+            imudtPart = read_packets(fnames[1], startPacket, endPacket)
+        else:
             startPacket = startTime*sfreq + imudta[0,0]
-            endPacket = anTime*sfreq + imudta[0,0]
-            return (read_packets(fnames[1], startPacket, endPacket), tr, subj)
+            endPacket = (startTime+anTime)*sfreq + imudta[0,0]
+            (dta, events) = rawData()
+            fnames = dta[subject][imu] # (DateTime.csv, CalInertialAndMag.csv)
+            imudtPart = read_packets(fnames[1], startPacket, endPacket)
+
+        if split and startTime is not None:
+            (imudtLA, subj_, trial_) = self.get_imu_data(subject, trial, "LA",
+                                                            startTime, anTime)
+            firstPN = imudtLA[0,0]
+            lastPN = imudtLA[-1,0]
+            cycledtaNoShift= self.get_cycle_data(subject, trial, "LA",
+                                                            firstPN, lastPN)
+            packetNumbers = np.asarray(imudtLA[:,0], np.int32)
+
+            cycledtaInds = [ (np.where(packetNumbers <= cd_[0])[0][-1],
+                              np.where(packetNumbers >= cd_[1])[0][0])
+                                for cd_ in cycledtaNoShift ]
+            imudtaSplit = [ imudtPart[startInd_:stopInd_, :]
+                            for (startInd_, stopInd_) in cycledtaInds ]
+            return (imudtaSplit, tr, subj)
+
+        else:
+            return (imudtPart, tr, subj)
+
+    def estimate_joint_axes(self, subj, trial, imus, startTime=60, anTime=120,
+                            stride=100):
+        """
+        Implementation of Seel's method to determine the joint axis of the
+        joint connecting two segments.
+        See Seel et al http://www.mdpi.com/1424-8220/14/4/6891/htm
+
+        Returns:
+            (axis0, axis1) <- a tuple with the two joint axes in the local
+                              coordinate system of each imu
+        """
+
+        [imudt0, s_, t_] = self.get_imu_data(subj, trial, imus[0], startTime, anTime)
+        g0 = imudt0[::stride,1:4]*np.pi/180.0
+        [imudt1, s_, t_] = self.get_imu_data(subj, trial, imus[1], startTime, anTime)
+        g1 = imudt1[::stride,1:4]*np.pi/180.0
+
+        # Initial guesses: axis aliged with local z-axis
+        x0 = np.zeros(4)
+
+        def sph2vec(th,phi):
+            return np.array([np.sin(th)*np.cos(phi),
+                             np.sin(th)*np.sin(phi),
+                             np.cos(th)])
+
+        def residuals(x, g0, g1):
+            j0 = sph2vec(x[0], x[1])
+            j1 = sph2vec(x[2], x[3])
+
+            N = len(g0)
+            return (np.sum(np.cross(g0, np.tile(j0, (N,1)))**2, axis=1)
+                    - np.sum(np.cross(g1, np.tile(j1, (N,1)))**2, axis=1))
+
+        axes,cov,infodict,mesg,ier = optimize.leastsq(residuals,
+                                            x0,
+                                            args = (g0,g1),
+                                            full_output=True)
+
+        return (sph2vec(axes[0], axes[1]), sph2vec(axes[2], axes[3]) )
+
+    def estimate_joint_center(self, subj, trial, imus, startTime=60, anTime=120,
+                                stride=100):
+        """
+        Implementation of Seel's method to determine the center of the joint
+        of two connected segments.
+        See Seel et al http://www.mdpi.com/1424-8220/14/4/6891/htm
+
+        Returns:
+            (r0, r1) <- a tuple with the vector in the local coordinate system
+            from the center of the IMU to the joint center of each IMU,
+            respectively
+        """
+
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+        dt = 1.0/sfreq
+        [imudt0, s_, t_] = self.get_imu_data(subj, trial, imus[0], startTime, anTime)
+        tvec0 = imudt0[:,0]*dt
+        g0 = imudt0[:,1:4]*np.pi/180.0
+        a0 = imudt0[:,4:7]*9.82
+        angacc0 = cpkinematics.ang_acc(g0, tvec0)
+        #angacc0 = cpkinematics.ang_acc(g0, dt*2)
+
+        [imudt1, s_, t_] = self.get_imu_data(subj, trial, imus[1], startTime, anTime)
+        tvec1 = imudt1[:,0]*dt
+        g1 = imudt1[:,1:4]*np.pi/180.0
+        a1 = imudt1[:,4:7]*9.82
+        angacc1 = cpkinematics.ang_acc(g1, tvec1)
+        #angacc1 = cpkinematics.ang_acc(g1, dt*2)
+
+        r00 = np.array([0.1,0,0.])
+        r10 = np.array([-0.1,0,0.])
+
+
+        # If using residuals2, compute omega matrices
+        Omega0 = cpkinematics.omega_matrix(g0, angacc0)
+        Omega1 = cpkinematics.omega_matrix(g1, angacc1)
+
+        def residuals2(x, a0, Omega0, a1, Omega1):
+            r0 = x[:3]
+            r1 = x[3:]
+
+
+            jacc0 = np.array([a0[i] + np.dot(Omega0[...,i], r0)
+                        for i in range(Omega0.shape[-1]) ])
+            jacc1 = np.array([a1[i] + np.dot(Omega1[...,i], r1)
+                        for i in range(Omega1.shape[-1]) ])
+
+            return (np.sqrt(np.sum(jacc0**2, axis=1))
+                            - np.sqrt(np.sum(jacc1**2, axis=1)) )
+
+        def residuals(x, a0, g0, angacc0, a1, g1, angacc1):
+            r0 = x[:3]
+            r1 = x[3:]
+
+            jacc0 = cpkinematics.joint_center_acceleration(a0, g0, r0, [], angacc0)
+            jacc1 = cpkinematics.joint_center_acceleration(a1, g1, r1, [], angacc1)
+
+            #return (np.sum(jacc0**2, axis=1) - np.sum(jacc1**2, axis=1))
+            return (np.linalg.norm(jacc0, axis=1)
+                            - np.linalg.norm(jacc1, axis=1))
+
+        #print residuals(np.hstack((r00, r10)), a0, g0, angacc0,
+        #                    a1, g1, angacc1)[:20]
+        #print residuals2(np.hstack((r00, r10)), a0, Omega0,
+    #                        a1, Omega1)[:20]
+
+        rr,cov,infodict,mesg,ier = optimize.leastsq(residuals,
+                                            np.hstack((r00, r10)),
+                                            args = (a0,g0,angacc0,a1,g1,angacc1),
+                                            full_output=True)
+        #rr,cov,infodict,mesg,ier = optimize.leastsq(residuals2,
+        #                            np.hstack((r00, r10)),
+        #                            args = (a0,Omega0,a1,Omega1),
+        #                            full_output=True)
+
+        return (rr[:3], rr[3:] )
+
+    def estimate_joint_center_matlab(self, subj, trial, imus, startTime=60, anTime=120,
+                                stride=100):
+        """
+        Implementation of Seel's method to determine the center of the joint
+        of two connected segments.
+        See Seel et al http://www.mdpi.com/1424-8220/14/4/6891/htm
+
+        Uses Fredrik Olssons matlab code
+
+        Returns:
+            (r0, r1) <- a tuple with the vector in the local coordinate system
+            from the center of the IMU to the joint center of each IMU,
+            respectively
+        """
+
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+        dt = 1.0/sfreq
+        [imudt0, s_, t_] = self.get_imu_data(subj, trial, imus[0], startTime, anTime)
+        tvec0 = imudt0[:,0]*dt
+        g0 = imudt0[:,1:4]*np.pi/180.0
+        a0 = imudt0[:,4:7]*9.82
+        angacc0 = cpkinematics.ang_acc(g0, tvec0)
+        #angacc0 = cpkinematics.ang_acc(g0, dt*2)
+
+        [imudt1, s_, t_] = self.get_imu_data(subj, trial, imus[1], startTime, anTime)
+        tvec1 = imudt1[:,0]*dt
+        g1 = imudt1[:,1:4]*np.pi/180.0
+        a1 = imudt1[:,4:7]*9.82
+        angacc1 = cpkinematics.ang_acc(g1, tvec1)
+        #angacc1 = cpkinematics.ang_acc(g1, dt*2)
+
+        return fomatlab.estimate_joint_center(a0, g0, angacc0, a1, g1, angacc1, None)
 
     def add_imu_data(self, subgroup, datafiles, eventLogFile, syncdata=None,initTime=240):
         """ Adds imu data for a single trial for one subject. Deletes any data
@@ -1321,6 +1576,10 @@ class NVGData:
             self.hdfFile.flush()
 
     def get_PN_at_sync(self, subject, imu):
+        """
+        Returns a tuple containing the packet number at the sync pulse for the imu
+        and the row-index in the data file of the pulse (the latter not so useful)
+        """
         subj = self.hdfFile[subject]
         PNs = subj.attrs['PNAtSync']
         if PNs.shape[0] == 7:
@@ -1332,69 +1591,61 @@ class NVGData:
         ind = keys.index(imu)
         return PNs[ind]
 
-def _integrate_acc(acc, cycledta):
-    """ Integrate acceleration to get velocity and displacement. The
-    integration is done using the trapezoidal rule, and reset at
-    the start of each cycle. The mean acceleration and mean displacement
-    are removed during each cycle.
-    """
+    def check_sync(self, subject, figsize = (10,18), dtaLength=60):
+        """
+        Loads the initial part of the IMU data files, and plots together with the
+        identified syncpulse for each imu. Used to check if there are any errors in
+        PNAtSync"
+        """
 
-    #[imuV, gvecs] = _integrate_cyclic(acc, cycledta)
-    #[imuD, slask] = _integrate_cyclic(imuV, cycledta)
-    #return [imuD, imuV, gvecs]
+        pyplot.figure(figsize=figsize)
+        k_ = 1 # counter
+        for imu in self.hdfFile[subject]["N"].iterkeys(): # Doesn't matter which trialdata
+            (imudt,t_, s_) = self.get_imu_data(subject, "N", imu,
+                                                startTime=None,
+                                                anTime=dtaLength)
+            acc = np.mean(imudt[:,4:7]**2, axis=1)
+            pyplot.subplot(4,2,k_)
+            pyplot.plot(imudt[:,0], acc )
+            syncPN = self.get_PN_at_sync(subject, imu)
+            pyplot.plot([syncPN[0], syncPN[0]], [-5,15])
+            pyplot.title(imu)
+            k_ += 1
+        pyplot.show()
 
-    gvecs = []
-    imuD = []
-    imuV = []
-    for (acc_, c_) in itertools.izip(acc, cycledta):
-        cl = list(c_)
-        [v, g] = _integrate_cyclic(acc_, cl)
-        [d, slask] = _integrate_cyclic(v, cl)
-        gvecs.append(g[-1])
-        imuD.append(d)
-        imuV.append(v)
+    def _integrate_acc(self, acc):
+        """ Integrate acceleration to get velocity and displacement. The
+            integration is done using the trapezoidal rule, and reset at
+            the start of each cycle. The mean acceleration and mean displacement
+            are removed during each cycle.
+        """
+        [v, g] = self._integrate_cyclic_trapezoidal(acc)
+        [d, slask] = self._integrate_cyclic_trapezoidal(v)
 
-    return [imuD, imuV, gvecs]
+        return [d, v, g]
 
 
-def _integrate_cyclic(a, cycledta):
+    def _integrate_cyclic_trapezoidal(self, a):
 
-    nfrs = a.shape[0]
-    v = np.zeros((nfrs, 4))
-    v[:,0] = a[:,0]
-    currentV = np.array([0.0, 0.0, 0.0])
-    meanA = np.array([0.0, 0.0, 0.0])
-    tau = 0.0
-    cycleIndAndT = []
-    h = 1/256.0
-    lastT = a[0,0]*h
-    cycledta.append(1e12)
-    cycleind = 0
-    gvecs = []
-    for i in range(1,nfrs):
-        ind = a[i,0]
-        if ind >= cycledta[cycleind]:
-            if (tau>0):
-                meanA /= tau
-                gvecs.append(meanA/np.linalg.norm(meanA))
-            for (ii, tt) in cycleIndAndT:
-                v[ii,1:4] -= meanA*tt
-            currentV[:] = 0.0
-            meanA[:] = 0.0
-            cycleIndAndT = []
-            tau = 0.0
-            cycleind += 1
-        t = ind*h
-        dt = t-lastT
-        lastT = t
-        cycleIndAndT.append((i, tau))
-        tau += dt
-        meanA += dt*a[i,1:4]
-        currentV += dt*0.5*(a[i-1, 1:4] + a[i, 1:4])
-        v[i,1:4] = currentV
+        nfrs = a.shape[0]
+        v = np.zeros((nfrs, 4))
+        v[:,0] = a[:,0]
+        currentV = np.array([0.0, 0.0, 0.0])
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+        h = 1.0/sfreq
+        lastT = a[0,0]*h
+        for i in range(1,nfrs):
+            t = a[i,0]*h
+            dt = t-lastT
+            lastT = t
+            currentV += dt*0.5*(a[i-1, 1:4] + a[i, 1:4])
+            v[i,1:4] = currentV
 
-    cycledta.pop()
-    return [v, gvecs]
+        #tau = (a[:,0]- a[0,0])*h
+        g = np.mean(a[:,1:], axis=0)
+        #v[:, 1:4] -= np.outer(tau,g)
+        return [v, g]
+
 
 class TimeKeeper:
     '''
