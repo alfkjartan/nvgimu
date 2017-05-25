@@ -8,6 +8,7 @@ import numpy as np
 import math
 import csv
 import itertools
+import warnings
 import sqlite3
 import h5py
 import unittest
@@ -26,8 +27,9 @@ from nvg.ximu import pointfinder
 
 from cyclicpython import cyclic_path
 from cyclicpython.algorithms import kinematics as cpkinematics
-from cyclicpython.algorithms import fomatlab as fomatlab
-
+#from cyclicpython.algorithms import fomatlab as fomatlab
+from cyclicpython.algorithms import ekf as cpekf
+from cyclicpython import cyclic_planar as cppl
 
 def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     """
@@ -283,11 +285,11 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
 class NVGData:
 
-    def __init__(self, hdfFilename):
+    def __init__(self, hdfFilename, mode='r'):
         """ Creates the database if not already existing """
         self.fname = hdfFilename
         # No need: self.create_nvg_db(). Better to just add subject data
-        self.hdfFile = h5py.File(self.fname)
+        self.hdfFile = h5py.File(self.fname, mode)
 
         self.rotationEstimator = self.CyclicEstimator(14); # Default is cyclic estimator
         # Use tracking algorithm from nvg. Restart at each cycle start
@@ -512,27 +514,12 @@ class NVGData:
         subj = self.hdfFile[subject]
         tr = subj[trial]
         ics =tr.attrs["PNAtICLA"]
-        steplengths = np.array([ics[i]-ics[i-1] for i in range(1,len(ics))])
-        #medq = np.median(steplengths)
-        q1 = np.percentile(steplengths, 25)
-        q3 = np.percentile(steplengths, 75)
-        interq = q3-q1
-        #lowthr = q1 - k*interq
-        lowthr = 0.0
-        highthr = q3 + k*interq
-        cycles = [(start_, stop_) for (stepl_, start_, stop_) \
-                      in itertools.izip(steplengths, ics[:-2], ics[1:]) \
-                      if (stepl_ > lowthr and stepl_ < highthr)]
-
+        cycles = fix_cycles(ics, k)
         tr.attrs["PNAtCycleEvents"] = cycles
         print "%d of %d cycles discarded (%2.1f %%)" \
             % ((len(ics)-len(cycles)), len(ics),
                float(len(ics)-len(cycles))/len(ics)*100)
-        pyplot.hist(steplengths, 60)
-        pyplot.plot([lowthr, lowthr], [0, 10], 'r')
-        pyplot.plot([highthr, highthr], [0, 10], 'r')
 
-        pyplot.hist([(stop_-start_) for (start_, stop_) in cycles], 60, color='g')
 
     def has_trial_attribute(self, subject, trial, attrname):
         f = self.hdfFile
@@ -564,6 +551,7 @@ class NVGData:
         pyplot.subplot(3,1,3)
         pyplot.plot(ds[:,0], ds[:,7:10])
         pyplot.ylabel("Magn [G]")
+        pyplot.legend(("x", "y", "z"))
 
         pyplot.title("IMU data for subject %s, trial %s, imu %s" % (subject, trial, imu))
         pyplot.show()
@@ -714,15 +702,17 @@ class NVGData:
 
     def get_angle_between_segments(self, subject="S7", trial="D", imus=["LA", "LT"],
                                    startTime=5*60, anTime=60,
-                                   jointAxes=None, doPlots=False):
+                                   jointAxes=None, useEKF=True, doPlots=False):
         """ Calculates the angle between the two IMUs. If the argument jointAxis
-        is provided, this is assumed to be a (2x3) numpy array with the joint
-        axis direction in the local frames of the two IMUs, respectively. The
+        is provided, this may be a (2x3) numpy array with the joint
+        axis direction in the local frames of the two IMUs, respectively, or if
+        empty, the directions are estimated from the data. The
         angle is then calculated by projecting the angular velocity onto the
         plane normal to the joint axes, and integrating the difference.
         The integration is restarted at each cycle start.
         If jointAxis is None, then the angle to the vertical is calculated,
         and then the difference in the angle to vertical is returned.
+        If useEKF is True, then an ekf is used to track the angle to the vertical.
         """
 
         if jointAxes is not None:
@@ -738,42 +728,79 @@ class NVGData:
             print d0
             print d1
 
-            [imudta0, s_, tr_] = self.get_imu_data(subject, trial, imus[0],
-                                            startTime, anTime, split=True)
-            [imudta1, s_, tr_] = self.get_imu_data(subject, trial, imus[1],
-                                            startTime, anTime, split=True)
+            if useEKF:
+                angleTracker0 = angle_to_vertical_ekf_tracker(sagittalDir=d0,
+                                                        var_angvel=1e-2,
+                                                        var_incl=1e-1,
+                                                        m=20)
+                angleTracker1 = angle_to_vertical_ekf_tracker(sagittalDir=d1,
+                                                        var_angvel=1e-2,
+                                                        var_incl=1e-1,
+                                                        m=20)
+                a2v0 = self.get_angle_to_vertical(subject, trial, imus[0],
+                                              startTime, anTime,
+                                              doPlots=False,
+                                              angleTracker=angleTracker0)
+                a2v1 = self.get_angle_to_vertical(subject, trial, imus[1],
+                                              startTime, anTime,
+                                              doPlots=False,
+                                              angleTracker=angleTracker1)
 
-            sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
-            dt = 1.0/sfreq
+                angleBetweenSegments = []
 
-            angleBetweenSegments = []
-            x = np.linspace(0,100, 100)
-            for (dta0_, dta1_) in itertools.izip(imudta0, imudta1):
-                g0 = dta0_[:,1:4]*np.pi/180.0
-                g1 = dta1_[:,1:4]*np.pi/180.0
+                x = np.linspace(0,99, 100)
+                for (a0, a1) in itertools.izip(a2v0, a2v1):
+                    # Normalize to 100 data points, then compute the difference
+                    a0f = a0.flatten()
+                    x0 = np.linspace(0,99, len(a0f))
+                    f0 = interp1d(x0, a0f, kind='linear')
+                    a0i = f0(x)
 
-                t0_ = (dta0_[:,0] - dta0_[0,0])*dt
-                t1_ = (dta1_[:,0] - dta1_[0,0])*dt
-                if t0_[-1] > t1_[-1]:
-                    # Resample the longer data set to the shorter
-                    f_ = interp1d(t0_,g0, kind='linear', axis=0)
-                    g0_ = f_(t1_)
-                    g1_ = g1
-                    tvec = t1_
-                else:
-                    f_ = interp1d(t1_, g1, kind='linear', axis=0)
-                    g1_ = f_(t0_)
-                    g0_ = g0
-                    tvec = t0_
+                    a1f = a1.flatten()
+                    x1 = np.linspace(0,99, len(a1f))
+                    f1 = interp1d(x1, a1f, kind='linear')
+                    a1i = f1(x)
 
-                ja = cpkinematics.planar_joint_angle_integrated(g0_, g1_,
-                                                                tvec,
-                                                                d0, d1)
+                    angleBetweenSegments.append(a0i-a1i)
 
-                # Normalize to 100 data points,
-                x0 = np.linspace(0,100, len(ja))
-                f0 = interp1d(x0, ja, kind='linear')
-                angleBetweenSegments.append(f0(x))
+            else:
+
+                [imudta0, s_, tr_] = self.get_imu_data(subject, trial, imus[0],
+                                                startTime, anTime, split=True)
+                [imudta1, s_, tr_] = self.get_imu_data(subject, trial, imus[1],
+                                                startTime, anTime, split=True)
+
+                sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+                dt = 1.0/sfreq
+
+                angleBetweenSegments = []
+                x = np.linspace(0,99, 100)
+                for (dta0_, dta1_) in itertools.izip(imudta0, imudta1):
+                    g0 = dta0_[:,1:4]*np.pi/180.0
+                    g1 = dta1_[:,1:4]*np.pi/180.0
+
+                    t0_ = (dta0_[:,0] - dta0_[0,0])*dt
+                    t1_ = (dta1_[:,0] - dta1_[0,0])*dt
+                    if t0_[-1] > t1_[-1]:
+                        # Resample the longer data set to the shorter
+                        f_ = interp1d(t0_,g0, kind='linear', axis=0)
+                        g0_ = f_(t1_)
+                        g1_ = g1
+                        tvec = t1_
+                    else:
+                        f_ = interp1d(t1_, g1, kind='linear', axis=0)
+                        g1_ = f_(t0_)
+                        g0_ = g0
+                        tvec = t0_
+
+                    ja = cpkinematics.planar_joint_angle_integrated(g0_, g1_,
+                                                                    tvec,
+                                                                    d0, d1)
+
+                    # Normalize to 100 data points,
+                    x0 = np.linspace(0,99, len(ja))
+                    f0 = interp1d(x0, ja, kind='linear')
+                    angleBetweenSegments.append(f0(x))
 
         else:
             a2v0 = self.get_angle_to_vertical(subject, trial, imus[0],
@@ -783,16 +810,16 @@ class NVGData:
 
             angleBetweenSegments = []
 
-            x = np.linspace(0,100, 100)
+            x = np.linspace(0,99, 100)
             for (a0, a1) in itertools.izip(a2v0, a2v1):
                 # Normalize to 100 data points, then compute the difference
                 a0f = a0.flatten()
-                x0 = np.linspace(0,100, len(a0f))
+                x0 = np.linspace(0,99, len(a0f))
                 f0 = interp1d(x0, a0f, kind='linear')
                 a0i = f0(x)
 
                 a1f = a1.flatten()
-                x1 = np.linspace(0,100, len(a1f))
+                x1 = np.linspace(0,99, len(a1f))
                 f1 = interp1d(x1, a1f, kind='linear')
                 a1i = f1(x)
 
@@ -846,56 +873,167 @@ class NVGData:
 
         return rom
 
-
-
-    def get_angle_to_vertical(self, subject="S7", trial="D", imu="LT",
-                              startTime=5*60, anTime=4*60,
-                              doPlots=True, sagittalPlane=True):
-        """ Tracks the orientation, finds the direction of the vertical, and
-        calculates the angle to the vertical. If sagittalPlane is true, then the angle
-        is calculated in the x-y plane of the imu.
+    class angle_to_vertical_ekf_tracker(object):
+        """
+        Callable that tracks the angle to vertical of a segment using a
+        fixed-lag EKF.
         """
 
-        [qimu, imudta] = self.track_orientation(subject,
-                                                trial, imu,
-                                                startTime, anTime, False)
+        def __init__(self, sagittalDir, var_angvel=1e-2, var_incl=1e-1, m=40):
+            self.sagittalDir = sagittalDir
+            self.var_angvel = var_angvel
+            self.var_incl = var_incl
+            self.m = m
 
-        [imuDisp, imuVel, imuGvec] = self.track_displacement(subject,
-                                                                      trial,
-                                                                      imu,
-                                                                      startTime,
-                                                                      anTime,
-                                                                      qimu=qimu)
+        def __call__(self, tvec, acc, gyro, g=9.82, gThreshold=1e-1,
+                     plotResults=False):
+            (theta, yincl) = cpekf.track_planar_vertical_orientation(tvec,
+                                                        acc, gyro,
+                                                        self.sagittalDir,
+                                                        self.var_angvel,
+                                                        self.var_incl,
+                                                        self.m,
+                                                        g=g,
+                                                        gThreshold=gThreshold,
+                                                        plotResults=plotResults)
+            return theta
 
-        a2v = []
-        for (q_, g_) in itertools.izip(qimu, imuGvec):
-            # g_ is in static frame coinciding with imu-frame at start of
-            # each cycle.
-            # The longitudinal direction of the segment is defined by the
-            # x-axis (pointing downward)
-            qa = quat.QuaternionArray(q_[:,1:5])
-            g_.shape = (3,1)
-            x_ = np.array([[-1., 0, 0]]).T
-            imux_ = qa.rotateFrame(x_)
 
-            if sagittalPlane:
-                imux_[2,:] = 0.0
-                g_[2,] = 0.0
+    class angle_to_vertical_cyclic_tracker(object):
+        """
+        Callable that tracks the angle to vertical of a segment using the planar
+        cyclic method.
+        """
 
-            # Find the signed angle between two vectors
-            gnrm = np.sqrt(np.sum(g_**2))
-            gnormed = g_ / gnrm
-            xdotg = np.dot(imux_.T, gnormed)
-            xdotg = xdotg.flatten() / np.sqrt(np.sum(imux_**2, 0))
+        def __init__(self, omega, nHarmonics, sagittalDir, var_angvel, var_incl,
+                                            lambda_gyro=1, lambda_incl=0.1,
+                                            solver=cppl.solve_QP):
+            self.sagittalDir=sagittalDir
+            self.omega = omega
+            self.nHarmonics = nHarmonics
+            self.solver=solver
+            self.lambda_gyro = lambda_gyro
+            self.lambda_incl = lambda_incl
+            self.var_gyro = var_angvel
+            self.var_incl = var_incl
+            self.link = None
 
-            # Make sure acos will work
-            xdotg[np.nonzero(xdotg>1)] = 1.
-            xdotg[np.nonzero(xdotg<-1)] = -1.
+        def __call__(self, tvec, acc, gyro, g=9.82, gThreshold=1e-1,
+                     plotResults=False):
+            link = cppl.Link(tvec, acc, gyro, self.sagittalDir, np.array([-1.0, 0, 0]))
+            if self.omega is None:
+                # One cycle in data
+                T = tvec[-1] - tvec[0]
+                omega = 2*np.pi/T
+            else:
+                omega = self.omega
+            link.estimate_planar_cyclic_orientation(omega, self.nHarmonics,
+                                                g=g, gThreshold=gThreshold,
+                                                var_gyro=self.var_gyro,
+                                                var_incl=self.var_incl,
+                                                lambda_gyro=self.lambda_gyro,
+                                                lambda_incl=self.lambda_incl,
+                                                solver=self.solver)
 
-            gcross = np.cross(imux_.T, gnormed.T)
-            sgn = np.sign(gcross[:,2])
+            self.link = link
+            return link.phi
 
-            a2v.append(np.arccos(xdotg) * sgn.T)
+    def get_angle_to_vertical(self, subject="S7", trial="D", imu="LT",
+                        startTime=5*60, anTime=4*60,
+                        doPlots=True,
+                        angleTracker=None,
+                        resetAtIC=False,
+                        g=9.82, gThreshold=1e-1):
+        """ Tracks the orientation, finds the direction of the vertical, and
+        calculates the angle to the vertical. If sagittalPlane is not None,
+        then then the angle is calculated in the sagittal plane. There are two
+        ways to achieve this: 1) sagittalPlane is a unit 3d vector giving the
+        direction normal to the sagittal plane; 2) sagittalPlane is the name
+        of another imu attached to an adjoining segment. In the latter case,
+        the joint axes are calculated.
+        If resetAtIC is True, then the tracking is restarted at each initial
+        contact.
+        """
+
+        sfreq = self.hdfFile.attrs['packetNumbersPerSecond']
+        dt = 1.0/sfreq
+
+        if angleTracker is not None:
+            if resetAtIC:
+                [imudta, s_, tr_] = self.get_imu_data(subject, trial, imu,
+                                            startTime, anTime, split=True)
+                a2v = []
+                for imudta_ in imudta:
+
+                    gyro = imudta_[:,1:4]*np.pi/180.0
+                    acc = imudta_[:,4:7]*g
+                    tvec = imudta_[:,0] * dt
+                    theta = angleTracker(tvec, acc, gyro,
+                                        g=g, gThreshold=gThreshold)
+                    a2v.append(theta)
+            else:
+                [imudta, s_, tr_] = self.get_imu_data(subject, trial, imu,
+                                        startTime, anTime, split=False)
+                gyro = imudta[:,1:4]*np.pi/180.0
+                acc = imudta[:,4:7]*g
+                tvec = imudta[:,0] * dt
+                theta = angleTracker(tvec, acc, gyro,
+                                            g=g, gThreshold=gThreshold)
+                # Split into cycles
+                [imudtaLA, s_, tr_] = self.get_imu_data(subject, trial, "LA",
+                                        startTime, anTime, split=False)
+                firstPN = imudtaLA[0,0]
+                lastPN = imudtaLA[-1,0]
+                cyclePNs = self.get_cycle_data(subject, trial, imu, firstPN, lastPN)
+                packetNumbers = np.asarray(imudta[:,0], np.int32)
+
+                cycledtaInds = [ (np.where(packetNumbers <= cd_[0])[0][-1],
+                                  np.where(packetNumbers >= cd_[1])[0][0])
+                                    for cd_ in cyclePNs ]
+                a2v = [ theta[startInd_:stopInd_]
+                                for (startInd_, stopInd_) in cycledtaInds ]
+
+        else:
+            [qimu, imudta] = self.track_orientation(subject,
+                                                    trial, imu,
+                                                    startTime, anTime, False)
+
+            [imuDisp, imuVel, imuGvec] = self.track_displacement(subject,
+                                                                  trial,
+                                                                  imu,
+                                                                  startTime,
+                                                                  anTime,
+                                                                  qimu=qimu)
+
+            a2v = []
+            for (q_, g_) in itertools.izip(qimu, imuGvec):
+                # g_ is in static frame coinciding with imu-frame at start of
+                # each cycle.
+                # The longitudinal direction of the segment is defined by the
+                # x-axis (pointing downward)
+                qa = quat.QuaternionArray(q_[:,1:5])
+                g_.shape = (3,1)
+                x_ = np.array([[-1., 0, 0]]).T
+                imux_ = qa.rotateFrame(x_)
+
+                if sagittalPlane:
+                    imux_[2,:] = 0.0
+                    g_[2,] = 0.0
+
+                # Find the signed angle between two vectors
+                gnrm = np.sqrt(np.sum(g_**2))
+                gnormed = g_ / gnrm
+                xdotg = np.dot(imux_.T, gnormed)
+                xdotg = xdotg.flatten() / np.sqrt(np.sum(imux_**2, 0))
+
+                # Make sure acos will work
+                xdotg[np.nonzero(xdotg>1)] = 1.
+                xdotg[np.nonzero(xdotg<-1)] = -1.
+
+                gcross = np.cross(imux_.T, gnormed.T)
+                sgn = np.sign(gcross[:,2])
+
+                a2v.append(np.arccos(xdotg) * sgn.T)
 
         if doPlots:
             pyplot.figure()
@@ -1591,6 +1729,7 @@ class NVGData:
         ind = keys.index(imu)
         return PNs[ind]
 
+
     def check_sync(self, subject, figsize = (10,18), dtaLength=60):
         """
         Loads the initial part of the IMU data files, and plots together with the
@@ -1612,6 +1751,77 @@ class NVGData:
             pyplot.title(imu)
             k_ += 1
         pyplot.show()
+
+    def set_standing_reference(self):
+        """"
+        Goes through all subjects, plots IMU data before start of N trial.
+        Lets user pick start and end of interval where the subject is standing
+        still. Stores values of imu data at this interval in the attribute
+        hdfFile[subj].attrs['standingReferenceIMUdata']
+        """
+
+        sref = self.apply_to_all_trials(self._pick_standing_reference,
+                                                                triallist=["N"])
+
+    def _pick_standing_reference(self, subj, trial):
+        """
+        Loads data from two minutes before start of trial. Plots and lets the
+        user chooses an interval for standing reference. The interval is
+        adjusted to 200 frames (about 1.5s) and returned
+        """
+
+        LAdta, tr_, s_ = self.get_imu_data(subj, trial, 'LA', startTime=-120, anTime=120)
+        RAdta, tr_, s_ = self.get_imu_data(subj, trial, 'RA', startTime=-120, anTime=120)
+
+        pyplot.figure()
+        pyplot.subplot(221)
+        pyplot.plot(LAdta[:,1:4])
+        pyplot.title("LA gyro")
+        pyplot.subplot(222)
+        pyplot.plot(LAdta[:,4:7])
+        pyplot.title("LA acc")
+        pyplot.subplot(223)
+        pyplot.plot(RAdta[:,1:4])
+        pyplot.title("RA gyro")
+        pyplot.subplot(224)
+        pyplot.plot(RAdta[:,4:7])
+        pyplot.title("RA acc")
+
+        intervalSet = False
+        while not intervalSet:
+            pyplot.show()
+            interval = raw_input("Set range [startindex, stopindex]: ")
+            try:
+                (startstr, stopstr) = interval.split(",")
+                start_ = int(float(startstr))
+                stop_ = int(float(stopstr))
+                intervalSet = True
+            except ValueError:
+                pass
+
+        stop = min(stop_, start_+200)
+
+        subjdta = self.hdfFile[subj]
+
+        srefGroup = None
+        sr = "standingReference"
+        try:
+            srefGroup = subjdta.create_group(sr)
+        except ValueError:
+            # Group already created, so delete first
+            del subjdta[sr]
+            srefGroup = subjdta.create_group(sr)
+
+        for imu_ in subjdta[trial]:
+            imudta, s_, t_ = self.get_imu_data(subj, trial, imu_,
+                                                    startTime=-120, anTime=120)
+            print "Adding dataset %s for subject %s" % (imu_, subj)
+            srefGroup.create_dataset(imu_,
+                                        data=np.asarray(imudta[start_:stop_, :]) )
+
+            self.hdfFile.flush()
+
+        self.hdfFile.flush()
 
     def _integrate_acc(self, acc):
         """ Integrate acceleration to get velocity and displacement. The
@@ -2118,6 +2328,41 @@ def split_files_main(db, rawData=nvg_2012_09_data, initStart=20, initLength=120)
 
     return [initdta, packetNumberAtSync]
 
+def fix_cycles(ics, k=2, plotResults=False):
+    """ Checks the PNAtICLA attribute, computes the
+    0.25, 0.5 and 0.75 quantiles. Determines then the start and end of each cycle
+    so that only cycles with length that is within median +/- k*interquartiledistance
+    are kept.
+    The start and end events are recorded in the attribute 'PNAtCycleEvents' as
+    a list of two-tuples.
+    """
+
+    if len(ics) == 0:
+        warnings.warn("Unexpected empty set of events!")
+        return []
+
+    steplengths = np.array([ics[i]-ics[i-1] for i in range(1,len(ics))])
+    medq = np.median(steplengths)
+    q1 = np.percentile(steplengths, 25)
+    q3 = np.percentile(steplengths, 75)
+    interq = q3-q1
+    lowthr = medq - k*interq
+    #lowthr = 0.0
+    highthr = medq + k*interq
+    cycles = [(start_, stop_) for (stepl_, start_, stop_) \
+                  in itertools.izip(steplengths, ics[:-2], ics[1:]) \
+                  if (stepl_ > lowthr and stepl_ < highthr)]
+
+    if plotResults:
+        pyplot.figure()
+        pyplot.hist(steplengths, 60)
+        pyplot.plot([lowthr, lowthr], [0, 10], 'r')
+        pyplot.plot([highthr, highthr], [0, 10], 'r')
+
+        pyplot.hist([(stop_-start_) for (start_, stop_) in cycles], 60, color='g')
+
+    return cycles
+
 #-------------------------------------------------------------------------------
 # Unit tests
 #-------------------------------------------------------------------------------
@@ -2182,5 +2427,12 @@ class TestXIMU(unittest.TestCase):
 
 
 
+def set_standing_ref():
+    xdb = NVGData('/home/kjartan/Dropbox/Public/nvg201209.hdf5', mode='r+')
+    xdb._pick_standing_reference("S12", "N")
+    xdb.hdfFile.close()
+
+
 if __name__ == '__main__':
-    unittest.main()
+    #unittest.main()
+    set_standing_ref()
