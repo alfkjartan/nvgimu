@@ -19,7 +19,7 @@ Loads Qualisys motion capture data and IMU data and makes comparison
 # You should have received a copy of the GNU General Public License
 # along with nvgimu.  If not, see <http://www.gnu.org/licenses/>.
 
-from datetime import datetime, timedelta, date
+import gc
 import os
 import numpy.testing as npt
 import numpy as np
@@ -28,6 +28,7 @@ import matplotlib as mpl
 from scipy.interpolate import interp1d
 from scipy import signal
 import itertools
+from datetime import datetime, timedelta, date
 from nvg.io import qualisys_tsv as qtsv
 from nvg.ximu import ximudata as xdt
 from cyclicpython.algorithms import detect_peaks
@@ -275,7 +276,8 @@ def compare_angle_to_vertical(mocapdata, subject, trial="N",
                                                 anTime=anTime,
                                                 angleTracker=angleTracker,
                                                 resetAtIC=resetAtIC,
-                                                gThreshold=gThreshold)
+                                                gThreshold=gThreshold,
+                                                doPlots=plotResults)
 
 
     if plotResults:
@@ -1091,14 +1093,18 @@ def apply_cases(function, cases, args):
 
 
 
-def main_2017(orientationComparison=True, displacementComparison=True, **kwargs):
+def main_2017(orientationComparison=True, displacementComparison=True,
+                trialindices=None, **kwargs):
     """
     Main program to run several comparisons.
     kwargs can be used to override the default argument values in the
     dictionaries holding argument-value pairs.
     """
-    comparisonData = markerdata_list()[0:] # Trials to use
+    comparisonData = markerdata_list() # Trials to use
     # List of (startTime, anTime)
+    if trialindices is not None:
+        comparisonData = [comparisonData[i] for i in trialindices]
+
     dataset = [ (30,60), (90,60), (150, 60), (210, 60), (270, 60) ]
 
     if orientationComparison:
@@ -1139,6 +1145,7 @@ def main_2017(orientationComparison=True, displacementComparison=True, **kwargs)
                             '%d-%d' %(startTime, startTime+anTime),
                             "angle2vertical")
 
+                gc.collect()
     if displacementComparison:
         displacementArgs = {"imu":"LA", "marker":"ANKLE",
                               "startTime":60, "anTime":20,
@@ -1173,6 +1180,7 @@ def main_2017(orientationComparison=True, displacementComparison=True, **kwargs)
                 _plot_cases_results(resultat, subj, trial,
                             '%d-%d' %(startTime, startTime+anTime),
                             "displacement")
+                gc.collect()
 
 
 def _plot_cases_results(resultat, subj, trial, dataset, test):
@@ -1188,7 +1196,7 @@ def _plot_cases_results(resultat, subj, trial, dataset, test):
         isScalarSeries = True
 
     if isScalarSeries:
-        plt.figure(figsize=(6,4))
+        fig=plt.figure(figsize=(6,4))
         plt.plot(tvec, mdMean*180.0/np.pi, linewidth=3)
         legends.append("Marker data")
         for (case_, res_) in resultat.items():
@@ -1216,7 +1224,7 @@ def _plot_cases_results(resultat, subj, trial, dataset, test):
                                                                 linestyle='--')
         plt.ylabel('Degrees')
     else:
-        plt.figure(figsize=(6,8))
+        fig = plt.figure(figsize=(6,8))
         for i_ in range(2):
             plt.subplot(2, 1, i_+1)
 
@@ -1255,7 +1263,8 @@ def _plot_cases_results(resultat, subj, trial, dataset, test):
     plt.xlabel('Gait cycle (%)')
 
     plt.savefig(RESDIR + '/' + test + '_' + subj + '_' + trial + '_' + dataset + '.pdf')
-
+    plt.close(fig)
+    plt.close("all")
 
 
 def do_compare_angle_to_vertical(comparisonData,

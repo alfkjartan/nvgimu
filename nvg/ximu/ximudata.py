@@ -17,7 +17,7 @@ import matplotlib.dates as mdates
 from scipy.interpolate import interp1d
 import scipy.optimize as optimize
 from scipy.integrate import cumtrapz
-from scipy.signal import detrend, besse, filtfilt
+from scipy.signal import detrend, bessel, filtfilt
 
 import scipy.io as sio
 from datetime import datetime, timedelta, date
@@ -32,12 +32,15 @@ from cyclicpython import cyclic_path
 from cyclicpython.algorithms import kinematics as cpkinematics
 #from cyclicpython.algorithms import fomatlab as fomatlab
 from cyclicpython.algorithms import ekf as cpekf
+from cyclicpython.algorithms import detect_peaks
 from cyclicpython import cyclic_planar as cppl
 
 def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     """
         Lists all data files for the nvg project acquired in September 2012.
         OBS: The eventlogs are missing.
+
+        New 2017-09-15: Marker data available with key "MD-N" and "MD-D"
     """
     dp = dtaroot + "2012-09-18/S2/"
     s2 = {}
@@ -81,6 +84,8 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
     dp = dtaroot + "2012-09-19-S4/S4/"
     s4 = {}
+    s4["MD-N"] = dtaroot + "/Data/S4/NVG_2012_S4_N.tsv"
+    s4["MD-D"] = dtaroot + "/Data/S4/NVG_2012_S4_D.tsv"
     s4["LA"] = [dp + "LA-200/NVG_2012_S4_A_LA_00203_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S4_A_LA_00203_CalInertialAndMag.csv"]
     s4["LH"] = [dp + "LH-800/NVG_2012_S4_A_LH_00803_DateTime.csv", \
@@ -125,6 +130,8 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
     dp = dtaroot + "2012-09-19-S6/S6/"
     s6 = {}
+    s6["MD-N"] = dtaroot + "/Data/S6/NVG_2012_S6_N.tsv"
+    s6["MD-D"] = dtaroot + "/Data/S6/NVG_2012_S6_D.tsv"
     s6["LA"] = [dp + "LA-200/NVG_2012_S6_A_LA_00205_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S6_A_LA_00205_CalInertialAndMag.csv"]
     s6["LH"] = [dp + "LH-800/NVG_2012_S6_A_LH_00805_DateTime.csv", \
@@ -213,6 +220,9 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
     dp = dtaroot + "2012-09-24-S10/S10/"
     s10 = {}
+    s10["MD-N"] = dtaroot + "/Data/S10/NVG_2012_S10_N.tsv"
+    s10["MD-D"] = dtaroot + "/Data/S10/NVG_2012_S10_D.tsv"
+
     s10["LA"] = [dp + "LA-200/NVG_2012_S10_A_LA_00209_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S10_A_LA_00209_CalInertialAndMag.csv"]
     s10["LH"] = [dp + "LH-800/NVG_2012_S10_A_LH_00809_DateTime.csv", \
@@ -257,6 +267,8 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
     dp = dtaroot + "2012-09-24-S12/S12/"
     s12 = {}
+    s12["MD-N"] = dtaroot + "/Data/S12/NVG_2012_S12_N.tsv"
+    s12["MD-D"] = dtaroot + "/Data/S12/NVG_2012_S12_D.tsv"
     s12["LA"] = [dp + "LA-200/NVG_2012_S12_A_LA_00211_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S12_A_LA_00211_CalInertialAndMag.csv"]
     s12["LH"] = [dp + "LH-800/NVG_2012_S12_A_LH_00811_DateTime.csv", \
@@ -283,6 +295,13 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
                          S7=s7events, S8=s8events, S9=s9events, S10=s10events, \
                          S11=s11events, S12=s12events)]
 
+
+# Global since this mapping should never be changed
+IMU_MARKERS = {}
+IMU_MARKERS["LT"] = dict(upper:"HIP", lower:"KNEE", , closest:"THIGH")
+IMU_MARKERS["LA"] = dict(upper:"KNEE", lower:"ANKLE", , closest:"ANKLE")
+IMU_MARKERS["N"] = dict(upper:"C7", lower:"SACRUM", , closest:"C7")
+IMU_MARKERS["LH"] = dict(upper:"ELBOW", lower:"WRIST", , closest:"WRIST")
 
 
 
@@ -992,6 +1011,25 @@ class NVGData:
         angle2vertical.append((imu, a2v))
 
         return a2v
+
+
+    def get_angle_to_vertical_markers(self, subject="S7", trial="D", imu="LH",
+                        startTime=5*60, anTime=4*60, sagittalDir=[-1.0, 0, 0],
+                        doPlots=True):
+        """
+        Same as get_angle_to_vertical but using marker data. This is only possible
+        for trials "D" and "N", and for imus LA, LT, N, LH. If called for other
+        trial or imu, returns empty list.
+
+        The calculation is based on the markers referred to as "upper" and "lower"
+        for the IMU. The vector from lower to upper is calculated, and from its
+        displacements, the vector normal to the plane of motion is found. It
+        is assumed that this direction is approximately in the direction provided
+        by the argument sagittalDir. The angle to the vertical is positive for
+        a rotation about a vector pointing to the left.
+
+        Returns a list of scalar time series, one per gait cycle. 
+        """
 
 
     def get_sagittal_plane_displacement(self, subject, trial, imu,
@@ -1842,7 +1880,7 @@ class NVGData:
                                                                 startTime, anTime)
         firstPN = imudt[0,0]
         lastPN = imudt[-1,0]
-        syncLA = xdb.get_PN_at_sync(subject, "LA")
+        syncLA = self.get_PN_at_sync(subject, "LA")
         dt = 1.0/262.0 # Weird, but this is the actual sampling period
         tvec = dt*(imudt[:,0]-syncLA[0])
         cycledtaNoShift= self.get_cycle_data(subject, trial, "LA", firstPN, lastPN)
@@ -1882,10 +1920,10 @@ class NVGData:
         # Find initical contact from ankle marker data
         ankled = md.marker('ANKLE').position(frames2use)
         ics = detect_heel_strike(ft, ankled[2,:], plotResults=plotResults)
-        cycledtaMC = fix_cycles(ics, k=1,  plotResults=plotResults)
+        cycledtaMC = fix_cycles(ics, k=0.5,  plotResults=plotResults)
         markerdata['cycledataMC'] = cycledtaMC
 
-    return (markerdata, imudata)
+        return (markerdata, imudata)
     def set_standing_reference(self):
         """"
         Goes through all subjects, plots IMU data before start of N trial.
@@ -1999,7 +2037,7 @@ class NVGData:
         #v[:, 1:4] -= np.outer(tau,g)
         return [v, g]
 
-def detect_heel_strike(tvec, ankleposz, wn=0.2, posThr=[0, 0.08],
+def detect_heel_strike(tvec, ankleposz, wn=0.2, posThr=[0.03, 0.08],
                         velThr = [-100, 0], accThr = [5, 100],
                          plotResults=False):
     """
@@ -2050,31 +2088,31 @@ def detect_heel_strike(tvec, ankleposz, wn=0.2, posThr=[0, 0.08],
     pks = np.intersect1d(pks, okinds)
 
     if plotResults:
-        plt.figure()
-        plt.subplot(3,1,1)
-        plt.plot(tvec, ankleposz, alpha=0.3)
-        plt.plot(tvec, ap)
+        pyplot.figure()
+        pyplot.subplot(3,1,1)
+        pyplot.plot(tvec, ankleposz, alpha=0.3)
+        pyplot.plot(tvec, ap)
         for ic_ in pks:
-            plt.plot([tvec[ic_], tvec[ic_]], [-0.3, 0], 'm', alpha=0.5)
-        plt.plot([tvec[0], tvec[-1]], [apmin+posThr[0], apmin+posThr[0]], 'y')
-        plt.plot([tvec[0], tvec[-1]], [apmin+posThr[1], apmin+posThr[1]], 'c')
-        plt.ylim((-0.3, -0.1))
+            pyplot.plot([tvec[ic_], tvec[ic_]], [-0.3, 0], 'm', alpha=0.5)
+        pyplot.plot([tvec[0], tvec[-1]], [apmin+posThr[0], apmin+posThr[0]], 'y')
+        pyplot.plot([tvec[0], tvec[-1]], [apmin+posThr[1], apmin+posThr[1]], 'c')
+        pyplot.ylim((-0.3, -0.1))
 
-        plt.subplot(3,1,2)
-        plt.plot(tvec[:-1], av)
+        pyplot.subplot(3,1,2)
+        pyplot.plot(tvec[:-1], av)
         for ic_ in pks:
-            plt.plot([tvec[ic_], tvec[ic_]], [-1, 1], 'm', alpha=0.6)
-        plt.plot([tvec[0], tvec[-1]], [velThr[0], velThr[0]], 'y')
-        plt.plot([tvec[0], tvec[-1]], [velThr[1], velThr[1]], 'c')
-        plt.ylim((-1, 1))
+            pyplot.plot([tvec[ic_], tvec[ic_]], [-1, 1], 'm', alpha=0.6)
+        pyplot.plot([tvec[0], tvec[-1]], [velThr[0], velThr[0]], 'y')
+        pyplot.plot([tvec[0], tvec[-1]], [velThr[1], velThr[1]], 'c')
+        pyplot.ylim((-1, 1))
 
-        plt.subplot(3,1,3)
-        plt.plot(tvec[:-2], aa)
+        pyplot.subplot(3,1,3)
+        pyplot.plot(tvec[:-2], aa)
         for ic_ in pks:
-            plt.plot([tvec[ic_], tvec[ic_]], [-10, 10], 'm', alpha=0.6)
-        plt.plot([tvec[0], tvec[-1]], [accThr[0], accThr[0]], 'y')
-        plt.plot([tvec[0], tvec[-1]], [accThr[1], accThr[1]], 'c')
-        plt.ylim((-10, 10))
+            pyplot.plot([tvec[ic_], tvec[ic_]], [-10, 10], 'm', alpha=0.6)
+        pyplot.plot([tvec[0], tvec[-1]], [accThr[0], accThr[0]], 'y')
+        pyplot.plot([tvec[0], tvec[-1]], [accThr[1], accThr[1]], 'c')
+        pyplot.ylim((-10, 10))
 
     return pks
 
