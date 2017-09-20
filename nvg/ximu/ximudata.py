@@ -26,7 +26,10 @@ from nvg.maths import quaternions as quat
 from nvg.algorithms import orientation
 #from nvg.utilities import time_series
 from nvg.ximu import pointfinder
+from nvg.ximu import markerdata
+from nvg.ximu import kinematics
 from nvg.io import qualisys_tsv as qtsv
+from nvg.ximu import markerdata
 
 from cyclicpython import cyclic_path
 from cyclicpython.algorithms import kinematics as cpkinematics
@@ -538,7 +541,7 @@ class NVGData:
         subj = self.hdfFile[subject]
         tr = subj[trial]
         ics =tr.attrs["PNAtICLA"]
-        cycles = fix_cycles(ics, k)
+        cycles = kinematics.fix_cycles(ics, k)
         tr.attrs["PNAtCycleEvents"] = cycles
         print "%d of %d cycles discarded (%2.1f %%)" \
             % ((len(ics)-len(cycles)), len(ics),
@@ -1014,7 +1017,8 @@ class NVGData:
 
 
     def get_angle_to_vertical_markers(self, subject="S7", trial="D", imu="LH",
-                        startTime=5*60, anTime=4*60, sagittalDir=[-1.0, 0, 0],
+                        startTime=5*60, anTime=4*60, vertDir=[0.,0., 1],
+                        sagittalDir=[-1.0, 0, 0],
                         doPlots=True):
         """
         Same as get_angle_to_vertical but using marker data. This is only possible
@@ -1028,8 +1032,29 @@ class NVGData:
         by the argument sagittalDir. The angle to the vertical is positive for
         a rotation about a vector pointing to the left.
 
-        Returns a list of scalar time series, one per gait cycle. 
+        Returns a list of scalar time series, one per gait cycle.
         """
+
+        upperName = IMU_MARKERS[imu]["upper"]
+        lowerName = IMU_MARKERS[imu]["lower"]
+
+        try:
+            mdta = self.get_marker_data(subject, trial,
+                    markers=[upperName, lowerName], startTime, anTime)
+        except ValueError:
+            return []
+
+        upper = mdta[upperName]
+        lower = mdta[lowerName]
+
+        angle = kinematics.angle_to_vertical(upper, lower, vertDir=vertDir,
+                                            sagittalDir=sagittalDir)
+
+        # Split data into cycles
+        return [angle[startInd_:stopInd_]
+                            for (startInd_, stopInd_) in mdta["cycledtaInds"]]
+
+
 
 
     def get_sagittal_plane_displacement(self, subject, trial, imu,
@@ -1274,7 +1299,7 @@ class NVGData:
         """
         Returns a list with tuples (startcyclePN, stopcyclePN) for all cycles
         that are within the time interval (firstPN, lastPN). The packet numbers
-        firstPN and lastPN refer to packet numbers for the LA imu, which is then
+        firstPN and lastPN refer to packet numbers for the LA imu, which is the
         one used in detecting steps.
 
         """
@@ -1897,33 +1922,77 @@ class NVGData:
         imudata['cycledataSec'] = cycledtaSec # times in seconds since sync
         imudata['cycledataInds'] = cycledtaInds # times in seconds since sync
 
-        if isinstance(mocapdatafile, basestring):
-            md = qtsv.loadQualisysTSVFile(mocapdatafile)
-        else:
-            md = mocapdatafile
+        return (imudata, self.get_marker_data(subject, trial, markers,
+                                startTime, anTime, rawData))
+
+    def get_marker_data(self, subject="S7", trial="D",
+                            markers=["ANKLE", "WRIST"],
+                            startTime=60, anTime=120, rawData=nvg_2012_09_data,
+                            split=False):
+        """ Returns marker data for the specified subject and trial.
+        The data returned starts at the specified time into the trial, and has the
+        specified length in seconds. The start of the trial is according to the
+        time of the LA imu, since this is used in the definition of the start
+        of cycles.
+
+        Arguments:
+        subject, trial, markers  -> self evident
+        startTime, anTime    -> In seconds time out in trial to fetch data and
+                                how many seconds to get.
+        split                -> If True, splits the data into gait cycles
+                                and returns data in the form of a list
+
+        Returns:
+        markerdta  <-  array with IMU data
+        """
+
+        if not trial in ("N", "D"):
+            raise ValueError("Marker data only available for trial D or N")
+
+        subjdta, eventdta = rawData()
+
+        try:
+            markerfile = subjdta[subject]["MD-" + trial]
+        except LookupError:
+            raise ValueError("Markerdata not found for subject " + subject)
+
+        md = qtsv.loadQualisysTSVFile(mocapdatafile)
 
         timeSinceSync = md.timeStamp - md.syncTime
 
-        firstCycleStart = cycledtaSec[0][0]
-        lastCycleEnd = cycledtaSec[-1][-1]
+        (imudt, subj_, trial_) = self.get_imu_data(subject, trial, "LA",
+                                                                startTime, anTime)
+        firstPN = imudt[0,0]
+        lastPN = imudt[-1,0]
+        syncLA = self.get_PN_at_sync(subject, "LA")
+        dt = 1.0/262.0 # Weird, but this is the actual sampling period
+        firstPacketTimeSinceSync = (firstPN - syncLA)*dt
+        lastPacketTimeSinceSync = (lastPN - syncLA)*dt
 
-        frames2use = md.frameTimes[md.frameTimes>firstCycleStart-timeSinceSync.total_seconds()]
-        frames2use = frames2use[frames2use<lastCycleEnd-timeSinceSync.total_seconds()]
+        frames2use = md.frameTimes[md.frameTimes > (firstPacketTimeSinceSync
+            - timeSinceSync.total_seconds())]
+        frames2use = md.frameTimes[md.frameTimes < (lastPacketTimeSinceSync
+            - timeSinceSync.total_seconds())]
+
         ft = frames2use + timeSinceSync.total_seconds()
 
         markerdata = {'frames':frames2use}
         markerdata['frametimes'] = ft
+        if "ANKLE" not in markers:
+            markers.append("ANKLE")
         for m in markers:
             markerdata[m] = md.marker(m).position(frames2use)
 
 
-        # Find initical contact from ankle marker data
-        ankled = md.marker('ANKLE').position(frames2use)
-        ics = detect_heel_strike(ft, ankled[2,:], plotResults=plotResults)
-        cycledtaMC = fix_cycles(ics, k=0.5,  plotResults=plotResults)
-        markerdata['cycledataMC'] = cycledtaMC
+        (cyclesTime, cyclesInd) = markerdata.get_marker_data_cycles(md,
+                                            frames2use)
 
-        return (markerdata, imudata)
+        markerdata['cycledataTime'] = cyclesTime
+        markerdata['cycledataInd'] = cyclesInd
+
+        return markerdata
+
+
     def set_standing_reference(self):
         """"
         Goes through all subjects, plots IMU data before start of N trial.
@@ -2036,85 +2105,6 @@ class NVGData:
         g = np.mean(a[:,1:], axis=0)
         #v[:, 1:4] -= np.outer(tau,g)
         return [v, g]
-
-def detect_heel_strike(tvec, ankleposz, wn=0.2, posThr=[0.03, 0.08],
-                        velThr = [-100, 0], accThr = [5, 100],
-                         plotResults=False):
-    """
-    Returns a list of heelstrikes detected from the z-component of the ankle
-    marker. From the ankle position, velocity and acceleration are computed.
-    The following heuristic is used to detect the heel strike:
-    minpos + posThr[0] < position < minpos + posThr[1]
-    velThr[0] < velocity < velThr[1]
-    accThr[0] < acc < accThr[1]
-
-    Arguments:
-    tvec        ->  Time vector (N,)
-    ankleposz   ->  ankle position in vertical direction (N,)
-    wn          ->  cutoff frequency of the low pass filter (Nyquist freq = 1)
-    plotResults ->  If true do plot
-
-    Returns:
-    pks         <-  list    of indices where peaks are found
-    """
-
-    # Lowpass filter using a Bessel filter
-    [b,a] = bessel(4, wn)
-    ap = filtfilt(b,a,ankleposz)
-
-    dt = np.mean(np.diff(tvec))
-    av = np.diff(ap)/dt
-    aa = np.diff(av)/dt
-
-    apmin = np.min(ap)
-
-    okinds = np.where( np.logical_and( np.logical_and(
-                        np.logical_and( ap[:-2] > (apmin + posThr[0]),
-                                       ap[:-2] < (apmin + posThr[1])),
-                        np.logical_and( av[:-1] > velThr[0],
-                                       av[:-1] < velThr[1])),
-                        np.logical_and( aa > accThr[0],
-                                       aa < accThr[1])))
-
-
-
-
-    aaa = np.empty(aa.shape)
-    aaa[:] = np.nan
-    aaa[okinds] = aa[okinds]
-
-    #pks = detect_peaks.detect_peaks(aa, mph=10, mpd=10)
-    pks = detect_peaks.detect_peaks(aaa, mph=5, mpd=40)
-    pks = np.intersect1d(pks, okinds)
-
-    if plotResults:
-        pyplot.figure()
-        pyplot.subplot(3,1,1)
-        pyplot.plot(tvec, ankleposz, alpha=0.3)
-        pyplot.plot(tvec, ap)
-        for ic_ in pks:
-            pyplot.plot([tvec[ic_], tvec[ic_]], [-0.3, 0], 'm', alpha=0.5)
-        pyplot.plot([tvec[0], tvec[-1]], [apmin+posThr[0], apmin+posThr[0]], 'y')
-        pyplot.plot([tvec[0], tvec[-1]], [apmin+posThr[1], apmin+posThr[1]], 'c')
-        pyplot.ylim((-0.3, -0.1))
-
-        pyplot.subplot(3,1,2)
-        pyplot.plot(tvec[:-1], av)
-        for ic_ in pks:
-            pyplot.plot([tvec[ic_], tvec[ic_]], [-1, 1], 'm', alpha=0.6)
-        pyplot.plot([tvec[0], tvec[-1]], [velThr[0], velThr[0]], 'y')
-        pyplot.plot([tvec[0], tvec[-1]], [velThr[1], velThr[1]], 'c')
-        pyplot.ylim((-1, 1))
-
-        pyplot.subplot(3,1,3)
-        pyplot.plot(tvec[:-2], aa)
-        for ic_ in pks:
-            pyplot.plot([tvec[ic_], tvec[ic_]], [-10, 10], 'm', alpha=0.6)
-        pyplot.plot([tvec[0], tvec[-1]], [accThr[0], accThr[0]], 'y')
-        pyplot.plot([tvec[0], tvec[-1]], [accThr[1], accThr[1]], 'c')
-        pyplot.ylim((-10, 10))
-
-    return pks
 
 
 class TimeKeeper:
@@ -2587,40 +2577,6 @@ def split_files_main(db, rawData=nvg_2012_09_data, initStart=20, initLength=120)
 
 
     return [initdta, packetNumberAtSync]
-
-def fix_cycles(ics, k=2, plotResults=False):
-    """ Checks the PNAtICLA attribute, computes the
-    0.25, 0.5 and 0.75 quantiles. Determines then the start and end of each cycle
-    so that only cycles with length that is within median +/- k*interquartiledistance
-    are kept.
-    The start and end events are returned as a list of two-tuples.
-    """
-
-    if len(ics) == 0:
-        warnings.warn("Unexpected empty set of events!")
-        return []
-
-    steplengths = np.array([ics[i]-ics[i-1] for i in range(1,len(ics))])
-    medq = np.median(steplengths)
-    q1 = np.percentile(steplengths, 25)
-    q3 = np.percentile(steplengths, 75)
-    interq = q3-q1
-    lowthr = medq - k*interq
-    #lowthr = 0.0
-    highthr = medq + k*interq
-    cycles = [(start_, stop_) for (stepl_, start_, stop_) \
-                  in itertools.izip(steplengths, ics[:-2], ics[1:]) \
-                  if (stepl_ > lowthr and stepl_ < highthr)]
-
-    if plotResults:
-        pyplot.figure()
-        pyplot.hist(steplengths, 60)
-        pyplot.plot([lowthr, lowthr], [0, 10], 'r')
-        pyplot.plot([highthr, highthr], [0, 10], 'r')
-
-        pyplot.hist([(stop_-start_) for (start_, stop_) in cycles], 60, color='g')
-
-    return cycles
 
 class angle_to_vertical_integrator_tracker(object):
     """

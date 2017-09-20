@@ -45,51 +45,6 @@ if not os.path.exists(RESDIR):
 
 
 
-def split_in_cycles(tvec, dta, cycledta, indices=False, minCycleLength=80):
-    """ Will split the data matrix dta (timeseries in columns) into cycles given
-    in cycledta.
-
-    Arguments:
-    tvec     -> time vector (N,)
-    dta      -> data matrix (N,m)
-    cycledta -> list of (start,stop) times corresponding to the times in tvec.
-                OR, indices (start, stop)
-    indices  -> if True, then cycledta contains indices, not times.
-
-    Returns tuple:
-    timespl  <- the time vector split in cycles, list
-    dtaspl   <- the data matrix split in cycles, list
-    """
-    timespl = []
-    dtaspl = []
-    tv = np.asarray(tvec).ravel() # Make sure it is a numpy 1d-array
-    for (cstart,cstop) in cycledta:
-        if indices:
-            indStart = [cstart]
-            indEnd = [cstop]
-        else:
-            (indStart,) = np.nonzero(tv < cstart)
-            (indEnd,) = np.nonzero(tv > cstop)
-            if len(indStart) == 0:
-                indStart = [0]
-            if len(indEnd) == 0:
-                indEnd = [len(tv)-1]
-
-        if indEnd[0] - indStart[-1]  > minCycleLength:
-            timespl.append(tv[indStart[-1]:indEnd[0]])
-
-            if dta.ndim == 1:
-                dtaspl.append(dta[indStart[-1]:indEnd[0]])
-            else:
-                dtaspl.append(dta[indStart[-1]:indEnd[0],:])
-
-    return (timespl, dtaspl)
-
-def resample_timeseries(x, t, tnew, kind='linear'):
-    """ Resamples the timeseries x defined at times t by interpolation """
-    f = interp1d(t, x, kind=kind, axis=0)
-    return f(tnew)
-
 
 def compare_angle_to_vertical(mocapdata, subject, trial="N",
                     startTime = 60,
@@ -152,38 +107,7 @@ def compare_angle_to_vertical(mocapdata, subject, trial="N",
     proxd = md[markers[1]]
 
 
-    # Find the sagittal plane.
-    llVec = proxd.T - distd.T
-    llVecVel = np.diff(llVec, axis=0)
-    # These velocities lies in the sagittal plane
-    (U,S,V) = np.linalg.svd(np.dot(llVec.T, llVec))
-    sagittalDir = V[-1]
-
-    # If not in direction of global negative x, then flip
-    if sagittalDir[0] > 0:
-        sagittalDir = -sagittalDir
-
-
-    # Calculate the angle to the vertical. Seen from the lefft of the person,
-    # a positive angle means the knee is in front of the ankle, or
-    # equivalently, a positive angle is a positive rotation about a laterally
-    # pointing axis of the ankle, with angle zero meaning that the lower leg
-    # is vertical.
-
-    # The vertical unit vector in the sagittal plane
-    vert = np.array([0., 0., 1.])
-    vertSagittal = vert - np.dot(vert, sagittalDir)*sagittalDir
-    vertSagittal = vertSagittal / np.linalg.norm(vertSagittal)
-    # The backward unit vector in the sagittal plane
-    bwd = np.cross(vertSagittal, sagittalDir)
-    print "Vertical sagittal direction and backwards from markers"
-    print vertSagittal
-    print bwd
-
-
-    # Calculating the angle
-    ll_angle = np.arctan2( -np.dot(llVec, bwd), np.dot(llVec, vertSagittal) )
-
+    ll_angle = kinematics.angle_to_vertical(upper=proxd, lower=distd)
     ft = md['frametimes']
     cycledta = imudt['cycledataSec']
 
@@ -798,23 +722,6 @@ def compare_sagittal_displacement(mocapdata, subject, trial="N",
     #
     # plt.show()
 
-def check_sync(syncfilename="/home/kjartan/Dropbox/projekt/nvg/data/solna09/S7/NVG_2012_S7_sync.tsv"):
-    """
-        Loads the tsv file with markerdata from the synchronization experiment. Plots the z-coordinate of the marker
-        'clapper1'.
-    """
-    title = "Checking sync of file %s" %syncfilename
-
-    md = qtsv.loadQualisysTSVFile(syncfilename)
-    timeToSync = md.syncTime - md.timeStamp
-
-    clapper = md.marker('clapper1')
-    clapposz = clapper.position(md.frameTimes).transpose()[:,2]
-
-    plt.figure()
-    plt.plot(md.frameTimes, clapposz)
-    plt.plot(timeToSync.total_seconds()*np.array([1, 1]), [-0.3, 1])
-    plt.title(title)
 
 def markerdata_list():
     """
@@ -1433,103 +1340,6 @@ def bland_altman_plot(data1, data2, *args, **kwargs):
     plt.axhline(md,        color='gray', linestyle='--')
     plt.axhline(md + 2*sd, color='gray', linestyle='--')
     plt.axhline(md - 2*sd, color='gray', linestyle='--')
-
-def test_three_point_angle():
-    p0 = np.array([0.0,0,0])
-    p1 = np.array([1.0,0,0])
-    p2 = np.array([1.0,1.0,0])
-    p3 = np.array([0.0,2.0,0])
-
-    npt.assert_almost_equal( _three_point_angle(p1,p0,p2,np.array([0,0,1.0])), np.pi/4)
-    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p2,np.array([0,0,1.0])), np.pi/4 )
-    npt.assert_almost_equal( _three_point_angle(p1,p0,p3,np.array([0,0,1.0])), np.pi/2)
-    npt.assert_almost_equal( _three_point_angle_projected(p1,p0,p3,np.array([0,0,1.0])), np.pi/2 )
-
-def _four_point_angle(pp1, pp2, pd1, pd2, posdir):
-    """
-    Computes the angle between the lines pp1-pp2 and pd1-pd2.
-      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = pp1-pp2
-    v2 = pd1-pd2
-
-    return _two_vec_angle(v1,v2,posdir)
-
-def _three_point_angle(p1, pcentral, p2, posdir):
-    """
-    Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-    v1 = p1-pcentral
-    v2 = -(p2-pcentral)
-
-    return _two_vec_angle(v1,v2,posdir)
-
-def _two_vec_angle(v1,v2,posdir):
-
-    if v1.ndim == 1:
-        v1.shape += (1,)
-        v2.shape += (1,)
-
-    theta = np.zeros((v1.shape[1],))
-
-    for i in range(v1.shape[1]):
-        v1_ = v1[:,i]
-        v2_ = v2[:,i]
-
-        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
-        v3_ = np.cross(v1_,v2_)
-        if (np.inner(v3_, posdir) < 0):
-            #theta[i] = 2*np.pi - theta[i]
-            theta[i] = - theta[i]
-
-    return theta
-
-def _four_point_angle_projected(pp1, pp2, pd1, pd2, posdir):
-    """
-    Computes the angle between the lines pp1-pp2 and pd1-pd2.
-      posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = pp1-pp2
-    v2 = pd1-pd2
-
-    return _two_vec_angle_projected(v1,v2,posdir)
-
-def _three_point_angle_projected(p1, pcentral, p2, posdir):
-    """
-    Will compute the angle between the three points, using pcentral as the center.
-    posdir is a vector in 3D giving the positive direction of rotation, using the right-hand rule. The angle is measured from 0 to 360 degrees as a rotation from (p1-pcentral) to (p2-pcentral).
-    """
-
-    v1 = p1-pcentral
-    v2 = p2-pcentral
-
-    return _two_vec_angle_projected(v1,v2,posdir)
-
-def _two_vec_angle_projected(v1,v2,posdir):
-
-    Pr = np.identity(3) - np.outer(posdir,posdir)
-
-
-    if v1.ndim == 1:
-        v1.shape += (1,)
-        v2.shape += (1,)
-
-    theta = np.zeros((v1.shape[1],))
-
-    for i in range(v1.shape[1]):
-        v1_ = np.dot( Pr, v1[:,i] )
-        v2_ = np.dot( Pr, v2[:,i] )
-
-        theta[i] = np.arccos( np.inner(v1_, v2_) / np.linalg.norm(v1_) / np.linalg.norm(v2_) )
-        v3_ = np.cross(v1_,v2_)
-        if (np.inner(v3_, posdir) < 0):
-            theta[i] = 2*np.pi - theta[i]
-
-    return theta
-
 
 def test_detect_heel_strike(listindex=[0]):
         mdfiles = markerdata_list()
