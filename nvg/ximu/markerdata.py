@@ -34,7 +34,7 @@ from cyclicpython import cyclic_planar as cppl
 
 
 
-def get_marker_data_cycles(md, frames2use):
+def get_marker_data_cycles(md, frames2use, plotResults=True):
     """
     Will find start and end of gait cycles using the trajectory of the left
     ankle marker

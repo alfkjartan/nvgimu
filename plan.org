@@ -32,13 +32,13 @@
    HEAD    ELBOW   WRIST   ACR     C7      SACRUM  LPSIS
    HIP     THIGH   KNEE    ANKLE
    DECISION: Define the following proximal and distal markers for the IMUs
-  - LA  (left ankle) "upper":"KNEE", "lower":"ANKLE", "closest":"ANKLE"
-  - LT (left thigh) "upper":"HIP", "lower":"KNEE", "closest":"THIGH"
-  - N (neck) "upper":"C7", "lower":"SACRUM", "closest":"C7"
-  - LH (left hand) "upper":"ELBOW", "lower":"WRIST", "closest":"WRIST"
+  - LA  (left ankle) upper:"KNEE", lower:"ANKLE", closest:"ANKLE"
+  - LT (left thigh) upper:"HIP", lower:"KNEE", closest:"THIGH"
+  - N (neck) upper:"C7", lower:"SACRUM", closest:"C7"
+  - LH (left hand) upper:"ELBOW", lower:"WRIST", closest:"WRIST"
 ** [TODO] Handle non-existence of marker data for specific trial
 * [TODO] Visualize comparison between results from marker data and IMU data
-* [DONE] Decide: Should marker data be included in the hdf db?
+* [DONE] Decide: Should marker data be included in the hdf db? NO
   I don't think so, in order for the database not to be too big. Instead, the
   marker validation data should be a separate database. Either as a lump of
   files with a table (dictionary) to get the correct data. The module
@@ -53,3 +53,38 @@
   dictionaries as returned by apply_to_all_trials. This comparison function should
   be able to handle both results in the form of sets of single data (RoM for instance)
   and sets of timeseries (angles over gait cycle).
+
+* [TODO] Refactor code
+  * [TODO] move all marker data related code into new module
+  * [TODO] More transparent handling of start of cycle data.
+    The start and end of cycles are defined by the packet number (PN) of the
+    LA imu. To get the PNs of cycles for other IMUs, the difference in the PN
+    at the sync pulse is added:
+      PN at start cycle = PN at start cycle LA - PN at sync LA + PN at sync IMU
+  * [TODO] Exactly how to use interchangable function objects.
+    Right now there are two parallell solutions. Attributes self.rotationEstimator
+    and self.displacementEstimator. But also, the function get_angle_to_vertical
+    takes a callable as an optional argument. This overrides the default
+    estimator.
+    I moved all these callable objects to kinematics.py. The callables that estimate
+    orientation all take (tvec, gyro, acc, mag) as arguments, and it is assumed that
+    the data is for a single cycle only. All other arguments that are specific for
+    the algorithm is set in the constructor when the callable is instantiated.
+    The problem now is that these arguments may be necessary to set for each
+    particular subject and imu...
+    * [TODO] Decision: Change the calling interface of the orientation estimators
+      to also take optional arguments (accref, gyroref, magref)
+    * [TODO] Decision: The return values should also be the same for all callables, or
+      otherwise the objects will not be interchangable. The return values should
+      be (q, phi) where q is a QuaternionArray giving the orientation with
+      respect to the orientation at the first data sample. phi is the angle to
+      the vertical or None if not provided. 
+
+* [TODO] Decision: Should the kinematics calculation always assume a single cycle of data is provided?
+  * In favour
+    * Powerful assumption. Can eliminate drift
+  * Against
+    * Utilize correlations between cycles
+  * Decision
+    Correclation between cycles is rather week. The only algorithm that could
+    utilize this is the Fourier-series method.
