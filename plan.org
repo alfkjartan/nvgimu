@@ -1,4 +1,45 @@
-* [TODO] Transparent use of marker data to calculate
+* Wish list from Ola & co
+Resultat av rörelseanalys för NVG-studien. Dvs rörelseanalys med guld-standardtekniken (Qualisys motion-capture system). De variabler som vi är intresserade av är de som du nämner nedan + minimal foot clearence och armpendlingar, dvs.
+
+** [DONE] stegfrekvens och även variabilitet av stegfrekvens/längd
+*** Implementation: db.get_cycle_frequency
+
+** [DONE] rörelseomfång i knäet
+*** Implementation: db.range_decorator(db.get_angle_between_segments)
+*** Validering: get_angle_between_segments_markers
+*** Problem: Good standing reference missing. Using data from just before trial
+    gives result which differ (too much) between left and right leg, probably
+    due to person standing with either foot in front of the other.
+    Use local x-axis instead of direction at (assumed) standing ref? Or could the
+    problem be caused by difference definition of angles in in left and right
+    imus?
+    Update 2017-11-21: Seems to be OK, but differences exists between legs and
+    between IMU and marker data calculations.
+
+** [DONE] vertikal lyft av foten (maxlyft)
+*** Implementation: db.range_decorator(db.get_vertical_displacement)
+*** Validering: db.get_vertical_displacement_markers
+
+** vertikal clearance av foten (minlyft)
+   Tolkar som minsta höjden i svängfasen. Fast ankeln visar ingen dip. Funkar interp1d
+*** Implementation: If LA: db.minmax_decorator(db.get_vertical_displacement,
+                                              start=0.5,  end=0.9)
+*** Implementation: If RA: db.minmax_decorator(db.get_vertical_displacement,
+                             start=0.1, end=0.4)
+                             *** Validering: db.get_vertical_displacement_markers
+
+** [DONE] vertikala förflyttningen av tyngdpunkten
+*** Implementation: db.range_decorator(db.get_vertical_displacement, IMU="B")
+*** Validering: db.get_vertical_displacement_markers
+
+** bålens sagittala rörelsesomfång
+*** Implementation: db.range_decorator(db.get_angle_to_vertical), IMU="N"
+** armpendelrörelse (ex. frekvens och vinkelomfång i axel).
+   Inte säker på vad som menas med frekvesn. För Range-of-motion:
+*** Implementation: db.range_decorator(db.get_angle_to_vertical), IMU="LH" och "RH"
+
+
+* [DONE] Transparent use of marker data to calculate
   The user experience should be something like this
   1. Decide on the analysis to make. The available analyses you can run
      on a single trial are
@@ -78,7 +119,7 @@
       otherwise the objects will not be interchangable. The return values should
       be (q, phi) where q is a QuaternionArray giving the orientation with
       respect to the orientation at the first data sample. phi is the angle to
-      the vertical or None if not provided. 
+      the vertical or None if not provided.
 
 * [TODO] Decision: Should the kinematics calculation always assume a single cycle of data is provided?
   * In favour
@@ -88,3 +129,9 @@
   * Decision
     Correclation between cycles is rather week. The only algorithm that could
     utilize this is the Fourier-series method.
+
+* [TODO] Write results to excel file.
+  Single excel file with statistics for single result variable. One row per subject.
+  Title gives name of variable. Columns: For each of the conditions "N", "B",
+  "M", "D" : Mean, Standard deviation, Min,
+  Q1, Q2, Q3, maximum.

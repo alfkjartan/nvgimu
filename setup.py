@@ -43,6 +43,8 @@ except ImportError:
 try:
     from setuptools import setup, find_packages
     from setuptools.extension import Extension
+    from Cython.Build import cythonize
+
     if depsOK:
         setup(
             name = "nvgimu",
@@ -53,12 +55,14 @@ try:
             install_requires = ["pyparsing",],
             packages = find_packages(),
             include_dirs = [numpy.get_include()],
-            ext_modules = [
-                Extension("nvg.maths.quaternions",
-                    ['nvg/maths/quaternions.c']),
-                Extension("nvg.maths.quat_splines",
-                    ['nvg/maths/quat_splines.c']),
-                Extension("nvg.maths.vectors",['nvg/maths/vectors.c'])]
-        )
+            ext_modules = cythonize("nvg/maths/*.pyx")
+            #     ext_modules = [
+            #         Extension("nvg.maths.quaternions",
+            #             ['nvg/maths/quaternions.c']),
+            #         Extension("nvg.maths.quat_splines",
+            #             ['nvg/maths/quat_splines.c']),
+            #         Extension("nvg.maths.vectors",['nvg/maths/vectors.c'])]
+            #
+            )
 except ImportError:
     print "Setuptools must be installed - see http://pypi.python.org/pypi/setuptools"

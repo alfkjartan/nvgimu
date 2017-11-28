@@ -4,6 +4,7 @@ __version__ = '0.2'
 __author__ = 'Kjartan Halvorsen'
 
 import sys
+import os
 import numpy as np
 import math
 import csv
@@ -12,16 +13,22 @@ import warnings
 import sqlite3
 import h5py
 import unittest
+import functools
 import matplotlib.pyplot as pyplot
 import matplotlib.dates as mdates
+from matplotlib.font_manager import FontProperties
+
 from scipy.interpolate import interp1d
 import scipy.optimize as optimize
 from scipy.signal import detrend, bessel, filtfilt
 import scipy.io as sio
+import scipy.stats
+
 from datetime import datetime, timedelta, date
 
 import logging
 logging.basicConfig(filename='ximudata.log',level=logging.DEBUG)
+import xlsxwriter
 
 from nvg.maths import quaternions as quat
 from nvg.algorithms import orientation
@@ -46,6 +53,26 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
         New 2017-09-15: Marker data available with key "MD-N" and "MD-D"
     """
+    dp = dtaroot + "2012-09-17/S1/"
+    s1 = {}
+    s1["LA"] = [dp + "LA-200/NVG_2012_S1_A_LA_00201_DateTime.csv", \
+                    dp + "LA-200/NVG_2012_S1_A_LA_00201_CalInertialAndMag.csv"]
+    s1["LH"] = [dp + "LH-800/NVG_2012_S1_A_LH_00801_DateTime.csv", \
+                    dp + "LH-800/NVG_2012_S1_A_LH_00801_CalInertialAndMag.csv"]
+    s1["LT"] = [dp + "LT-400/NVG_2012_S1_A_LT_00401_DateTime.csv", \
+                    dp + "LT-400/NVG_2012_S1_A_LT_00401_CalInertialAndMag.csv"]
+    s1["N"] = [dp + "N-600/NVG_2012_S1_A_N_00601_DateTime.csv", \
+                    dp + "N-600/NVG_2012_S1_A_N_00601_CalInertialAndMag.csv"]
+    s1["B"] = []
+    s1["RA"] = [dp + "RA-100/NVG_2012_S1_A_RA_00101_DateTime.csv", \
+                    dp + "RA-100/NVG_2012_S1_A_RA_00101_CalInertialAndMag.csv"]
+    s1["RH"] = [dp + "RH-700/NVG_2012_S1_A_RH_00701_DateTime.csv", \
+                    dp + "RH-700/NVG_2012_S1_A_RH_00701_CalInertialAndMag.csv"]
+    s1["RT"] = [dp + "RT-300/NVG_2012_S1_A_RT_00301_DateTime.csv", \
+                    dp + "RT-300/NVG_2012_S1_A_RT_00301_CalInertialAndMag.csv"]
+
+    s1events = dp + "NVG_2012_S1_eventlog_fix"
+
     dp = dtaroot + "2012-09-18/S2/"
     s2 = {}
     s2["LA"] = [dp + "LA-200/NVG_2012_S2_A_LA_00201_DateTime.csv", \
@@ -110,7 +137,7 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     s4events = dp + "NVG_2012_S4_eventlog"
 
 
-    dp = dtaroot + "2012-09-19-S5/S5"
+    dp = dtaroot + "2012-09-19-S5/S5/"
     s5 = {}
     s5["LA"] = [dp + "LA-200/NVG_2012_S5_A_LA_00204_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S5_A_LA_00204_CalInertialAndMag.csv"]
@@ -158,22 +185,22 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
 
     dp = dtaroot + "2012-09-20/S7/"
     s7 = {}
-    s7["LA"] = [dp + "LA-200/NVG_2012_S7_A_LA_00206_DateTime.csv", \
-                    dp + "LA-200/NVG_2012_S7_A_LA_00206_CalInertialAndMag.csv"]
-    s7["LH"] = [dp + "LH-800/NVG_2012_S7_A_LH_00806_DateTime.csv", \
-                    dp + "LH-800/NVG_2012_S7_A_LH_00806_CalInertialAndMag.csv"]
-    s7["LT"] = [dp + "LT-400/NVG_2012_S7_A_LT_00406_DateTime.csv", \
-                    dp + "LT-400/NVG_2012_S7_A_LT_00406_CalInertialAndMag.csv"]
-    s7["N"] = [dp + "N-600/NVG_2012_S7_A_N_00606_DateTime.csv", \
-                    dp + "N-600/NVG_2012_S7_A_N_00606_CalInertialAndMag.csv"]
-    s7["B"] = [dp + "B-500/NVG_2012_S7_A_B_00506_DateTime.csv", \
-                    dp + "B-500/NVG_2012_S7_A_B_00506_CalInertialAndMag.csv"]
-    s7["RA"] = [dp + "RA-100/NVG_2012_S7_A_RA_00106_DateTime.csv", \
-                    dp + "RA-100/NVG_2012_S7_A_RA_00106_CalInertialAndMag.csv"]
-    s7["RH"] = [dp + "RH-700/NVG_2012_S7_A_RH_00706_DateTime.csv", \
-                    dp + "RH-700/NVG_2012_S7_A_RH_00706_CalInertialAndMag.csv"]
-    s7["RT"] = [dp + "RT-300/NVG_2012_S7_A_RT_00306_DateTime.csv", \
-                    dp + "RT-300/NVG_2012_S7_A_RT_00306_CalInertialAndMag.csv"]
+    s7["LA"] = [dp + "NVG_2012_S7_A_LA_00206_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_LA_00206_CalInertialAndMag.csv"]
+    s7["LH"] = [dp + "NVG_2012_S7_A_LH_00806_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_LH_00806_CalInertialAndMag.csv"]
+    s7["LT"] = [dp + "NVG_2012_S7_A_LT_00406_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_LT_00406_CalInertialAndMag.csv"]
+    s7["N"] = [dp + "NVG_2012_S7_A_N_00606_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_N_00606_CalInertialAndMag.csv"]
+    s7["B"] = [dp + "NVG_2012_S7_A_B_00506_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_B_00506_CalInertialAndMag.csv"]
+    s7["RA"] = [dp + "NVG_2012_S7_A_RA_00106_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_RA_00106_CalInertialAndMag.csv"]
+    s7["RH"] = [dp + "NVG_2012_S7_A_RH_00706_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_RH_00706_CalInertialAndMag.csv"]
+    s7["RT"] = [dp + "NVG_2012_S7_A_RT_00306_DateTime.csv", \
+                    dp + "NVG_2012_S7_A_RT_00306_CalInertialAndMag.csv"]
 
     s7events = dp + "NVG_2012_S7_eventlog"
 
@@ -247,7 +274,7 @@ def nvg_2012_09_data(dtaroot = "/media/ubuntu-15-10/home/kjartan/nvg/"):
     s10events = dp + "NVG_2012_S10_eventlog"
 
 
-    dp = dtaroot + "2012-09-24/S11/"
+    dp = dtaroot + "2012-09-24-S11/S11/"
     s11 = {}
     s11["LA"] = [dp + "LA-200/NVG_2012_S11_A_LA_00210_DateTime.csv", \
                     dp + "LA-200/NVG_2012_S11_A_LA_00210_CalInertialAndMag.csv"]
@@ -306,6 +333,7 @@ IMU_MARKERS["LT"] = dict(upper="HIP", lower="KNEE",  closest="THIGH")
 IMU_MARKERS["LA"] = dict(upper="KNEE", lower="ANKLE",  closest="ANKLE")
 IMU_MARKERS["N"] = dict(upper="C7", lower="SACRUM",  closest="C7")
 IMU_MARKERS["LH"] = dict(upper="ELBOW", lower="WRIST",  closest="WRIST")
+IMU_MARKERS["B"] = dict(upper="C7", lower="SACRUM",  closest="SACRUM")
 
 
 
@@ -328,7 +356,7 @@ class NVGData:
 
         self.rotationEstimator = kinematics.CyclicEstimator(14) # Default is cyclic estimator
         # Use tracking algorithm from nvg. Restart at each cycle start
-        #self.rotationEstimator = self.GyroIntegratorOrientation(self.hdfFile.attrs['packetNumbersPerSecond'])
+        #self.rotationEstimator = kinematics.GyroIntegratorOrientation(self.hdfFile.attrs['packetNumbersPerSecond'])
 
         self.displacementEstimator = kinematics.IntegrateAccelerationDisplacementEstimator()
 
@@ -350,17 +378,17 @@ class NVGData:
                 try:
                     g = f.create_group(sstr)
                 except ValueError:
-                    logging.INFO("Sub group " + sstr + " already exists")
+                    logging.info("Sub group " + sstr + " already exists")
                     g = f["/"+sstr]
                     for c in ['N', 'D', 'B', 'M']:
                         try:
                             g.create_group(c)
                         except ValueError:
-                            logging.INFO("Sub group " + c + " already exists")
+                            logging.info("Sub group " + c + " already exists")
 
             self.hdfFile = f
         except ValueError:
-            logging.WARNING("Error opening file " + fname)
+            logging.warning("Error opening file " + fname)
 
     def list_imus(self):
         """ Makes a list of all imus for which data exists for each trial """
@@ -412,8 +440,25 @@ class NVGData:
         else:
             return None
 
+    def descriptive_statistics(self, res):
+        """
+        Iterates over the dict res creating an returning a similar dict,
+        but with descriptive statistics on the data elements in res.
+        If any data element is empty, this particular element will be missing
+        in the returned dict.
+        """
+        stats = {}
+        for (key, result) in res.iteritems():
+            if len(result) > 1:
+                stats[key] = [np.mean(result), np.std(result), np.min(result),
+                        np.percentile(result, 25), np.median(result),
+                        np.percentile(result, 75), np.max(result)]
+
+        return stats
+
     def descriptive_statistics_decorator(self, func):
-        """ Decorator that will call the provided function to get data,
+        """
+        Decorator that will call the provided function to get data,
         then calculate descriptive statistics and returning the
         list of  values [mean, std, min, Q1, Q2, Q3, max]
         typical usage::
@@ -429,6 +474,63 @@ class NVGData:
                     np.percentile(result, 75), np.max(result)]
         return wrapper
 
+    def scale_decorator(self, func, scale=1.0):
+        """ Decorator that will call the provided function to get data,
+        then scale the values.
+        typical usage::
+           nvgDB = NVGData()
+           nvgDB.apply_to_all_trials(
+              nvgDB.scale_decorator(nvgDB.get_rotation, scale=180.0/np.pi),
+              dict(imu="B", startTime=120, anTime=60, doPlots=False)))
+              attrname="cycleFrequency") )
+        """
+
+        def wrapper(self, *args, **kwargs):
+            result = func(self, *args, **kwargs)
+            return [scale*np.asarray(r_) for r_ in result]
+        return wrapper
+
+    def range_decorator(self, func):
+        """ Decorator that will call the provided function to get data,
+        then calculate the range of the data
+        typical usage::
+           nvgDB = NVGData()
+           nvgDB.apply_to_all_trials(
+              nvgDB.range_decorator(nvgDB.get_vertical_displacement),
+              dict(imu="B", startTime=120, anTime=60, doPlots=False)))
+              attrname="cycleFrequency") )
+        """
+
+        def wrapper(self, *args, **kwargs):
+            result = func(self, *args, **kwargs)
+            return [np.max(r_) - np.min(r_) for r_ in result]
+        return wrapper
+
+    def minmax_decorator(self, func, start=0.0, end=1.0):
+        """ Decorator that will call the provided function to get data,
+        then calculate the min and max of the data. The optional arguments
+        start and end define start and end of an interval in the gait cycle
+        for which to look for min and max.
+        typical usage::
+           nvgDB = NVGData()
+           nvgDB.apply_to_all_trials(
+              nvgDB.range_decorator(nvgDB.get_vertical_displacement),
+              dict(imu="B", startTime=120, anTime=60, doPlots=False)))
+              attrname="cycleFrequency") )
+        """
+
+        def wrapper(self, *args, **kwargs):
+            result = func(self, *args, **kwargs)
+            minmax = []
+            for r_ in result:
+                cycleLength = len(r_)
+                startInd = int(start*cycleLength)
+                endInd = int(end*cycleLength)-1
+                minmax.append((np.min(r_[startInd:endInd]),
+                        np.max(r_[startInd:endInd])))
+            return [np.max(r_) - np.min(r_) for r_ in result]
+        return wrapper
+
     def normalize_statistics(self, stats):
         """ Goes through the dict stats containing desriptive statistics,
         and normalize for each trial to the corresponding value for the Normal
@@ -441,13 +543,142 @@ class NVGData:
                                          in itertools.izip(vals,normals)]
         return results
 
-    def make_boxplot(self, results, title, ylim=None):
-        """ Make a boxplot, and saves the figure as a pdf file
-        using the title and date.
-        The results argument is a dict with keys (subj, trial), as returned
-        from a call to apply_to_all_trials.
-        A tab-spaced text file with the data is also generated
+
+    def test_difference_in_condition(self, results, title,
+                                test_fcn=functools.partial(scipy.stats.ttest_rel,
+                                            nan_policy="omit"),
+                                p_level = 0.05,
+                                compare_to="N",
+                                compare_fcn=functools.partial(np.take, indices=0),
+                                ylabel="", doPlots=True):
         """
+        Performes the statistical test on paired comparisons
+
+        Arguments
+        results    ->   dict with keys (subj, trial), as returned
+                        from a call to apply_to_all_trials. Each value in
+                        the dict should be a list containing
+                        [mean, std, min, Q1, Q2, Q3, max]
+        title      ->   String
+        test_fcn   ->   Function that computes the statistical comparisons. The
+                        default is to do standard paired t-test and omitting
+                        NaNs.
+        compare_to ->   Test case to compare others to. Default "N"
+        compare_fcn ->  Function that computes the value to use in the comparisons
+                        Defaults to the first element, i.e. mean
+        doPlots    ->   True means plot results
+        """
+
+        # Find the comparison data
+        compData = dict( [ (subj, compare_fcn(results[(subj, trial)]))
+                        for (subj, trial) in results.keys() if trial==compare_to ] )
+
+
+        # The other data
+        allConditions = set(["N", "B", "M", "D"])
+        allOtherConditions = allConditions - set(compare_to)
+
+        # Now run the comparison for all conditions
+        allComparisons = {}
+        allPvals = {}
+        for cond in allOtherConditions:
+            condData = dict( [ (subj, compare_fcn(results[(subj, trial)]))
+                        for (subj, trial) in results.keys() if trial==cond ] )
+            # Pair the data
+            pairs = [(condData[subj], compData[subj])
+                        for subj in condData.viewkeys() & compData.viewkeys()]
+
+            a,b = zip(*pairs)
+            t, p = test_fcn(a,b)
+            allComparisons[cond + "-" + compare_to] = np.array(a) - np.array(b)
+            allPvals[cond + "-" + compare_to] = p
+
+
+        if doPlots:
+            fig= pyplot.figure(figsize=(6,4))
+            ax = fig.add_subplot(1,1,1)
+            font0 = FontProperties()
+            fontBold = font0.copy()
+            fontBold.set_weight("bold")
+
+            comparisons = allComparisons.keys()
+            diffs = allComparisons.values()
+            pvals = [allPvals[comparison] for comparison in comparisons]
+
+            bp = ax.boxplot(diffs, showmeans=True, sym='')
+            pyplot.setp(bp['boxes'], color='black')
+            pyplot.setp(bp['whiskers'], color='black')
+            #pyplot.setp(bp['fliers'], color='red', marker='+')
+            xtickNames = pyplot.setp(ax, xticklabels=comparisons)
+            pyplot.setp(xtickNames, fontsize=12)
+            ax.set_title(title)
+            ax.set_xlabel('Comparisons', fontsize=12)
+
+            ax.set_ylabel(ylabel, fontsize=12)
+
+            # Annoate with p value
+            yl = ax.get_ylim()
+            ppos = 1.1*yl[1]
+            yl = (yl[0], 1.2*yl[1])
+            ax.set_ylim(yl)
+            for i in range(len(diffs)):
+                if pvals < p_level:
+                    txt = ax.text(i+1, ppos, "p=%1.3f" % pvals[i],
+                        fontweight="bold",
+                        horizontalalignment="center",
+                        fontsize=13)
+                else:
+                    txt = ax.text(i+1, ppos, "p=%1.3f" % pvals[i],
+                    horizontalalignment="center",
+                    fontsize=12)
+
+
+            self.savepdf(title)
+
+
+    def save_statistics(self, results, title):
+        """
+        Saves the descriptive statistics contained in results to a file
+        with the provided title and today's date.
+
+        Arguments
+        results    ->   dict with keys (subj, trial), as returned
+                        from a call to apply_to_all_trials. Each value in
+                        the dict should be a list containing
+                        [mean, std, min, Q1, Q2, Q3, max]
+        title      ->   String
+        """
+
+        from itertools import cycle
+
+        # File to save to in folder named as today's date
+        resdir = os.path.join(os.getcwd(), date.isoformat(date.today()) )
+        if not os.path.exists(resdir):
+            os.makedirs(resdir)
+
+
+        fnameparts = title.split()
+        fnameparts.append(date.today().isoformat())
+        fnameparts.append("descriptive-stats")
+        fnameparts.append(".xlsx")
+        fname = os.path.join(resdir, "-".join(fnameparts))
+        fname = fname[:-6] + fname[-5:] # Remove last hyphen before suffix
+
+        # Create a workbook and add a worksheet.
+        workbook = xlsxwriter.Workbook(fname)
+        worksheet = workbook.add_worksheet()
+
+        # Create some format objects to make the spreadsheet easier to read
+        headerformat = workbook.add_format()
+        headerformat.set_bold()
+        headerformat.set_font_color('white')
+        headerformat.set_bg_color('#990000')
+
+        blockformat1 = workbook.add_format()
+        blockformat1.set_bg_color('#AAAAAA')
+        blockformat2 = workbook.add_format()
+        blockformat2.set_bg_color('#CCCCCC')
+        formats = cycle((blockformat1, blockformat2))
 
         # Unique list of subjects
         subjects = list(set([subj for (subj, trial) in results.keys()]))
@@ -458,88 +689,205 @@ class NVGData:
         # Order of conditions
         conds = ["N", "B", "M", "D"]
 
-        fig= pyplot.figure(figsize=(10,6))
-        ax = fig.add_subplot(111)
+        #1/0
+
+        worksheet.write(1,0, "Subject", headerformat)
+        #worksheet.write(0,0, "", headerformat)
+        col = 1
+        for cond in conds:
+            worksheet.write(0, col, cond, headerformat)
+            c = 0
+            for heading in ("Mean", "Stdv", "Min", "Q1", "Q2", "Q3", "Max"):
+                worksheet.write(1,col+c, heading, headerformat)
+                c += 1
+            col += 7
+
+        row = 2
+        for subj in subjects:
+            worksheet.write(row, 0, subj, headerformat)
+            col = 1
+            for cond in conds:
+                fmt = formats.next()
+                try:
+                    dta = results[(subj, cond)]
+                except:
+                    # Assuming error occurs because data missing. Cells left blank
+                    logging.warning("Exception. Missing data for" +
+                        " subject %s, condition %s" % (subj, c))
+                    col += 7
+                    continue
+                for i in range(len(dta)):
+                    if not np.isnan(dta[i]):
+                        worksheet.write(row, col+i, dta[i], fmt)
+                col +=7
+            row += 1
+
+        workbook.close()
+
+    def make_boxplot(self, results, title, ylim=None, ylabel="Value"):
+        """ Make a boxplot, and saves the figure as a pdf file
+        using the title and date.
+        The results argument is a dict with keys (subj, trial), as returned
+        from a call to apply_to_all_trials.
+
+        IF results is a list, then both results are plotted in a way that
+        facilitates visual comparison.
+        """
+
+
+        fig= pyplot.figure(figsize=(8.5,5))
+        ax = fig.add_subplot(1,1,1)
+        if type(results) is dict:
+            self._make_boxplot_singleresults(results, title, ylim, ylabel, ax)
+        else:
+            # Should be list of dicts. The length of the first series will
+            # determine the subjects and conditions that are plotted
+            n = len(results)
+            xpositions = self._make_boxplot_singleresults(results[0], title,
+                                            ylim, ylabel,
+                                            ax, 0.9, 0, n, annotate=False)
+            for i in range(1,n):
+                annotate = (i == n/2)
+
+                self._make_boxplot_singleresults(results[i], title, ylim, ylabel,
+                                            ax, 0.9 - 0.4*float(i+1)/float(n),
+                                            i, n, xpositions, annotate)
+        fname = title
+        self.savepdf(fname)
+
+    def savepdf(self, fname=""):
+            pyplot.draw()
+
+            # Save figure
+            resdir = os.path.join(os.getcwd(), date.isoformat(date.today()) )
+            if not os.path.exists(resdir):
+                os.makedirs(resdir)
+
+
+            fnameparts = fname.split()
+            fnameparts.append(date.today().isoformat())
+            fnameparts.append(".pdf")
+            figname = os.path.join(resdir, "-".join(fnameparts))
+            figname = figname[:-5] + figname[-4:] # Remove last hyphen before suffix
+            pyplot.savefig(figname, format="pdf")
+
+
+    def _make_boxplot_singleresults(self, results, title,  ylim, ylabel, ax,
+                                        graylevel=0.9, serie=0, nseries=1,
+                                        xpositions=None, annotate=True):
+        """
+        Generates a boxplot given the axes to plot
+
+        Arguments
+        results       ->  dict with data indexed by the tuple (subj, trial)
+        title         ->  String
+        ylim          ->  tuple. Can be None
+        ylabel        ->  String
+        ax            ->  An Axes object to draw plot in
+        graylevel     ->  Fill color of boxes
+        serie         ->  The index of this series if set of results
+        nseries       ->  Number of series in the set
+        xpositions    ->  dict indexed by the tuple (subj, trial) giving the
+                          x positions of the boxes
+        annotate      ->  If True will write xticklabels and subject name
+        """
+        # Unique list of subjects
+        subjects = list(set([subj for (subj, trial) in results.keys()]))
+
+        # Sort them
+        subjects.sort(key=lambda id: int(id[1:]))
+
+        # Order of conditions
+        conds = ["N", "B", "M", "D"]
+
 
         ns = len(subjects)
         k=-1
         subjdta =  []
         pos = []
+        subjannot = []
         midp = []
         maxp = -1e10
-        subjmeans = []
-        subjstds = []
+        xticknames = []
+        if serie == 0:
+            xpositions = {}
         for subj in subjects:
             k += 1
-            condmeans = []
-            condstds = []
+            i = 0
+            subjpos = []
             for c in conds:
+                i += 1
                 try:
                     dta = results[(subj, c)]
                 except:
                     # Assuming error occurs because data missing. Put in a few nans
-                    logging.WARNiNG("Exception. Missing data")
-                    dta = np.array([np.nan for i in range(10)])
-                condmeans.append(np.mean(dta))
-                condstds.append(np.std(dta))
+                    logging.warning("Exception. Missing data")
+                    continue
+                if len(dta) == 0:
+                    continue
+
+                if serie == 0:
+                    xpos = (5*nseries)*k+(i*nseries)
+                    xpositions[(subj, c)] = xpos
+                else:
+                    try:
+                        xpos = xpositions[(subj,c)] + serie
+                    except KeyError:
+                        #print "Position for subj %s, condition %s not found" % (subj, c)
+                        # subject, condition not found. Skip
+                        continue
+
+                # Remove any nans
+                dta = [el_ for el_ in dta if not np.isnan(el_)]
+                if len(dta) == 0:
+                    continue
                 subjdta.append(dta)
+                pos.append(xpos)
+                subjpos.append(xpos)
                 maxp = max(maxp, np.max(dta))
-            subjmeans.append(condmeans)
-            subjstds.append(condstds)
-            subjpos = [5*k+i for i in range(1,5)]
-            pos += subjpos
-            midp.append(np.mean(np.array(subjpos))-1)
-        bp = pyplot.boxplot(subjdta, positions=pos, sym='')
+                xticknames.append(c)
+            if len(subjpos) > 0:
+                midp.append(np.mean(np.array(subjpos))-1)
+                subjannot.append(subj)
+
+        bp = ax.boxplot(subjdta, positions=pos, sym='', patch_artist=True)
         pyplot.setp(bp['boxes'], color='black')
+        for patch in bp['boxes']:
+            patch.set_facecolor("%f" % graylevel)
+
         pyplot.setp(bp['whiskers'], color='black')
-        pyplot.setp(bp['fliers'], color='red', marker='+')
-        xtickNames = pyplot.setp(ax, xticklabels=conds*ns)
-        pyplot.setp(xtickNames, fontsize=8)
-        ax.set_title(title)
-        ax.set_xlabel('Subjects and condition')
-        ax.set_ylabel('Value')
+        #pyplot.setp(bp['fliers'], color='red', marker='+')
+        ax.set_title(title, fontsize=14)
+        ax.set_xlabel('Subjects and conditions', fontsize=12)
+
+        ax.set_ylabel(ylabel, fontsize=12)
+
         yl = ax.get_ylim()
         yl = (yl[0], maxp + 0.1*(yl[1]-yl[0]))
 
-        if ylim == None:
+        if ylim is None:
             ax.set_ylim(yl)
-        else:
+        if ylim is not None:
             ax.set_ylim(ylim)
-            maxp = 0.8*ylim[1]
+            maxp = ylim[1] - 0.2*(ylim[1]-ylim[0])
 
-        # Annoate with subject id
-        for (subj_, pos_) in itertools.izip(subjects, midp):
-            ax.text(pos_, maxp, subj_)
+        if annotate:
+            if not nseries % 2:
+                # Even number of series, so ticks between boxes
+                locs, labels = pyplot.xticks()
+                pyplot.setp(ax, xticks=locs-0.5)
 
-        pyplot.draw()
+            locs, labels = pyplot.xticks()
+            xtickrange = max(locs) - min(locs)
+            ax.set_xlim((min(locs) - 0.08*xtickrange, max(locs) + 0.08*xtickrange))
 
-        fnameparts = title.split()
-        fnameparts.append(date.today().isoformat())
-        fnameparts.append(".pdf")
-        pyplot.savefig("-".join(fnameparts), format="pdf")
+            xtickNames = pyplot.setp(ax, xticklabels=xticknames)
+            pyplot.setp(xtickNames, fontsize=10)
+            # Annoate with subject id
+            for (subj_, pos_) in itertools.izip(subjannot, midp):
+                ax.text(pos_, maxp, subj_)
 
-        fnameparts.pop()
-        fnameparts.append("mean")
-        fnameparts.append(".tsv")
-        fil = open("-".join(fnameparts), 'w')
-        for c in conds:
-            fil.write(c)
-            fil.write('\t')
-        fil.write('\n')
-        np.savetxt(fil, np.array(subjmeans), delimiter="\t", newline="\n")
-        fil.close()
-        fnameparts.pop()
-        fnameparts.pop()
-        fnameparts.append("std")
-        fnameparts.append(".tsv")
-        fil = open("-".join(fnameparts), 'w')
-        for c in conds:
-            fil.write(c)
-            fil.write('\t')
-        fil.write('\n')
-        np.savetxt(fil, np.array(subjstds), delimiter="\t", newline="\n")
-        fil.close()
-
+        return xpositions
 
     def fix_cycle_events(self, subject, trial, k=2):
         """ Checks the PNAtICLA attribute, computes the
@@ -555,8 +903,10 @@ class NVGData:
         ics =tr.attrs["PNAtICLA"]
         cycles = kinematics.fix_cycles(ics, k)
         tr.attrs["PNAtCycleEvents"] = cycles
-        logging.INFO("%d of %d cycles discarded (%2.1f %%)" \
-            % ((len(ics)-len(cycles)), len(ics),
+        self.hdfFile.flush()
+
+        logging.info("Subject %s, trial %s: %d of %d cycles discarded (%2.1f %%)" \
+            % (subject, trial, (len(ics)-len(cycles)), len(ics),
                float(len(ics)-len(cycles))/len(ics)*100) )
 
 
@@ -670,7 +1020,7 @@ class NVGData:
         try:
             cycledta = self.get_cycle_data(subject, trial, "LA", firstPN, lastPN)
         except KeyError:
-            logging.WARNING("No step cycles found yet. Run detect_steps first!")
+            logging.warning("No step cycles found yet. Run detect_steps first!")
             return
 
         #dt = 1.0/256
@@ -682,7 +1032,7 @@ class NVGData:
 
         subj = self.hdfFile[subject]
         tr = subj[trial]
-        tr.attrs['cycleFrequency'] = freqs
+        #tr.attrs['cycleFrequency'] = freqs
 
         if doPlots:
             # Make a histogram of the frequencies
@@ -698,6 +1048,36 @@ class NVGData:
                              % (subject, trial))
 
         return freqs
+
+    def get_rotation(self, subject="S7", trial="D", imu="LH",
+                            startTime=3*60, anTime=60, phiOnly=True):
+        """
+        Calculates the rotation of the imu wrt the orientation at the beginning
+        of each step.
+        Returns
+        phi       <-  angle of rotation
+        q         <-  Quaternion array containing the complete rotation
+        if phiOnly is true, returns only phi (suprise).
+        """
+        [imudta, s_, tr_] = self.get_imu_data(subject, trial, imu,
+                                            startTime, anTime, split=True,
+                                            SIUnits=True)
+
+        phi = []
+        q = []
+        for imudta_ in imudta:
+            gyro = imudta_[:,1:4]
+            acc = imudta_[:,4:7]
+            mag = imudta_[:,7:10]
+            tvec = imudta_[:,-1]
+            qe, theta = self.rotationEstimator(tvec, gyro, acc, mag)
+            q.append(qe)
+            #phi.append([np.arccos(q_.w) for q_ in qe])
+            phi.append(np.arccos(qe.w))
+        if phiOnly:
+            return phi
+        else:
+            return (phi, q)
 
     def get_ROM_joint_angle(self, subject="S7", trial="D", imus=["LA", "LT"],
                            startTime=5*60, anTime=60, doPlots=True):
@@ -876,7 +1256,7 @@ class NVGData:
                 angleBetweenSegments.append(a0i-a1i)
 
 
-        if doPlots or self.debug:
+        if doPlots and self.debug:
             pyplot.figure()
             for a in angleBetweenSegments:
                 pyplot.plot(a*180/np.pi)
@@ -932,7 +1312,7 @@ class NVGData:
             angleBetweenSegments.append(a0i-a1i)
 
 
-        if doPlots or self.debug:
+        if doPlots and self.debug:
             pyplot.figure()
             for a in angleBetweenSegments:
                 pyplot.plot(a*180/np.pi)
@@ -1203,6 +1583,7 @@ class NVGData:
 
         return displacement
 
+
     def get_range_of_motion(self, subject="S7", trial="D", imu="LA",
                             startTime=5*60,
                             anTime=60, doPlots=True):
@@ -1245,34 +1626,62 @@ class NVGData:
     def get_vertical_displacement(self, subject="S7", trial="D", imu="LA",\
                                       startTime=5*60,\
                                       anTime=60, doPlots=True):
-        """ Will first track the displacement of the imu, and then
-        calculate the displacement in the vertical direction for each cycle.
-        The vertical direction is determined from the average acceleration over
-        each cycle
+        """
+        First tracks the displacement using self.track_displacement. Then
+        calculates the vertical displacement by projecting the displacement
+        onto the vertical direction in all cycles.
 
-        Returns:
-        List with vertical displacement for each gait cycle
+        Returns
+        vDisps    <-  List with (N,) arrays containing the vertical displacement
+                      for each gait cycle
         """
 
-        [imuDisp, imuVel, imuGvec, cycledta, cycleinds] = \
-            self.track_displacement(subject, trial, imu,
-                                    startTime, anTime,
-                                    doPlots)
+        [imuDisp, imuVel, imuGvec, imuSagDir] = self.track_displacement(
+                                subject, trial, imu, startTime, anTime, doPlots)
 
-        vDisps = []
-        for (d_, g_) in itertools.izip(imuDisp, imuGvec):
-            vd = np.dot(d_[:,1:], g_)
-            vDisps.append(np.max(vd) - np.min(vd))
+        vDisps = [ np.dot(d_, g_) for (d_, g_) in
+                                            itertools.izip(imuDisp, imuGvec)]
 
-        if doPlots or self.debug:
+        if doPlots and self.debug:
             pyplot.figure()
-            pyplot.hist(vDisps, bins=20)
+            for vd_ in vDisps:
+                pyplot.plot(vd_)
+
             pyplot.title("Vertical displacment for subj %s, trial %s, imu %s"\
                              % (subject, trial, imu))
 
-        subj = self.hdfFile[subject]
-        tr = subj[trial]
-        tr.attrs['verticalDisplacement'] = vDisps
+        return vDisps
+
+    def get_vertical_displacement_markers(self, subject="S4", trial="D", imu="LA",\
+                                      startTime=5*60,\
+                                      anTime=60, doPlots=True):
+        """
+        Same as get_vertrack_displacement but using marker data. This is only possible
+        for trials "D" and "N", and for imus LA, LT, N, LH. If called for other
+        trial or imu, returns empty list.
+
+        The calculation is based on the marker referred to as "closest"
+        for the IMU. It is assumed that this marker is close to the IMU. The
+        z-component of this marker is returned.
+
+        Returns
+        vDisps    <-  List with (N,) arrays containing the vertical displacement
+                      for each gait cycle
+        """
+
+        disp =  self.track_displacement_markers( subject, trial, imu,
+                            startTime=startTime, anTime=anTime, doPlots=False)
+
+        vDisps = [ d_[:,2]-d_[0,2] for d_ in disp ]
+
+        if doPlots and self.debug:
+            pyplot.figure()
+            for vd_ in vDisps:
+                pyplot.plot(vd_)
+
+            pyplot.title("Vertical displacment from marker data for subj %s, trial %s, imu %s"\
+                         % (subject, trial, imu))
+
         return vDisps
 
 
@@ -1287,11 +1696,12 @@ class NVGData:
         Note that a body-fixed (imu-fixed) coordinate system is used.
 
         Returns:
-        displ    <-
-        vel      <-
-        gvec     <-
-
-
+        displ    <- List of (N,3) numpy arrays with displacements in the frame of
+                    the IMU at start of cycle
+        vel      <- As displ, but velocities
+        gvecs    <- List of (3,) numpt arrays giving the vertical direction
+        sagvecs  <- List of (3,) numpt arrays giving the sagittal direction. This
+                    points left for all segments.
         """
 
         if qimu is None:
@@ -1301,19 +1711,28 @@ class NVGData:
             [imudta, s_, tr_] = self.get_imu_data(subject, trial, imu,
                                                     startTime, anTime,
                                                     split=True, SIUnits=True)
+        (gyroref, accref, magref) = self.get_reference_imu_data(subject, imu)
+
         dimu = []
         vimu = []
         gvecs = []
+        sagvecs = [] # Sagittal direction unit vectors
         for (imudta_, qimu_) in itertools.izip(imudta, qimu):
-            accimu = imudta_[:, 4:7].copy()
+            accimu = imudta_[:, 4:7]
+            gyroimu = imudta_[:, 1:4]
+            magimu = imudta_[:,7:10]
             tvec = imudta_[:, -1]
-            [dimu_, vimu_, g_] = self.displacementEstimator(tvec, accimu, qimu_)
+            [dimu_, vimu_, g_, sd_] = self.displacementEstimator(tvec, accimu,
+                                            gyroimu, magimu, qimu_,
+                                            accref, gyroref, magref)
 
             dimu.append(dimu_)
             vimu.append(vimu_)
             gvecs.append(g_)
+            sagvecs.append(sd_)
 
-        if doPlots or self.debug: # Check results
+
+        if doPlots and self.debug: # Check results
             pyplot.figure()
             pyplot.subplot(2,1,1)
             for d_ in dimu:
@@ -1334,11 +1753,11 @@ class NVGData:
             pyplot.title('velocity')
             yl = (-2, 2)
 
-        return [dimu, vimu, gvecs]
+        return (dimu, vimu, gvecs, sagvecs)
 
 
     def track_displacement_markers(self, subject="S4", trial="D", imu="B",
-                                startTime=5*60,anTime=60):
+                                startTime=5*60,anTime=60, doPlots=False):
         """
         Same as track_displacement but using marker data. This is only possible
         for trials "D" and "N", and for imus LA, LT, N, LH. If called for other
@@ -1367,7 +1786,7 @@ class NVGData:
         d = [center[startInd_:stopInd_]
                         for (startInd_, stopInd_) in mdta["cycledataInd"]]
 
-        if self.debug:
+        if self.debug and doPlots:
             pyplot.figure()
             for d_ in d:
                 pyplot.plot(d_[:,0], 'b')
@@ -1924,7 +2343,7 @@ class NVGData:
 
     def get_marker_data(self, subject="S7", trial="D",
                             markers=["ANKLE", "WRIST"],
-                            startTime=60, anTime=120, rawData=nvg_2012_09_data,
+                            startTime=5*60, anTime=120, rawData=nvg_2012_09_data,
                             split=False):
         """ Returns marker data for the specified subject and trial.
         The data returned starts at the specified time into the trial, and has the
@@ -1966,13 +2385,15 @@ class NVGData:
         firstPacketTimeSinceSync = (firstPN - syncLA[0])*dt
         lastPacketTimeSinceSync = (lastPN - syncLA[0])*dt
 
+        # OBS: md.frameTimes start at zero
         frames2use = md.frameTimes[md.frameTimes > (firstPacketTimeSinceSync
             - timeSinceSync.total_seconds())]
-        frames2use = md.frameTimes[md.frameTimes < (lastPacketTimeSinceSync
+        frames2use = frames2use[frames2use < (lastPacketTimeSinceSync
             - timeSinceSync.total_seconds())]
 
         ft = frames2use + timeSinceSync.total_seconds()
 
+        #1/0
         mdata = {'frames':frames2use}
         mdata['frametimes'] = ft
         if "ANKLE" not in markers:
@@ -2004,7 +2425,7 @@ class NVGData:
     def _pick_standing_reference(self, subj, trial):
         """
         Loads data from two minutes before start of trial. Plots and lets the
-        user chooses an interval for standing reference. The interval is
+        user choose an interval for standing reference. The interval is
         adjusted to 200 frames (about 1.5s) and returned
         """
 
@@ -2051,11 +2472,15 @@ class NVGData:
             srefGroup = subjdta.create_group(sr)
 
         for imu_ in subjdta[trial]:
-            imudta, s_, t_ = self.get_imu_data(subj, trial, imu_,
-                                                    startTime=-120, anTime=120)
-            print "Adding dataset %s for subject %s" % (imu_, subj)
-            srefGroup.create_dataset(imu_,
+            print "Adding standing reference for imu %s for subject %s" % (imu_, subj)
+            try:
+                imudta, s_, t_ = self.get_imu_data(subj, trial, imu_,
+                                                    startTime=-60, anTime=120)
+                srefGroup.create_dataset(imu_,
                                         data=np.asarray(imudta[start_:stop_, :]) )
+            except IOError:
+                # Cannot find file
+                print "Failed to set standing reference for imu %s" %(imu_,)
 
             self.hdfFile.flush()
 
@@ -2443,7 +2868,7 @@ def sync_signals(signals_, timeKeepers, channel=4, threshold=0.4,
         else:
             concensus = True
     if not concensus:
-        logging.WARNING("Could not find timestamps to agree at sync pulse \
+        logging.warning("Could not find timestamps to agree at sync pulse \
             Could be due to wrong setting of time on imu.")
 
     return [packetNumbers, mysignals]
@@ -2468,11 +2893,11 @@ def plot_sync(signals_, packetAtSync, imunames, channel=4):
         pyplot.plot(t, accmagn)
 
         if accmagn[0:10].mean() > 0.2:
-            logging.WARNING("Unexpected large acceleration (%1.4f) at beginning for imu %s " \
+            logging.warning("Unexpected large acceleration (%1.4f) at beginning for imu %s " \
                 % (accmagn[0:10].mean(), imu) )
 
         if accmagn[-10:].mean() > 0.2:
-            logging.WARNING("Unexpected large acceleration (%1.4f) at end for imu %s " \
+            logging.warning("Unexpected large acceleration (%1.4f) at end for imu %s " \
                 % (accmagn[-10:].mean(), imu) )
 
 

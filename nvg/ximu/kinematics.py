@@ -136,11 +136,11 @@ class GyroIntegratorOrientation:
             w = gyro
 
         initRotation = quat.Quaternion(1,0,0,0)
-        orientFilter = orientation.GyroIntegrator(tvec[0], initRotation)
+        orientFilter = orientation.GyroIntegrator(tvec[0]-0.001, initRotation)
         for (t_, a_, m_, g_) in itertools.izip(tvec, acc, mag, w):
-                orientFilter(a_, mag_, gyro_, t_)
+                orientFilter(a_, m_, g_, t_)
 
-        q = orientFilter.rotation.values()
+        q = orientFilter.rotation.values
 
         if (accref is not None) and (magref is not None):
             phi = angle_to_accref(q, acc, accref, gyro, magref)
@@ -358,6 +358,9 @@ class angle_to_vertical_cyclic_tracker(object):
 # the following arguments:
 #    tvec   ->  A numpy (N,) array of time stamps for each data point
 #    acc    ->  A numpy (N,3) array of accelerations [m/s^2]
+#    gyro   ->  A numpy (N,3) array of angular velocities [rad/s]
+#    mag    ->  A numpy (N,3) array of magnetometer data
+#
 #    qq     ->  A QuaternionArray with estiamted orientation of the IMU
 #
 # Returns
@@ -370,7 +373,8 @@ class angle_to_vertical_cyclic_tracker(object):
 
 class IntegrateAccelerationDisplacementEstimator:
 
-    def __call__(self, tvec, acc, qq):
+    def __call__(self, tvec, acc, gyro, mag, qq,
+                                    accref=None, gyroref=None, magref=None):
         # Rotate acceleration measurements, then remove linear trend.
         # Rotate acceleration vectors
         acc_S = qq.rotateVector(acc.T).T
@@ -379,13 +383,19 @@ class IntegrateAccelerationDisplacementEstimator:
         g = np.mean(acc_S, axis=0)
         gN = g / np.linalg.norm(g) # Normalize
 
-        acc_S_detrend = detrend(acc_S, type='linear', axis=0)
+        acc_S_detrend = detrend(acc_S, type='constant', axis=0)
 
         vel = cumtrapz(acc_S_detrend, tvec, axis=0)
         vel = np.insert(vel, 0, vel[0], axis=0)
-        disp = cumtrapz(vel, tvec, axis=0)
+        vel_detrend = detrend(vel, type='constant', axis=0)
+        disp = cumtrapz(vel_detrend, tvec, axis=0)
         disp = np.insert(disp, 0, disp[0], axis=0)
-        return (disp, vel, gN)
+
+        # Determine the sagittal direction
+        gyro_S = qq.rotateVector(gyro.T).T
+        sagittalDir = sagittal_direction_from_gyro(gyro_S, magref)
+
+        return (disp, vel, gN, sagittalDir)
 
 
 
@@ -706,15 +716,7 @@ def angle_to_accref(q, acc, accref, gyro=None, magref=None):
     else:
         # Determine the main plane of movement as the principle axis of the gyro
         # samples. Assume to be sagittal direction
-        gcov = np.cov(gyro.T)
-        eigenValues, eigenVectors = np.linalg.eig(gcov)
-        idx = eigenValues.argsort()[::-1]
-        eigenValues = eigenValues[idx]
-        eigenVectors = eigenVectors[:,idx]
-
-        sagittalDir = eigenVectors[:,0]
-        sagittalDir *= np.sign(magref[2]*sagittalDir[2])
-
+        sagittalDir = sagittal_direction_from_gyro(gyro, magref)
         # DEBUG
         #pyplot.figure()
         #pyplot.plot(acc_S)
@@ -734,3 +736,26 @@ def angle_to_accref(q, acc, accref, gyro=None, magref=None):
         # will correspond to a positive rotation from the reference to the
         # current orientation of the segment
         return np.arcsin( np.dot(np.cross(gb, gref), sagittalDir) )
+
+def sagittal_direction_from_gyro(gyro, magref=None):
+    """
+    Calculates the direction normal to the sagittal plane by finding the main
+    axis of the covariance matrix of the gyro data.
+
+    Arguments
+       gyro    ->  (N,3) numpy array with gyro data
+       magref  ->  (3,) numpy array with magnetic field at reference measurement
+                   Optional. If not given, then the vector returned could point
+                   either to the left or to the right
+    """
+    gcov = np.cov(gyro.T)
+    eigenValues, eigenVectors = np.linalg.eig(gcov)
+    idx = eigenValues.argsort()[::-1]
+    eigenValues = eigenValues[idx]
+    eigenVectors = eigenVectors[:,idx]
+
+    sagittalDir = eigenVectors[:,0]
+    if magref is not None:
+        sagittalDir *= np.sign(magref[2]*sagittalDir[2])
+
+    return sagittalDir

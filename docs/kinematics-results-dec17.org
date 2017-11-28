@@ -1,0 +1,119 @@
+#+OPTIONS: toc:nil num:nil
+#+LaTeX_CLASS: koma-article 
+#+LaTex_HEADER: \usepackage{khpreamble}
+
+#+title: Analysis of kinematics from 2012 NVG study
+
+* Methods
+** Experiments and data
+  The movement of the body was captured using eight inertial measurement units, IMUs (x-IMU, x-io technologies, UK) attached to the distal part of the shanks, the mid thighs, the sacrum, the neck and the distal end of the forearms. The IMUs consists of three-axial accelerometers, gyroscopes and magnetometers. Data were sampled at a rate of \unit{131}{\hertz} and stored on an SD-card in each IMU. In addition, reflective markers were attached to the left lateral malleoulus, the lateral left knee joint, the mid thigh, the left lateral part of the iliac crest, the sacrum, the 7th cervical spine, the forehead, the left elbow joint and the left wrist. The positions of the reflective markers were tracked at \unit{128}{\hertz} using an optical motion capture system (ProReflex, Qualisys AB, Gothenburg, Sweden). The eight IMUs and the optical motion capture system were synchronized using the principle of a clapper. Prior to the data acquisition, the IMUs were placed on a box and the box were hit twice with a rigid rod instrumented with two reflectice markers. This provided easily identified peaks in the signals from the different IMUs and the optical system, from which a common time instant was defined.
+
+The experiments consisted of trials of five minutes of walking on a treadmill at the speed of \unit{X}{\meter\per\second}. Between the trials, the test persons were given x minutes of rest. The metabolic demand and the kinematics of gait under four different conditions was studied. The conditions were
+- N :: Full vision
+- D :: Complete darkness
+- M :: Monocular night vision goggles
+- B :: Binocular night vision goggles.
+
+Optical motion capture data (marker data) are not available for the conditions M and B, since the camera units include infrared stroboscopes which interfer with the night vision goggles. The marker data serve the purpose of gold standard motion capture for validation of the IMU-based motion capture.
+
+** Data analysis
+For the kinematic analysis, one minute of data was extracted from three minutes into the trial, corresponding to approximately 60 complete gait cycles. The data was divided into separate gait cycles, starting and ending with the initial contact of the left foot. The initial contact was determined from the characteristic peak in the acceleration signal of the IMU at the distal left shank at foot contact. The orientation of the body segments where determined from the rotation of the IMUs, using a method which fits a periodic model of the motion to the sensor data \cite{Halvorsen16}. The periodic model is in the form of a truncated Fourier series with the base frequency equal to the known cycle frequency. The  motivation for the model is to solve the inherent problem of drift when estimating orientation from IMU data. The orientation of the segment with respect to the vertical is obtained by using data from a short sequence where the subject is standing still. In this situation, the accelerometer of the IMU measures the gravitational acceleration only, and this vertical direction is taken as the reference orientation of the segment. During the gait trials, the orientation of the IMU, and hence of the segment to which it is attached, is calculated with respect to this reference orientation. The orientation of the segment in the sagittal plane thus estimated, and denoted /angle to vertical in the sagittal plane/.
+
+After the orientation of the IMU/segment is found, the displacement of the center of the IMU can be estimated. The estimates of displacement, or position, are even more sensitive to drift than the estimate of the orientation of the IMU, since accelerometer data must be integrated twice to obtain displacement. To eliminate the drift we make use of the assumption that the movement is periodic, so that the center of the IMU starts and ends at the same position after each gait cycle. The accelerometer data were first transformed into a static, spatial frame of reference. For the double-integration of the acceleration to give a zero net displacement for each cycle, the acceleration must have a zero linear trend. Hence such a trend was removed from each cycle of accelerometer data, after which the data were integrated twice.
+
+A number of kinematic variables were calculated, and are reported for each subject and condition using descriptive statistics in box plots. In addition, we compare each condition to the normal condition using paired t-test in order to detect significant differences at the population level. 
+
+* Results
+** Step frequency
+#+BEGIN_CENTER 
+\includegraphics[width=\linewidth]{../notebooks/2017-11-27/Cycle-frequency-2017-11-27}
+#+END_CENTER
+Box plot for each subject and condition. The height of the box is from Q1 (25th percentile) to Q3 (75th percentile), and the orange line shows the median. The whiskers indicate Q1-1.5IQR and Q3+1.5IQR, respectively, where IQR is the inter-quartile range. 
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Cycle-frequency-comparisons-2017-11-27}
+#+END_CENTER
+In addition to the descriptive statistics in the first boxplot, this figure also shows the mean value (green triangle) and the outliers. The step frequency shows clearly that the subjects took more frequent and thus smaller steps in the conditions with restricted or no vision.
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Cycle-frequency-variability-comparisons-2017-11-27}
+#+END_CENTER
+Comparing the variability in the step frequency, we see that the dark (D) condition differs significantly from the normal, with higher variability when walking in darkness. For the other two conditions the difference was not significant.
+
+** Vertical displacement of center of mass
+The vertical movement of the center of mass is approximated by the vertical movement of a point at the sacrum. This approximation has previously been shown to be reasonable for walking (Thirunarayan, M.A., Kerrigan, D.C., Rabuffetti, M., Della Croce, U., Saini, M., 1996.
+Comparison of three methods for estimating vertical displacement of center of
+mass during level walking. Gait & Posture 4, 306–314.)
+
+#+BEGIN_CENTER 
+ \includegraphics[width=\linewidth]{../notebooks/2017-11-27/Vertical-displacement-of-CoM-2017-11-27}
+#+END_CENTER
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Vertical-displacement-of-CoM,-comparison-to-N-2017-11-27}
+#+END_CENTER
+
+For some individuals there are differences in the vertical displacement of CoM between conditions, but for the population the results show no significant differences.
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.8\linewidth]{../notebooks/2017-11-27/Vertical-displacement,-validation-2017-11-27}
+#+END_CENTER
+Optical marker data are available for four subjects, however for one subject (S6), the marker on the sacrum was not visible for part of the gait cycle during the dark condition, and hence these data are not included. The data corresponds well (by visual inspection) to the results from the IMU data. Light gray boxes corresponds to the validation data (marker data) and the dark boxes correspond to the IMU data.
+
+** Foot clearance
+The foot clearance is defined as the vertical displacement of the foot during the swing phase, and is approximated by the vertical displacement of the center of the IMU attached to the lower part of the shanks, directly above (proximal to) the ankle joint. 
+#+BEGIN_CENTER 
+ \includegraphics[width=\linewidth]{../notebooks/2017-11-27/Foot-clearance,-left-and-right-2017-11-27}
+#+END_CENTER
+
+The results from the left- and right foot differ in magnitude (visual inspection). Differences can result from measurement noise, soft tissue movement and assymetry in the movement.
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Left-foot-clearance,-comparison-to-N-2017-11-27}
+#+END_CENTER
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Right-foot-clearance,-comparison-to-N-2017-11-27}
+#+END_CENTER
+There are differences on the individual level, but no significant differences for the population.
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.8\linewidth]{../notebooks/2017-11-27/Left-foot-clearance,-validation-2017-11-27}
+#+END_CENTER
+Comparing the left foot clearance calculated with the gold standard (light gray) and IMU data (dark gray), we note that the values calculated with IMU data are in reasonablee agreement in four of the seven cases. The variability is larger for the IMU-based values, but within the same subject the two methods show simular differences between conditions.
+
+** Trunk lean range of motion
+We measured the lean of the trunk as the angle to the vertical for the IMU attached to the back of the neck. The range of motion for this angle is calculated for each cycle (left initial contact to left initial contact).
+#+BEGIN_CENTER 
+ \includegraphics[width=0.8\linewidth]{../notebooks/2017-11-27/Sagittal-RoM-of-the-trunk-2017-11-27}
+#+END_CENTER
+
+#+BEGIN_CENTER 
+ \includegraphics[width=0.6\linewidth]{../notebooks/2017-11-27/Sagittal-RoM-of-the-trunk,-comparison-to-N-2017-11-27}
+#+END_CENTER
+Also here we see differences on the individual level, but no significant differences for the population.
+   
+From the marker data we calculate the trunk lean as the angle to the vertical of a line going from the marker at the sacrum to the marker at cervical spine C7. 
+#+BEGIN_CENTER 
+ \includegraphics[width=0.8\linewidth]{../notebooks/2017-11-27/Sagittal-RoM-of-the-trunk,-validation-2017-11-27}
+#+END_CENTER
+For this validation we are missing marker data for subject S4 condition D, and for subject S6 condition D. This is due to markers (sacrum, mostly) not being visible during the complete gait cycle. There are rather large discrepancies between the two methods (gold standar in light gray, IMU method in dark gray). Also, the intra-subject differences go in different directions for subjects S10 and S12. It is questionable whether the IMU-based values give a useful estimate of the trunk lean. We can only speculate, but it may be explained by the IMU moving relative to the trunk, and in some cases exaggerating the movement (like in subject S4) or attenuating the movement (as in subject S10).     
+
+** Arm swing
+Arm swing was calculated from the angle to the vertical of the IMU attached to the wrist, and reported as the range in this angle. 
+#+BEGIN_CENTER 
+ \includegraphics[width=\linewidth]{../notebooks/2017-11-27/Arm-swing-2017-11-27}
+#+END_CENTER
+Light gray boxes show the left arm swing, dark gray right arm swing. 
+
+For the validation, we calculated the arm swing as the angle to the vertical of a vector from the marker on the left wrist to the marker on the left elbow.  
+#+BEGIN_CENTER 
+ \includegraphics[width=0.8\linewidth]{../notebooks/2017-11-27/Arm-swing,-validation-2017-11-27}
+#+END_CENTER
+
+** Knee flexion range of motion
+The knee flexion is calculated from the IMU data as the difference in the angle to the vertical of the two IMUs attached to the distal shank and mid thigh, respectively. 
+#+BEGIN_CENTER 
+ \includegraphics[width=\linewidth]{../notebooks/2017-11-27/Arm-swing-2017-11-27}
+#+END_CENTER
+
+
